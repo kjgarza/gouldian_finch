@@ -2,33 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 @layer components {
   .page {
     @apply w-full;
   }
 
   .card {
-    @apply bg-white rounded-2xl border border-gray-200 p-6 shadow-sm;
+    @apply bg-card text-card-foreground rounded-lg border border-border p-6 shadow-sm;
   }
 
   .btn-primary {
-    @apply bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2.5 px-4 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-gray-200 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground font-medium py-2.5 px-4 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed border border-input focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
 
   .badge {
-    @apply inline-block px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-full;
+    @apply inline-block px-2.5 py-0.5 bg-secondary text-secondary-foreground text-sm font-medium rounded-full;
   }
 
   .nav-btn {
-    @apply px-4 py-2 rounded-xl hover:bg-gray-100 text-gray-700 font-medium transition-colors duration-200 text-sm;
+    @apply px-3 py-2 rounded-md hover:bg-accent hover:text-accent-foreground text-muted-foreground font-medium transition-colors duration-200 text-sm;
   }
 
   .nav-btn-active {
-    @apply bg-brand-100 text-brand-800;
+    @apply bg-accent text-accent-foreground;
   }
 
   .toggle {
@@ -36,11 +91,11 @@
   }
 
   .toggle input[type="checkbox"] {
-    @apply w-4 h-4 text-brand-600 bg-gray-100 border-gray-300 rounded focus:ring-brand-500 focus:ring-2;
+    @apply w-4 h-4 text-primary bg-background border-border rounded focus:ring-ring focus:ring-2;
   }
 
   .cta-bar {
-    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex gap-3;
+    @apply fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 flex gap-3;
     @apply sm:relative sm:bottom-auto sm:left-auto sm:right-auto sm:border-t-0 sm:bg-transparent sm:p-0 sm:mt-6;
   }
 
@@ -50,16 +105,16 @@
   }
 
   .table th {
-    @apply text-left font-semibold text-gray-600 pb-3 border-b border-gray-200;
+    @apply text-left font-semibold text-muted-foreground pb-3 border-b border-border;
   }
 
   .table td {
-    @apply py-4 border-b border-gray-100;
+    @apply py-4 border-b border-border;
   }
 
   /* Choice styles for browse */
   .choice {
-    @apply block w-full text-left p-3 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer;
+    @apply block w-full text-left p-3 hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors cursor-pointer;
   }
 
   /* Loading state */
@@ -68,10 +123,10 @@
   }
 
   /* Focus styles */
-  button:focus,
-  input:focus,
-  select:focus {
-    @apply outline-none;
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
   }
 
   /* Mobile optimizations */
@@ -111,22 +166,22 @@
     }
     
     .card {
-      @apply border border-gray-400 shadow-none break-inside-avoid;
+      @apply border border-border shadow-none break-inside-avoid;
     }
   }
 
   /* High contrast mode support */
   @media (prefers-contrast: high) {
     .card {
-      @apply border-2 border-gray-600;
+      @apply border-2 border-border;
     }
     
     .btn-primary {
-      @apply border-2 border-brand-800;
+      @apply border-2 border-primary;
     }
     
     .btn-secondary {
-      @apply border-2 border-gray-600;
+      @apply border-2 border-border;
     }
   }
 
@@ -134,41 +189,6 @@
   @media (prefers-reduced-motion: reduce) {
     * {
       @apply transition-none;
-    }
-  }
-
-  /* Dark mode support */
-  @media (prefers-color-scheme: dark) {
-    body {
-      @apply bg-gray-900 text-white;
-    }
-    
-    .card {
-      @apply bg-gray-800 border-gray-700;
-    }
-    
-    .nav {
-      @apply bg-gray-800 border-gray-700;
-    }
-    
-    .btn-secondary {
-      @apply bg-gray-700 border-gray-600 text-gray-200 hover:bg-gray-600;
-    }
-    
-    .nav-btn {
-      @apply text-gray-300 hover:bg-gray-700;
-    }
-    
-    .nav-btn-active {
-      @apply bg-brand-900 text-brand-200;
-    }
-    
-    .badge {
-      @apply bg-gray-700 text-gray-300;
-    }
-    
-    .cta-bar {
-      @apply bg-gray-800 border-gray-700;
     }
   }
 }
