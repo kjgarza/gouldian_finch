@@ -12,7 +12,7 @@ function shell(content: HTMLElement) {
     <nav class="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div class="max-w-4xl mx-auto px-4 h-14 flex items-center gap-1">
         <button data-nav="#/" class="nav-btn font-bold text-primary">
-          🇩🇪 BürgerTest
+          Gouldian Finch
         </button>
         <div class="flex-1"></div>
         <div class="flex items-center gap-1">
