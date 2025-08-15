@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .page {
+    @apply w-full;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-gray-200 p-6 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-gray-200 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-full;
+  }
+
+  .nav-btn {
+    @apply px-4 py-2 rounded-xl hover:bg-gray-100 text-gray-700 font-medium transition-colors duration-200 text-sm;
+  }
+
+  .nav-btn-active {
+    @apply bg-brand-100 text-brand-800;
+  }
+
+  .toggle {
+    @apply flex items-center gap-2 cursor-pointer select-none;
+  }
+
+  .toggle input[type="checkbox"] {
+    @apply w-4 h-4 text-brand-600 bg-gray-100 border-gray-300 rounded focus:ring-brand-500 focus:ring-2;
+  }
+
+  .cta-bar {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex gap-3;
+    @apply sm:relative sm:bottom-auto sm:left-auto sm:right-auto sm:border-t-0 sm:bg-transparent sm:p-0 sm:mt-6;
+  }
+
+  /* Responsive table */
+  .table {
+    @apply w-full text-sm;
+  }
+
+  .table th {
+    @apply text-left font-semibold text-gray-600 pb-3 border-b border-gray-200;
+  }
+
+  .table td {
+    @apply py-4 border-b border-gray-100;
+  }
+
+  /* Choice styles for browse */
+  .choice {
+    @apply block w-full text-left p-3 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer;
+  }
+
+  /* Loading state */
+  .loading {
+    @apply opacity-50 pointer-events-none;
+  }
+
+  /* Focus styles */
+  button:focus,
+  input:focus,
+  select:focus {
+    @apply outline-none;
+  }
+
+  /* Mobile optimizations */
+  @screen sm {
+    .page {
+      @apply px-0;
+    }
+    
+    .cta-bar {
+      @apply pb-0;
+    }
+  }
+
+  /* Ensure minimum touch targets on mobile */
+  @media (max-width: 640px) {
+    .btn-primary,
+    .btn-secondary,
+    button {
+      @apply min-h-[44px] text-base;
+    }
+
+    .nav-btn {
+      @apply min-h-[44px] px-3;
+    }
+
+    .toggle {
+      @apply min-h-[44px];
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .nav,
+    .cta-bar,
+    button {
+      @apply hidden;
+    }
+    
+    .card {
+      @apply border border-gray-400 shadow-none break-inside-avoid;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .card {
+      @apply border-2 border-gray-600;
+    }
+    
+    .btn-primary {
+      @apply border-2 border-brand-800;
+    }
+    
+    .btn-secondary {
+      @apply border-2 border-gray-600;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      @apply transition-none;
+    }
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-gray-900 text-white;
+    }
+    
+    .card {
+      @apply bg-gray-800 border-gray-700;
+    }
+    
+    .nav {
+      @apply bg-gray-800 border-gray-700;
+    }
+    
+    .btn-secondary {
+      @apply bg-gray-700 border-gray-600 text-gray-200 hover:bg-gray-600;
+    }
+    
+    .nav-btn {
+      @apply text-gray-300 hover:bg-gray-700;
+    }
+    
+    .nav-btn-active {
+      @apply bg-brand-900 text-brand-200;
+    }
+    
+    .badge {
+      @apply bg-gray-700 text-gray-300;
+    }
+    
+    .cta-bar {
+      @apply bg-gray-800 border-gray-700;
+    }
+  }
+}

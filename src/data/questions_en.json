@@ -1,0 +1,143 @@
+[
+  {
+    "id": 1,
+    "question": "In Germany, people are allowed to openly say something against the government because ...",
+    "choices": [
+      "religious freedom applies here.",
+      "people pay taxes.",
+      "people have the right to vote.",
+      "freedom of expression applies here."
+    ],
+    "correctIndex": 3,
+    "hint": "Article 5 of the Basic Law guarantees freedom of expression.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 2,
+    "question": "In Germany, parents can decide until their child's 14th birthday whether they participate in",
+    "choices": [
+      "history class.",
+      "religious education.",
+      "politics class.",
+      "language class."
+    ],
+    "correctIndex": 1,
+    "hint": "Religious freedom also includes decisions about religious education.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 3,
+    "question": "Germany is a constitutional state. What does this mean?",
+    "choices": [
+      "All residents and the state must abide by the laws.",
+      "The state does not have to abide by the laws.",
+      "Only Germans must follow the laws.",
+      "The courts make the laws."
+    ],
+    "correctIndex": 0,
+    "hint": "In a constitutional state, everyone is equally bound by the law.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 4,
+    "question": "Which right belongs to the fundamental rights in Germany?",
+    "choices": [
+      "Gun ownership",
+      "Might makes right",
+      "Freedom of expression",
+      "Vigilante justice"
+    ],
+    "correctIndex": 2,
+    "hint": "The fundamental rights are in the first part of the Basic Law.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 5,
+    "question": "Elections in Germany are free. What does this mean?",
+    "choices": [
+      "You may accept money if you vote for a certain candidate.",
+      "Only people who have never been in prison may vote.",
+      "The voter may not be influenced or forced to vote in a certain way and may not suffer disadvantages from voting.",
+      "All eligible voters must vote."
+    ],
+    "correctIndex": 2,
+    "hint": "Free elections mean no influence or coercion.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 30,
+    "question": "Which animal is the heraldic animal of Berlin?",
+    "choices": ["Bear", "Eagle", "Lion", "Horse"],
+    "correctIndex": 0,
+    "hint": "It's also on Berlin's flag.",
+    "topic": "Bundesland Berlin"
+  },
+  {
+    "id": 31,
+    "question": "How many city-states does the Federal Republic of Germany have?",
+    "choices": ["2", "3", "4", "5"],
+    "correctIndex": 1,
+    "hint": "Berlin, Hamburg and Bremen are city-states.",
+    "topic": "Bundesland Berlin"
+  },
+  {
+    "id": 32,
+    "question": "What colors does the flag of Berlin have?",
+    "choices": [
+      "black-red-gold",
+      "red-white",
+      "white-red",
+      "green-white-red"
+    ],
+    "correctIndex": 2,
+    "hint": "The Berlin flag shows a bear on a white and red background.",
+    "topic": "Bundesland Berlin"
+  },
+  {
+    "id": 50,
+    "question": "When was German reunification?",
+    "choices": ["1989", "1990", "1991", "1999"],
+    "correctIndex": 1,
+    "hint": "On October 3, 1990.",
+    "topic": "Geschichte und Verantwortung"
+  },
+  {
+    "id": 51,
+    "question": "November 9th has special significance in German history. What happened on November 9, 1989?",
+    "choices": [
+      "The first free elections in the GDR",
+      "The fall of the Berlin Wall",
+      "German reunification",
+      "The beginning of World War II"
+    ],
+    "correctIndex": 1,
+    "hint": "On this day the Berlin Wall fell.",
+    "topic": "Geschichte und Verantwortung"
+  },
+  {
+    "id": 70,
+    "question": "What is a welfare state?",
+    "choices": [
+      "A state where only rich people live",
+      "A state where all people have the same amount of money",
+      "A state that ensures social justice and social security",
+      "A state where there are no differences between rich and poor"
+    ],
+    "correctIndex": 2,
+    "hint": "According to the Basic Law, Germany is a democratic and social federal state.",
+    "topic": "Mensch und Gesellschaft"
+  },
+  {
+    "id": 71,
+    "question": "What is a task of trade unions?",
+    "choices": [
+      "They pay taxes.",
+      "They represent the interests of employees.",
+      "They manage companies.",
+      "They invent new machines."
+    ],
+    "correctIndex": 1,
+    "hint": "Trade unions advocate for better working conditions.",
+    "topic": "Mensch und Gesellschaft"
+  }
+]
