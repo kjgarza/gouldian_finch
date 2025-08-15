@@ -99,7 +99,7 @@ export function ReviewView(): HTMLElement {
       cardArea.innerHTML = `
         <div class="card text-center">
           <h2 class="text-lg font-semibold">🎉 Session Complete!</h2>
-          <p class="mt-2 text-gray-600">Great job! Come back later for more cards.</p>
+          <p class="mt-2 text-muted-foreground">Great job! Come back later for more cards.</p>
           <button onclick="location.hash='#/'" class="btn-primary mt-4">Back to Home</button>
         </div>
       `
@@ -120,15 +120,15 @@ export function ReviewView(): HTMLElement {
         </div>
         
         <h2 class="text-xl font-semibold mb-3">${q.question}</h2>
-        ${showEnglish ? `<p class="text-gray-600 text-sm mb-4 italic">${en.question}</p>` : ''}
+        ${showEnglish ? `<p class="text-muted-foreground text-sm mb-4 italic">${en.question}</p>` : ''}
         
         <div class="grid gap-2" id="choices"></div>
         
         <div class="mt-4">
-          <button id="hintBtn" class="text-sm text-brand-600 hover:text-brand-700 underline">
+          <button id="hintBtn" class="text-sm text-primary hover:text-primary/80 underline">
             💡 Show hint
           </button>
-          <div id="hintBox" class="hidden mt-2 p-3 bg-blue-50 rounded-lg text-sm"></div>
+          <div id="hintBox" class="hidden mt-2 p-3 bg-muted rounded-lg text-sm"></div>
         </div>
       </div>
     `
@@ -136,10 +136,10 @@ export function ReviewView(): HTMLElement {
     const choicesBox = cardArea.querySelector('#choices') as HTMLDivElement
     q.choices.forEach((c, idx) => {
       const btn = document.createElement('button')
-      btn.className = 'w-full text-left border-2 border-gray-200 rounded-xl p-4 hover:bg-gray-50 transition-colors'
+      btn.className = 'w-full text-left border-2 border-border rounded-xl p-4 hover:bg-accent transition-colors'
       btn.innerHTML = `
         <div>${c}</div>
-        ${showEnglish ? `<div class="text-gray-500 text-xs mt-1">${en.choices[idx]}</div>` : ''}
+        ${showEnglish ? `<div class="text-muted-foreground text-xs mt-1">${en.choices[idx]}</div>` : ''}
       `
       btn.addEventListener('click', () => onChoose(idx))
       choicesBox.appendChild(btn)
@@ -152,7 +152,7 @@ export function ReviewView(): HTMLElement {
       const enHint = byId(q.id).en.hint
       hintBox.classList.remove('hidden')
       hintBox.innerHTML = showEnglish 
-        ? `<div>💡 ${deHint}</div><div class="text-gray-600 mt-1">${enHint}</div>` 
+        ? `<div>💡 ${deHint}</div><div class="text-muted-foreground mt-1">${enHint}</div>` 
         : `💡 ${deHint}`
     })
 
@@ -170,10 +170,10 @@ export function ReviewView(): HTMLElement {
     btns.forEach((b, i) => {
       b.disabled = true
       if (i === q.correctIndex) {
-        b.classList.add('border-green-400', 'bg-green-50')
+        b.classList.add('border-success/60', 'bg-success/10')
       }
       if (i === idx && !correct) {
-        b.classList.add('border-red-400', 'bg-red-50')
+        b.classList.add('border-destructive', 'bg-destructive/10')
       }
     })
 

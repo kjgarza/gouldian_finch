@@ -30,7 +30,7 @@ export function ExamView(): HTMLElement {
   root.innerHTML = `
     <header class="py-4">
       <h1 class="text-xl font-bold">📝 Exam Simulation</h1>
-      <p class="text-sm text-gray-600">33 questions · No timer · Pass with 17 correct</p>
+      <p class="text-sm text-muted-foreground">33 questions · No timer · Pass with 17 correct</p>
     </header>
     <div id="area"></div>
     <div class="cta-bar">
@@ -57,7 +57,7 @@ export function ExamView(): HTMLElement {
         <h2 class="mt-3 text-xl font-semibold mb-4">${q.question}</h2>
         <div class="mt-4 grid gap-2" id="choices"></div>
         
-        <div class="mt-6 flex items-center justify-between text-sm text-gray-500">
+        <div class="mt-6 flex items-center justify-between text-sm text-muted-foreground">
           <span>Question ${idx + 1} of ${questions.length}</span>
           <span>${answers.size} answered</span>
         </div>
@@ -67,9 +67,9 @@ export function ExamView(): HTMLElement {
     const choicesBox = area.querySelector('#choices') as HTMLDivElement
     q.choices.forEach((c, i) => {
       const b = document.createElement('button')
-      b.className = 'w-full text-left border-2 border-gray-200 rounded-xl p-4 hover:bg-gray-50 transition-colors'
+      b.className = 'w-full text-left border-2 border-border rounded-xl p-4 hover:bg-accent transition-colors'
       if (chosen === i) {
-        b.classList.add('border-brand-400', 'bg-brand-50')
+        b.classList.add('border-primary', 'bg-primary/10')
       }
       b.textContent = c
       b.addEventListener('click', () => { 
@@ -113,10 +113,10 @@ export function ExamView(): HTMLElement {
         <div class="text-center mb-6">
           <div class="text-4xl mb-2">${pass ? '✅' : '❌'}</div>
           <h2 class="text-2xl font-bold">${correct}/${questions.length}</h2>
-          <p class="text-lg ${pass ? 'text-green-600' : 'text-red-600'} font-semibold">
+          <p class="text-lg ${pass ? 'text-success' : 'text-destructive'} font-semibold">
             ${pass ? 'PASSED' : 'FAILED'}
           </p>
-          <p class="text-sm text-gray-600 mt-2">
+          <p class="text-sm text-muted-foreground mt-2">
             ${pass ? 'Congratulations! You would pass the exam.' : 'You need 17 or more correct answers to pass.'}
           </p>
         </div>
@@ -129,20 +129,20 @@ export function ExamView(): HTMLElement {
               Add wrong answers to review deck
             </button>
           </div>
-        ` : '<div class="mb-6 p-4 bg-green-50 rounded-lg text-center"><p class="text-green-700">🎉 Perfect score! No wrong answers!</p></div>'}
+        ` : '<div class="mb-6 p-4 bg-success/10 rounded-lg text-center"><p class="text-success">🎉 Perfect score! No wrong answers!</p></div>'}
         
         <div>
           <h3 class="font-semibold mb-3">📊 Previous attempts (${attempts.length})</h3>
           <div class="space-y-2 max-h-40 overflow-y-auto">
             ${attempts.slice(0, 10).map(a => `
-              <div class="flex justify-between items-center text-sm p-2 bg-gray-50 rounded">
+              <div class="flex justify-between items-center text-sm p-2 bg-muted rounded">
                 <span>${new Date(a.timestamp).toLocaleDateString()}</span>
-                <span class="font-medium ${a.score >= 17 ? 'text-green-600' : 'text-red-600'}">
+                <span class="font-medium ${a.score >= 17 ? 'text-success' : 'text-destructive'}">
                   ${a.score}/${a.total} ${a.score >= 17 ? '✅' : '❌'}
                 </span>
               </div>
             `).join('')}
-            ${attempts.length === 0 ? '<p class="text-sm text-gray-500">No previous attempts</p>' : ''}
+            ${attempts.length === 0 ? '<p class="text-sm text-muted-foreground">No previous attempts</p>' : ''}
           </div>
         </div>
         
@@ -157,13 +157,13 @@ export function ExamView(): HTMLElement {
       wrongList.innerHTML = incorrect.map(w => {
         const q = questions.find(qq => qq.id === w.id)!
         return `
-          <div class="border border-red-200 rounded-lg p-3 bg-red-50">
+          <div class="border border-destructive/20 rounded-lg p-3 bg-destructive/5">
             <div class="font-medium text-sm">Question ${q.id}</div>
             <div class="text-sm mt-1">${q.question}</div>
-            <div class="text-xs text-red-700 mt-2">
+            <div class="text-xs text-destructive mt-2">
               Your answer: ${w.chosenIndex >= 0 ? q.choices[w.chosenIndex] : '—'}
             </div>
-            <div class="text-xs text-green-700 mt-1">
+            <div class="text-xs text-success mt-1">
               Correct: ${q.choices[q.correctIndex]}
             </div>
           </div>
@@ -184,7 +184,7 @@ export function ExamView(): HTMLElement {
         saveProgress(m)
         addWrong.disabled = true
         addWrong.textContent = 'Added to review deck ✓'
-        addWrong.classList.add('bg-green-600')
+        addWrong.classList.add('bg-success')
       })
     }
   }
