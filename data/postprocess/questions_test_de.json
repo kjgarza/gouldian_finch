@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "question": "In Deutschland dürfen Menschen offen etwas gegen die Regierung sagen, weil ...",
+    "choices": [
+      "hier Religionsfreiheit gilt.",
+      "die Menschen Steuern zahlen.",
+      "die Menschen das Wahlrecht haben.",
+      "hier Meinungsfreiheit gilt."
+    ],
+    "correctIndex": 3,
+    "hint": "Denke an ein Grundrecht, das es den Menschen erlaubt, ihre Gedanken und Meinungen frei zu äußern.",
+    "explanation": "Die richtige Antwort ist \"hier Meinungsfreiheit gilt\", weil in Deutschland das Grundrecht auf Meinungsfreiheit im Grundgesetz verankert ist. Dieses Recht erlaubt es den Menschen, ihre Meinungen und Ansichten frei zu äußern, ohne Angst vor Repressionen oder Strafen durch die Regierung. Die Meinungsfreiheit ist ein wesentlicher Bestandteil einer demokratischen Gesellschaft und fördert den offenen Austausch von Ideen und Kritik, was für die politische und gesellschaftliche Entwicklung wichtig ist.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 4,
+    "question": "Welches Recht gehört zu den Grundrechten in Deutschland?",
+    "choices": [
+      "Waffenbesitz",
+      "Faustrecht",
+      "Meinungsfreiheit",
+      "Selbstjustiz"
+    ],
+    "correctIndex": 2,
+    "hint": "Denke daran, dass es um das Recht geht, seine Gedanken und Ansichten öffentlich zu äußern, ohne Angst vor Konsequenzen zu haben.",
+    "explanation": "Die Meinungsfreiheit ist ein fundamentales Grundrecht, das im Grundgesetz der Bundesrepublik Deutschland verankert ist. Sie ist im Artikel 5 des Grundgesetzes festgeschrieben und garantiert jedem Bürger das Recht, seine Meinung frei zu äußern und zu verbreiten. Dieses Recht ist essenziell für eine demokratische Gesellschaft, da es den Austausch von Ideen und die öffentliche Diskussion fördert. Es schützt nicht nur die eigene Meinung, sondern auch die Meinungen anderer, selbst wenn diese kontrovers oder unpopulär sind. Daher gehört die Meinungsfreiheit zu den zentralen Grundrechten in Deutschland.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 6,
+    "question": "Wie heißt die deutsche Verfassung?",
+    "choices": [
+      "Volksgesetz",
+      "Bundesgesetz",
+      "Deutsches Gesetz",
+      "Grundgesetz"
+    ],
+    "correctIndex": 3,
+    "hint": "Denke an den Begriff, der oft mit den fundamentalen Rechten und der politischen Ordnung eines Landes verbunden ist und in Deutschland nach dem Zweiten Weltkrieg eingeführt wurde.",
+    "explanation": "Das Grundgesetz ist die deutsche Verfassung, die am 23. Mai 1949 in Kraft trat. Es wurde als provisorische Verfassung für Westdeutschland geschaffen, um die demokratischen Grundwerte und Menschenrechte zu sichern, nachdem das nationalsozialistische Regime beendet wurde. Das Grundgesetz legt die Struktur des Staates, die Rechte der Bürger und die Prinzipien der Demokratie fest. Es ist auch heute noch die Grundlage der deutschen Rechtsordnung und gilt für ganz Deutschland seit der Wiedervereinigung 1990. Daher ist \"Grundgesetz\" die korrekte Antwort auf die Frage nach der deutschen Verfassung.",
+    "topic": "Politik in der Demokratie"
+  }
+]
