@@ -34,8 +34,8 @@ export function ExamView(): HTMLElement {
     </header>
     <div id="area"></div>
     <div class="cta-bar">
-      <button class="btn-secondary flex-1" id="backBtn">← Back</button>
-      <button class="btn-primary flex-1" id="nextBtn">Next →</button>
+      <button class="btn btn-secondary flex-1" id="backBtn">← Back</button>
+      <button class="btn btn-primary flex-1" id="nextBtn">Next →</button>
     </div>
   `
 
@@ -48,10 +48,10 @@ export function ExamView(): HTMLElement {
     const chosen = answers.get(q.id)
     
     area.innerHTML = `
-      <div class="card">
+      <div class="card bg-base-100 shadow">
         <div class="flex items-center justify-between mb-4">
-          <span class="badge">${idx+1} / ${questions.length}</span>
-          <span class="badge">${q.topic}</span>
+          <span class="badge badge-neutral">${idx+1} / ${questions.length}</span>
+          <span class="badge badge-secondary">${q.topic}</span>
         </div>
         
         <h2 class="mt-3 text-xl font-semibold mb-4">${q.question}</h2>
@@ -125,7 +125,7 @@ export function ExamView(): HTMLElement {
           <div class="mb-6">
             <h3 class="font-semibold mb-3">❌ Wrong Answers (${incorrect.length})</h3>
             <div class="space-y-3 max-h-60 overflow-y-auto" id="wrongList"></div>
-            <button id="addWrong" class="btn-primary mt-4 w-full">
+            <button id="addWrong" class="btn btn-primary mt-4 w-full">
               Add wrong answers to review deck
             </button>
           </div>
@@ -146,7 +146,7 @@ export function ExamView(): HTMLElement {
           </div>
         </div>
         
-        <button onclick="location.hash='#/'" class="btn-secondary mt-4 w-full">
+        <button onclick="location.hash='#/'" class="btn btn-secondary mt-4 w-full">
           Back to Home
         </button>
       </div>

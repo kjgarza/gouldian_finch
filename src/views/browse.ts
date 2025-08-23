@@ -23,34 +23,34 @@ export function BrowseView(): HTMLElement {
         <input 
           id="search" 
           placeholder="Search keywords in questions or answers..." 
-          class="border-2 border-input rounded-xl px-4 py-3 w-full sm:flex-1 focus:border-ring focus:outline-none" 
+          class="input input-bordered w-full sm:flex-1" 
         />
         <select 
           id="topic" 
-          class="border-2 border-input rounded-xl px-4 py-3 w-full sm:w-64 focus:border-ring focus:outline-none"
+          class="select select-bordered w-full sm:w-64"
         ></select>
-        <label class="toggle flex items-center gap-2 px-4 py-3">
-          <input type="checkbox" id="langToggle" ${showEN ? 'checked' : ''}/>
-          <span class="text-sm">English helper</span>
+        <label class="label cursor-pointer flex items-center gap-2 px-4 py-3">
+          <input type="checkbox" id="langToggle" class="checkbox" ${showEN ? 'checked' : ''}/>
+          <span class="label-text text-sm">English helper</span>
         </label>
       </div>
     </header>
     
-    <div class="card p-0 overflow-hidden">
+    <div class="card p-0 overflow-hidden bg-base-100 shadow">
       <div class="overflow-x-auto">
-        <table class="w-full">
-          <thead class="bg-muted border-b border-border">
+        <table class="table table-sm">
+          <thead class="bg-base-200">
             <tr>
-              <th class="text-left p-4 font-semibold text-sm w-20">ID</th>
-              <th class="text-left p-4 font-semibold text-sm">Question</th>
-              <th class="text-left p-4 font-semibold text-sm w-80">Choices & Answer</th>
+              <th class="w-20">ID</th>
+              <th>Question</th>
+              <th class="w-80">Choices & Answer</th>
             </tr>
           </thead>
           <tbody id="tbody"></tbody>
         </table>
       </div>
       
-      <div id="noResults" class="hidden p-8 text-center text-muted-foreground">
+      <div id="noResults" class="hidden p-8 text-center text-base-content opacity-60">
         <div class="text-4xl mb-2">🔍</div>
         <p>No questions found matching your criteria</p>
         <p class="text-sm mt-1">Try adjusting your search or topic filter</p>

@@ -68,17 +68,17 @@ export function ReviewView(): HTMLElement {
   root.innerHTML = `
     <header class="py-4 flex items-center justify-between">
       <h1 class="text-xl font-bold">📚 Review (${queue.length})</h1>
-      <label class="toggle">
-        <input type="checkbox" id="langToggle" ${showEN ? 'checked' : ''}/>
-        <span>English helper</span>
+      <label class="label cursor-pointer flex items-center gap-2">
+        <input type="checkbox" id="langToggle" class="checkbox checkbox-sm" ${showEN ? 'checked' : ''}/>
+        <span class="label-text">English helper</span>
       </label>
     </header>
     <div id="cardArea"></div>
     <div class="cta-bar">
-      <button class="btn-secondary flex-1" id="againBtn" disabled>
+      <button class="btn btn-secondary flex-1" id="againBtn" disabled>
         ← Again <span class="hidden sm:inline">(Left)</span>
       </button>
-      <button class="btn-primary flex-1" id="goodBtn" disabled>
+      <button class="btn btn-primary flex-1" id="goodBtn" disabled>
         Good → <span class="hidden sm:inline">(Right)</span>
       </button>
     </div>
@@ -97,10 +97,10 @@ export function ReviewView(): HTMLElement {
   function renderCard() {
     if (current >= queue.length) {
       cardArea.innerHTML = `
-        <div class="card text-center">
+        <div class="card text-center bg-base-100 shadow">
           <h2 class="text-lg font-semibold">🎉 Session Complete!</h2>
-          <p class="mt-2 text-muted-foreground">Great job! Come back later for more cards.</p>
-          <button onclick="location.hash='#/'" class="btn-primary mt-4">Back to Home</button>
+          <p class="mt-2 text-base-content opacity-70">Great job! Come back later for more cards.</p>
+          <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
         </div>
       `
       return
@@ -113,19 +113,19 @@ export function ReviewView(): HTMLElement {
     answeredCorrect = false
 
     cardArea.innerHTML = `
-      <div class="card">
+      <div class="card bg-base-100 shadow">
         <div class="flex items-center justify-between mb-4">
-          <span class="badge">${current + 1} / ${queue.length}</span>
-          <span class="badge">${q.topic}</span>
+          <span class="badge badge-neutral">${current + 1} / ${queue.length}</span>
+          <span class="badge badge-secondary">${q.topic}</span>
         </div>
         
         <h2 class="text-xl font-semibold mb-3">${q.question}</h2>
-        ${showEnglish ? `<p class="text-muted-foreground text-sm mb-4 italic">${en.question}</p>` : ''}
+        ${showEnglish ? `<p class="text-base-content opacity-70 text-sm mb-4 italic">${en.question}</p>` : ''}
         
         <div class="grid gap-2" id="choices"></div>
         
         <div class="mt-4">
-          <button id="hintBtn" class="text-sm text-primary hover:text-primary/80 underline">
+          <button id="hintBtn" class="btn btn-ghost btn-sm">
             💡 Show hint
           </button>
           <div id="hintBox" class="hidden mt-2 p-3 bg-muted rounded-lg text-sm"></div>
