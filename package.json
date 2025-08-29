@@ -12,19 +12,19 @@
     "pipeline:test": "tsc -p tsconfig.pipeline.json && node dist/test.js"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.12",
     "@types/node": "^20.5.0",
-    "autoprefixer": "^10.4.15",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "gh-pages": "^6.0.0",
     "lucide": "^0.451.0",
-    "postcss": "^8.4.29",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^4.1.12",
     "typescript": "^5.0.2",
     "vite": "^5.0.0"
   },
   "dependencies": {
+    "daisyui": "^5.0.50",
     "openai": "^5.12.2"
   }
 }

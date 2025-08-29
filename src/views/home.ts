@@ -18,33 +18,33 @@ export function HomeView(): HTMLElement {
   
   root.innerHTML = `
     <header class="py-6">
-      <h1 class="text-3xl font-bold text-center text-foreground">🇩🇪 BürgerTest Trainer</h1>
-      <p class="text-center text-muted-foreground mt-2">Prepare for your German naturalization exam</p>
+      <h1 class="text-3xl font-bold text-center">🇩🇪 BürgerTest Trainer</h1>
+      <p class="text-center text-base-content opacity-70 mt-2">Prepare for your German naturalization exam</p>
     </header>
     
     <div class="grid gap-4 sm:grid-cols-2">
-      <div class="card">
+      <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">📚 Study Mode</h2>
-        <p class="text-sm text-muted-foreground mb-4">Spaced repetition learning with ${due} cards due today</p>
-        <button id="reviewBtn" class="btn-primary w-full">Start Review Session</button>
+        <p class="text-sm text-base-content opacity-70 mb-4">Spaced repetition learning with ${due} cards due today</p>
+        <button id="reviewBtn" class="btn btn-primary w-full">Start Review Session</button>
       </div>
       
-      <div class="card">
+      <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">📝 Exam Simulation</h2>
-        <p class="text-sm text-muted-foreground mb-4">Practice with 33 questions (30 federal + 3 Berlin)</p>
-        <button id="examBtn" class="btn-primary w-full">Take Practice Exam</button>
+        <p class="text-sm text-base-content opacity-70 mb-4">Practice with 33 questions (30 federal + 3 Berlin)</p>
+        <button id="examBtn" class="btn btn-primary w-full">Take Practice Exam</button>
       </div>
       
-      <div class="card">
+      <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">🔍 Browse Questions</h2>
-        <p class="text-sm text-muted-foreground mb-4">Search and filter all ${ALL_DE.length} questions by topic</p>
-        <button id="browseBtn" class="btn-secondary w-full">Browse & Search</button>
+        <p class="text-sm text-base-content opacity-70 mb-4">Search and filter all ${ALL_DE.length} questions by topic</p>
+        <button id="browseBtn" class="btn btn-secondary w-full">Browse & Search</button>
       </div>
       
-      <div class="card">
+      <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">📊 Statistics</h2>
-        <p class="text-sm text-muted-foreground mb-4">View your progress, streak, and accuracy</p>
-        <button id="statsBtn" class="btn-secondary w-full">View Stats</button>
+        <p class="text-sm text-base-content opacity-70 mb-4">View your progress, streak, and accuracy</p>
+        <button id="statsBtn" class="btn btn-secondary w-full">View Stats</button>
       </div>
     </div>
   `

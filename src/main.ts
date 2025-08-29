@@ -9,13 +9,14 @@ import { StatsView } from './views/stats'
 function shell(content: HTMLElement) {
   const app = document.getElementById('app')!
   app.innerHTML = `
-    <nav class="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-      <div class="max-w-4xl mx-auto px-4 h-14 flex items-center gap-1">
-        <button data-nav="#/" class="nav-btn font-bold text-primary">
+    <nav class="navbar bg-base-100 border-b border-base-300 sticky top-0 z-50">
+      <div class="navbar-start">
+        <button data-nav="#/" class="btn btn-ghost normal-case text-xl text-primary font-bold">
           Gouldian Finch
         </button>
-        <div class="flex-1"></div>
-        <div class="flex items-center gap-1">
+      </div>
+      <div class="navbar-end">
+        <div class="flex gap-1">
           <button data-nav="#/review" class="nav-btn">Review</button>
           <button data-nav="#/exam" class="nav-btn">Exam</button>
           <button data-nav="#/browse" class="nav-btn">Browse</button>
