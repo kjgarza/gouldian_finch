@@ -5,6 +5,13 @@ import { ReviewView } from './views/review'
 import { ExamView } from './views/exam'
 import { BrowseView } from './views/browse'
 import { StatsView } from './views/stats'
+import { fontManager, type FontPairingKey } from './lib/font-pairings'
+
+// Configure font pairing (change this to your desired font pairing)
+const SELECTED_FONT_PAIRING: FontPairingKey = "bitter-raleway"; // Change this to any available pairing
+
+// Initialize fonts early
+fontManager.loadFontPairing(SELECTED_FONT_PAIRING)
 
 function shell(content: HTMLElement) {
   const app = document.getElementById('app')!
