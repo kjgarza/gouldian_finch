@@ -763,9 +763,9 @@
       "the Bundesrat building in Berlin",
       "the Federal Chancellery in Berlin"
     ],
-    "correctIndex": null,
+    "correctIndex": 0,
     "hint": "Pay attention to the details in the picture and consider what significance they might have for German culture or history.",
-    "explanation": "The answer 'undefined' means that the picture referred to in the question is not clearly defined or not visible. In such a case, one cannot derive specific information or characteristics from the picture. Therefore, 'undefined' is the correct answer, as it indicates that there is no clear identification or description of the picture's content.",
+    "explanation": "The picture shows the Reichstag building on Platz der Republik in Berlin. Since September 8, 1999, the building has been the seat of the German Bundestag.",
     "topic": "Politics in Democracy"
   },
   {

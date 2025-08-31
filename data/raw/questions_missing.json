@@ -1,0 +1,832 @@
+[
+  {
+    "id": 241,
+    "question": "Frau Seger bekommt ein Kind. Was muss sie tun, um Elterngeld zu erhalten?",
+    "choices": [
+      "Sie muss an ihre Krankenkasse schreiben.",
+      "Sie muss nichts tun, denn sie bekommt automatisch Elterngeld.",
+      "Sie muss einen Antrag bei der Elterngeldstelle stellen.",
+      "Sie muss das Arbeitsamt um Erlaubnis bitten."
+    ],
+    "correctIndex": 2,
+    "hint": "Denke daran, dass staatliche Sozialleistungen in Deutschland in der Regel aktiv bei einer dafür vorgesehenen Behörde beantragt werden müssen.",
+    "explanation": "Elterngeld ist eine Leistung des Staates für Eltern nach der Geburt eines Kindes. Es wird nicht automatisch gezahlt, sondern muss bei der zuständigen Elterngeldstelle schriftlich beantragt werden. Krankenkasse oder Arbeitsamt sind hierfür nicht die richtigen Ansprechpartner.",
+    "topic": "Familie und Soziales"
+  },
+  {
+    "id": 242,
+    "question": "Wer entscheidet, ob ein Kind in Deutschland in den Kindergarten geht?",
+    "choices": [
+      "der Staat",
+      "die Bundesländer",
+      "die Eltern / die Erziehungsberechtigten",
+      "die Schulen"
+    ],
+    "correctIndex": 2,
+    "hint": "Das Erziehungsrecht liegt grundsätzlich bei den Personen, die für das Kind verantwortlich sind.",
+    "explanation": "In Deutschland haben die Eltern bzw. die Erziehungsberechtigten das Recht und die Pflicht, über die Erziehung und Betreuung ihres Kindes zu entscheiden. Dazu gehört auch die Entscheidung, ob und welchen Kindergarten das Kind besucht, auch wenn es einen Rechtsanspruch auf einen Kindergartenplatz gibt.",
+    "topic": "Familie und Soziales"
+  },
+  {
+    "id": 243,
+    "question": "Maik und Sybille wollen mit Freunden an ihrem deutschen Wohnort eine Demonstration auf der Straße abhalten. Was müssen sie vorher tun?",
+    "choices": [
+      "Sie müssen nichts tun. Man darf in Deutschland jederzeit überall demonstrieren.",
+      "Sie müssen die Demonstration anmelden.",
+      "Sie können gar nichts tun, denn Demonstrationen sind in Deutschland grundsätzlich verboten.",
+      "Maik und Sybille müssen einen neuen Verein gründen, weil nur Vereine demonstrieren dürfen."
+    ],
+    "correctIndex": 1,
+    "hint": "Das Recht auf Versammlungsfreiheit ist ein Grundrecht, aber es gibt organisatorische Regeln, um die öffentliche Sicherheit zu gewährleisten.",
+    "explanation": "Das Versammlungsrecht ist in Deutschland ein hohes Gut. Um die öffentliche Sicherheit und Ordnung zu gewährleisten, müssen Demonstrationen unter freiem Himmel bei der zuständigen Behörde (meist Polizei oder Ordnungsamt) angemeldet werden, in der Regel 48 Stunden vor der Bekanntgabe.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 244,
+    "question": "Welchen Schulabschluss braucht man normalerweise, um an einer Universität in Deutschland ein Studium zu beginnen?",
+    "choices": [
+      "das Abitur",
+      "ein Diplom",
+      "die Prokura",
+      "eine Gesellenprüfung"
+    ],
+    "correctIndex": 0,
+    "hint": "Suche nach dem höchsten deutschen Schulabschluss, der die allgemeine Hochschulreife verleiht.",
+    "explanation": "Das Abitur, auch als allgemeine Hochschulreife bekannt, ist der höchste Schulabschluss in Deutschland und die Standardvoraussetzung für die Aufnahme eines Studiums an einer Universität. Ein Diplom ist ein Hochschulabschluss, Prokura eine kaufmännische Vollmacht und die Gesellenprüfung ein Abschluss im Handwerk.",
+    "topic": "Bildung und Arbeit"
+  },
+  {
+    "id": 245,
+    "question": "Wer darf in Deutschland nicht als Paar zusammenleben?",
+    "choices": [
+      "Hans (20 Jahre) und Marie (19 Jahre)",
+      "Tom (20 Jahre) und Klaus (45 Jahre)",
+      "Sofie (35 Jahre) und Lisa (40 Jahre)",
+      "Anne (13 Jahre) und Tim (25 Jahre)"
+    ],
+    "correctIndex": 3,
+    "hint": "Das Jugendschutzgesetz schützt Minderjährige. Achte auf das Alter der Personen.",
+    "explanation": "In Deutschland gilt ein Schutzalter. Sexuelle Handlungen eines Erwachsenen (über 21) mit einem Kind (unter 14) sind strafbar. Ein Zusammenleben wie in der Option mit Anne (13) und Tim (25) ist daher gesetzlich nicht erlaubt und würde zum Eingreifen der Behörden führen.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 246,
+    "question": "Ab welchem Alter ist man in Deutschland volljährig?",
+    "choices": [
+      "16",
+      "18",
+      "19",
+      "21"
+    ],
+    "correctIndex": 1,
+    "hint": "Mit Erreichen dieses Alters erhält man die volle Geschäftsfähigkeit und das aktive Wahlrecht für Bundestagswahlen.",
+    "explanation": "Die Volljährigkeit tritt in Deutschland mit der Vollendung des 18. Lebensjahres ein. Ab diesem Zeitpunkt gilt man als voll geschäftsfähig und ist nicht mehr den Erziehungsrechten der Eltern unterworfen.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 247,
+    "question": "Eine Frau ist schwanger. Sie ist kurz vor und nach der Geburt ihres Kindes vom Gesetz besonders beschützt. Wie heißt dieser Schutz?",
+    "choices": [
+      "Elternzeit",
+      "Geburtsvorbereitung",
+      "Mutterschutz",
+      "Wochenbett"
+    ],
+    "correctIndex": 2,
+    "hint": "Der Name dieses gesetzlichen Schutzes leitet sich direkt von der Person ab, die geschützt wird.",
+    "explanation": "Der Mutterschutz ist ein in Deutschland gesetzlich verankertes Schutzrecht für schwangere Arbeitnehmerinnen. Er umfasst Schutzfristen vor und nach der Geburt (in der Regel 6 Wochen vor und 8 Wochen nach der Geburt), in denen ein Beschäftigungsverbot gilt, sowie einen besonderen Kündigungsschutz.",
+    "topic": "Familie und Soziales"
+  },
+  {
+    "id": 248,
+    "question": "Die Erziehung der Kinder ist in Deutschland vor allem Aufgabe …",
+    "choices": [
+      "des Staates.",
+      "der Eltern.",
+      "der Großeltern.",
+      "der Schulen."
+    ],
+    "correctIndex": 1,
+    "hint": "Das Grundgesetz legt fest, wer das primäre Recht und die Pflicht zur Kindererziehung hat.",
+    "explanation": "Nach dem deutschen Grundgesetz (Artikel 6) sind Pflege und Erziehung der Kinder das natürliche Recht der Eltern und die zuvörderst ihnen obliegende Pflicht. Der Staat hat ein Wächteramt, die Hauptverantwortung liegt aber bei den Eltern.",
+    "topic": "Familie und Soziales"
+  },
+  {
+    "id": 249,
+    "question": "Wer ist in Deutschland hauptsächlich verantwortlich für die Kindererziehung?",
+    "choices": [
+      "der Staat",
+      "die Eltern",
+      "die Verwandten",
+      "die Schulen"
+    ],
+    "correctIndex": 1,
+    "hint": "Diese Frage ist sehr ähnlich zu der vorherigen und betont die primäre Verantwortung.",
+    "explanation": "Die Hauptverantwortung für die Erziehung der Kinder liegt in Deutschland bei den Eltern. Staatliche Institutionen wie Schulen oder Kindergärten haben einen Bildungs- und Betreuungsauftrag, der die elterliche Erziehung ergänzt, aber nicht ersetzt.",
+    "topic": "Familie und Soziales"
+  },
+  {
+    "id": 250,
+    "question": "In Deutschland hat man die besten Chancen auf einen gut bezahlten Arbeitsplatz, wenn man …",
+    "choices": [
+      "katholisch ist.",
+      "gut ausgebildet ist.",
+      "eine Frau ist.",
+      "Mitglied einer Partei ist."
+    ],
+    "correctIndex": 1,
+    "hint": "Denke an die Anforderungen des modernen Arbeitsmarktes. Was ist für qualifizierte Tätigkeiten entscheidend?",
+    "explanation": "In der deutschen Wirtschaft sind Qualifikation und Ausbildung die entscheidenden Faktoren für gute Berufschancen und ein hohes Einkommen. Merkmale wie Religion, Geschlecht oder Parteizugehörigkeit dürfen laut dem Allgemeinen Gleichbehandlungsgesetz keine Rolle bei der Einstellung spielen.",
+    "topic": "Bildung und Arbeit"
+  },
+  {
+    "id": 251,
+    "question": "Wenn man in Deutschland ein Kind schlägt, …",
+    "choices": [
+      "geht das niemanden etwas an.",
+      "geht das nur die Familie etwas an.",
+      "kann man dafür nicht bestraft werden.",
+      "kann man dafür bestraft werden."
+    ],
+    "correctIndex": 3,
+    "hint": "Deutschland hat ein Gesetz, das Kindern ein Recht auf eine bestimmte Art der Erziehung zuspricht.",
+    "explanation": "In Deutschland haben Kinder ein gesetzliches Recht auf eine gewaltfreie Erziehung. Körperliche Bestrafungen sind verboten und können als Körperverletzung strafrechtlich verfolgt werden. Zudem kann das Jugendamt zum Schutz des Kindes eingreifen.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 252,
+    "question": "In Deutschland …",
+    "choices": [
+      "darf man zur gleichen Zeit nur mit einem Partner / einer Partnerin verheiratet sein.",
+      "kann man mehrere Ehepartner / Ehepartnerinnen gleichzeitig haben.",
+      "darf man nicht wieder heiraten, wenn man einmal verheiratet war.",
+      "darf eine Frau nicht wieder heiraten, wenn ihr Mann gestorben ist."
+    ],
+    "correctIndex": 0,
+    "hint": "Das deutsche Eherecht basiert auf dem Prinzip der Einehe.",
+    "explanation": "Das deutsche Recht lässt nur die Monogamie zu, das heißt, eine Ehe kann nur zwischen zwei Personen geschlossen werden. Eine Heirat mit mehreren Partnern gleichzeitig (Polygamie) ist verboten und strafbar. Nach einer Scheidung oder dem Tod des Partners darf man selbstverständlich wieder heiraten.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 253,
+    "question": "Wo müssen Sie sich anmelden, wenn Sie in Deutschland umziehen?",
+    "choices": [
+      "beim Einwohnermeldeamt",
+      "beim Standesamt",
+      "beim Ordnungsamt",
+      "beim Gewerbeamt"
+    ],
+    "correctIndex": 0,
+    "hint": "Suche nach der Behörde, die für die Registrierung der Wohnadressen von Bürgern zuständig ist.",
+    "explanation": "In Deutschland besteht eine Meldepflicht. Jeder, der umzieht, muss seinen neuen Wohnsitz innerhalb einer bestimmten Frist (meist zwei Wochen) beim Einwohnermeldeamt (auch Bürgeramt oder Meldebehörde genannt) anmelden.",
+    "topic": "Staat und Institutionen"
+  },
+  {
+    "id": 254,
+    "question": "In Deutschland dürfen Ehepaare sich scheiden lassen. Meistens müssen sie dazu das „Trennungsjahr“ einhalten. Was bedeutet das?",
+    "choices": [
+      "Der Scheidungsprozess dauert ein Jahr.",
+      "Die Ehegatten sind ein Jahr verheiratet, dann ist die Scheidung möglich.",
+      "Das Besuchsrecht für die Kinder gilt ein Jahr.",
+      "Die Ehegatten führen mindestens ein Jahr getrennt ihr eigenes Leben. Danach ist die Scheidung möglich."
+    ],
+    "correctIndex": 3,
+    "hint": "Dieser Zeitraum soll den Ehepartnern die Möglichkeit geben, ihre Entscheidung zu überdenken, bevor die Ehe endgültig aufgelöst wird.",
+    "explanation": "Das Trennungsjahr ist eine gesetzliche Voraussetzung für die meisten Ehescheidungen in Deutschland. Es bedeutet, dass das Paar mindestens ein Jahr lang 'getrennt von Tisch und Bett' leben muss, also keine häusliche Gemeinschaft mehr führt, bevor der Scheidungsantrag bei Gericht gestellt werden kann.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 255,
+    "question": "Bei Erziehungsproblemen können Eltern in Deutschland Hilfe erhalten vom …",
+    "choices": [
+      "Ordnungsamt.",
+      "Schulamt.",
+      "Jugendamt.",
+      "Gesundheitsamt."
+    ],
+    "correctIndex": 2,
+    "hint": "Welche Behörde ist speziell für das Wohl von Kindern und Jugendlichen zuständig?",
+    "explanation": "Das Jugendamt ist die zentrale Anlaufstelle für Eltern, Kinder und Jugendliche bei Fragen und Problemen im Zusammenhang mit Erziehung und Familie. Es bietet Beratung und vielfältige Unterstützungsleistungen an.",
+    "topic": "Familie und Soziales"
+  },
+  {
+    "id": 256,
+    "question": "Ein Ehepaar möchte in Deutschland ein Restaurant eröffnen. Was braucht es dazu unbedingt?",
+    "choices": [
+      "eine Erlaubnis der Polizei",
+      "eine Genehmigung einer Partei",
+      "eine Genehmigung des Einwohnermeldeamts",
+      "eine Gaststättenerlaubnis von der zuständigen Behörde"
+    ],
+    "correctIndex": 3,
+    "hint": "Für das Betreiben einer Gastronomie ist eine spezielle gewerberechtliche Erlaubnis erforderlich.",
+    "explanation": "Um in Deutschland ein Restaurant zu eröffnen, benötigt man eine Gaststättenerlaubnis (Konzession). Diese wird von der zuständigen Behörde (meist das Ordnungs- oder Gewerbeamt) erteilt, nachdem die persönliche Zuverlässigkeit und die fachliche Eignung des Betreibers sowie die Geeignetheit der Räumlichkeiten geprüft wurden.",
+    "topic": "Wirtschaft und Soziales"
+  },
+  {
+    "id": 257,
+    "question": "Eine erwachsene Frau möchte in Deutschland das Abitur nachholen. Das kann sie an …",
+    "choices": [
+      "einer Hochschule.",
+      "einem Abendgymnasium.",
+      "einer Hauptschule.",
+      "einer Privatuniversität."
+    ],
+    "correctIndex": 1,
+    "hint": "Es gibt spezielle Schulen für Erwachsene, die den Erwerb von Schulabschlüssen neben dem Beruf ermöglichen.",
+    "explanation": "Das Nachholen des Abiturs im Erwachsenenalter ist auf dem sogenannten Zweiten Bildungsweg möglich. Institutionen wie Abendgymnasien oder Kollegs bieten entsprechende Kurse an. Hochschulen und Universitäten setzen das Abitur voraus, an Hauptschulen kann man es nicht erwerben.",
+    "topic": "Bildung und Arbeit"
+  },
+  {
+    "id": 258,
+    "question": "Was darf das Jugendamt in Deutschland?",
+    "choices": [
+      "Es entscheidet, welche Schule das Kind besucht.",
+      "Es kann ein Kind, das geschlagen wird oder hungern muss, aus der Familie nehmen.",
+      "Es bezahlt das Kindergeld an die Eltern.",
+      "Es kontrolliert, ob das Kind einen Kindergarten besucht."
+    ],
+    "correctIndex": 1,
+    "hint": "Das Jugendamt hat die Aufgabe des staatlichen Wächteramtes und muss bei Kindeswohlgefährdung eingreifen.",
+    "explanation": "Wenn das Wohl eines Kindes ernsthaft gefährdet ist, z.B. durch Misshandlung oder Vernachlässigung, hat das Jugendamt die Pflicht und das Recht, zum Schutz des Kindes einzugreifen. Als letzte Maßnahme kann dies die Inobhutnahme des Kindes bedeuten, also die vorläufige Unterbringung außerhalb der Familie.",
+    "topic": "Staat und Institutionen"
+  },
+  {
+    "id": 259,
+    "question": "Das Berufsinformationszentrum BIZ bei der Bundesagentur für Arbeit in Deutschland hilft bei der …",
+    "choices": [
+      "Rentenberechnung.",
+      "Lehrstellensuche.",
+      "Steuererklärung.",
+      "Krankenversicherung."
+    ],
+    "correctIndex": 1,
+    "hint": "Der Name 'Berufsinformationszentrum' gibt einen direkten Hinweis auf die Hauptaufgabe dieser Einrichtung.",
+    "explanation": "Das Berufsinformationszentrum (BIZ) der Bundesagentur für Arbeit ist eine zentrale Anlaufstelle für alle Fragen rund um Berufswahl, Ausbildung und Arbeitsmarkt. Es bietet umfangreiche Informationen und Beratung, insbesondere auch bei der Suche nach Ausbildungs- und Lehrstellen.",
+    "topic": "Bildung und Arbeit"
+  },
+  {
+    "id": 260,
+    "question": "In Deutschland hat ein Kind in der Schule …",
+    "choices": [
+      "Recht auf unbegrenzte Freizeit.",
+      "Wahlfreiheit für alle Fächer.",
+      "Anspruch auf Schulgeld.",
+      "Anwesenheitspflicht."
+    ],
+    "correctIndex": 3,
+    "hint": "Um das Recht auf Bildung für alle zu gewährleisten, gibt es eine allgemeine gesetzliche Verpflichtung.",
+    "explanation": "In Deutschland gilt die allgemeine Schulpflicht. Das bedeutet, dass alle Kinder und Jugendliche für eine bestimmte Anzahl von Jahren verpflichtet sind, am Unterricht teilzunehmen. Dies wird als Anwesenheitspflicht bezeichnet.",
+    "topic": "Bildung und Arbeit"
+  },
+  {
+    "id": 261,
+    "question": "Ein Mann möchte mit 30 Jahren in Deutschland sein Abitur nachholen. Wo kann er das tun? An …",
+    "choices": [
+      "einer Hochschule",
+      "einem Abendgymnasium",
+      "einer Hauptschule",
+      "einer Privatuniversität"
+    ],
+    "correctIndex": 1,
+    "hint": "Diese Frage ist identisch mit Frage 257. Es geht um den Zweiten Bildungsweg für Erwachsene.",
+    "explanation": "Der Zweite Bildungsweg bietet Erwachsenen die Möglichkeit, Schulabschlüsse nachzuholen. Das Abitur kann zum Beispiel an einem Abendgymnasium (berufsbegleitend) oder einem Kolleg (in Vollzeit) erworben werden.",
+    "topic": "Bildung und Arbeit"
+  },
+  {
+    "id": 262,
+    "question": "Was bedeutet in Deutschland der Grundsatz der Gleichbehandlung?",
+    "choices": [
+      "Niemand darf z. B. wegen einer Behinderung benachteiligt werden.",
+      "Man darf andere Personen benachteiligen, wenn ausreichende persönliche Gründe hierfür vorliegen.",
+      "Niemand darf gegen Personen klagen, wenn sie benachteiligt wurden.",
+      "Es ist für alle Gesetz, benachteiligten Gruppen jährlich Geld zu spenden."
+    ],
+    "correctIndex": 0,
+    "hint": "Das Grundgesetz und das Allgemeine Gleichbehandlungsgesetz (AGG) verbieten Diskriminierung aus bestimmten Gründen.",
+    "explanation": "Der Grundsatz der Gleichbehandlung, verankert in Artikel 3 des Grundgesetzes und im AGG, besagt, dass kein Mensch wegen seines Geschlechts, seiner Abstammung, seiner Rasse, seiner Sprache, seiner Heimat und Herkunft, seines Glaubens, seiner religiösen oder politischen Anschauungen oder einer Behinderung benachteiligt werden darf.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 263,
+    "question": "In Deutschland sind Jugendliche ab 14 Jahren strafmündig. Das bedeutet: Jugendliche, die 14 Jahre und älter sind und gegen Strafgesetze verstoßen, …",
+    "choices": [
+      "werden bestraft.",
+      "werden wie Erwachsene behandelt.",
+      "teilen die Strafe mit ihren Eltern.",
+      "werden nicht bestraft."
+    ],
+    "correctIndex": 0,
+    "hint": "Mit 14 Jahren beginnt die strafrechtliche Verantwortlichkeit, allerdings nach einem speziellen Recht.",
+    "explanation": "Strafmündigkeit bedeutet, dass eine Person für eine Straftat rechtlich zur Verantwortung gezogen werden kann. In Deutschland beginnt dies mit 14 Jahren. Allerdings wird bei Jugendlichen (14-17 Jahre) das Jugendstrafrecht angewendet, das vorrangig den Erziehungsgedanken verfolgt und andere Strafen als das Erwachsenenstrafrecht vorsieht.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 264,
+    "question": "Zu welchem Fest tragen Menschen in Deutschland bunte Kostüme und Masken?",
+    "choices": [
+      "am Rosenmontag",
+      "am Maifeiertag",
+      "beim Oktoberfest",
+      "an Pfingsten"
+    ],
+    "correctIndex": 0,
+    "hint": "Dieses Fest ist auch als Karneval, Fasching oder Fastnacht bekannt und hat seinen Höhepunkt in großen Straßenumzügen.",
+    "explanation": "Der Rosenmontag ist der Höhepunkt der Karnevalszeit, besonders im Rheinland. An diesem Tag finden große Umzüge statt, bei denen sich viele Menschen verkleiden und kostümieren. Es ist ein Brauch voller Fröhlichkeit und Ausgelassenheit vor der christlichen Fastenzeit.",
+    "topic": "Soziales und Kulturelles Leben"
+  },
+  {
+    "id": 265,
+    "question": "Wohin muss man in Deutschland zuerst gehen, wenn man heiraten möchte?",
+    "choices": [
+      "zum Einwohnermeldeamt",
+      "zum Ordnungsamt",
+      "zur Agentur für Arbeit",
+      "zum Standesamt"
+    ],
+    "correctIndex": 3,
+    "hint": "Es gibt eine spezielle Behörde, die für Personenstandsangelegenheiten wie Geburten, Eheschließungen und Sterbefälle zuständig ist.",
+    "explanation": "Die Eheschließung ist in Deutschland ein staatlicher Akt, der vor einem Standesbeamten oder einer Standesbeamtin vollzogen wird. Daher ist die erste und zuständige Anlaufstelle für eine Heirat das Standesamt, bei dem die Eheschließung angemeldet werden muss.",
+    "topic": "Staat und Institutionen"
+  },
+  {
+    "id": 266,
+    "question": "Wann beginnt die gesetzliche Nachtruhe in Deutschland?",
+    "choices": [
+      "wenn die Sonne untergeht",
+      "um 22 Uhr",
+      "wenn die Nachbarn schlafen gehen",
+      "um 0 Uhr, Mitternacht"
+    ],
+    "correctIndex": 1,
+    "hint": "Die meisten Hausordnungen und Lärmschutzverordnungen der Bundesländer legen eine feste Uhrzeit für den Beginn der Nachtruhe fest.",
+    "explanation": "Die allgemeine Nachtruhe in Deutschland, während der Lärm vermieden werden muss, gilt in der Regel von 22 Uhr abends bis 6 Uhr morgens. Genaue Regelungen können sich aus Landesgesetzen oder kommunalen Satzungen sowie der Hausordnung ergeben.",
+    "topic": "Alltag in Deutschland"
+  },
+  {
+    "id": 267,
+    "question": "Eine junge Frau in Deutschland, 22 Jahre alt, lebt mit ihrem Freund zusammen. Die Eltern der Frau finden das nicht gut, weil ihnen der Freund nicht gefällt. Was können die Eltern tun?",
+    "choices": [
+      "Sie müssen die Entscheidung der volljährigen Tochter respektieren.",
+      "Sie haben das Recht, die Tochter in die elterliche Wohnung zurückzuholen.",
+      "Sie können zur Polizei gehen und die Tochter anzeigen.",
+      "Sie suchen einen anderen Mann für die Tochter."
+    ],
+    "correctIndex": 0,
+    "hint": "Achte auf das Alter der Frau. Ist sie volljährig und damit für ihre Entscheidungen selbst verantwortlich?",
+    "explanation": "Da die Frau mit 22 Jahren volljährig ist, kann sie ihre Lebensentscheidungen, einschließlich der Partnerwahl und des Wohnortes, selbst treffen. Die Eltern haben kein rechtliches Weisungs- oder Eingriffsrecht mehr und müssen die selbstständigen Entscheidungen ihrer erwachsenen Tochter akzeptieren.",
+    "topic": "Familie und Soziales"
+  },
+  {
+    "id": 268,
+    "question": "Eine junge Frau will den Führerschein machen. Sie hat Angst vor der Prüfung, weil ihre Muttersprache nicht Deutsch ist. Was ist richtig?",
+    "choices": [
+      "Sie muss mindestens zehn Jahre in Deutschland leben, bevor sie den Führerschein machen kann.",
+      "Sie kann die Theorie-Prüfung vielleicht in ihrer Muttersprache machen. Es gibt mehr als zehn Sprachen zur Auswahl.",
+      "Wenn sie kein Deutsch kann, darf sie keinen Führerschein haben.",
+      "Sie muss den Führerschein in dem Land machen, in dem man ihre Sprache spricht."
+    ],
+    "correctIndex": 1,
+    "hint": "Deutschland ermöglicht die theoretische Führerscheinprüfung in mehreren Sprachen, um die Fairness zu erhöhen.",
+    "explanation": "Die theoretische Führerscheinprüfung kann in Deutschland nicht nur auf Deutsch, sondern auch in 12 offiziellen Fremdsprachen abgelegt werden (z.B. Englisch, Türkisch, Arabisch, Russisch). Dies soll Menschen mit geringeren Deutschkenntnissen die Möglichkeit geben, die Prüfung zu bestehen.",
+    "topic": "Alltag in Deutschland"
+  },
+  {
+    "id": 269,
+    "question": "In Deutschland haben Kinder ab dem Alter von drei Jahren bis zur Ersteinschulung einen Anspruch auf …",
+    "choices": [
+      "monatliches Taschengeld.",
+      "einen Kindergartenplatz.",
+      "einen Platz in einem Sportverein.",
+      "einen Ferienpass."
+    ],
+    "correctIndex": 1,
+    "hint": "Der Staat hat eine rechtliche Verpflichtung geschaffen, um die frühkindliche Bildung und die Vereinbarkeit von Familie und Beruf zu fördern.",
+    "explanation": "Seit 2013 gibt es in Deutschland einen Rechtsanspruch auf einen Betreuungsplatz für Kinder ab dem vollendeten ersten Lebensjahr. Für Kinder von drei Jahren bis zum Schuleintritt besteht der Anspruch auf einen Platz in einem Kindergarten oder einer Kindertageseinrichtung.",
+    "topic": "Familie und Soziales"
+  },
+  {
+    "id": 270,
+    "question": "Die Volkshochschule in Deutschland ist eine Einrichtung …",
+    "choices": [
+      "für den Religionsunterricht.",
+      "nur für Jugendliche.",
+      "zur Weiterbildung.",
+      "nur für Rentner und Rentnerinnen."
+    ],
+    "correctIndex": 2,
+    "hint": "Diese kommunalen Einrichtungen bieten ein breites Kursangebot für alle Altersgruppen in verschiedenen Bereichen an.",
+    "explanation": "Volkshochschulen (VHS) sind öffentlich geförderte Einrichtungen der Erwachsenen- und Weiterbildung. Sie bieten ein vielfältiges und kostengünstiges Kursprogramm in Bereichen wie Sprachen, Beruf, Gesundheit, Kultur und Politik für Menschen jeden Alters an.",
+    "topic": "Bildung und Arbeit"
+  },
+  {
+    "id": 271,
+    "question": "Was ist in Deutschland ein Brauch zu Weihnachten?",
+    "choices": [
+      "bunte Eier verstecken",
+      "einen Tannenbaum schmücken",
+      "sich mit Masken und Kostümen verkleiden",
+      "Kürbisse vor die Tür stellen"
+    ],
+    "correctIndex": 1,
+    "hint": "Denke an eine weit verbreitete Tradition, bei der ein Nadelbaum festlich dekoriert wird, um die Geburt Jesu zu feiern.",
+    "explanation": "Das Schmücken eines Tannenbaums ist eine zentrale und weit verbreitete Weihnachtstradition in Deutschland. Bunte Eier zu verstecken ist ein Osterbrauch, das Verkleiden gehört zum Karneval und das Aufstellen von Kürbissen zu Halloween.",
+    "topic": "Soziales und Kulturelles Leben"
+  },
+  {
+    "id": 272,
+    "question": "Welche Lebensform ist in Deutschland nicht erlaubt?",
+    "choices": [
+      "Mann und Frau sind geschieden und leben mit neuen Partnern zusammen.",
+      "Zwei Frauen leben zusammen.",
+      "Ein allein erziehender Vater lebt mit seinen zwei Kindern zusammen.",
+      "Ein Mann ist mit zwei Frauen zur selben Zeit verheiratet."
+    ],
+    "correctIndex": 3,
+    "hint": "Das deutsche Gesetz regelt die Ehe eindeutig zwischen zwei Personen. Überlege, welche der Optionen gegen dieses Prinzip verstößt.",
+    "explanation": "In Deutschland ist die Polygamie, also die Ehe einer Person mit mehreren Partnern zur gleichen Zeit, gesetzlich verboten. Die Ehe ist als eine Lebensgemeinschaft von zwei Personen definiert. Alle anderen genannten Lebensformen sind in Deutschland rechtlich zulässig.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 273,
+    "question": "Bei Erziehungsproblemen gehen Sie in Deutschland …",
+    "choices": [
+      "zum Arzt / zur Ärztin.",
+      "zum Gesundheitsamt.",
+      "zum Einwohnermeldeamt.",
+      "zum Jugendamt."
+    ],
+    "correctIndex": 3,
+    "hint": "Suche nach der Behörde, die speziell für die Unterstützung von Kindern, Jugendlichen und Eltern zuständig ist.",
+    "explanation": "Das Jugendamt ist die zuständige Behörde in Deutschland, die Familien bei Erziehungsfragen, Problemen und in Krisensituationen berät und unterstützt. Es bietet eine Vielzahl von Hilfsangeboten, von der Erziehungsberatung bis hin zur Unterstützung in Notlagen.",
+    "topic": "Staat und Institutionen"
+  },
+  {
+    "id": 274,
+    "question": "Sie haben in Deutschland absichtlich einen Brief geöffnet, der an eine andere Person adressiert ist. Was haben Sie nicht beachtet?",
+    "choices": [
+      "das Schweigerecht",
+      "das Briefgeheimnis",
+      "die Schweigepflicht",
+      "die Meinungsfreiheit"
+    ],
+    "correctIndex": 1,
+    "hint": "Es gibt ein Grundrecht, das die Vertraulichkeit der schriftlichen Kommunikation schützt.",
+    "explanation": "Das unbefugte Öffnen eines adressierten Briefes verletzt das im Grundgesetz verankerte Briefgeheimnis. Dieses schützt die Vertraulichkeit der schriftlichen Kommunikation und ist ein wichtiges Persönlichkeitsrecht in Deutschland.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 275,
+    "question": "Was braucht man in Deutschland für eine Ehescheidung?",
+    "choices": [
+      "die Einwilligung der Eltern",
+      "ein Attest eines Arztes / einer Ärztin",
+      "die Einwilligung der Kinder",
+      "die Unterstützung eines Anwalts / einer Anwältin"
+    ],
+    "correctIndex": 3,
+    "hint": "Eine Ehescheidung ist ein juristischer Prozess, der vor einem Gericht stattfindet. Welche Berufsgruppe vertritt Personen in rechtlichen Angelegenheiten?",
+    "explanation": "Für eine Ehescheidung in Deutschland herrscht Anwaltszwang. Das bedeutet, dass mindestens einer der Ehepartner von einem Anwalt oder einer Anwältin vor dem Familiengericht vertreten werden muss, um den Scheidungsantrag zu stellen.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 276,
+    "question": "Was sollten Sie tun, wenn Sie von Ihrem Ansprechpartner / Ihrer Ansprechpartnerin in einer deutschen Behörde schlecht behandelt werden?",
+    "choices": [
+      "Ich kann nichts tun.",
+      "Ich muss mir diese Behandlung gefallen lassen.",
+      "Ich drohe der Person.",
+      "Ich kann mich beim Behördenleiter / bei der Behördenleiterin beschweren."
+    ],
+    "correctIndex": 3,
+    "hint": "In einer Demokratie gibt es Wege, sich gegen unangebrachtes Verhalten von Amtspersonen zu wehren. Denke an den Vorgesetzten.",
+    "explanation": "Wenn man sich von einem Mitarbeiter einer Behörde schlecht behandelt fühlt, hat man das Recht, eine formelle Beschwerde (Dienstaufsichtsbeschwerde) beim Leiter oder der Leiterin der entsprechenden Behörde einzulegen. Drohungen sind strafbar und die anderen Optionen sind nicht korrekt.",
+    "topic": "Staat und Institutionen"
+  },
+  {
+    "id": 277,
+    "question": "Eine Frau, die ein zweijähriges Kind hat, bewirbt sich in Deutschland um eine Stelle. Was ist ein Beispiel für Diskriminierung? Sie bekommt die Stelle nur deshalb nicht, weil sie …",
+    "choices": [
+      "kein Englisch spricht.",
+      "zu hohe Gehaltsvorstellungen hat.",
+      "keine Erfahrungen in diesem Beruf hat.",
+      "Mutter ist."
+    ],
+    "correctIndex": 3,
+    "hint": "Das Allgemeine Gleichbehandlungsgesetz (AGG) verbietet die Benachteiligung aufgrund bestimmter Merkmale. Welches Merkmal ist hier relevant?",
+    "explanation": "Die Ablehnung einer Bewerberin allein aufgrund ihrer Mutterschaft ist eine Form der Diskriminierung aufgrund des Geschlechts und des Familienstandes, was nach dem Allgemeinen Gleichbehandlungsgesetz (AGG) verboten ist. Die anderen genannten Gründe sind sachliche, leistungsbezogene Kriterien.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 278,
+    "question": "Ein Mann im Rollstuhl hat sich auf eine Stelle als Buchhalter beworben. Was ist ein Beispiel für Diskriminierung? Er bekommt die Stelle nur deshalb nicht, weil er …",
+    "choices": [
+      "im Rollstuhl sitzt.",
+      "keine Erfahrung hat.",
+      "zu hohe Gehaltsvorstellungen hat.",
+      "kein Englisch spricht."
+    ],
+    "correctIndex": 0,
+    "hint": "Das Allgemeine Gleichbehandlungsgesetz (AGG) schützt auch vor Benachteiligung aufgrund einer körperlichen Beeinträchtigung.",
+    "explanation": "Einen Bewerber allein aufgrund seiner Behinderung (das Sitzen im Rollstuhl) abzulehnen, ist eine nach dem Allgemeinen Gleichbehandlungsgesetz (AGG) verbotene Diskriminierung. Fehlende Erfahrung oder hohe Gehaltsvorstellungen sind hingegen legitime Gründe für eine Absage.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 279,
+    "question": "In den meisten Mietshäusern in Deutschland gibt es eine „Hausordnung“. Was steht in einer solchen „Hausordnung“? Sie nennt …",
+    "choices": [
+      "Regeln für die Benutzung öffentlicher Verkehrsmittel.",
+      "alle Mieter und Mieterinnen im Haus.",
+      "Regeln, an die sich alle Bewohner und Bewohnerinnen halten müssen.",
+      "die Adresse des nächsten Ordnungsamtes."
+    ],
+    "correctIndex": 2,
+    "hint": "Denke an Regeln für ein gutes Zusammenleben in einer Gemeinschaft, zum Beispiel Ruhezeiten oder die Nutzung von Gemeinschaftsräumen.",
+    "explanation": "Die Hausordnung enthält Regeln für das Zusammenleben aller Bewohner in einem Mietshaus. Typische Punkte sind Ruhezeiten (z.B. Mittags- und Nachtruhe), die Reinigung des Treppenhauses, die Nutzung von Gemeinschaftsräumen wie Waschküchen und die Müllentsorgung.",
+    "topic": "Alltag in Deutschland"
+  },
+  {
+    "id": 280,
+    "question": "Wenn Sie sich in Deutschland gegen einen falschen Steuerbescheid wehren wollen, müssen Sie …",
+    "choices": [
+      "nichts machen.",
+      "den Bescheid wegwerfen.",
+      "Einspruch einlegen.",
+      "warten, bis ein anderer Bescheid kommt."
+    ],
+    "correctIndex": 2,
+    "hint": "Es gibt ein formelles Rechtsmittel, um eine behördliche Entscheidung überprüfen zu lassen.",
+    "explanation": "Gegen einen fehlerhaften Steuerbescheid kann man innerhalb eines Monats nach Erhalt schriftlich Einspruch beim zuständigen Finanzamt einlegen. Dies ist ein formeller Rechtsbehelf, der die Behörde verpflichtet, die Entscheidung zu überprüfen.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 281,
+    "question": "Zwei Freunde wollen in ein öffentliches Schwimmbad in Deutschland. Beide haben eine dunkle Hautfarbe und werden deshalb nicht hineingelassen. Welches Recht wird in dieser Situation verletzt? Das Recht auf …",
+    "choices": [
+      "Meinungsfreiheit.",
+      "Gleichbehandlung.",
+      "Versammlungsfreiheit.",
+      "Freizügigkeit."
+    ],
+    "correctIndex": 1,
+    "hint": "Das Grundgesetz besagt, dass niemand wegen seiner Abstammung, seiner Rasse, seiner Heimat und Herkunft oder seines Glaubens benachteiligt oder bevorzugt werden darf.",
+    "explanation": "In dieser Situation wird das Recht auf Gleichbehandlung verletzt. Das Allgemeine Gleichbehandlungsgesetz (AGG) und Artikel 3 des Grundgesetzes verbieten die Diskriminierung aufgrund der ethnischen Herkunft oder Hautfarbe.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 282,
+    "question": "Welches Ehrenamt müssen deutsche Staatsbürger / Staatsbürgerinnen übernehmen, wenn sie dazu aufgefordert werden?",
+    "choices": [
+      "Vereinstrainer / Vereinstrainerin",
+      "Bibliotheksaufsicht",
+      "Wahlhelfer / Wahlhelferin",
+      "Lehrer / Lehrerin"
+    ],
+    "correctIndex": 2,
+    "hint": "Dieses Ehrenamt ist für die Durchführung von demokratischen Wahlen unerlässlich.",
+    "explanation": "Die Tätigkeit als Wahlhelfer bei Wahlen ist eine staatsbürgerliche Ehrenpflicht. Wird man berufen, kann man dieses Ehrenamt nur aus wichtigen Gründen ablehnen. Es sichert den ordnungsgemäßen Ablauf der Wahlen.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 283,
+    "question": "Was tun Sie, wenn Sie eine falsche Rechnung von einer deutschen Behörde bekommen?",
+    "choices": [
+      "Ich lasse die Rechnung liegen.",
+      "Ich lege Widerspruch bei der Behörde ein.",
+      "Ich schicke die Rechnung an die Behörde zurück.",
+      "Ich gehe mit der Rechnung zum Finanzamt."
+    ],
+    "correctIndex": 1,
+    "hint": "Ähnlich wie bei einem Steuerbescheid gibt es auch hier ein formelles Verfahren, um die Entscheidung anzufechten.",
+    "explanation": "Wenn man eine Rechnung oder einen Bescheid von einer Behörde für falsch hält, muss man schriftlich Widerspruch bei dieser Behörde einlegen. Der Widerspruch muss in der Regel innerhalb eines Monats erfolgen.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 284,
+    "question": "Was man für die Arbeit können muss, ändert sich in Zukunft sehr schnell. Was kann man tun?",
+    "choices": [
+      "Es ist egal, was man lernt.",
+      "Kinder lernen in der Schule alles, was im Beruf wichtig ist. Nach der Schule muss man nicht weiter lernen.",
+      "Erwachsene müssen auch nach der Ausbildung immer weiter lernen.",
+      "Alle müssen früher aufhören zu arbeiten, weil sich alles ändert."
+    ],
+    "correctIndex": 2,
+    "hint": "Die Arbeitswelt erfordert ständige Anpassung und Weiterentwicklung. Wie nennt man diesen Prozess?",
+    "explanation": "In der modernen Arbeitswelt ist lebenslanges Lernen entscheidend, um mit technologischen und gesellschaftlichen Veränderungen Schritt zu halten. Erwachsene müssen sich durch Fort- und Weiterbildungen ständig neue Fähigkeiten und Kenntnisse aneignen, um beruflich relevant zu bleiben.",
+    "topic": "Arbeit und Beruf"
+  },
+  {
+    "id": 285,
+    "question": "Frau Frost arbeitet als fest angestellte Mitarbeiterin in einem Büro. Was muss sie nicht von ihrem Gehalt bezahlen?",
+    "choices": [
+      "Umsatzsteuer",
+      "Lohnsteuer",
+      "Beiträge zur Arbeitslosenversicherung",
+      "Beiträge zur Renten- und Krankenversicherung"
+    ],
+    "correctIndex": 0,
+    "hint": "Eine bestimmte Steuer wird nicht direkt vom Gehalt abgezogen, sondern ist in den Preisen von Waren und Dienstleistungen enthalten.",
+    "explanation": "Die Umsatzsteuer (auch Mehrwertsteuer) wird von Endverbrauchern beim Kauf von Waren und Dienstleistungen bezahlt. Sie wird nicht direkt vom Gehalt eines Angestellten abgezogen. Lohnsteuer und Sozialversicherungsbeiträge (Renten-, Kranken-, Pflege- und Arbeitslosenversicherung) werden hingegen direkt vom Bruttogehalt einbehalten.",
+    "topic": "Wirtschaft und Soziales"
+  },
+  {
+    "id": 286,
+    "question": "Welche Organisation in einer Firma hilft den Arbeitnehmern und Arbeitnehmerinnen bei Problemen mit dem Arbeitgeber / der Arbeitgeberin?",
+    "choices": [
+      "der Betriebsrat",
+      "der Betriebsprüfer / die Betriebsprüferin",
+      "die Betriebsgruppe",
+      "das Betriebsmanagement"
+    ],
+    "correctIndex": 0,
+    "hint": "Suche nach der gewählten Vertretung der Belegschaft in einem Unternehmen.",
+    "explanation": "Der Betriebsrat ist die gewählte Interessenvertretung der Arbeitnehmerinnen und Arbeitnehmer in einem Betrieb. Er hat Mitbestimmungsrechte und unterstützt die Belegschaft bei Konflikten mit dem Arbeitgeber.",
+    "topic": "Arbeit und Beruf"
+  },
+  {
+    "id": 287,
+    "question": "Sie möchten bei einer Firma in Deutschland Ihr Arbeitsverhältnis beenden. Was müssen Sie beachten?",
+    "choices": [
+      "die Gehaltszahlungen",
+      "die Arbeitszeit",
+      "die Kündigungsfrist",
+      "die Versicherungspflicht"
+    ],
+    "correctIndex": 2,
+    "hint": "Es gibt eine vertraglich oder gesetzlich festgelegte Zeitspanne zwischen der Erklärung der Kündigung und dem tatsächlichen Ende des Arbeitsverhältnisses.",
+    "explanation": "Bei der Beendigung eines Arbeitsverhältnisses muss die im Arbeitsvertrag oder gesetzlich festgelegte Kündigungsfrist eingehalten werden. Diese Frist gibt sowohl dem Arbeitnehmer als auch dem Arbeitgeber Planungssicherheit.",
+    "topic": "Arbeit und Beruf"
+  },
+  {
+    "id": 288,
+    "question": "Woraus begründet sich Deutschlands besondere Verantwortung für Israel?",
+    "choices": [
+      "aus der Mitgliedschaft in der Europäischen Union (EU)",
+      "aus den nationalsozialistischen Verbrechen gegen Juden",
+      "aus dem Grundgesetz der Bundesrepublik Deutschland",
+      "aus der christlichen Tradition"
+    ],
+    "correctIndex": 1,
+    "hint": "Die deutsche Geschichte des 20. Jahrhunderts hat eine dauerhafte moralische und politische Verpflichtung geschaffen.",
+    "explanation": "Deutschlands besondere Verantwortung für Israel ergibt sich aus der historischen Verantwortung für den Holocaust, den Völkermord an den europäischen Juden während der Zeit des Nationalsozialismus. Diese Verantwortung ist ein zentraler Pfeiler der deutschen Außenpolitik.",
+    "topic": "Geschichte und Verantwortung"
+  },
+  {
+    "id": 289,
+    "question": "Ein Mann mit dunkler Hautfarbe bewirbt sich um eine Stelle als Kellner in einem Restaurant in Deutschland. Was ist ein Beispiel für Diskriminierung? Er bekommt die Stelle nur deshalb nicht, weil …",
+    "choices": [
+      "seine Deutschkenntnisse zu gering sind.",
+      "er zu hohe Gehaltsvorstellungen hat.",
+      "er eine dunkle Haut hat.",
+      "er keine Erfahrungen im Beruf hat."
+    ],
+    "correctIndex": 2,
+    "hint": "Das Allgemeine Gleichbehandlungsgesetz (AGG) verbietet die Benachteiligung aufgrund der ethnischen Herkunft.",
+    "explanation": "Die Ablehnung eines Bewerbers allein aufgrund seiner Hautfarbe ist ein klarer Fall von rassistischer Diskriminierung und nach dem Allgemeinen Gleichbehandlungsgesetz (AGG) verboten. Die anderen Gründe (Sprachkenntnisse, Gehalt, Erfahrung) können sachlich gerechtfertigt sein.",
+    "topic": "Recht und Gesetz"
+  },
+  {
+    "id": 290,
+    "question": "Sie haben in Deutschland einen Fernseher gekauft. Zu Hause packen Sie den Fernseher aus, doch er funktioniert nicht. Der Fernseher ist kaputt. Was können Sie machen?",
+    "choices": [
+      "eine Anzeige schreiben",
+      "den Fernseher reklamieren",
+      "das Gerät ungefragt austauschen",
+      "die Garantie verlängern"
+    ],
+    "correctIndex": 1,
+    "hint": "Welches Recht haben Sie als Käufer, wenn die Ware einen Mangel aufweist?",
+    "explanation": "Wenn eine gekaufte Ware defekt ist, hat der Käufer das Recht auf Gewährleistung. Der erste Schritt ist die Reklamation beim Verkäufer. Dieser ist dann verpflichtet, die Ware zu reparieren oder zu ersetzen (Nacherfüllung).",
+    "topic": "Alltag in Deutschland"
+  },
+  {
+    "id": 291,
+    "question": "Warum muss man in Deutschland bei der Steuererklärung aufschreiben, ob man zu einer Kirche gehört oder nicht? Weil …",
+    "choices": [
+      "das für die Statistik in Deutschland wichtig ist.",
+      "es eine Kirchensteuer gibt, die an die Einkommen- und Lohnsteuer geknüpft ist.",
+      "man mehr Steuern zahlen muss, wenn man nicht zu einer Kirche gehört.",
+      "die Kirche für die Steuererklärung verantwortlich ist."
+    ],
+    "correctIndex": 1,
+    "hint": "In Deutschland erheben bestimmte Religionsgemeinschaften eine Steuer von ihren Mitgliedern, die vom Staat eingezogen wird.",
+    "explanation": "Mitglieder anerkannter Religionsgemeinschaften (z.B. evangelische oder katholische Kirche) zahlen in Deutschland Kirchensteuer. Diese wird als Prozentsatz der Lohn- bzw. Einkommensteuer berechnet und vom Finanzamt eingezogen. Daher ist die Angabe der Religionszugehörigkeit in der Steuererklärung erforderlich.",
+    "topic": "Wirtschaft und Soziales"
+  },
+  {
+    "id": 292,
+    "question": "Die Menschen in Deutschland leben nach dem Grundsatz der religiösen Toleranz. Was bedeutet das?",
+    "choices": [
+      "Es dürfen keine Moscheen gebaut werden.",
+      "Alle Menschen glauben an Gott.",
+      "Jeder kann glauben, was er möchte.",
+      "Der Staat entscheidet, an welchen Gott die Menschen glauben."
+    ],
+    "correctIndex": 2,
+    "hint": "Die Religionsfreiheit ist ein im Grundgesetz verankertes Recht.",
+    "explanation": "Religiöse Toleranz, verankert im Grundrecht auf Religionsfreiheit, bedeutet, dass jeder Mensch in Deutschland frei entscheiden kann, woran er glaubt oder ob er überhaupt einer Religion angehört. Der Staat ist weltanschaulich neutral und darf keine Religion vorschreiben oder verbieten.",
+    "topic": "Politik in der Demokratie"
+  },
+  {
+    "id": 293,
+    "question": "Was ist in Deutschland ein Brauch an Ostern?",
+    "choices": [
+      "Kürbisse vor die Tür stellen",
+      "einen Tannenbaum schmücken",
+      "Eier bemalen",
+      "Raketen in die Luft schießen"
+    ],
+    "correctIndex": 2,
+    "hint": "Denke an eine farbenfrohe Tradition, die besonders bei Kindern beliebt ist und den Frühling symbolisiert.",
+    "explanation": "Das Bemalen und Verstecken von Eiern ist ein sehr bekannter und beliebter Osterbrauch in Deutschland. Der Kürbis gehört zu Halloween, der Tannenbaum zu Weihnachten und Raketen zu Silvester.",
+    "topic": "Soziales und Kulturelles Leben"
+  },
+  {
+    "id": 294,
+    "question": "Pfingsten ist ein …",
+    "choices": [
+      "christlicher Feiertag.",
+      "deutscher Gedenktag.",
+      "internationaler Trauertag.",
+      "bayerischer Brauch."
+    ],
+    "correctIndex": 0,
+    "hint": "Dieser Feiertag findet 50 Tage nach Ostern statt und hat seinen Ursprung im Neuen Testament.",
+    "explanation": "Pfingsten ist ein hohes christliches Fest, an dem die Entsendung des Heiligen Geistes an die Apostel gefeiert wird. Es ist in ganz Deutschland ein gesetzlicher Feiertag.",
+    "topic": "Soziales und Kulturelles Leben"
+  },
+  {
+    "id": 295,
+    "question": "Welche Religion hat die europäische und deutsche Kultur geprägt?",
+    "choices": [
+      "der Hinduismus",
+      "das Christentum",
+      "der Buddhismus",
+      "der Islam"
+    ],
+    "correctIndex": 1,
+    "hint": "Denke an die vorherrschende Religion in der Geschichte Europas, die viele Feiertage, Traditionen und Werte beeinflusst hat.",
+    "explanation": "Das Christentum hat die Geschichte, Kultur, Werte und Gesellschaft in Deutschland und Europa über Jahrhunderte maßgeblich geprägt. Dies zeigt sich in Feiertagen, Architektur, Kunst und ethischen Vorstellungen.",
+    "topic": "Geschichte und Verantwortung"
+  },
+  {
+    "id": 296,
+    "question": "In Deutschland nennt man die letzten vier Wochen vor Weihnachten …",
+    "choices": [
+      "den Buß- und Bettag.",
+      "das Erntedankfest.",
+      "die Adventszeit.",
+      "Allerheiligen."
+    ],
+    "correctIndex": 2,
+    "hint": "Diese Zeit ist durch Adventskränze und Adventskalender geprägt und dient der Vorbereitung auf das Weihnachtsfest.",
+    "explanation": "Die Adventszeit umfasst die vier Sonntage vor dem ersten Weihnachtsfeiertag und ist die Zeit der Vorbereitung auf Weihnachten. Sie beginnt mit dem ersten Adventssonntag.",
+    "topic": "Soziales und Kulturelles Leben"
+  },
+  {
+    "id": 297,
+    "question": "Aus welchem Land sind die meisten Migranten / Migrantinnen nach Deutschland gekommen?",
+    "choices": ["Italien", "Polen", "Marokko", "Türkei"],
+    "correctIndex": 3,
+    "hint": "Denke an die 'Gastarbeiter'-Bewegung in der Nachkriegszeit, insbesondere an das Anwerbeabkommen von 1961.",
+    "explanation": "Historisch gesehen und über lange Zeiträume betrachtet, bildeten Menschen aus der Türkei die größte Gruppe von Migranten in Deutschland, insbesondere durch das Anwerbeabkommen für 'Gastarbeiter' in den 1960er Jahren.",
+    "topic": "Geschichte und Verantwortung"
+  },
+  {
+    "id": 298,
+    "question": "In der DDR lebten vor allem Migranten aus …",
+    "choices": [
+      "Vietnam, Polen, Mosambik.",
+      "Frankreich, Rumänien, Somalia.",
+      "Chile, Ungarn, Simbabwe.",
+      "Nordkorea, Mexiko, Ägypten."
+    ],
+    "correctIndex": 0,
+    "hint": "Die DDR hatte sogenannte 'Vertragsarbeiter'-Abkommen mit anderen sozialistischen 'Bruderländern'.",
+    "explanation": "Die Deutsche Demokratische Republik (DDR) schloss Abkommen mit sozialistischen Staaten, um sogenannte Vertragsarbeiter ins Land zu holen. Die größten Gruppen kamen aus Vietnam, Polen und Mosambik.",
+    "topic": "Geschichte und Verantwortung"
+  },
+  {
+    "id": 299,
+    "question": "Ausländische Arbeitnehmer und Arbeitnehmerinnen, die in den 50er und 60er Jahren von der Bundesrepublik Deutschland angeworben wurden, nannte man …",
+    "choices": [
+      "Schwarzarbeiter / Schwarzarbeiterinnen.",
+      "Gastarbeiter / Gastarbeiterinnen.",
+      "Zeitarbeiter / Zeitarbeiterinnen.",
+      "Schichtarbeiter / Schichtarbeiterinnen."
+    ],
+    "correctIndex": 1,
+    "hint": "Der Begriff sollte ausdrücken, dass ihr Aufenthalt nur vorübergehend geplant war.",
+    "explanation": "Die in den 1950er und 1960er Jahren von der Bundesrepublik Deutschland angeworbenen ausländischen Arbeitskräfte wurden als 'Gastarbeiter' bezeichnet. Man ging ursprünglich davon aus, dass sie nur für eine begrenzte Zeit 'zu Gast' sein würden, um zu arbeiten.",
+    "topic": "Geschichte und Verantwortung"
+  },
+  {
+    "id": 300,
+    "question": "Aus welchem Land kamen die ersten Gastarbeiter / Gastarbeiterinnen nach Deutschland?",
+    "choices": ["Italien", "Spanien", "Portugal", "Türkei"],
+    "correctIndex": 0,
+    "hint": "Das erste Anwerbeabkommen schloss die Bundesrepublik 1955 mit einem südeuropäischen Land.",
+    "explanation": "Die ersten 'Gastarbeiter' kamen nach dem Anwerbeabkommen zwischen der Bundesrepublik Deutschland und Italien im Jahr 1955 aus Italien.",
+    "topic": "Geschichte und Verantwortung"
+  }
+]
