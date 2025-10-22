@@ -1,6 +1,7 @@
 import { navigate } from '../router'
 import { ALL_DE } from '../state'
 import { loadProgress } from '../storage'
+import { Footer } from '../lib/footer'
 
 function dueCountToday(): number {
   const prog = loadProgress()
@@ -53,6 +54,9 @@ export function HomeView(): HTMLElement {
   root.querySelector('#examBtn')!.addEventListener('click', () => navigate('#/exam'))
   root.querySelector('#browseBtn')!.addEventListener('click', () => navigate('#/browse'))
   root.querySelector('#statsBtn')!.addEventListener('click', () => navigate('#/stats'))
+  
+  // Add footer to home page
+  root.appendChild(Footer())
   
   return root
 }
