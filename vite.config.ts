@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  base: "./", // Use relative paths for GitHub Pages compatibility
+  base: "/gouldian_finch/", // GitHub Pages deployment path
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
