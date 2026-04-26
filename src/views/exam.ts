@@ -1,6 +1,8 @@
 import { ALL_DE } from '../state'
 import { loadExamAttempts, saveExamAttempts, loadProgress, saveProgress, upsertCard } from '../storage'
 import type { Question, ExamAttempt } from '../types'
+import { navigate } from '../router'
+import { questionStudyId } from '../lib/study-ids'
 
 function sampleExam(): Question[] {
   const berlin = ALL_DE.filter(q => q.topic === 'Bundesland Berlin')
@@ -28,11 +30,17 @@ export function ExamView(): HTMLElement {
   let idx = 0
 
   root.innerHTML = `
-    <header class="py-4">
-      <h1 class="text-xl font-bold">📝 Exam Simulation</h1>
-      <p class="text-sm text-muted-foreground">33 questions · No timer · Pass with 17 correct</p>
+    <header class="exam-header">
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-base-content/60">Practice mode</p>
+        <h1 class="text-xl font-bold">📝 Exam Simulation</h1>
+        <p class="text-sm text-base-content/70">33 questions · No timer · Pass with 17 correct</p>
+      </div>
+      <button id="exitBtn" class="btn btn-ghost btn-sm">Exit exam</button>
     </header>
-    <div id="area"></div>
+    <div class="exam-body">
+      <div id="area"></div>
+    </div>
     <div class="cta-bar">
       <button class="btn btn-secondary flex-1" id="backBtn">← Back</button>
       <button class="btn btn-primary flex-1" id="nextBtn">Next →</button>
@@ -42,6 +50,7 @@ export function ExamView(): HTMLElement {
   const area = root.querySelector('#area') as HTMLDivElement
   const backBtn = root.querySelector('#backBtn') as HTMLButtonElement
   const nextBtn = root.querySelector('#nextBtn') as HTMLButtonElement
+  const exitBtn = root.querySelector('#exitBtn') as HTMLButtonElement
 
   function render() {
     const q = questions[idx]
@@ -175,7 +184,7 @@ export function ExamView(): HTMLElement {
         const map = loadProgress()
         let m = map
         for (const w of incorrect) {
-          m = upsertCard(m, w.id, (p) => ({ 
+          m = upsertCard(m, questionStudyId(w.id), (p) => ({ 
             ...p, 
             interval: 0, 
             dueDate: new Date().toISOString() 
@@ -204,6 +213,8 @@ export function ExamView(): HTMLElement {
       finish() 
     } 
   })
+
+  exitBtn.addEventListener('click', () => navigate('#/'))
 
   render()
   return root

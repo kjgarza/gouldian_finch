@@ -1,19 +1,35 @@
 @import "tailwindcss";
-@plugin "daisyui" {
+@plugin "../node_modules/daisyui/index.js" {
   themes: dracula;
 }
 
 @layer components {
+  .app-shell {
+    @apply min-h-screen;
+  }
+
   .page {
     @apply w-full;
   }
 
+  .app-nav {
+    @apply sticky top-0 z-50;
+  }
+
+  .nav-brand {
+    @apply min-h-[44px];
+  }
+
   .nav-btn {
-    @apply px-3 py-2 rounded-md hover:bg-base-200 text-base-content opacity-70 font-medium transition-colors duration-200 text-sm;
+    @apply inline-flex items-center justify-center px-3 py-2 rounded-md hover:bg-base-200 text-base-content opacity-70 font-medium transition-colors duration-200 text-sm whitespace-nowrap;
   }
 
   .nav-btn-active {
     @apply bg-base-200 text-base-content;
+  }
+
+  .nav-btn-mobile {
+    @apply w-full rounded-xl border border-base-300 bg-base-100 px-4 py-3 text-left text-base opacity-100;
   }
 
   .toggle {
@@ -25,8 +41,83 @@
   }
 
   .cta-bar {
-    @apply fixed bottom-0 left-0 right-0 bg-base-100 border-t border-base-300 p-4 flex gap-3;
-    @apply sm:relative sm:bottom-auto sm:left-auto sm:right-auto sm:border-t-0 sm:bg-transparent sm:p-0 sm:mt-6;
+    @apply fixed left-3 right-3 bottom-3 bg-base-100/95 border border-base-300 rounded-2xl p-3 flex gap-3 shadow-xl backdrop-blur;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    @apply sm:relative sm:bottom-auto sm:left-auto sm:right-auto sm:border-0 sm:rounded-none sm:bg-transparent sm:p-0 sm:mt-6 sm:shadow-none sm:backdrop-blur-none;
+  }
+
+  .main-immersive {
+    @apply max-w-none px-4 pt-4 pb-32;
+  }
+
+  .exam-header {
+    @apply flex items-start justify-between gap-3 rounded-2xl border border-base-300 bg-base-100/60 px-4 py-4 mb-4;
+  }
+
+  .exam-body {
+    @apply pb-28;
+  }
+
+  .memory-session-header {
+    @apply flex flex-col gap-3;
+  }
+
+  .memory-session-count {
+    @apply inline-flex w-fit items-center justify-center self-start rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .memory-card {
+    @apply min-h-[24rem] p-6 sm:p-8;
+  }
+
+  .memory-progress {
+    @apply inline-flex min-w-[4.5rem] items-center justify-center gap-1 rounded-full bg-neutral px-3 py-2 text-sm font-semibold text-neutral-content;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .memory-progress-separator {
+    @apply text-neutral-content/60;
+  }
+
+  .memory-face {
+    @apply min-h-[18rem] w-full overflow-hidden rounded-2xl border border-base-300 bg-gradient-to-br from-base-200 via-base-100 to-base-200 p-6 flex flex-col justify-center gap-5;
+  }
+
+  .memory-front,
+  .memory-back {
+    @apply w-full min-w-0;
+  }
+
+  .memory-front h2,
+  .memory-back h3 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-wrap: balance;
+  }
+
+  .memory-back {
+    @apply space-y-1;
+  }
+
+  .memory-reference {
+    @apply rounded-xl border border-base-300/70 bg-base-100/55 px-4 py-3;
+  }
+
+  .memory-answer {
+    @apply pt-1;
+  }
+
+  .memory-front-revealed {
+    @apply hidden;
+  }
+
+  .memory-face.is-revealed {
+    @apply border-primary/50 shadow-lg;
+  }
+
+  .memory-face.is-revealed .memory-front-revealed {
+    @apply hidden;
   }
 
   /* Choice styles for browse */
@@ -47,18 +138,54 @@
   }
 
   /* Mobile optimizations */
-  @screen sm {
+  @media (min-width: 640px) {
     .page {
       @apply px-0;
     }
-    
-    .cta-bar {
-      @apply pb-0;
+
+    .memory-session-header {
+      @apply flex-row items-start justify-between gap-4;
+    }
+
+    .memory-session-count {
+      @apply self-center;
     }
   }
 
   /* Ensure minimum touch targets on mobile */
   @media (max-width: 640px) {
+    .main-immersive {
+      @apply px-3 pt-3 pb-32;
+    }
+
+    .page {
+      @apply pb-28;
+    }
+
+    .exam-header {
+      @apply px-3 py-3;
+    }
+
+    .memory-card {
+      @apply min-h-[20rem] p-4;
+    }
+
+    .memory-session-count {
+      @apply px-3 py-1 text-xs;
+    }
+
+    .memory-face {
+      @apply min-h-[16rem] items-start p-5;
+    }
+
+    .memory-progress {
+      @apply min-w-[4.25rem] px-3 py-1.5 text-xs;
+    }
+
+    .memory-reference {
+      @apply px-3 py-2.5;
+    }
+
     .btn-primary,
     .btn-secondary,
     button {
@@ -67,6 +194,10 @@
 
     .nav-btn {
       @apply min-h-[44px] px-3;
+    }
+
+    .app-nav {
+      @apply px-0;
     }
 
     .toggle {

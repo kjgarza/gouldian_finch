@@ -1,21 +1,31 @@
 import { navigate } from '../router'
-import { ALL_DE } from '../state'
+import { ALL_DE, ALL_TERMS } from '../state'
 import { loadProgress } from '../storage'
 import { Footer } from '../lib/footer'
+import { countDueIncludingUnseen } from '../lib/study-session'
+import { questionStudyId, termStudyId } from '../lib/study-ids'
 
-function dueCountToday(): number {
+function reviewDueCountToday(): number {
   const prog = loadProgress()
-  const todayISO = new Date().toISOString().slice(0,10)
-  return ALL_DE.filter(q => {
-    const p = prog[q.id]
-    return p ? p.dueDate.slice(0,10) <= todayISO : true // unseen are due
-  }).length
+  return countDueIncludingUnseen(
+    ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })),
+    prog,
+  )
+}
+
+function memoryDueCountToday(): number {
+  const prog = loadProgress()
+  return countDueIncludingUnseen(
+    ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })),
+    prog,
+  )
 }
 
 export function HomeView(): HTMLElement {
   const root = document.createElement('div')
   root.className = 'page'
-  const due = dueCountToday()
+  const reviewDue = reviewDueCountToday()
+  const memoryDue = memoryDueCountToday()
   
   root.innerHTML = `
     <header class="py-6">
@@ -23,11 +33,17 @@ export function HomeView(): HTMLElement {
       <p class="text-center text-base-content opacity-70 mt-2">Prepare for your German naturalization exam</p>
     </header>
     
-    <div class="grid gap-4 sm:grid-cols-2">
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
       <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">📚 Study Mode</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Spaced repetition learning with ${due} cards due today</p>
+        <p class="text-sm text-base-content opacity-70 mb-4">Spaced repetition learning with ${reviewDue} cards due today</p>
         <button id="reviewBtn" class="btn btn-primary w-full">Start Review Session</button>
+      </div>
+
+      <div class="card bg-base-100 shadow">
+        <h2 class="text-xl font-semibold mb-3">🧠 Memory Terms</h2>
+        <p class="text-sm text-base-content opacity-70 mb-4">Flip through ${ALL_TERMS.length} German terms with ${memoryDue} cards due today</p>
+        <button id="memoryBtn" class="btn btn-primary w-full">Start Memory Session</button>
       </div>
       
       <div class="card bg-base-100 shadow">
@@ -51,6 +67,7 @@ export function HomeView(): HTMLElement {
   `
   
   root.querySelector('#reviewBtn')!.addEventListener('click', () => navigate('#/review'))
+  root.querySelector('#memoryBtn')!.addEventListener('click', () => navigate('#/memory'))
   root.querySelector('#examBtn')!.addEventListener('click', () => navigate('#/exam'))
   root.querySelector('#browseBtn')!.addEventListener('click', () => navigate('#/browse'))
   root.querySelector('#statsBtn')!.addEventListener('click', () => navigate('#/stats'))
