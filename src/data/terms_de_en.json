@@ -1,0 +1,171 @@
+[
+  {
+    "id": "grundgesetz",
+    "de": "Grundgesetz",
+    "en": "Basic Law",
+    "topic": "Politik in der Demokratie",
+    "questionIds": [1, 25, 125],
+    "note": "Germany's constitutional framework."
+  },
+  {
+    "id": "bundesrat",
+    "de": "Bundesrat",
+    "en": "Federal Council",
+    "topic": "Politik in der Demokratie",
+    "questionIds": [44, 171]
+  },
+  {
+    "id": "bundestag",
+    "de": "Bundestag",
+    "en": "Federal Parliament",
+    "topic": "Politik in der Demokratie",
+    "questionIds": [17, 145]
+  },
+  {
+    "id": "gewaltenteilung",
+    "de": "Gewaltenteilung",
+    "en": "Separation of powers",
+    "topic": "Politik in der Demokratie",
+    "questionIds": [53, 144]
+  },
+  {
+    "id": "rechtsstaat",
+    "de": "Rechtsstaat",
+    "en": "Constitutional state governed by law",
+    "topic": "Politik in der Demokratie",
+    "questionIds": [56]
+  },
+  {
+    "id": "meinungsfreiheit",
+    "de": "Meinungsfreiheit",
+    "en": "Freedom of expression",
+    "topic": "Politik in der Demokratie",
+    "questionIds": [74]
+  },
+  {
+    "id": "wahlgeheimnis",
+    "de": "Wahlgeheimnis",
+    "en": "Secret ballot",
+    "topic": "Politik in der Demokratie",
+    "questionIds": [96]
+  },
+  {
+    "id": "foederalismus",
+    "de": "Föderalismus",
+    "en": "Federalism",
+    "topic": "Politik in der Demokratie",
+    "questionIds": [169, 176]
+  },
+  {
+    "id": "wiedervereinigung",
+    "de": "Wiedervereinigung",
+    "en": "Reunification",
+    "topic": "Geschichte und Verantwortung",
+    "questionIds": [198, 199]
+  },
+  {
+    "id": "nationalsozialismus",
+    "de": "Nationalsozialismus",
+    "en": "National Socialism",
+    "topic": "Geschichte und Verantwortung",
+    "questionIds": [227, 230]
+  },
+  {
+    "id": "holocaust",
+    "de": "Holocaust",
+    "en": "Holocaust",
+    "topic": "Geschichte und Verantwortung",
+    "questionIds": [242, 248]
+  },
+  {
+    "id": "widerstand",
+    "de": "Widerstand",
+    "en": "Resistance",
+    "topic": "Geschichte und Verantwortung",
+    "questionIds": [238]
+  },
+  {
+    "id": "menschenwuerde",
+    "de": "Menschenwürde",
+    "en": "Human dignity",
+    "topic": "Geschichte und Verantwortung",
+    "questionIds": [212]
+  },
+  {
+    "id": "gleichberechtigung",
+    "de": "Gleichberechtigung",
+    "en": "Equal rights",
+    "topic": "Mensch und Gesellschaft",
+    "questionIds": [286, 291]
+  },
+  {
+    "id": "religionsfreiheit",
+    "de": "Religionsfreiheit",
+    "en": "Freedom of religion",
+    "topic": "Mensch und Gesellschaft",
+    "questionIds": [302]
+  },
+  {
+    "id": "sozialstaat",
+    "de": "Sozialstaat",
+    "en": "Social welfare state",
+    "topic": "Mensch und Gesellschaft",
+    "questionIds": [333]
+  },
+  {
+    "id": "tarifvertrag",
+    "de": "Tarifvertrag",
+    "en": "Collective bargaining agreement",
+    "topic": "Mensch und Gesellschaft",
+    "questionIds": [356]
+  },
+  {
+    "id": "kuendigungsschutzklage",
+    "de": "Kündigungsschutzklage",
+    "en": "Protection against dismissal lawsuit",
+    "topic": "Mensch und Gesellschaft",
+    "questionIds": [365]
+  },
+  {
+    "id": "arbeitsgericht",
+    "de": "Arbeitsgericht",
+    "en": "Labour court",
+    "topic": "Mensch und Gesellschaft",
+    "questionIds": [364]
+  },
+  {
+    "id": "mietspiegel",
+    "de": "Mietspiegel",
+    "en": "Local rent index",
+    "topic": "Mensch und Gesellschaft",
+    "questionIds": [387]
+  },
+  {
+    "id": "stolpersteine",
+    "de": "Stolpersteine",
+    "en": "Stumbling stones memorials",
+    "topic": "Geschichte und Verantwortung",
+    "questionIds": [560]
+  },
+  {
+    "id": "bezirksamt",
+    "de": "Bezirksamt",
+    "en": "District office",
+    "topic": "Bundesland Berlin",
+    "questionIds": [442]
+  },
+  {
+    "id": "abgeordnetenhaus",
+    "de": "Abgeordnetenhaus",
+    "en": "Berlin House of Representatives",
+    "topic": "Bundesland Berlin",
+    "questionIds": [431]
+  },
+  {
+    "id": "mauerfall",
+    "de": "Mauerfall",
+    "en": "Fall of the Berlin Wall",
+    "topic": "Bundesland Berlin",
+    "questionIds": [456]
+  }
+]

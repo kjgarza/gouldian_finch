@@ -1,58 +1,32 @@
 import { ALL_DE, byId } from '../state'
-import { loadProgress, saveProgress, upsertCard, loadStats, saveStats } from '../storage'
+import { loadProgress, saveProgress, upsertCard } from '../storage'
 import type { Question, CardProgress } from '../types'
 import { updateCard } from '../sm2'
 import { Locales } from '../i18n'
+import { questionStudyId } from '../lib/study-ids'
+import { pickStudyBatch } from '../lib/study-session'
+import { recordReviewAnswer } from '../lib/study-stats'
 
 const BATCH_SIZE = 20
 
-type SessionItem = { q: Question; progress: CardProgress }
+type ReviewStudyItem = {
+  q: Question
+  studyId: string
+}
+
+type SessionItem = { q: Question; progress: CardProgress; studyId: string }
 
 function pickDueBatch(): SessionItem[] {
   const prog = loadProgress()
-  const todayISO = new Date().toISOString().slice(0,10)
+  const items: ReviewStudyItem[] = ALL_DE.map((q) => ({
+    q,
+    studyId: questionStudyId(q.id),
+  }))
 
-  const due: Question[] = []
-  const newOnes: Question[] = []
-
-  for (const q of ALL_DE) {
-    const p = prog[q.id]
-    if (!p) { 
-      newOnes.push(q)
-      continue 
-    }
-    if (p.dueDate.slice(0,10) <= todayISO) {
-      due.push(q)
-    }
-  }
-
-  const selected: Question[] = []
-  // Sort due cards by due date (oldest first)
-  due.sort((a,b) => {
-    const aDate = prog[a.id]?.dueDate || '0'
-    const bDate = prog[b.id]?.dueDate || '0'
-    return new Date(aDate).getTime() - new Date(bDate).getTime()
-  })
-  
-  // Add due cards first
-  for (const q of due) { 
-    if (selected.length < BATCH_SIZE) selected.push(q) 
-  }
-  
-  // Fill remaining slots with new cards
-  let i = 0
-  while (selected.length < BATCH_SIZE && i < newOnes.length) { 
-    selected.push(newOnes[i++]) 
-  }
-
-  return selected.map(q => ({ 
-    q, 
-    progress: prog[q.id] ?? { 
-      id: q.id, 
-      interval: 0, 
-      ease: 2.5, 
-      dueDate: new Date().toISOString() 
-    } 
+  return pickStudyBatch(items, prog, BATCH_SIZE).map(({ item, progress }) => ({
+    q: item.q,
+    progress,
+    studyId: item.studyId,
   }))
 }
 
@@ -181,36 +155,13 @@ export function ReviewView(): HTMLElement {
     goodBtn.disabled = !correct // Good only when correct
 
     // Update accuracy stats immediately
-    const stats = loadStats()
-    const total = stats.totalAnswered + 1
-    const correctCount = Math.round(stats.accuracy * stats.totalAnswered) + (correct ? 1 : 0)
-    stats.totalAnswered = total
-    stats.accuracy = correctCount / total
-
-    // Update streak
-    const today = new Date().toISOString().slice(0,10)
-    if (stats.lastStudyDate) {
-      const prev = stats.lastStudyDate
-      if (prev === today) {
-        // already studying today, don't change streak
-      } else {
-        // check if consecutive day
-        const prevDate = new Date(prev)
-        const todayDate = new Date(today)
-        const diff = Math.floor((todayDate.getTime() - prevDate.getTime()) / (1000 * 60 * 60 * 24))
-        stats.streak = diff === 1 ? stats.streak + 1 : 1
-      }
-    } else {
-      stats.streak = 1
-    }
-    stats.lastStudyDate = today
-    saveStats(stats)
+    recordReviewAnswer(correct)
   }
 
   function advance(grade: 'again'|'good') {
     const map = loadProgress()
     const item = queue[current]
-    const updatedMap = upsertCard(map, item.q.id, (p) => updateCard(p, grade))
+    const updatedMap = upsertCard(map, item.studyId, (p) => updateCard(p, grade))
     saveProgress(updatedMap)
 
     if (grade === 'again') {

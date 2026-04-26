@@ -1,4 +1,6 @@
-import type { ProgressMap, Stats, ExamAttempt, CardProgress } from './types'
+import type { ProgressMap, Stats, ExamAttempt, CardProgress, StudyId } from './types'
+import { questionStudyId } from './lib/study-ids'
+import { createDefaultProgress } from './lib/study-session'
 
 const KEYS = {
   progress: 'citizenTest_progress',
@@ -8,7 +10,12 @@ const KEYS = {
 
 export function loadProgress(): ProgressMap {
   try { 
-    return JSON.parse(localStorage.getItem(KEYS.progress) || '{}') 
+    const raw = JSON.parse(localStorage.getItem(KEYS.progress) || '{}') as Record<string, CardProgress>
+    const migrated = migrateLegacyProgress(raw)
+    if (JSON.stringify(raw) !== JSON.stringify(migrated)) {
+      saveProgress(migrated)
+    }
+    return migrated
   } catch { 
     return {} 
   }
@@ -20,9 +27,17 @@ export function saveProgress(map: ProgressMap) {
 
 export function loadStats(): Stats {
   try {
-    return JSON.parse(localStorage.getItem(KEYS.stats) || '{}') 
+    const parsed = JSON.parse(localStorage.getItem(KEYS.stats) || '{}') as Partial<Stats>
+    return {
+      streak: parsed.streak || 0,
+      accuracy: parsed.accuracy || 0,
+      totalAnswered: parsed.totalAnswered || 0,
+      lastStudyDate: parsed.lastStudyDate,
+      memoryAnswered: parsed.memoryAnswered || 0,
+      memoryAccuracy: parsed.memoryAccuracy || 0,
+    }
   } catch { 
-    return { streak: 0, accuracy: 0, totalAnswered: 0 } 
+    return { streak: 0, accuracy: 0, totalAnswered: 0, memoryAnswered: 0, memoryAccuracy: 0 } 
   }
 }
 
@@ -42,11 +57,29 @@ export function saveExamAttempts(a: ExamAttempt[]) {
   localStorage.setItem(KEYS.exam, JSON.stringify(a))
 }
 
-export function upsertCard(map: ProgressMap, id: number, updater: (p: CardProgress) => CardProgress): ProgressMap {
-  const today = new Date()
-  const existing = map[id] || { id, interval: 0, ease: 2.5, dueDate: today.toISOString() }
+export function upsertCard(map: ProgressMap, id: StudyId, updater: (p: CardProgress) => CardProgress): ProgressMap {
+  const existing = map[id] || createDefaultProgress(id)
   const next = updater(existing)
   return { ...map, [id]: next }
+}
+
+function migrateLegacyProgress(raw: Record<string, CardProgress>): ProgressMap {
+  const migrated: ProgressMap = {}
+
+  for (const [key, value] of Object.entries(raw)) {
+    const numericId = Number(key)
+    const nextId = Number.isFinite(numericId) && key.trim() !== ''
+      ? questionStudyId(numericId)
+      : String(value?.id || key)
+
+    migrated[nextId] = {
+      ...createDefaultProgress(nextId),
+      ...value,
+      id: nextId,
+    }
+  }
+
+  return migrated
 }
 
 export function resetAll() {

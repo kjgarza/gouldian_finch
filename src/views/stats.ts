@@ -1,15 +1,32 @@
 import { loadProgress, resetAll, loadStats, loadExamAttempts } from '../storage'
-import { ALL_DE } from '../state'
+import { ALL_DE, ALL_TERMS } from '../state'
+import { isQuestionStudyId, isTermStudyId, questionStudyId, termStudyId } from '../lib/study-ids'
+import { countDueIncludingUnseen } from '../lib/study-session'
 
-function dueToday(): number {
+function reviewDueToday(): number {
   const prog = loadProgress()
-  const today = new Date().toISOString().slice(0,10)
-  return Object.values(prog).filter(p => p.dueDate.slice(0,10) <= today).length
+  return countDueIncludingUnseen(
+    ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })),
+    prog,
+  )
 }
 
-function totalLearned(): number {
+function memoryDueToday(): number {
   const prog = loadProgress()
-  return Object.keys(prog).length
+  return countDueIncludingUnseen(
+    ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })),
+    prog,
+  )
+}
+
+function totalLearnedQuestions(): number {
+  const prog = loadProgress()
+  return Object.keys(prog).filter(isQuestionStudyId).length
+}
+
+function totalLearnedTerms(): number {
+  const prog = loadProgress()
+  return Object.keys(prog).filter(isTermStudyId).length
 }
 
 export function StatsView(): HTMLElement {
@@ -17,8 +34,10 @@ export function StatsView(): HTMLElement {
   root.className = 'page'
   
   const stats = loadStats()
-  const due = dueToday()
-  const learned = totalLearned()
+  const reviewDue = reviewDueToday()
+  const memoryDue = memoryDueToday()
+  const learnedQuestions = totalLearnedQuestions()
+  const learnedTerms = totalLearnedTerms()
   const attempts = loadExamAttempts()
   const lastAttempt = attempts[0]
   const passedAttempts = attempts.filter(a => a.score >= 17).length
@@ -33,7 +52,7 @@ export function StatsView(): HTMLElement {
     </header>
     
     <!-- Key Stats -->
-    <div class="grid gap-4 sm:grid-cols-3 mb-6">
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-6">
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Study Streak</div>
         <div class="text-3xl font-bold text-primary mt-1">${stats.streak || 0}</div>
@@ -47,9 +66,15 @@ export function StatsView(): HTMLElement {
       </div>
       
       <div class="card bg-base-100 shadow p-4 text-center">
-        <div class="text-base-content opacity-70 text-sm font-medium">Due Today</div>
-        <div class="text-3xl font-bold text-warning mt-1">${due}</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">cards ready for review</div>
+        <div class="text-base-content opacity-70 text-sm font-medium">Review Due</div>
+        <div class="text-3xl font-bold text-warning mt-1">${reviewDue}</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">question cards ready</div>
+      </div>
+
+      <div class="card bg-base-100 shadow p-4 text-center">
+        <div class="text-base-content opacity-70 text-sm font-medium">Memory Accuracy</div>
+        <div class="text-3xl font-bold text-info mt-1">${Math.round((stats.memoryAccuracy || 0) * 100)}%</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">${stats.memoryAnswered || 0} term cards answered</div>
       </div>
     </div>
     
@@ -60,14 +85,25 @@ export function StatsView(): HTMLElement {
         <div class="space-y-3">
           <div class="flex justify-between items-center">
             <span class="text-base-content opacity-70">Questions learned</span>
-            <span class="font-semibold">${learned} / ${ALL_DE.length}</span>
+            <span class="font-semibold">${learnedQuestions} / ${ALL_DE.length}</span>
           </div>
           <div class="w-full bg-base-200 rounded-full h-2">
             <div class="bg-primary h-2 rounded-full transition-all duration-300" 
-                 style="width: ${(learned / ALL_DE.length * 100)}%"></div>
+                 style="width: ${(learnedQuestions / ALL_DE.length * 100)}%"></div>
           </div>
           <div class="text-xs text-base-content opacity-70">
-            ${Math.round((learned / ALL_DE.length) * 100)}% complete
+            ${Math.round((learnedQuestions / ALL_DE.length) * 100)}% complete
+          </div>
+          <div class="flex justify-between items-center pt-2 border-t border-base-300">
+            <span class="text-base-content opacity-70">Term cards learned</span>
+            <span class="font-semibold">${learnedTerms} / ${ALL_TERMS.length}</span>
+          </div>
+          <div class="w-full bg-base-200 rounded-full h-2">
+            <div class="bg-info h-2 rounded-full transition-all duration-300"
+                 style="width: ${(learnedTerms / ALL_TERMS.length * 100)}%"></div>
+          </div>
+          <div class="text-xs text-base-content opacity-70">
+            ${memoryDue} term card${memoryDue === 1 ? '' : 's'} due now
           </div>
           
           ${stats.lastStudyDate ? `

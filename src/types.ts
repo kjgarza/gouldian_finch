@@ -7,14 +7,25 @@ export interface Question {
   topic: Topic
 }
 
+export interface Term {
+  id: string
+  de: string
+  en: string
+  topic?: Topic
+  questionIds?: number[]
+  note?: string
+}
+
 export type Topic = 
   | "Politik in der Demokratie"
   | "Geschichte und Verantwortung" 
   | "Mensch und Gesellschaft"
   | "Bundesland Berlin"
 
+export type StudyId = string
+
 export interface CardProgress {
-  id: number
+  id: StudyId
   interval: number
   ease: number
   dueDate: string // ISO date
@@ -27,6 +38,8 @@ export interface Stats {
   accuracy: number
   totalAnswered: number
   lastStudyDate?: string // ISO date for streak
+  memoryAnswered?: number
+  memoryAccuracy?: number
 }
 
 export interface ExamAttempt {
