@@ -34,9 +34,9 @@ export function BerlinView(): HTMLElement {
   let current = 0
   let answeredCorrect = false
   const showEN = Locales.get()
-  // Derived from the whole deck, not the due batch: the warning has to stand
-  // while any Berlin question is still drafted, whatever is due today.
-  const hasUnverified = ALL_BERLIN_DE.some((q) => q.unverified)
+  // Derived from the whole deck, not the due batch: the notice has to stand
+  // whatever happens to be due today.
+  const substitutedCount = ALL_BERLIN_DE.filter((q) => q.substituted).length
 
   root.innerHTML = `
     <header class="py-4 flex items-center justify-between gap-3">
@@ -49,10 +49,10 @@ export function BerlinView(): HTMLElement {
         <span class="label-text">English helper</span>
       </label>
     </header>
-    ${hasUnverified ? `
-      <div class="alert alert-warning mb-4 text-sm">
-        ⚠️ Draft content — these questions still need to be checked against the official
-        Einbürgerungstest catalogue for Berlin.
+    ${substitutedCount > 0 ? `
+      <div class="alert alert-info mb-4 text-sm">
+        ℹ️ ${substitutedCount} of these questions show images in the official test.
+        They are replaced here with text versions that check the same facts.
       </div>
     ` : ''}
     <div id="cardArea"></div>

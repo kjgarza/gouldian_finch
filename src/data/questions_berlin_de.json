@@ -1,7 +1,7 @@
 [
   {
     "id": 301,
-    "question": "Was ist das Wappentier des Bundeslandes Berlin?",
+    "question": "Was ist das Wappentier von Berlin?",
     "choices": [
       "Der Bär",
       "Der Adler",
@@ -9,144 +9,136 @@
       "Das Pferd"
     ],
     "correctIndex": 0,
-    "hint": "Das Tier steht im Landeswappen und auf der Landesflagge und ist als Figur überall in der Stadt zu sehen.",
-    "explanation": "Der Berliner Bär ist seit dem 13. Jahrhundert das Symbol der Stadt. Er steht im Landeswappen auf weißem Grund und ist auch auf der Landesflagge von Berlin abgebildet.",
+    "hint": "Das Tier steht seit dem Mittelalter im Wappen und auf der Flagge der Stadt.",
+    "explanation": "Das Landeswappen von Berlin zeigt einen silbernen (weißen) Bären auf rotem Schild. Der Bär ist seit dem Mittelalter das Wappentier Berlins. Hinweis: Die amtliche Frage zeigt vier Wappenbilder zur Auswahl; diese Textfassung prüft dieselbe Tatsache.",
     "topic": "Bundesland Berlin",
-    "unverified": true
+    "substituted": true
   },
   {
     "id": 302,
-    "question": "Wie heißt das Landesparlament von Berlin?",
+    "question": "Welches ist ein Bezirk von Berlin?",
     "choices": [
-      "Abgeordnetenhaus",
-      "Bürgerschaft",
-      "Landtag",
-      "Bundesrat"
+      "Altona",
+      "Prignitz",
+      "Pankow",
+      "Mecklenburgische Seenplatte"
     ],
-    "correctIndex": 0,
-    "hint": "Berlin ist das einzige Bundesland, das sein Parlament so nennt.",
-    "explanation": "Das Landesparlament von Berlin heißt Abgeordnetenhaus. In den Flächenländern heißt das Parlament Landtag, in Hamburg und Bremen Bürgerschaft. Der Bundesrat ist dagegen ein Verfassungsorgan des Bundes.",
-    "topic": "Bundesland Berlin",
-    "unverified": true
+    "correctIndex": 2,
+    "hint": "Einer der genannten Orte liegt in Hamburg, einer in Brandenburg, einer in Mecklenburg-Vorpommern.",
+    "explanation": "Berlin ist in Bezirke gegliedert, und Pankow ist einer davon. Zum Bezirk Pankow gehören unter anderem Prenzlauer Berg und Weißensee. Altona ist ein Hamburger Bezirk, die Prignitz ein Landkreis in Brandenburg und die Mecklenburgische Seenplatte ein Landkreis in Mecklenburg-Vorpommern.",
+    "topic": "Bundesland Berlin"
   },
   {
     "id": 303,
-    "question": "In wie viele Bezirke ist Berlin gegliedert?",
+    "question": "Für wie viele Jahre wird das Landesparlament in Berlin gewählt?",
     "choices": [
-      "12",
-      "8",
-      "16",
-      "23"
+      "3",
+      "4",
+      "5",
+      "6"
     ],
-    "correctIndex": 0,
-    "hint": "Bei der Bezirksreform im Jahr 2001 wurde die Zahl der Bezirke deutlich verringert.",
-    "explanation": "Berlin ist seit der Bezirksreform von 2001 in zwölf Bezirke gegliedert, zum Beispiel Mitte, Pankow oder Neukölln. Vorher waren es 23 Bezirke.",
-    "topic": "Bundesland Berlin",
-    "unverified": true
+    "correctIndex": 2,
+    "hint": "Die Wahlperiode ist ein Jahr länger als die des Deutschen Bundestages.",
+    "explanation": "Das Landesparlament von Berlin, das Abgeordnetenhaus, wird für fünf Jahre gewählt. Es beschließt die Landesgesetze, kontrolliert die Regierung und vertritt die Bürgerinnen und Bürger Berlins.",
+    "topic": "Bundesland Berlin"
   },
   {
     "id": 304,
-    "question": "Wie oft wird das Abgeordnetenhaus von Berlin regulär gewählt?",
+    "question": "Ab welchem Alter darf man in Berlin bei Kommunalwahlen (Wahl der Bezirksverordnetenversammlung) wählen?",
     "choices": [
-      "Alle fünf Jahre",
-      "Alle vier Jahre",
-      "Alle drei Jahre",
-      "Alle sechs Jahre"
+      "14",
+      "16",
+      "18",
+      "20"
     ],
-    "correctIndex": 0,
-    "hint": "Die Wahlperiode ist ein Jahr länger als die des Deutschen Bundestages.",
-    "explanation": "Das Abgeordnetenhaus von Berlin wird regulär alle fünf Jahre gewählt. Der Deutsche Bundestag wird dagegen alle vier Jahre gewählt.",
-    "topic": "Bundesland Berlin",
-    "unverified": true
+    "correctIndex": 1,
+    "hint": "Für die Wahl zum Abgeordnetenhaus gilt ein höheres Mindestalter.",
+    "explanation": "In Berlin darf man ab 16 Jahren bei Kommunalwahlen, also bei der Wahl der Bezirksverordnetenversammlung, wählen. So können sich auch junge Bürgerinnen und Bürger an den Entscheidungen in ihrem Bezirk beteiligen.",
+    "topic": "Bundesland Berlin"
   },
   {
     "id": 305,
-    "question": "Wie heißt das Regierungsoberhaupt des Bundeslandes Berlin?",
+    "question": "Welche Farben hat die Landesflagge von Berlin?",
     "choices": [
-      "Regierende Bürgermeisterin / Regierender Bürgermeister",
-      "Ministerpräsidentin / Ministerpräsident",
-      "Landrätin / Landrat",
-      "Oberbürgermeisterin / Oberbürgermeister"
+      "blau-weiß-rot",
+      "weiß-rot",
+      "grün-weiß-rot",
+      "schwarz-gold"
     ],
-    "correctIndex": 0,
-    "hint": "In den Stadtstaaten trägt die Regierungschefin oder der Regierungschef einen Bürgermeistertitel.",
-    "explanation": "An der Spitze der Berliner Landesregierung steht die Regierende Bürgermeisterin oder der Regierende Bürgermeister. Sie oder er wird vom Abgeordnetenhaus gewählt. In den Flächenländern heißt dieses Amt Ministerpräsidentin oder Ministerpräsident.",
-    "topic": "Bundesland Berlin",
-    "unverified": true
+    "correctIndex": 1,
+    "hint": "Es sind dieselben Farben wie im Berliner Wappen: der weiße Bär auf Rot.",
+    "explanation": "Die Landesflagge von Berlin ist weiß-rot. Die Farben gehen auf das Wappen der Mark Brandenburg zurück, zu der Berlin historisch gehörte.",
+    "topic": "Bundesland Berlin"
   },
   {
     "id": 306,
-    "question": "Wie heißt die Landesregierung von Berlin?",
+    "question": "Wo können Sie sich in Berlin über politische Themen informieren?",
     "choices": [
-      "Der Senat",
-      "Das Kabinett",
-      "Der Magistrat",
-      "Der Staatsrat"
+      "beim Ordnungsamt der Gemeinde",
+      "bei den Kirchen",
+      "bei der Verbraucherzentrale",
+      "bei der Landeszentrale für politische Bildung"
     ],
-    "correctIndex": 0,
-    "hint": "Die einzelnen Mitglieder dieser Regierung heißen Senatorinnen und Senatoren.",
-    "explanation": "Die Landesregierung von Berlin heißt Senat. Sie besteht aus der oder dem Regierenden Bürgermeister/in und den Senatorinnen und Senatoren, die die einzelnen Ressorts leiten.",
-    "topic": "Bundesland Berlin",
-    "unverified": true
+    "correctIndex": 3,
+    "hint": "Gesucht ist eine staatliche Stelle, die neutral über Politik informiert.",
+    "explanation": "Die Landeszentrale für politische Bildung informiert neutral und sachlich über politische Themen. Sie bietet Veranstaltungen, Materialien und Beratung an und fördert so die politische Bildung der Bürgerinnen und Bürger.",
+    "topic": "Bundesland Berlin"
   },
   {
     "id": 307,
-    "question": "Ab welchem Alter darf man in Berlin an der Wahl zur Bezirksverordnetenversammlung teilnehmen?",
+    "question": "Welches Bundesland ist ein Stadtstaat?",
     "choices": [
-      "Ab 16 Jahren",
-      "Ab 18 Jahren",
-      "Ab 21 Jahren",
-      "Ab 14 Jahren"
+      "Berlin",
+      "Saarland",
+      "Brandenburg",
+      "Hessen"
     ],
     "correctIndex": 0,
-    "hint": "Für die Wahl zum Abgeordnetenhaus gilt ein höheres Mindestalter als für die Wahl in den Bezirken.",
-    "explanation": "In Berlin darf man ab 16 Jahren an der Wahl zur Bezirksverordnetenversammlung teilnehmen. Für die Wahl zum Abgeordnetenhaus muss man dagegen mindestens 18 Jahre alt sein.",
-    "topic": "Bundesland Berlin",
-    "unverified": true
+    "hint": "Neben diesem Bundesland sind auch Hamburg und Bremen Stadtstaaten.",
+    "explanation": "Berlin ist zugleich Stadt und Bundesland und damit ein Stadtstaat. Als Hauptstadt Deutschlands hat Berlin eine eigene Landesregierung, ein eigenes Landesparlament und eine eigene Verwaltung. Die anderen Stadtstaaten sind Hamburg und Bremen.",
+    "topic": "Bundesland Berlin"
   },
   {
     "id": 308,
-    "question": "Wer darf in Berlin an der Wahl zur Bezirksverordnetenversammlung teilnehmen?",
+    "question": "Von welchem Bundesland ist Berlin vollständig umgeben?",
     "choices": [
-      "Menschen mit deutscher Staatsangehörigkeit oder mit der Staatsangehörigkeit eines anderen EU-Staates, die im Bezirk gemeldet sind",
-      "Nur Menschen mit deutscher Staatsangehörigkeit",
-      "Alle in Berlin gemeldeten Menschen, unabhängig von ihrer Staatsangehörigkeit",
-      "Nur Menschen, die in Berlin geboren sind"
+      "Brandenburg",
+      "Sachsen",
+      "Sachsen-Anhalt",
+      "Mecklenburg-Vorpommern"
     ],
     "correctIndex": 0,
-    "hint": "Auf kommunaler Ebene dürfen auch Unionsbürgerinnen und Unionsbürger wählen.",
-    "explanation": "Bei der Wahl zur Bezirksverordnetenversammlung gilt das kommunale Wahlrecht: Neben deutschen Staatsangehörigen dürfen auch Staatsangehörige anderer EU-Staaten wählen, wenn sie im jeweiligen Bezirk gemeldet sind. Für die Wahl zum Abgeordnetenhaus ist dagegen die deutsche Staatsangehörigkeit nötig.",
+    "hint": "Das Nachbarland hat Potsdam als Landeshauptstadt.",
+    "explanation": "Berlin liegt vollständig innerhalb des Bundeslandes Brandenburg, dessen Landeshauptstadt Potsdam ist. Hinweis: Die amtliche Frage \"Welches Bundesland ist Berlin?\" zeigt vier Kartenbilder zur Auswahl; diese Textfassung prüft die Lage Berlins ohne Karte.",
     "topic": "Bundesland Berlin",
-    "unverified": true
+    "substituted": true
   },
   {
     "id": 309,
-    "question": "Welche Farben hat die Landesflagge von Berlin?",
+    "question": "Wie nennt man den Regierungschef / die Regierungschefin des Stadtstaates Berlin?",
     "choices": [
-      "Rot und Weiß",
-      "Schwarz und Gold",
-      "Blau und Weiß",
-      "Grün und Weiß"
+      "Ministerpräsident / Ministerpräsidentin",
+      "Oberbürgermeister / Oberbürgermeisterin",
+      "Präsident / Präsidentin des Senats",
+      "Regierender Bürgermeister / Regierende Bürgermeisterin"
     ],
-    "correctIndex": 0,
-    "hint": "Das Wappentier steht auf weißem Grund zwischen zwei farbigen Streifen.",
-    "explanation": "Die Landesflagge von Berlin ist rot-weiß-rot gestreift und zeigt in der Mitte auf dem weißen Feld den Berliner Bären.",
-    "topic": "Bundesland Berlin",
-    "unverified": true
+    "correctIndex": 3,
+    "hint": "In den Stadtstaaten trägt die Regierungschefin oder der Regierungschef einen Bürgermeistertitel.",
+    "explanation": "Der Regierungschef oder die Regierungschefin des Stadtstaates Berlin heißt Regierender Bürgermeister beziehungsweise Regierende Bürgermeisterin. Diese Person leitet den Senat, vertritt Berlin nach außen und steht an der Spitze der Landesregierung.",
+    "topic": "Bundesland Berlin"
   },
   {
     "id": 310,
-    "question": "Was trifft auf Berlin zu?",
+    "question": "Welchen Senator / welche Senatorin hat Berlin nicht?",
     "choices": [
-      "Berlin ist zugleich Stadt und Bundesland",
-      "Berlin ist eine Stadt im Bundesland Brandenburg",
-      "Berlin ist ein Bundesland ohne eigene Hauptstadt",
-      "Berlin ist ein Regierungsbezirk des Bundes"
+      "Finanzsenator / Finanzsenatorin",
+      "Innensenator / Innensenatorin",
+      "Senator / Senatorin für Außenbeziehungen",
+      "Justizsenator / Justizsenatorin"
     ],
-    "correctIndex": 0,
-    "hint": "Auch Hamburg und Bremen haben diese besondere Stellung.",
-    "explanation": "Berlin ist ein Stadtstaat: Es ist gleichzeitig eine Stadt und eines der 16 Bundesländer. Außerdem ist Berlin die Hauptstadt der Bundesrepublik Deutschland. Hamburg und Bremen sind die beiden anderen Stadtstaaten.",
-    "topic": "Bundesland Berlin",
-    "unverified": true
+    "correctIndex": 2,
+    "hint": "Ein Politikfeld ist Sache des Bundes und nicht eines Bundeslandes.",
+    "explanation": "Berlin hat keinen Senator und keine Senatorin für Außenbeziehungen. Die Außenpolitik ist Aufgabe des Bundes. Berlin hat dagegen Senatorinnen und Senatoren für Bereiche wie Finanzen, Inneres und Justiz.",
+    "topic": "Bundesland Berlin"
   }
 ]

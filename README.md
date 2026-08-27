@@ -171,10 +171,10 @@ Both German and English files must share identical `id` and `topic` values for p
 Topic values in `questions_de.json` are assigned by the pipeline's `inferTopic()` heuristic and are
 broader than the four official exam categories.
 
-> ⚠️ **The Berlin questions are drafted, not verified.** Every entry in the Berlin files carries
-> `"unverified": true`, and the app shows a warning banner while any loaded card has that flag.
-> Check the wording and correct answers against the official BAMF catalogue for Berlin, then remove
-> the flags.
+The Berlin questions, options and explanations follow the official state catalogue. Two of them
+(301, the state coat of arms, and 308, locating Berlin on a map) present their options as **images**
+in the real test. Since this app is text-only, both carry `"substituted": true` and use a text
+question that checks the same fact; the Berlin view shows a notice saying how many are substituted.
 
 ## 💾 Data Persistence
 
