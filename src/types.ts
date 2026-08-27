@@ -38,6 +38,7 @@ export interface Stats {
   accuracy: number
   totalAnswered: number
   lastStudyDate?: string // ISO date for streak
+  studiedDates?: string[] // ISO dates with at least one answered card, oldest first
   memoryAnswered?: number
   memoryAccuracy?: number
 }
