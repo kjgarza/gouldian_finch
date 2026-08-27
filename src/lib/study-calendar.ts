@@ -36,7 +36,15 @@ export function todayISO(now: Date = new Date()): string {
 }
 
 export function isISODate(value: unknown): value is string {
-  return typeof value === 'string' && ISO_DATE.test(value) && !Number.isNaN(Date.parse(value))
+  if (typeof value !== 'string' || !ISO_DATE.test(value)) return false
+  const [yearText, monthText, dayText] = value.split('-')
+  const year = Number(yearText)
+  const month = Number(monthText)
+  const day = Number(dayText)
+  const parsed = new Date(Date.UTC(year, month - 1, day))
+  return parsed.getUTCFullYear() === year
+    && parsed.getUTCMonth() === month - 1
+    && parsed.getUTCDate() === day
 }
 
 function toUTC(date: string): number {
