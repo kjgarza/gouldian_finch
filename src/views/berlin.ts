@@ -34,7 +34,9 @@ export function BerlinView(): HTMLElement {
   let current = 0
   let answeredCorrect = false
   const showEN = Locales.get()
-  const hasUnverified = queue.some(({ q }) => q.unverified)
+  // Derived from the whole deck, not the due batch: the warning has to stand
+  // while any Berlin question is still drafted, whatever is due today.
+  const hasUnverified = ALL_BERLIN_DE.some((q) => q.unverified)
 
   root.innerHTML = `
     <header class="py-4 flex items-center justify-between gap-3">
@@ -75,11 +77,22 @@ export function BerlinView(): HTMLElement {
   const goodBtn = root.querySelector('#goodBtn') as HTMLButtonElement
 
   function renderCard() {
-    if (queue.length === 0) {
+    if (ALL_BERLIN_DE.length === 0) {
       cardArea.innerHTML = `
         <div class="card text-center bg-base-100 shadow">
           <h2 class="text-lg font-semibold">No Berlin cards loaded</h2>
           <p class="mt-2 text-base-content opacity-70">Add the Berlin state questions to <code>src/data/questions_berlin_de.json</code> to start this deck.</p>
+          <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
+        </div>
+      `
+      return
+    }
+
+    if (queue.length === 0) {
+      cardArea.innerHTML = `
+        <div class="card text-center bg-base-100 shadow">
+          <h2 class="text-lg font-semibold">✅ Nothing due today</h2>
+          <p class="mt-2 text-base-content opacity-70">The Berlin deck is scheduled ahead. Come back when these cards are due again.</p>
           <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
         </div>
       `
