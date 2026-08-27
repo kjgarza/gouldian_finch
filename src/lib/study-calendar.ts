@@ -37,6 +37,9 @@ export function todayISO(now: Date = new Date()): string {
 
 export function isISODate(value: unknown): value is string {
   if (typeof value !== 'string' || !ISO_DATE.test(value)) return false
+  // Date.parse would silently normalize overflow (2026-02-30 becomes 2026-03-02),
+  // which breaks the lexicographic ordering the rest of this module relies on, so
+  // the components have to survive a round-trip unchanged.
   const [yearText, monthText, dayText] = value.split('-')
   const year = Number(yearText)
   const month = Number(monthText)
@@ -121,7 +124,9 @@ export function buildHeatmap(studiedDates: string[], today: string, weeks = 26):
       days.push({ date, state: dayState(date, today, studied, trackedFrom), label: formatDay(date) })
     }
 
-    const monthOfWeek = MONTH_LABELS[new Date(toUTC(days[0].date)).getUTCMonth()]
+    // Labelled by the middle day: a column always has at least four days in that
+    // month, so a month starting mid-week is labelled on the column it fills.
+    const monthOfWeek = MONTH_LABELS[new Date(toUTC(days[3].date)).getUTCMonth()]
     const monthLabel = monthOfWeek === previousMonth ? undefined : monthOfWeek
     previousMonth = monthOfWeek
 

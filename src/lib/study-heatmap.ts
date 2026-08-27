@@ -1,9 +1,10 @@
 import type { Stats } from '../types'
-import { buildHeatmap, formatDay, longestStreak, todayISO } from './study-calendar'
-import type { DayState, HeatmapWeek } from './study-calendar'
+import { buildHeatmap, formatDay, longestStreak, normalizeStudiedDates, todayISO } from './study-calendar'
+import type { DayState, Heatmap, HeatmapWeek } from './study-calendar'
 
 const WEEKS = 26
 const VISIBLE_WEEKDAYS = new Set([0, 2, 4]) // Mon / Wed / Fri, like a contributions graph
+const RECENT_IN_LABEL = 7 // study days named in the grid's text alternative
 
 const CELL_CLASSES: Record<DayState, string> = {
   studied: 'bg-primary',
@@ -21,7 +22,7 @@ const CELL_TITLES: Record<DayState, string> = {
 
 function cell(date: string, state: DayState, label: string, today: string): string {
   const isToday = date === today ? ' ring-1 ring-primary ring-offset-1 ring-offset-base-100' : ''
-  return `<div class="w-3 h-3 rounded-sm ${CELL_CLASSES[state]}${isToday}" title="${label} — ${CELL_TITLES[state]}" data-date="${date}" data-state="${state}"></div>`
+  return `<div class="w-3 h-3 rounded-sm ${CELL_CLASSES[state]}${isToday}" title="${label} — ${CELL_TITLES[state]}" data-date="${date}" data-state="${state}" aria-hidden="true"></div>`
 }
 
 function weekColumn(week: HeatmapWeek, today: string): string {
@@ -59,6 +60,22 @@ function legendItem(state: DayState, text: string): string {
 }
 
 /**
+ * Text alternative for the grid: the cells themselves are `aria-hidden`, since
+ * 182 `title` tooltips are neither reachable by touch nor useful to read out.
+ */
+function describeGrid(heatmap: Heatmap, studiedDates: string[], today: string, longest: number): string {
+  const recent = normalizeStudiedDates(studiedDates).slice(-RECENT_IN_LABEL).reverse().map(formatDay)
+
+  return [
+    `Study calendar for the ${WEEKS * 7} days ending ${formatDay(today)}.`,
+    `${heatmap.studiedCount} day${heatmap.studiedCount === 1 ? '' : 's'} studied,`,
+    `longest streak ${longest} day${longest === 1 ? '' : 's'}.`,
+    recent.length > 0 ? `Most recent sessions: ${recent.join('; ')}.` : '',
+    heatmap.trackedFrom ? `Daily history starts ${formatDay(heatmap.trackedFrom)}.` : '',
+  ].filter(Boolean).join(' ')
+}
+
+/**
  * Calendar heatmap of the days that had at least one answered card, so gaps in
  * a streak are visible rather than only the streak number.
  */
@@ -68,6 +85,7 @@ export function StudyHeatmap(stats: Stats, now: Date = new Date()): HTMLElement 
   const heatmap = buildHeatmap(studiedDates, today, WEEKS)
   const hasHistory = studiedDates.length > 0
   const longest = longestStreak(studiedDates)
+  const gridLabel = describeGrid(heatmap, studiedDates, today, longest)
 
   const root = document.createElement('div')
   root.className = 'card bg-base-100 shadow p-4 mb-6'
@@ -84,7 +102,7 @@ export function StudyHeatmap(stats: Stats, now: Date = new Date()): HTMLElement 
     </div>
 
     ${hasHistory ? `
-      <div class="overflow-x-auto pb-1" id="heatmapScroll">
+      <div class="overflow-x-auto pb-1" id="heatmapScroll" role="img" tabindex="0" aria-label="${gridLabel}">
         <div class="flex gap-1 w-max">
           ${weekdayColumn(heatmap.weekdayLabels)}
           ${heatmap.weeks.map((week) => weekColumn(week, today)).join('')}
