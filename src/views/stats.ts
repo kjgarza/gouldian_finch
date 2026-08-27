@@ -2,6 +2,7 @@ import { loadProgress, resetAll, loadStats, loadExamAttempts } from '../storage'
 import { ALL_DE, ALL_TERMS } from '../state'
 import { isQuestionStudyId, isTermStudyId, questionStudyId, termStudyId } from '../lib/study-ids'
 import { countDueIncludingUnseen } from '../lib/study-session'
+import { StudyHeatmap } from '../lib/study-heatmap'
 
 function reviewDueToday(): number {
   const prog = loadProgress()
@@ -77,7 +78,10 @@ export function StatsView(): HTMLElement {
         <div class="text-xs text-base-content opacity-70 mt-1">${stats.memoryAnswered || 0} term cards answered</div>
       </div>
     </div>
-    
+
+    <!-- Study Calendar -->
+    <div id="studyHeatmap"></div>
+
     <!-- Learning Progress -->
     <div class="grid gap-4 sm:grid-cols-2 mb-6">
       <div class="card bg-base-100 shadow p-4">
@@ -200,6 +204,8 @@ export function StatsView(): HTMLElement {
       </button>
     </div>
   `
+
+  root.querySelector('#studyHeatmap')!.replaceWith(StudyHeatmap(stats))
 
   root.querySelector('#resetBtn')!.addEventListener('click', () => {
     const confirmed = confirm(

@@ -1,6 +1,7 @@
 import type { ProgressMap, Stats, ExamAttempt, CardProgress, StudyId } from './types'
 import { questionStudyId } from './lib/study-ids'
 import { createDefaultProgress } from './lib/study-session'
+import { isISODate, normalizeStudiedDates } from './lib/study-calendar'
 
 const KEYS = {
   progress: 'citizenTest_progress',
@@ -33,12 +34,24 @@ export function loadStats(): Stats {
       accuracy: parsed.accuracy || 0,
       totalAnswered: parsed.totalAnswered || 0,
       lastStudyDate: parsed.lastStudyDate,
+      studiedDates: migrateStudiedDates(parsed),
       memoryAnswered: parsed.memoryAnswered || 0,
       memoryAccuracy: parsed.memoryAccuracy || 0,
     }
   } catch { 
-    return { streak: 0, accuracy: 0, totalAnswered: 0, memoryAnswered: 0, memoryAccuracy: 0 } 
+    return { streak: 0, accuracy: 0, totalAnswered: 0, studiedDates: [], memoryAnswered: 0, memoryAccuracy: 0 } 
   }
+}
+
+/**
+ * Daily history was added after the first release, so existing users have no
+ * `studiedDates` yet. The one day we can honestly recover is `lastStudyDate`;
+ * everything before that stays unknown instead of being invented.
+ */
+function migrateStudiedDates(parsed: Partial<Stats>): string[] {
+  const dates = normalizeStudiedDates(parsed.studiedDates)
+  if (dates.length > 0 || !isISODate(parsed.lastStudyDate)) return dates
+  return [parsed.lastStudyDate]
 }
 
 export function saveStats(s: Stats) {
