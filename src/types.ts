@@ -5,6 +5,8 @@ export interface Question {
   correctIndex: number
   hint: string
   topic: Topic
+  /** Text stand-in for an official question that presents its options as images. */
+  substituted?: boolean
 }
 
 export interface Term {

@@ -1,14 +1,22 @@
 import { navigate } from '../router'
-import { ALL_DE, ALL_TERMS } from '../state'
+import { ALL_BERLIN_DE, ALL_DE, ALL_QUESTIONS_DE, ALL_TERMS } from '../state'
 import { loadProgress } from '../storage'
 import { Footer } from '../lib/footer'
 import { countDueIncludingUnseen } from '../lib/study-session'
-import { questionStudyId, termStudyId } from '../lib/study-ids'
+import { berlinStudyId, questionStudyId, termStudyId } from '../lib/study-ids'
 
 function reviewDueCountToday(): number {
   const prog = loadProgress()
   return countDueIncludingUnseen(
     ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })),
+    prog,
+  )
+}
+
+function berlinDueCountToday(): number {
+  const prog = loadProgress()
+  return countDueIncludingUnseen(
+    ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })),
     prog,
   )
 }
@@ -25,6 +33,7 @@ export function HomeView(): HTMLElement {
   const root = document.createElement('div')
   root.className = 'page'
   const reviewDue = reviewDueCountToday()
+  const berlinDue = berlinDueCountToday()
   const memoryDue = memoryDueCountToday()
   
   root.innerHTML = `
@@ -41,6 +50,12 @@ export function HomeView(): HTMLElement {
       </div>
 
       <div class="card bg-base-100 shadow">
+        <h2 class="text-xl font-semibold mb-3">🐻 Berlin State Questions</h2>
+        <p class="text-sm text-base-content opacity-70 mb-4">Drill the ${ALL_BERLIN_DE.length} Berlin questions on their own deck, with ${berlinDue} due today</p>
+        <button id="berlinBtn" class="btn btn-primary w-full">Start Berlin Session</button>
+      </div>
+
+      <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">🧠 Memory Terms</h2>
         <p class="text-sm text-base-content opacity-70 mb-4">Flip through ${ALL_TERMS.length} German terms with ${memoryDue} cards due today</p>
         <button id="memoryBtn" class="btn btn-primary w-full">Start Memory Session</button>
@@ -54,7 +69,7 @@ export function HomeView(): HTMLElement {
       
       <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">🔍 Browse Questions</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Search and filter all ${ALL_DE.length} questions by topic</p>
+        <p class="text-sm text-base-content opacity-70 mb-4">Search and filter all ${ALL_QUESTIONS_DE.length} questions by topic</p>
         <button id="browseBtn" class="btn btn-secondary w-full">Browse & Search</button>
       </div>
       
@@ -67,6 +82,7 @@ export function HomeView(): HTMLElement {
   `
   
   root.querySelector('#reviewBtn')!.addEventListener('click', () => navigate('#/review'))
+  root.querySelector('#berlinBtn')!.addEventListener('click', () => navigate('#/berlin'))
   root.querySelector('#memoryBtn')!.addEventListener('click', () => navigate('#/memory'))
   root.querySelector('#examBtn')!.addEventListener('click', () => navigate('#/exam'))
   root.querySelector('#browseBtn')!.addEventListener('click', () => navigate('#/browse'))

@@ -1,4 +1,4 @@
-export type Route = '#/' | '#/review' | '#/memory' | '#/exam' | '#/browse' | '#/stats'
+export type Route = '#/' | '#/review' | '#/berlin' | '#/memory' | '#/exam' | '#/browse' | '#/stats'
 
 export interface RouteConfig {
   label?: string
@@ -16,6 +16,12 @@ export const ROUTE_CONFIG: Record<Route, RouteConfig> = {
   '#/review': {
     label: 'Review',
     title: 'Review Session - BürgerTest Trainer',
+    showNav: false,
+    mainClassName: 'main-immersive',
+  },
+  '#/berlin': {
+    label: 'Berlin',
+    title: 'Berlin State Questions - BürgerTest Trainer',
     showNav: false,
     mainClassName: 'main-immersive',
   },

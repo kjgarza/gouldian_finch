@@ -1,13 +1,13 @@
-import { ALL_DE } from '../state'
+import { ALL_BERLIN_DE, ALL_DE } from '../state'
 import { loadExamAttempts, saveExamAttempts, loadProgress, saveProgress, upsertCard } from '../storage'
 import type { Question, ExamAttempt } from '../types'
 import { navigate } from '../router'
-import { questionStudyId } from '../lib/study-ids'
+import { BERLIN_TOPIC, studyIdForQuestion } from '../lib/study-ids'
 
 function sampleExam(): Question[] {
-  const berlin = ALL_DE.filter(q => q.topic === 'Bundesland Berlin')
-  const federal = ALL_DE.filter(q => q.topic !== 'Bundesland Berlin')
-  
+  const berlin = ALL_BERLIN_DE
+  const federal = ALL_DE.filter(q => q.topic !== BERLIN_TOPIC)
+
   const pick = (arr: Question[], n: number) => {
     const a = [...arr]
     const out: Question[] = []
@@ -184,7 +184,8 @@ export function ExamView(): HTMLElement {
         const map = loadProgress()
         let m = map
         for (const w of incorrect) {
-          m = upsertCard(m, questionStudyId(w.id), (p) => ({ 
+          const q = questions.find(qq => qq.id === w.id)!
+          m = upsertCard(m, studyIdForQuestion(q), (p) => ({
             ...p, 
             interval: 0, 
             dueDate: new Date().toISOString() 

@@ -5,6 +5,7 @@ A modern, mobile-friendly web application to help you prepare for the German nat
 ## ✨ Features
 
 - **📚 Study Mode**: Spaced repetition learning (SM-2 algorithm) with 20-card batches
+- **🐻 Berlin State Mode**: The 10 `Bundesland Berlin` questions as a standalone deck, scheduled independently of the federal deck
 - **📝 Exam Simulation**: Practice with realistic 33-question exams (30 federal + 3 Berlin state)
 - **🔍 Browse & Search**: Explore all questions with topic filtering and keyword search
 - **📊 Statistics**: Track your progress, study streak, and accuracy
@@ -80,6 +81,11 @@ Replace the sample data in `src/data/questions_de.json` and `src/data/questions_
 
 **Good luck with your German naturalization exam! 🇩🇪✨**
 
+- **🐻 Berlin State Mode**: The `Bundesland Berlin` questions in isolation
+  - Own deck, own SM-2 schedule, separate from the federal 300
+  - Reached from the home screen, no manual filtering needed
+  - Same Again/Good grading, hints and English helper as Study Mode
+
 - **🔍 Browse & Search**: Complete question database
   - Filter by topic (Politik, Geschichte, Gesellschaft, Berlin)
   - Keyword search in questions and answers
@@ -153,13 +159,22 @@ Questions follow this schema:
 }
 \`\`\`
 
-**Topics:**
-- `Politik in der Demokratie` - Politics in Democracy
-- `Geschichte und Verantwortung` - History and Responsibility  
-- `Mensch und Gesellschaft` - People and Society
-- `Bundesland Berlin` - State of Berlin
+**Data files:**
+- `src/data/questions_de.json` / `questions_en.json` - the 300 federal questions (ids 1-300)
+- `src/data/questions_berlin_de.json` / `questions_berlin_en.json` - the Berlin state questions (ids 301-310, `topic: "Bundesland Berlin"`)
+
+The Berlin files back both the Berlin study mode and the 3 state questions drawn in each practice
+exam. Keeping them separate is what lets the Berlin deck carry its own SM-2 schedule: its cards use
+`berlin:<id>` progress keys, so grading them never moves the federal deck's due counts.
 
 Both German and English files must share identical `id` and `topic` values for proper alignment.
+Topic values in `questions_de.json` are assigned by the pipeline's `inferTopic()` heuristic and are
+broader than the four official exam categories.
+
+The Berlin questions, options and explanations follow the official state catalogue. Two of them
+(301, the state coat of arms, and 308, locating Berlin on a map) present their options as **images**
+in the real test. Since this app is text-only, both carry `"substituted": true` and use a text
+question that checks the same fact; the Berlin view shows a notice saying how many are substituted.
 
 ## 💾 Data Persistence
 

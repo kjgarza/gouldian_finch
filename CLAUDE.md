@@ -52,11 +52,11 @@ src/main.ts
   ↓
 FontPairingManager (hardcoded at build time: "bitter-raleway")
   ↓
-startRouter() → hash-based routing (#/, #/review, #/exam, #/browse, #/stats)
+startRouter() → hash-based routing (#/, #/review, #/berlin, #/memory, #/exam, #/browse, #/stats)
   ↓
 shell() → renders nav + view container
   ↓
-Views (home.ts, review.ts, exam.ts, browse.ts, stats.ts)
+Views (home.ts, review.ts, berlin.ts, memory.ts, exam.ts, browse.ts, stats.ts)
   ↓
 State singleton (src/state.ts) → loads questions_de.json + questions_en.json
   ↓
@@ -66,7 +66,7 @@ localStorage (citizenTest_progress, citizenTest_stats, citizenTest_exam, citizen
 ### Router Pattern
 
 - Hash-based routing defined in `src/router.ts`
-- Routes: `#/` (home), `#/review`, `#/exam`, `#/browse`, `#/stats`
+- Routes: `#/` (home), `#/review`, `#/berlin`, `#/memory`, `#/exam`, `#/browse`, `#/stats`
 - Navigation uses `navigate(to: Route)` helper
 - Route changes trigger listeners in `src/main.ts` to re-render views
 

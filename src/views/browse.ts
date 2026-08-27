@@ -1,4 +1,4 @@
-import { ALL_DE, byId, State } from '../state'
+import { ALL_QUESTIONS_DE, byId, State } from '../state'
 import type { Topic } from '../types'
 import { Locales } from '../i18n'
 
@@ -79,7 +79,7 @@ export function BrowseView(): HTMLElement {
     State.filter.search = search.value.trim()
     State.filter.topic = (select.value as any)
 
-    let list = ALL_DE
+    let list = ALL_QUESTIONS_DE
     
     // Filter by topic
     if (State.filter.topic !== 'ALL') {
