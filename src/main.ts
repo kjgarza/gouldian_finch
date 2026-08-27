@@ -2,6 +2,7 @@ import './styles.css'
 import { startRouter, onRouteChange, Route, ROUTE_CONFIG } from './router'
 import { HomeView } from './views/home'
 import { ReviewView } from './views/review'
+import { BerlinView } from './views/berlin'
 import { MemoryView } from './views/memory'
 import { ExamView } from './views/exam'
 import { BrowseView } from './views/browse'
@@ -106,6 +107,9 @@ function render(route: Route) {
   switch (route) {
     case '#/review': 
       view = ReviewView() 
+      break
+    case '#/berlin':
+      view = BerlinView()
       break
     case '#/memory':
       view = MemoryView()

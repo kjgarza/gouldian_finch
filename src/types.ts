@@ -5,6 +5,8 @@ export interface Question {
   correctIndex: number
   hint: string
   topic: Topic
+  /** Draft content that still has to be checked against the official catalogue. */
+  unverified?: boolean
 }
 
 export interface Term {

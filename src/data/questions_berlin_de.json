@@ -1,0 +1,152 @@
+[
+  {
+    "id": 301,
+    "question": "Was ist das Wappentier des Bundeslandes Berlin?",
+    "choices": [
+      "Der Bär",
+      "Der Adler",
+      "Der Löwe",
+      "Das Pferd"
+    ],
+    "correctIndex": 0,
+    "hint": "Das Tier steht im Landeswappen und auf der Landesflagge und ist als Figur überall in der Stadt zu sehen.",
+    "explanation": "Der Berliner Bär ist seit dem 13. Jahrhundert das Symbol der Stadt. Er steht im Landeswappen auf weißem Grund und ist auch auf der Landesflagge von Berlin abgebildet.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 302,
+    "question": "Wie heißt das Landesparlament von Berlin?",
+    "choices": [
+      "Abgeordnetenhaus",
+      "Bürgerschaft",
+      "Landtag",
+      "Bundesrat"
+    ],
+    "correctIndex": 0,
+    "hint": "Berlin ist das einzige Bundesland, das sein Parlament so nennt.",
+    "explanation": "Das Landesparlament von Berlin heißt Abgeordnetenhaus. In den Flächenländern heißt das Parlament Landtag, in Hamburg und Bremen Bürgerschaft. Der Bundesrat ist dagegen ein Verfassungsorgan des Bundes.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 303,
+    "question": "In wie viele Bezirke ist Berlin gegliedert?",
+    "choices": [
+      "12",
+      "8",
+      "16",
+      "23"
+    ],
+    "correctIndex": 0,
+    "hint": "Bei der Bezirksreform im Jahr 2001 wurde die Zahl der Bezirke deutlich verringert.",
+    "explanation": "Berlin ist seit der Bezirksreform von 2001 in zwölf Bezirke gegliedert, zum Beispiel Mitte, Pankow oder Neukölln. Vorher waren es 23 Bezirke.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 304,
+    "question": "Wie oft wird das Abgeordnetenhaus von Berlin regulär gewählt?",
+    "choices": [
+      "Alle fünf Jahre",
+      "Alle vier Jahre",
+      "Alle drei Jahre",
+      "Alle sechs Jahre"
+    ],
+    "correctIndex": 0,
+    "hint": "Die Wahlperiode ist ein Jahr länger als die des Deutschen Bundestages.",
+    "explanation": "Das Abgeordnetenhaus von Berlin wird regulär alle fünf Jahre gewählt. Der Deutsche Bundestag wird dagegen alle vier Jahre gewählt.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 305,
+    "question": "Wie heißt das Regierungsoberhaupt des Bundeslandes Berlin?",
+    "choices": [
+      "Regierende Bürgermeisterin / Regierender Bürgermeister",
+      "Ministerpräsidentin / Ministerpräsident",
+      "Landrätin / Landrat",
+      "Oberbürgermeisterin / Oberbürgermeister"
+    ],
+    "correctIndex": 0,
+    "hint": "In den Stadtstaaten trägt die Regierungschefin oder der Regierungschef einen Bürgermeistertitel.",
+    "explanation": "An der Spitze der Berliner Landesregierung steht die Regierende Bürgermeisterin oder der Regierende Bürgermeister. Sie oder er wird vom Abgeordnetenhaus gewählt. In den Flächenländern heißt dieses Amt Ministerpräsidentin oder Ministerpräsident.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 306,
+    "question": "Wie heißt die Landesregierung von Berlin?",
+    "choices": [
+      "Der Senat",
+      "Das Kabinett",
+      "Der Magistrat",
+      "Der Staatsrat"
+    ],
+    "correctIndex": 0,
+    "hint": "Die einzelnen Mitglieder dieser Regierung heißen Senatorinnen und Senatoren.",
+    "explanation": "Die Landesregierung von Berlin heißt Senat. Sie besteht aus der oder dem Regierenden Bürgermeister/in und den Senatorinnen und Senatoren, die die einzelnen Ressorts leiten.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 307,
+    "question": "Ab welchem Alter darf man in Berlin an der Wahl zur Bezirksverordnetenversammlung teilnehmen?",
+    "choices": [
+      "Ab 16 Jahren",
+      "Ab 18 Jahren",
+      "Ab 21 Jahren",
+      "Ab 14 Jahren"
+    ],
+    "correctIndex": 0,
+    "hint": "Für die Wahl zum Abgeordnetenhaus gilt ein höheres Mindestalter als für die Wahl in den Bezirken.",
+    "explanation": "In Berlin darf man ab 16 Jahren an der Wahl zur Bezirksverordnetenversammlung teilnehmen. Für die Wahl zum Abgeordnetenhaus muss man dagegen mindestens 18 Jahre alt sein.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 308,
+    "question": "Wer darf in Berlin an der Wahl zur Bezirksverordnetenversammlung teilnehmen?",
+    "choices": [
+      "Menschen mit deutscher Staatsangehörigkeit oder mit der Staatsangehörigkeit eines anderen EU-Staates, die im Bezirk gemeldet sind",
+      "Nur Menschen mit deutscher Staatsangehörigkeit",
+      "Alle in Berlin gemeldeten Menschen, unabhängig von ihrer Staatsangehörigkeit",
+      "Nur Menschen, die in Berlin geboren sind"
+    ],
+    "correctIndex": 0,
+    "hint": "Auf kommunaler Ebene dürfen auch Unionsbürgerinnen und Unionsbürger wählen.",
+    "explanation": "Bei der Wahl zur Bezirksverordnetenversammlung gilt das kommunale Wahlrecht: Neben deutschen Staatsangehörigen dürfen auch Staatsangehörige anderer EU-Staaten wählen, wenn sie im jeweiligen Bezirk gemeldet sind. Für die Wahl zum Abgeordnetenhaus ist dagegen die deutsche Staatsangehörigkeit nötig.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 309,
+    "question": "Welche Farben hat die Landesflagge von Berlin?",
+    "choices": [
+      "Rot und Weiß",
+      "Schwarz und Gold",
+      "Blau und Weiß",
+      "Grün und Weiß"
+    ],
+    "correctIndex": 0,
+    "hint": "Das Wappentier steht auf weißem Grund zwischen zwei farbigen Streifen.",
+    "explanation": "Die Landesflagge von Berlin ist rot-weiß-rot gestreift und zeigt in der Mitte auf dem weißen Feld den Berliner Bären.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 310,
+    "question": "Was trifft auf Berlin zu?",
+    "choices": [
+      "Berlin ist zugleich Stadt und Bundesland",
+      "Berlin ist eine Stadt im Bundesland Brandenburg",
+      "Berlin ist ein Bundesland ohne eigene Hauptstadt",
+      "Berlin ist ein Regierungsbezirk des Bundes"
+    ],
+    "correctIndex": 0,
+    "hint": "Auch Hamburg und Bremen haben diese besondere Stellung.",
+    "explanation": "Berlin ist ein Stadtstaat: Es ist gleichzeitig eine Stadt und eines der 16 Bundesländer. Außerdem ist Berlin die Hauptstadt der Bundesrepublik Deutschland. Hamburg und Bremen sind die beiden anderen Stadtstaaten.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "id": 301,
+    "question": "What is the heraldic animal of the federal state of Berlin?",
+    "choices": [
+      "The bear",
+      "The eagle",
+      "The lion",
+      "The horse"
+    ],
+    "correctIndex": 0,
+    "hint": "The animal appears on the state coat of arms and the state flag, and as statues all over the city.",
+    "explanation": "The Berlin bear has been the symbol of the city since the 13th century. It appears on the state coat of arms on a white background and is also shown on Berlin's state flag.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 302,
+    "question": "What is the name of the state parliament of Berlin?",
+    "choices": [
+      "Abgeordnetenhaus (House of Representatives)",
+      "Bürgerschaft",
+      "Landtag",
+      "Bundesrat"
+    ],
+    "correctIndex": 0,
+    "hint": "Berlin is the only federal state that uses this name for its parliament.",
+    "explanation": "Berlin's state parliament is called the Abgeordnetenhaus. In the larger territorial states the parliament is called Landtag, in Hamburg and Bremen it is the Bürgerschaft. The Bundesrat, by contrast, is a federal body.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 303,
+    "question": "How many districts (Bezirke) is Berlin divided into?",
+    "choices": [
+      "12",
+      "8",
+      "16",
+      "23"
+    ],
+    "correctIndex": 0,
+    "hint": "The district reform of 2001 considerably reduced the number of districts.",
+    "explanation": "Since the district reform of 2001, Berlin has been divided into twelve districts, for example Mitte, Pankow and Neukölln. Before that there were 23 districts.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 304,
+    "question": "How often is the Berlin House of Representatives regularly elected?",
+    "choices": [
+      "Every five years",
+      "Every four years",
+      "Every three years",
+      "Every six years"
+    ],
+    "correctIndex": 0,
+    "hint": "The legislative term is one year longer than that of the German Bundestag.",
+    "explanation": "The Berlin House of Representatives is regularly elected every five years. The German Bundestag, by contrast, is elected every four years.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 305,
+    "question": "What is the title of the head of government of the federal state of Berlin?",
+    "choices": [
+      "Governing Mayor (Regierende/r Bürgermeister/in)",
+      "Minister President (Ministerpräsident/in)",
+      "District Administrator (Landrat/Landrätin)",
+      "Lord Mayor (Oberbürgermeister/in)"
+    ],
+    "correctIndex": 0,
+    "hint": "In the city states the head of government holds a mayoral title.",
+    "explanation": "The Berlin state government is headed by the Governing Mayor, who is elected by the House of Representatives. In the territorial states this office is called Minister President.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 306,
+    "question": "What is the name of the state government of Berlin?",
+    "choices": [
+      "The Senate (Senat)",
+      "The Cabinet",
+      "The Magistrate",
+      "The Council of State"
+    ],
+    "correctIndex": 0,
+    "hint": "Its individual members are called senators.",
+    "explanation": "Berlin's state government is called the Senate. It consists of the Governing Mayor and the senators who head the individual departments.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 307,
+    "question": "From what age may you vote in Berlin's district assembly (Bezirksverordnetenversammlung) elections?",
+    "choices": [
+      "From the age of 16",
+      "From the age of 18",
+      "From the age of 21",
+      "From the age of 14"
+    ],
+    "correctIndex": 0,
+    "hint": "The minimum age for electing the House of Representatives is higher than for the district elections.",
+    "explanation": "In Berlin you may vote in district assembly elections from the age of 16. To vote for the House of Representatives you must be at least 18 years old.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 308,
+    "question": "Who may vote in Berlin's district assembly (Bezirksverordnetenversammlung) elections?",
+    "choices": [
+      "People with German citizenship or the citizenship of another EU country who are registered as residents of the district",
+      "Only people with German citizenship",
+      "Everyone registered as a resident of Berlin, regardless of citizenship",
+      "Only people who were born in Berlin"
+    ],
+    "correctIndex": 0,
+    "hint": "At municipal level, EU citizens are allowed to vote as well.",
+    "explanation": "District assembly elections follow municipal voting rules: alongside German citizens, citizens of other EU countries may vote if they are registered as residents of that district. Voting for the House of Representatives, by contrast, requires German citizenship.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 309,
+    "question": "Which colours does the state flag of Berlin have?",
+    "choices": [
+      "Red and white",
+      "Black and gold",
+      "Blue and white",
+      "Green and white"
+    ],
+    "correctIndex": 0,
+    "hint": "The heraldic animal stands on a white background between two coloured stripes.",
+    "explanation": "Berlin's state flag has red-white-red stripes and shows the Berlin bear in the middle on the white field.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  },
+  {
+    "id": 310,
+    "question": "Which statement about Berlin is correct?",
+    "choices": [
+      "Berlin is both a city and a federal state",
+      "Berlin is a city in the federal state of Brandenburg",
+      "Berlin is a federal state without a capital of its own",
+      "Berlin is an administrative district of the federal government"
+    ],
+    "correctIndex": 0,
+    "hint": "Hamburg and Bremen share this special status.",
+    "explanation": "Berlin is a city state: it is a city and at the same time one of Germany's 16 federal states. Berlin is also the capital of the Federal Republic of Germany. Hamburg and Bremen are the two other city states.",
+    "topic": "Bundesland Berlin",
+    "unverified": true
+  }
+]
