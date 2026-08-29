@@ -1,4 +1,5 @@
 import type { CardProgress, ProgressMap, StudyId } from '../types'
+import { isISODate, localISODate, todayISO } from './study-calendar'
 
 export interface StudyListItem {
   studyId: StudyId
@@ -18,8 +19,26 @@ export function createDefaultProgress(id: StudyId, today = new Date()): CardProg
   }
 }
 
-export function isDueToday(progress: CardProgress, todayISO = new Date().toISOString().slice(0, 10)): boolean {
-  return progress.dueDate.slice(0, 10) <= todayISO
+/**
+ * Calendar day a card falls due on, in the viewer's timezone. `updateCard`
+ * stores the due date as a full instant built from local day arithmetic, so
+ * slicing the UTC string off it would move the card a day for anyone west of
+ * Greenwich. Bare `YYYY-MM-DD` values (written by older builds) pass through.
+ */
+export function dueDateISO(progress: CardProgress, fallback = todayISO()): string {
+  const raw = progress.dueDate || ''
+  if (isISODate(raw)) return raw
+
+  const parsed = new Date(raw)
+  // An unparseable due date means a corrupt entry; treating it as due on the
+  // day being asked about is the harmless reading — the card comes back into
+  // rotation and gets rewritten. It follows the caller's day rather than the
+  // clock so that "is this due on X?" stays a question about X alone.
+  return Number.isNaN(parsed.getTime()) ? fallback : localISODate(parsed)
+}
+
+export function isDueToday(progress: CardProgress, today = todayISO()): boolean {
+  return dueDateISO(progress, today) <= today
 }
 
 export function pickStudyBatch<T extends StudyListItem>(
@@ -27,7 +46,7 @@ export function pickStudyBatch<T extends StudyListItem>(
   progressMap: ProgressMap,
   batchSize: number,
 ): SessionItem<T>[] {
-  const todayISO = new Date().toISOString().slice(0, 10)
+  const today = todayISO()
   const due: T[] = []
   const unseen: T[] = []
 
@@ -38,7 +57,7 @@ export function pickStudyBatch<T extends StudyListItem>(
       continue
     }
 
-    if (isDueToday(progress, todayISO)) {
+    if (isDueToday(progress, today)) {
       due.push(item)
     }
   }
@@ -65,10 +84,10 @@ export function pickStudyBatch<T extends StudyListItem>(
 export function countDueIncludingUnseen<T extends StudyListItem>(
   items: T[],
   progressMap: ProgressMap,
-  todayISO = new Date().toISOString().slice(0, 10),
+  today = todayISO(),
 ): number {
   return items.filter((item) => {
     const progress = progressMap[item.studyId]
-    return progress ? isDueToday(progress, todayISO) : true
+    return progress ? isDueToday(progress, today) : true
   }).length
 }

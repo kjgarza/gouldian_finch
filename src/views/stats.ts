@@ -1,33 +1,51 @@
 import { loadProgress, resetAll, loadStats, loadExamAttempts } from '../storage'
-import { ALL_DE, ALL_TERMS } from '../state'
-import { isQuestionStudyId, isTermStudyId, questionStudyId, termStudyId } from '../lib/study-ids'
+import type { ProgressMap } from '../types'
+import { ALL_BERLIN_DE, ALL_DE, ALL_TERMS } from '../state'
+import {
+  berlinStudyId,
+  isBerlinStudyId,
+  isQuestionStudyId,
+  isTermStudyId,
+  questionStudyId,
+  termStudyId,
+} from '../lib/study-ids'
 import { countDueIncludingUnseen } from '../lib/study-session'
 import { StudyHeatmap } from '../lib/study-heatmap'
+import { formatDay, isISODate } from '../lib/study-calendar'
+import { currentStreak } from '../lib/study-stats'
 
-function reviewDueToday(): number {
-  const prog = loadProgress()
+function reviewDueToday(prog: ProgressMap): number {
   return countDueIncludingUnseen(
     ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })),
     prog,
   )
 }
 
-function memoryDueToday(): number {
-  const prog = loadProgress()
+function berlinDueToday(prog: ProgressMap): number {
+  return countDueIncludingUnseen(
+    ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })),
+    prog,
+  )
+}
+
+function memoryDueToday(prog: ProgressMap): number {
   return countDueIncludingUnseen(
     ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })),
     prog,
   )
 }
 
-function totalLearnedQuestions(): number {
-  const prog = loadProgress()
-  return Object.keys(prog).filter(isQuestionStudyId).length
+function countLearned(prog: ProgressMap, belongsToDeck: (id: string) => boolean): number {
+  return Object.keys(prog).filter(belongsToDeck).length
 }
 
-function totalLearnedTerms(): number {
-  const prog = loadProgress()
-  return Object.keys(prog).filter(isTermStudyId).length
+/**
+ * Share of a deck completed, as a CSS-safe percentage. A deck can legitimately
+ * be empty — the Berlin view has its own branch for that — and `0 / 0` would
+ * put `NaN%` into the bar's width.
+ */
+function percent(part: number, total: number): number {
+  return total > 0 ? (part / total) * 100 : 0
 }
 
 export function StatsView(): HTMLElement {
@@ -35,10 +53,15 @@ export function StatsView(): HTMLElement {
   root.className = 'page'
   
   const stats = loadStats()
-  const reviewDue = reviewDueToday()
-  const memoryDue = memoryDueToday()
-  const learnedQuestions = totalLearnedQuestions()
-  const learnedTerms = totalLearnedTerms()
+  const streak = currentStreak(stats)
+  // Read once: every call re-parses localStorage and re-runs the id migration.
+  const prog = loadProgress()
+  const reviewDue = reviewDueToday(prog)
+  const berlinDue = berlinDueToday(prog)
+  const memoryDue = memoryDueToday(prog)
+  const learnedQuestions = countLearned(prog, isQuestionStudyId)
+  const learnedBerlin = countLearned(prog, isBerlinStudyId)
+  const learnedTerms = countLearned(prog, isTermStudyId)
   const attempts = loadExamAttempts()
   const lastAttempt = attempts[0]
   const passedAttempts = attempts.filter(a => a.score >= 17).length
@@ -56,26 +79,30 @@ export function StatsView(): HTMLElement {
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-6">
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Study Streak</div>
-        <div class="text-3xl font-bold text-primary mt-1">${stats.streak || 0}</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">day${stats.streak !== 1 ? 's' : ''}</div>
+        <div class="text-3xl font-bold text-primary mt-1">${streak}</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">day${streak === 1 ? '' : 's'}</div>
       </div>
       
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Overall Accuracy</div>
         <div class="text-3xl font-bold text-success mt-1">${Math.round((stats.accuracy || 0) * 100)}%</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">${stats.totalAnswered || 0} questions answered</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">
+          ${stats.totalAnswered || 0} question${stats.totalAnswered === 1 ? '' : 's'} answered${stats.examAnswered ? `, ${stats.examAnswered} in exams` : ''}
+        </div>
       </div>
       
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Review Due</div>
-        <div class="text-3xl font-bold text-warning mt-1">${reviewDue}</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">question cards ready</div>
+        <div class="text-3xl font-bold text-warning mt-1">${reviewDue + berlinDue}</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">${reviewDue} federal · ${berlinDue} Berlin</div>
       </div>
 
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Memory Accuracy</div>
         <div class="text-3xl font-bold text-info mt-1">${Math.round((stats.memoryAccuracy || 0) * 100)}%</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">${stats.memoryAnswered || 0} term cards answered</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">
+          ${stats.memoryAnswered || 0} term card${stats.memoryAnswered === 1 ? '' : 's'} answered
+        </div>
       </div>
     </div>
 
@@ -93,10 +120,21 @@ export function StatsView(): HTMLElement {
           </div>
           <div class="w-full bg-base-200 rounded-full h-2">
             <div class="bg-primary h-2 rounded-full transition-all duration-300" 
-                 style="width: ${(learnedQuestions / ALL_DE.length * 100)}%"></div>
+                 style="width: ${percent(learnedQuestions, ALL_DE.length)}%"></div>
           </div>
           <div class="text-xs text-base-content opacity-70">
-            ${Math.round((learnedQuestions / ALL_DE.length) * 100)}% complete
+            ${Math.round(percent(learnedQuestions, ALL_DE.length))}% complete
+          </div>
+          <div class="flex justify-between items-center pt-2 border-t border-base-300">
+            <span class="text-base-content opacity-70">Berlin questions learned</span>
+            <span class="font-semibold">${learnedBerlin} / ${ALL_BERLIN_DE.length}</span>
+          </div>
+          <div class="w-full bg-base-200 rounded-full h-2">
+            <div class="bg-secondary h-2 rounded-full transition-all duration-300"
+                 style="width: ${percent(learnedBerlin, ALL_BERLIN_DE.length)}%"></div>
+          </div>
+          <div class="text-xs text-base-content opacity-70">
+            ${berlinDue} Berlin card${berlinDue === 1 ? '' : 's'} due now
           </div>
           <div class="flex justify-between items-center pt-2 border-t border-base-300">
             <span class="text-base-content opacity-70">Term cards learned</span>
@@ -104,15 +142,15 @@ export function StatsView(): HTMLElement {
           </div>
           <div class="w-full bg-base-200 rounded-full h-2">
             <div class="bg-info h-2 rounded-full transition-all duration-300"
-                 style="width: ${(learnedTerms / ALL_TERMS.length * 100)}%"></div>
+                 style="width: ${percent(learnedTerms, ALL_TERMS.length)}%"></div>
           </div>
           <div class="text-xs text-base-content opacity-70">
             ${memoryDue} term card${memoryDue === 1 ? '' : 's'} due now
           </div>
           
-          ${stats.lastStudyDate ? `
+          ${isISODate(stats.lastStudyDate) ? `
             <div class="pt-2 border-t border-base-300 text-sm text-base-content opacity-70">
-              Last study session: ${new Date(stats.lastStudyDate).toLocaleDateString()}
+              Last study session: ${formatDay(stats.lastStudyDate)}
             </div>
           ` : ''}
         </div>

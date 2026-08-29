@@ -3,6 +3,7 @@ import { loadExamAttempts, saveExamAttempts, loadProgress, saveProgress, upsertC
 import type { Question, ExamAttempt } from '../types'
 import { navigate } from '../router'
 import { BERLIN_TOPIC, studyIdForQuestion } from '../lib/study-ids'
+import { recordExamCompletion } from '../lib/study-stats'
 
 function sampleExam(): Question[] {
   const berlin = ALL_BERLIN_DE
@@ -28,6 +29,9 @@ export function ExamView(): HTMLElement {
   const questions = sampleExam()
   const answers = new Map<number, number>()
   let idx = 0
+  // The action bar outlives the results screen, so "Finish Exam" stays
+  // clickable; without this the same attempt is stored again on every click.
+  let finished = false
 
   root.innerHTML = `
     <header class="exam-header">
@@ -41,7 +45,7 @@ export function ExamView(): HTMLElement {
     <div class="exam-body">
       <div id="area"></div>
     </div>
-    <div class="cta-bar">
+    <div class="cta-bar" id="ctaBar">
       <button class="btn btn-secondary flex-1" id="backBtn">← Back</button>
       <button class="btn btn-primary flex-1" id="nextBtn">Next →</button>
     </div>
@@ -51,6 +55,7 @@ export function ExamView(): HTMLElement {
   const backBtn = root.querySelector('#backBtn') as HTMLButtonElement
   const nextBtn = root.querySelector('#nextBtn') as HTMLButtonElement
   const exitBtn = root.querySelector('#exitBtn') as HTMLButtonElement
+  const ctaBar = root.querySelector('#ctaBar') as HTMLDivElement
 
   function render() {
     const q = questions[idx]
@@ -93,6 +98,9 @@ export function ExamView(): HTMLElement {
   }
 
   function finish() {
+    if (finished) return
+    finished = true
+
     const incorrect: { id: number; chosenIndex: number }[] = []
     let correct = 0
     
@@ -116,6 +124,10 @@ export function ExamView(): HTMLElement {
     }
     attempts.unshift(newAttempt)
     saveExamAttempts(attempts.slice(0, 20)) // Keep only last 20 attempts
+    recordExamCompletion(correct, questions.length)
+
+    // The bar sits outside the results area, so it has to go explicitly.
+    ctaBar.remove()
 
     area.innerHTML = `
       <div class="card">

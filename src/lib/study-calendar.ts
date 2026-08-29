@@ -31,8 +31,20 @@ export interface Heatmap {
   trackedFrom?: string // ISO date of the first recorded study day, if any
 }
 
+/**
+ * Calendar date in the viewer's own timezone. `toISOString()` would answer in
+ * UTC, so a session at 00:30 in Berlin (UTC+2) would be filed under yesterday
+ * — breaking both the streak and the day the calendar lights up.
+ */
+export function localISODate(date: Date): string {
+  const year = String(date.getFullYear()).padStart(4, '0')
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 export function todayISO(now: Date = new Date()): string {
-  return now.toISOString().slice(0, 10)
+  return localISODate(now)
 }
 
 export function isISODate(value: unknown): value is string {
