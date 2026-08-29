@@ -29,18 +29,61 @@ export function saveProgress(map: ProgressMap) {
 export function loadStats(): Stats {
   try {
     const parsed = JSON.parse(localStorage.getItem(KEYS.stats) || '{}') as Partial<Stats>
+    const totalAnswered = counter(parsed.totalAnswered)
+    const memoryAnswered = counter(parsed.memoryAnswered)
+    const correctAnswered = migrateCorrectCount(parsed.correctAnswered, parsed.accuracy, totalAnswered)
+    const memoryCorrect = migrateCorrectCount(parsed.memoryCorrect, parsed.memoryAccuracy, memoryAnswered)
+
     return {
-      streak: parsed.streak || 0,
-      accuracy: parsed.accuracy || 0,
-      totalAnswered: parsed.totalAnswered || 0,
+      streak: counter(parsed.streak),
+      accuracy: ratio(correctAnswered, totalAnswered),
+      totalAnswered,
+      correctAnswered,
       lastStudyDate: parsed.lastStudyDate,
       studiedDates: migrateStudiedDates(parsed),
-      memoryAnswered: parsed.memoryAnswered || 0,
-      memoryAccuracy: parsed.memoryAccuracy || 0,
+      memoryAnswered,
+      memoryAccuracy: ratio(memoryCorrect, memoryAnswered),
+      memoryCorrect,
+      examAnswered: counter(parsed.examAnswered),
     }
   } catch { 
-    return { streak: 0, accuracy: 0, totalAnswered: 0, studiedDates: [], memoryAnswered: 0, memoryAccuracy: 0 } 
+    return emptyStats()
   }
+}
+
+export function emptyStats(): Stats {
+  return {
+    streak: 0,
+    accuracy: 0,
+    totalAnswered: 0,
+    correctAnswered: 0,
+    studiedDates: [],
+    memoryAnswered: 0,
+    memoryAccuracy: 0,
+    memoryCorrect: 0,
+    examAnswered: 0,
+  }
+}
+
+/** A stored count is only usable if it is a finite, non-negative whole number. */
+function counter(value: unknown): number {
+  return typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.round(value) : 0
+}
+
+export function ratio(correct: number, total: number): number {
+  return total > 0 ? correct / total : 0
+}
+
+/**
+ * Correct answers used to be implied by `accuracy`, so builds before this one
+ * left no count on disk. Recovering it from the stored ratio keeps existing
+ * accuracy figures intact; from here on the count is the source of truth.
+ */
+function migrateCorrectCount(stored: unknown, accuracy: unknown, total: number): number {
+  const explicit = counter(stored)
+  if (explicit > 0) return Math.min(explicit, total)
+  const rate = typeof accuracy === 'number' && Number.isFinite(accuracy) ? accuracy : 0
+  return Math.min(total, Math.max(0, Math.round(rate * total)))
 }
 
 /**

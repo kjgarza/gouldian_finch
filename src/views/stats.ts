@@ -1,13 +1,30 @@
 import { loadProgress, resetAll, loadStats, loadExamAttempts } from '../storage'
-import { ALL_DE, ALL_TERMS } from '../state'
-import { isQuestionStudyId, isTermStudyId, questionStudyId, termStudyId } from '../lib/study-ids'
+import { ALL_BERLIN_DE, ALL_DE, ALL_TERMS } from '../state'
+import {
+  berlinStudyId,
+  isBerlinStudyId,
+  isQuestionStudyId,
+  isTermStudyId,
+  questionStudyId,
+  termStudyId,
+} from '../lib/study-ids'
 import { countDueIncludingUnseen } from '../lib/study-session'
 import { StudyHeatmap } from '../lib/study-heatmap'
+import { formatDay, isISODate } from '../lib/study-calendar'
+import { currentStreak } from '../lib/study-stats'
 
 function reviewDueToday(): number {
   const prog = loadProgress()
   return countDueIncludingUnseen(
     ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })),
+    prog,
+  )
+}
+
+function berlinDueToday(): number {
+  const prog = loadProgress()
+  return countDueIncludingUnseen(
+    ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })),
     prog,
   )
 }
@@ -25,6 +42,11 @@ function totalLearnedQuestions(): number {
   return Object.keys(prog).filter(isQuestionStudyId).length
 }
 
+function totalLearnedBerlin(): number {
+  const prog = loadProgress()
+  return Object.keys(prog).filter(isBerlinStudyId).length
+}
+
 function totalLearnedTerms(): number {
   const prog = loadProgress()
   return Object.keys(prog).filter(isTermStudyId).length
@@ -35,9 +57,12 @@ export function StatsView(): HTMLElement {
   root.className = 'page'
   
   const stats = loadStats()
+  const streak = currentStreak(stats)
   const reviewDue = reviewDueToday()
+  const berlinDue = berlinDueToday()
   const memoryDue = memoryDueToday()
   const learnedQuestions = totalLearnedQuestions()
+  const learnedBerlin = totalLearnedBerlin()
   const learnedTerms = totalLearnedTerms()
   const attempts = loadExamAttempts()
   const lastAttempt = attempts[0]
@@ -56,26 +81,30 @@ export function StatsView(): HTMLElement {
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-6">
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Study Streak</div>
-        <div class="text-3xl font-bold text-primary mt-1">${stats.streak || 0}</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">day${stats.streak !== 1 ? 's' : ''}</div>
+        <div class="text-3xl font-bold text-primary mt-1">${streak}</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">day${streak === 1 ? '' : 's'}</div>
       </div>
       
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Overall Accuracy</div>
         <div class="text-3xl font-bold text-success mt-1">${Math.round((stats.accuracy || 0) * 100)}%</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">${stats.totalAnswered || 0} questions answered</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">
+          ${stats.totalAnswered || 0} question${stats.totalAnswered === 1 ? '' : 's'} answered${stats.examAnswered ? `, ${stats.examAnswered} in exams` : ''}
+        </div>
       </div>
       
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Review Due</div>
-        <div class="text-3xl font-bold text-warning mt-1">${reviewDue}</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">question cards ready</div>
+        <div class="text-3xl font-bold text-warning mt-1">${reviewDue + berlinDue}</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">${reviewDue} federal · ${berlinDue} Berlin</div>
       </div>
 
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Memory Accuracy</div>
         <div class="text-3xl font-bold text-info mt-1">${Math.round((stats.memoryAccuracy || 0) * 100)}%</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">${stats.memoryAnswered || 0} term cards answered</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">
+          ${stats.memoryAnswered || 0} term card${stats.memoryAnswered === 1 ? '' : 's'} answered
+        </div>
       </div>
     </div>
 
@@ -99,6 +128,17 @@ export function StatsView(): HTMLElement {
             ${Math.round((learnedQuestions / ALL_DE.length) * 100)}% complete
           </div>
           <div class="flex justify-between items-center pt-2 border-t border-base-300">
+            <span class="text-base-content opacity-70">Berlin questions learned</span>
+            <span class="font-semibold">${learnedBerlin} / ${ALL_BERLIN_DE.length}</span>
+          </div>
+          <div class="w-full bg-base-200 rounded-full h-2">
+            <div class="bg-secondary h-2 rounded-full transition-all duration-300"
+                 style="width: ${(learnedBerlin / ALL_BERLIN_DE.length * 100)}%"></div>
+          </div>
+          <div class="text-xs text-base-content opacity-70">
+            ${berlinDue} Berlin card${berlinDue === 1 ? '' : 's'} due now
+          </div>
+          <div class="flex justify-between items-center pt-2 border-t border-base-300">
             <span class="text-base-content opacity-70">Term cards learned</span>
             <span class="font-semibold">${learnedTerms} / ${ALL_TERMS.length}</span>
           </div>
@@ -110,9 +150,9 @@ export function StatsView(): HTMLElement {
             ${memoryDue} term card${memoryDue === 1 ? '' : 's'} due now
           </div>
           
-          ${stats.lastStudyDate ? `
+          ${isISODate(stats.lastStudyDate) ? `
             <div class="pt-2 border-t border-base-300 text-sm text-base-content opacity-70">
-              Last study session: ${new Date(stats.lastStudyDate).toLocaleDateString()}
+              Last study session: ${formatDay(stats.lastStudyDate)}
             </div>
           ` : ''}
         </div>

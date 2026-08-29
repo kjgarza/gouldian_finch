@@ -37,12 +37,18 @@ export type ProgressMap = Record<string, CardProgress>
 
 export interface Stats {
   streak: number
+  /** Derived from the counters below; kept on disk for older builds to read. */
   accuracy: number
   totalAnswered: number
+  /** Correct answers behind `accuracy`, counted rather than re-derived. */
+  correctAnswered?: number
   lastStudyDate?: string // ISO date for streak
   studiedDates?: string[] // ISO dates with at least one answered card, oldest first
   memoryAnswered?: number
   memoryAccuracy?: number
+  memoryCorrect?: number
+  /** Questions answered inside exam simulations, part of `totalAnswered`. */
+  examAnswered?: number
 }
 
 export interface ExamAttempt {
