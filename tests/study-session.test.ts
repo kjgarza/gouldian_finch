@@ -30,9 +30,15 @@ test('a bare YYYY-MM-DD due date from an older build is read as written', () => 
   assert.equal(dueDateISO({ id: 'question:1', interval: 1, ease: 2.5, dueDate: '2026-03-02' }), '2026-03-02')
 })
 
-test('an unreadable due date brings the card back rather than stranding it', () => {
-  const today = localISODate(new Date())
-  assert.equal(dueDateISO({ id: 'question:1', interval: 1, ease: 2.5, dueDate: 'garbage' }), today)
+test('an unreadable due date comes back on the day being asked about', () => {
+  const corrupt = { id: 'question:1', interval: 1, ease: 2.5, dueDate: 'garbage' }
+
+  // The fallback follows the caller's day, not the wall clock, so the answer
+  // does not depend on when the suite happens to run.
+  assert.equal(dueDateISO(corrupt, '2026-03-02'), '2026-03-02')
+  assert.equal(isDueToday(corrupt, '2026-03-02'), true)
+  assert.equal(isDueToday(corrupt, '1999-01-01'), true)
+  assert.equal(dueDateISO(corrupt), localISODate(new Date()))
 })
 
 test('a batch takes due cards oldest first, then tops up with unseen ones', () => {

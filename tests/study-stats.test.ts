@@ -137,6 +137,41 @@ test('accuracy recorded by an older build survives the move to counters', () => 
   assert.equal(after.correctAnswered, 41)
 })
 
+test('a stored zero is a real count, not a missing one', () => {
+  // Every answer wrong is a legitimate record; re-deriving it from `accuracy`
+  // would mean the stored count is never trusted at its most important value.
+  store.setItem('citizenTest_stats', JSON.stringify({
+    totalAnswered: 12,
+    correctAnswered: 0,
+    accuracy: 0.9,
+    memoryAnswered: 4,
+    memoryCorrect: 0,
+    memoryAccuracy: 0.5,
+  }))
+
+  const stats = loadStats()
+  assert.equal(stats.correctAnswered, 0)
+  assert.equal(stats.accuracy, 0)
+  assert.equal(stats.memoryCorrect, 0)
+  assert.equal(stats.memoryAccuracy, 0)
+})
+
+test('a fractional count is dropped rather than rounded up', () => {
+  store.setItem('citizenTest_stats', JSON.stringify({ totalAnswered: 0.6, streak: 2.4 }))
+
+  const stats = loadStats()
+  assert.equal(stats.totalAnswered, 0)
+  assert.equal(stats.streak, 0)
+})
+
+test('a correct count cannot exceed the answers behind it', () => {
+  store.setItem('citizenTest_stats', JSON.stringify({ totalAnswered: 5, correctAnswered: 99 }))
+
+  const stats = loadStats()
+  assert.equal(stats.correctAnswered, 5)
+  assert.equal(stats.accuracy, 1)
+})
+
 test('corrupt stats fall back to an empty record instead of NaN', () => {
   store.setItem('citizenTest_stats', '{"totalAnswered":"lots","accuracy":null,"streak":-3}')
 

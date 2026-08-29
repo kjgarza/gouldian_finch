@@ -25,18 +25,20 @@ export function createDefaultProgress(id: StudyId, today = new Date()): CardProg
  * slicing the UTC string off it would move the card a day for anyone west of
  * Greenwich. Bare `YYYY-MM-DD` values (written by older builds) pass through.
  */
-export function dueDateISO(progress: CardProgress): string {
+export function dueDateISO(progress: CardProgress, fallback = todayISO()): string {
   const raw = progress.dueDate || ''
   if (isISODate(raw)) return raw
 
   const parsed = new Date(raw)
-  // An unparseable due date means a corrupt entry; treating it as due today is
-  // the harmless reading — the card comes back into rotation and gets rewritten.
-  return Number.isNaN(parsed.getTime()) ? todayISO() : localISODate(parsed)
+  // An unparseable due date means a corrupt entry; treating it as due on the
+  // day being asked about is the harmless reading — the card comes back into
+  // rotation and gets rewritten. It follows the caller's day rather than the
+  // clock so that "is this due on X?" stays a question about X alone.
+  return Number.isNaN(parsed.getTime()) ? fallback : localISODate(parsed)
 }
 
 export function isDueToday(progress: CardProgress, today = todayISO()): boolean {
-  return dueDateISO(progress) <= today
+  return dueDateISO(progress, today) <= today
 }
 
 export function pickStudyBatch<T extends StudyListItem>(

@@ -65,9 +65,18 @@ export function emptyStats(): Stats {
   }
 }
 
-/** A stored count is only usable if it is a finite, non-negative whole number. */
+/**
+ * A stored count is only usable if it really is a whole, non-negative number.
+ * Rounding a fractional value would invent progress the user never made, so
+ * anything else is dropped the way `normalizeStudiedDates` drops bad dates.
+ * Zero is a legitimate count, hence `undefined` rather than `0` for "absent".
+ */
+function storedCount(value: unknown): number | undefined {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0 ? value : undefined
+}
+
 function counter(value: unknown): number {
-  return typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.round(value) : 0
+  return storedCount(value) ?? 0
 }
 
 export function ratio(correct: number, total: number): number {
@@ -80,8 +89,9 @@ export function ratio(correct: number, total: number): number {
  * accuracy figures intact; from here on the count is the source of truth.
  */
 function migrateCorrectCount(stored: unknown, accuracy: unknown, total: number): number {
-  const explicit = counter(stored)
-  if (explicit > 0) return Math.min(explicit, total)
+  const explicit = storedCount(stored)
+  if (explicit !== undefined) return Math.min(explicit, total)
+
   const rate = typeof accuracy === 'number' && Number.isFinite(accuracy) ? accuracy : 0
   return Math.min(total, Math.max(0, Math.round(rate * total)))
 }
