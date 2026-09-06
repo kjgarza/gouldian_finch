@@ -63,12 +63,25 @@ test('a batch takes due cards oldest first, then tops up with unseen ones', () =
 /** Pins the presentation order so a test can assert on it. */
 const keepOrder = { shuffle: <U,>(items: U[]) => items }
 
-/** `count` cards that all came due yesterday, oldest id first. */
-function backlog(count: number, prefix = 'question'): ProgressMap {
+const MS_PER_DAY = 24 * 60 * 60 * 1000
+
+/**
+ * `count` long-overdue cards, oldest id first. The due dates are stepped off a
+ * real instant rather than interpolated into a date string: past day 31 a
+ * literal like `2020-01-40` is unparseable, and `pickStudyBatch` sorts on
+ * `new Date(dueDate).getTime()`, so a NaN there would leave the order for the
+ * engine to decide and the oldest-first assertion below passing by luck.
+ */
+function backlog(count: number): ProgressMap {
   const map: ProgressMap = {}
   for (let i = 1; i <= count; i++) {
-    const id = `${prefix}:${i}`
-    map[id] = { id, interval: 1, ease: 2.5, dueDate: `2020-01-${String(i).padStart(2, '0')}T00:00:00.000Z` }
+    const id = `question:${i}`
+    map[id] = {
+      id,
+      interval: 1,
+      ease: 2.5,
+      dueDate: new Date(Date.UTC(2020, 0, 1) + (i - 1) * MS_PER_DAY).toISOString(),
+    }
   }
   return map
 }
