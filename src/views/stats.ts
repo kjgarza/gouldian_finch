@@ -9,34 +9,39 @@ import {
   questionStudyId,
   termStudyId,
 } from '../lib/study-ids'
-import { countDueIncludingUnseen } from '../lib/study-session'
+import { isMature, studyCounts } from '../lib/study-session'
 import { StudyHeatmap } from '../lib/study-heatmap'
 import { formatDay, isISODate } from '../lib/study-calendar'
 import { currentStreak } from '../lib/study-stats'
 
-function reviewDueToday(prog: ProgressMap): number {
-  return countDueIncludingUnseen(
-    ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })),
-    prog,
-  )
+function reviewCounts(prog: ProgressMap) {
+  return studyCounts(ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })), prog)
 }
 
-function berlinDueToday(prog: ProgressMap): number {
-  return countDueIncludingUnseen(
-    ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })),
-    prog,
-  )
+function berlinCounts(prog: ProgressMap) {
+  return studyCounts(ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })), prog)
 }
 
-function memoryDueToday(prog: ProgressMap): number {
-  return countDueIncludingUnseen(
-    ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })),
-    prog,
-  )
+function memoryCounts(prog: ProgressMap) {
+  return studyCounts(ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })), prog)
 }
 
+/**
+ * Cards the learner has actually retained, not merely met. Counting every
+ * progress entry credited a question the moment it was first shown — including
+ * one only ever answered wrong, and one the exam filed into the review deck for
+ * being missed — so the bar read as knowledge the learner did not have.
+ */
 function countLearned(prog: ProgressMap, belongsToDeck: (id: string) => boolean): number {
-  return Object.keys(prog).filter(belongsToDeck).length
+  return Object.values(prog).filter((card) => belongsToDeck(card.id) && isMature(card)).length
+}
+
+/** "12 due · 88 not started", trimmed to whichever halves are non-zero. */
+function waitingLabel(counts: { due: number; unseen: number }): string {
+  const parts: string[] = []
+  if (counts.due > 0) parts.push(`${counts.due} due`)
+  if (counts.unseen > 0) parts.push(`${counts.unseen} not started`)
+  return parts.length > 0 ? parts.join(' · ') : 'all caught up'
 }
 
 /**
@@ -56,9 +61,9 @@ export function StatsView(): HTMLElement {
   const streak = currentStreak(stats)
   // Read once: every call re-parses localStorage and re-runs the id migration.
   const prog = loadProgress()
-  const reviewDue = reviewDueToday(prog)
-  const berlinDue = berlinDueToday(prog)
-  const memoryDue = memoryDueToday(prog)
+  const review = reviewCounts(prog)
+  const berlin = berlinCounts(prog)
+  const memory = memoryCounts(prog)
   const learnedQuestions = countLearned(prog, isQuestionStudyId)
   const learnedBerlin = countLearned(prog, isBerlinStudyId)
   const learnedTerms = countLearned(prog, isTermStudyId)
@@ -93,8 +98,10 @@ export function StatsView(): HTMLElement {
       
       <div class="card bg-base-100 shadow p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Review Due</div>
-        <div class="text-3xl font-bold text-warning mt-1">${reviewDue + berlinDue}</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">${reviewDue} federal · ${berlinDue} Berlin</div>
+        <div class="text-3xl font-bold text-warning mt-1">${review.due + berlin.due}</div>
+        <div class="text-xs text-base-content opacity-70 mt-1">
+          ${review.due} federal · ${berlin.due} Berlin${review.unseen + berlin.unseen > 0 ? ` · ${review.unseen + berlin.unseen} not started` : ''}
+        </div>
       </div>
 
       <div class="card bg-base-100 shadow p-4 text-center">
@@ -123,7 +130,7 @@ export function StatsView(): HTMLElement {
                  style="width: ${percent(learnedQuestions, ALL_DE.length)}%"></div>
           </div>
           <div class="text-xs text-base-content opacity-70">
-            ${Math.round(percent(learnedQuestions, ALL_DE.length))}% complete
+            ${Math.round(percent(learnedQuestions, ALL_DE.length))}% complete · ${waitingLabel(review)}
           </div>
           <div class="flex justify-between items-center pt-2 border-t border-base-300">
             <span class="text-base-content opacity-70">Berlin questions learned</span>
@@ -134,7 +141,7 @@ export function StatsView(): HTMLElement {
                  style="width: ${percent(learnedBerlin, ALL_BERLIN_DE.length)}%"></div>
           </div>
           <div class="text-xs text-base-content opacity-70">
-            ${berlinDue} Berlin card${berlinDue === 1 ? '' : 's'} due now
+            ${waitingLabel(berlin)}
           </div>
           <div class="flex justify-between items-center pt-2 border-t border-base-300">
             <span class="text-base-content opacity-70">Term cards learned</span>
@@ -145,7 +152,7 @@ export function StatsView(): HTMLElement {
                  style="width: ${percent(learnedTerms, ALL_TERMS.length)}%"></div>
           </div>
           <div class="text-xs text-base-content opacity-70">
-            ${memoryDue} term card${memoryDue === 1 ? '' : 's'} due now
+            ${waitingLabel(memory)}
           </div>
           
           ${isISODate(stats.lastStudyDate) ? `

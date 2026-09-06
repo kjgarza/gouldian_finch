@@ -1,40 +1,37 @@
 import { navigate } from '../router'
 import { ALL_BERLIN_DE, ALL_DE, ALL_QUESTIONS_DE, ALL_TERMS } from '../state'
 import { loadProgress } from '../storage'
+import type { ProgressMap } from '../types'
 import { Footer } from '../lib/footer'
-import { countDueIncludingUnseen } from '../lib/study-session'
+import { studyCounts } from '../lib/study-session'
 import { berlinStudyId, questionStudyId, termStudyId } from '../lib/study-ids'
 
-function reviewDueCountToday(): number {
-  const prog = loadProgress()
-  return countDueIncludingUnseen(
-    ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })),
-    prog,
-  )
+/**
+ * Reads how much of each deck is waiting. Due cards and never-started ones are
+ * kept apart: a review that has come round again is work the learner already
+ * owes, while an untouched question is simply new material.
+ */
+function deckCounts(prog: ProgressMap) {
+  return {
+    review: studyCounts(ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })), prog),
+    berlin: studyCounts(ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })), prog),
+    memory: studyCounts(ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })), prog),
+  }
 }
 
-function berlinDueCountToday(): number {
-  const prog = loadProgress()
-  return countDueIncludingUnseen(
-    ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })),
-    prog,
-  )
-}
-
-function memoryDueCountToday(): number {
-  const prog = loadProgress()
-  return countDueIncludingUnseen(
-    ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })),
-    prog,
-  )
+/** "12 due · 88 not started", trimmed to whichever halves are non-zero. */
+function waitingLabel(counts: { due: number; unseen: number }): string {
+  const parts: string[] = []
+  if (counts.due > 0) parts.push(`${counts.due} due`)
+  if (counts.unseen > 0) parts.push(`${counts.unseen} not started`)
+  return parts.length > 0 ? parts.join(' · ') : 'all caught up'
 }
 
 export function HomeView(): HTMLElement {
   const root = document.createElement('div')
   root.className = 'page'
-  const reviewDue = reviewDueCountToday()
-  const berlinDue = berlinDueCountToday()
-  const memoryDue = memoryDueCountToday()
+  // Read once: every call re-parses localStorage and re-runs the id migration.
+  const { review, berlin, memory } = deckCounts(loadProgress())
   
   root.innerHTML = `
     <header class="py-6">
@@ -45,19 +42,19 @@ export function HomeView(): HTMLElement {
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
       <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">📚 Study Mode</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Spaced repetition learning with ${reviewDue} cards due today</p>
+        <p class="text-sm text-base-content opacity-70 mb-4">Spaced repetition learning — ${waitingLabel(review)}</p>
         <button id="reviewBtn" class="btn btn-primary w-full">Start Review Session</button>
       </div>
 
       <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">🐻 Berlin State Questions</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Drill the ${ALL_BERLIN_DE.length} Berlin questions on their own deck, with ${berlinDue} due today</p>
+        <p class="text-sm text-base-content opacity-70 mb-4">Drill the ${ALL_BERLIN_DE.length} Berlin questions on their own deck — ${waitingLabel(berlin)}</p>
         <button id="berlinBtn" class="btn btn-primary w-full">Start Berlin Session</button>
       </div>
 
       <div class="card bg-base-100 shadow">
         <h2 class="text-xl font-semibold mb-3">🧠 Memory Terms</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Flip through ${ALL_TERMS.length} German terms with ${memoryDue} cards due today</p>
+        <p class="text-sm text-base-content opacity-70 mb-4">Flip through ${ALL_TERMS.length} German terms — ${waitingLabel(memory)}</p>
         <button id="memoryBtn" class="btn btn-primary w-full">Start Memory Session</button>
       </div>
       
