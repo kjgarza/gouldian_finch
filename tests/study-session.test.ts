@@ -2,7 +2,14 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 
 import { localISODate } from '../src/lib/study-calendar.ts'
-import { createDefaultProgress, dueDateISO, isDueToday, pickStudyBatch } from '../src/lib/study-session.ts'
+import {
+  createDefaultProgress,
+  dueDateISO,
+  isDueToday,
+  isMature,
+  pickStudyBatch,
+  studyCounts,
+} from '../src/lib/study-session.ts'
 import { updateCard } from '../src/sm2.ts'
 import type { ProgressMap } from '../src/types.ts'
 
@@ -49,6 +56,83 @@ test('a batch takes due cards oldest first, then tops up with unseen ones', () =
   }
   const items = [1, 2, 3, 4].map((id) => ({ studyId: `question:${id}` }))
 
-  const batch = pickStudyBatch(items, progress, 3).map((entry) => entry.item.studyId)
+  const batch = pickStudyBatch(items, progress, 3, keepOrder).map((entry) => entry.item.studyId)
   assert.deepEqual(batch, ['question:2', 'question:1', 'question:4'])
+})
+
+/** Pins the presentation order so a test can assert on it. */
+const keepOrder = { shuffle: <U,>(items: U[]) => items }
+
+/** `count` cards that all came due yesterday, oldest id first. */
+function backlog(count: number, prefix = 'question'): ProgressMap {
+  const map: ProgressMap = {}
+  for (let i = 1; i <= count; i++) {
+    const id = `${prefix}:${i}`
+    map[id] = { id, interval: 1, ease: 2.5, dueDate: `2020-01-${String(i).padStart(2, '0')}T00:00:00.000Z` }
+  }
+  return map
+}
+
+const deck = (size: number) => Array.from({ length: size }, (_, i) => ({ studyId: `question:${i + 1}` }))
+
+test('a review backlog cannot crowd new questions out of the batch', () => {
+  // The bug this guards: filling with due cards first meant a learner with more
+  // than a batch of lapses saw the same cards session after session and never
+  // met a new question.
+  const batch = pickStudyBatch(deck(140), backlog(40), 20, { ...keepOrder, newCardFloor: 5 })
+  const ids = batch.map((entry) => entry.item.studyId)
+  const fresh = ids.filter((id) => Number(id.split(':')[1]) > 40)
+
+  assert.equal(ids.length, 20)
+  assert.equal(fresh.length, 5)
+})
+
+test('the floor claims only as many slots as there are unseen cards', () => {
+  // A deck worked through end to end still serves a full batch of reviews.
+  const batch = pickStudyBatch(deck(40), backlog(40), 20, { ...keepOrder, newCardFloor: 5 })
+  assert.equal(batch.length, 20)
+  assert.ok(batch.every((entry) => Number(entry.item.studyId.split(':')[1]) <= 40))
+})
+
+test('the floor never shrinks a batch a short due list would have filled', () => {
+  const batch = pickStudyBatch(deck(140), backlog(3), 20, { ...keepOrder, newCardFloor: 5 })
+  const fresh = batch.filter((entry) => Number(entry.item.studyId.split(':')[1]) > 3)
+
+  assert.equal(batch.length, 20)
+  assert.equal(fresh.length, 17)
+})
+
+test('due cards are still selected oldest first within the slots left to them', () => {
+  const batch = pickStudyBatch(deck(140), backlog(40), 20, { ...keepOrder, newCardFloor: 5 })
+  const dueIds = batch.slice(0, 15).map((entry) => entry.item.studyId)
+
+  assert.deepEqual(dueIds, Array.from({ length: 15 }, (_, i) => `question:${i + 1}`))
+})
+
+test('shuffling changes the order a batch is asked in, not which cards it holds', () => {
+  const reverse = { shuffle: <U,>(items: U[]) => [...items].reverse(), newCardFloor: 5 }
+  const ordered = pickStudyBatch(deck(140), backlog(40), 20, { ...keepOrder, newCardFloor: 5 })
+  const shuffled = pickStudyBatch(deck(140), backlog(40), 20, reverse)
+
+  const ids = (b: typeof ordered) => b.map((entry) => entry.item.studyId)
+  assert.notDeepEqual(ids(shuffled), ids(ordered))
+  assert.deepEqual([...ids(shuffled)].sort(), [...ids(ordered)].sort())
+})
+
+test('study counts keep due cards and never-started ones apart', () => {
+  const progress: ProgressMap = {
+    'question:1': { id: 'question:1', interval: 1, ease: 2.5, dueDate: '2020-01-01T00:00:00.000Z' },
+    'question:2': { id: 'question:2', interval: 30, ease: 2.5, dueDate: '2999-01-01T00:00:00.000Z' },
+  }
+
+  assert.deepEqual(studyCounts(deck(5), progress), { due: 1, unseen: 3, total: 4 })
+})
+
+test('a card counts as learned only once it survives a second successful review', () => {
+  // Six days is the interval after two Goods; below that the card has either
+  // never been answered right twice or has lapsed back to the start.
+  assert.equal(isMature({ id: 'question:1', interval: 0, ease: 2.5, dueDate: '2020-01-01' }), false)
+  assert.equal(isMature({ id: 'question:1', interval: 1, ease: 2.5, dueDate: '2020-01-01' }), false)
+  assert.equal(isMature({ id: 'question:1', interval: 6, ease: 2.5, dueDate: '2020-01-01' }), true)
+  assert.equal(isMature({ id: 'question:1', interval: 30, ease: 2.5, dueDate: '2020-01-01' }), true)
 })

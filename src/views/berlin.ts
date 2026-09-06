@@ -32,7 +32,8 @@ export function BerlinView(): HTMLElement {
 
   let queue = pickDueBatch()
   let current = 0
-  let answeredCorrect = false
+  /** Choice the learner picked for the current card, or null before they answer. */
+  let answeredIndex: number | null = null
   const showEN = Locales.get()
   // Derived from the whole deck, not the due batch: the notice has to stand
   // whatever happens to be due today.
@@ -114,8 +115,6 @@ export function BerlinView(): HTMLElement {
     const showEnglish = langToggle.checked
     const en = byId(q.id).en
 
-    answeredCorrect = false
-
     cardArea.innerHTML = `
       <div class="card bg-base-100 shadow">
         <div class="flex items-center justify-between mb-4">
@@ -158,14 +157,21 @@ export function BerlinView(): HTMLElement {
         : `💡 ${q.hint}`
     })
 
-    againBtn.disabled = true
-    goodBtn.disabled = true
+    // The English toggle re-renders mid-card, so an answer already given has
+    // to be painted back on. Otherwise the feedback vanishes, the choices come
+    // back enabled, and the same card gets answered — and counted — twice.
+    if (answeredIndex === null) {
+      againBtn.disabled = true
+      goodBtn.disabled = true
+    } else {
+      paintAnswer(answeredIndex)
+    }
   }
 
-  function onChoose(idx: number) {
+  /** Locks the choices and marks the correct one. Records nothing. */
+  function paintAnswer(idx: number) {
     const { q } = queue[current]
     const correct = idx === q.correctIndex
-    answeredCorrect = correct
 
     const btns = Array.from(root.querySelectorAll('#choices button')) as HTMLButtonElement[]
     btns.forEach((b, i) => {
@@ -180,8 +186,19 @@ export function BerlinView(): HTMLElement {
 
     againBtn.disabled = false
     goodBtn.disabled = !correct // Good only when correct
+  }
 
-    recordReviewAnswer(correct)
+  function answeredCorrectly(): boolean {
+    return answeredIndex !== null && answeredIndex === queue[current]?.q.correctIndex
+  }
+
+  function onChoose(idx: number) {
+    if (answeredIndex !== null) return
+
+    answeredIndex = idx
+    paintAnswer(idx)
+
+    recordReviewAnswer(idx === queue[current].q.correctIndex)
   }
 
   function advance(grade: 'again' | 'good') {
@@ -194,13 +211,14 @@ export function BerlinView(): HTMLElement {
       // Reinsert later in the same session (Leitner-ish)
       queue.push(item)
     }
+    answeredIndex = null
     current++
     renderCard()
   }
 
   againBtn.addEventListener('click', () => advance('again'))
   goodBtn.addEventListener('click', () => {
-    if (answeredCorrect) advance('good')
+    if (answeredCorrectly()) advance('good')
   })
 
   const onKey = (e: KeyboardEvent) => {
