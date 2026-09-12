@@ -43,6 +43,12 @@ function esc(s: string): string {
  * The wrapper carries the declared aspect ratio, which reserves the right box
  * before the PNG loads and stops the card from jumping. Tapping the figure
  * drops the ratio cap so dense organigrams can be read full height on a phone.
+ *
+ * Deliberately plain <div>s, not <figure>/<figcaption>: every call site nests
+ * this inside a DaisyUI `.card`, and DaisyUI's `.card figure { display: flex }`
+ * rule turns a real <figure> into a shrink-to-fit flex row — the button and
+ * caption end up squeezed side by side at a fraction of the card's width
+ * instead of stacked full-width. Plain divs are immune to that selector.
  */
 export function diagramHintHtml(questionId: number, showEnglish: boolean): string {
   const d = diagramFor(questionId)
@@ -51,21 +57,21 @@ export function diagramHintHtml(questionId: number, showEnglish: boolean): strin
   const sub = showEnglish ? d.titleDe : d.titleEn
   const alt = showEnglish ? d.altEn : d.altDe
   return `
-    <figure class="diagram-hint mt-3" data-diagram="${esc(d.key)}" data-expanded="false">
+    <div class="diagram-hint mt-3 w-full" data-diagram="${esc(d.key)}" data-expanded="false">
       <button type="button" class="block w-full text-left" data-diagram-toggle
               aria-label="Enlarge diagram: ${esc(title)}">
-        <div class="diagram-frame overflow-hidden rounded-lg border border-border bg-white"
+        <div class="diagram-frame w-full overflow-hidden rounded-lg border border-border bg-white"
              style="aspect-ratio: ${ASPECT_CSS[d.aspect] ?? DEFAULT_ASPECT}">
           <img src="${assetUrl(d.file)}" alt="${esc(alt)}" loading="lazy" decoding="async"
                class="w-full h-full object-contain" />
         </div>
       </button>
-      <figcaption class="mt-1 text-xs text-muted-foreground">
+      <div class="mt-1 text-xs text-muted-foreground">
         <span class="font-medium">${esc(title)}</span>
         <span class="opacity-70"> · ${esc(sub)}</span>
         <span class="opacity-70"> · tap to enlarge</span>
-      </figcaption>
-    </figure>
+      </div>
+    </div>
   `
 }
 
