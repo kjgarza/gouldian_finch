@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Schematische Übersicht: Deutschland hat neun Nachbarländer, alle sind EU-Staaten außer der Schweiz, und fast alle gehören zum Schengen-Raum.</title>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="46" font-size="26" font-weight="700" fill="#0f172a">Die 9 Nachbarländer</text>
+  <text x="28" y="70" font-size="15" fill="#64748b">Germany's nine neighbouring countries (schematic, not a map)</text>
+
+  <!-- Row A: north -->
+  <rect x="20" y="112" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="110" y="152" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Niederlande</text>
+  <text x="110" y="174" font-size="15" fill="#64748b" text-anchor="middle">Netherlands · NW</text>
+
+  <rect x="210" y="112" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="152" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Dänemark</text>
+  <text x="300" y="174" font-size="15" fill="#64748b" text-anchor="middle">Denmark · N</text>
+
+  <rect x="400" y="112" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="490" y="152" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Polen</text>
+  <text x="490" y="174" font-size="15" fill="#64748b" text-anchor="middle">Poland · E</text>
+
+  <!-- Row B/C: sides + centre -->
+  <rect x="20" y="208" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="110" y="248" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Belgien</text>
+  <text x="110" y="270" font-size="15" fill="#64748b" text-anchor="middle">Belgium · W</text>
+
+  <rect x="400" y="208" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="490" y="248" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Tschechien</text>
+  <text x="490" y="270" font-size="15" fill="#64748b" text-anchor="middle">Czechia · SE</text>
+
+  <rect x="210" y="208" width="180" height="180" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="272" font-size="26" font-weight="700" fill="#2563eb" text-anchor="middle">DEUTSCH-</text>
+  <text x="300" y="300" font-size="26" font-weight="700" fill="#2563eb" text-anchor="middle">LAND</text>
+  <text x="300" y="330" font-size="18" fill="#0f172a" text-anchor="middle">9 Nachbarn</text>
+  <text x="300" y="350" font-size="15" fill="#64748b" text-anchor="middle">Germany ·</text>
+  <text x="300" y="368" font-size="15" fill="#64748b" text-anchor="middle">9 neighbours</text>
+
+  <rect x="20" y="304" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="110" y="344" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Luxemburg</text>
+  <text x="110" y="366" font-size="15" fill="#64748b" text-anchor="middle">Luxembourg · W</text>
+
+  <rect x="400" y="304" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="490" y="344" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Österreich</text>
+  <text x="490" y="366" font-size="15" fill="#64748b" text-anchor="middle">Austria · S</text>
+
+  <!-- Row D: south -->
+  <rect x="20" y="400" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="110" y="440" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Frankreich</text>
+  <text x="110" y="462" font-size="15" fill="#64748b" text-anchor="middle">France · SW</text>
+
+  <rect x="210" y="400" width="180" height="84" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="440" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Schweiz</text>
+  <text x="300" y="462" font-size="15" fill="#64748b" text-anchor="middle">Switzerland · S</text>
+
+  <!-- Schengen -->
+  <rect x="400" y="400" width="180" height="84" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="490" y="432" font-size="18" fill="#0f172a" text-anchor="middle">Keine Länder:</text>
+  <text x="490" y="454" font-size="18" fill="#0f172a" text-anchor="middle">Nordsee, Ostsee</text>
+  <text x="490" y="472" font-size="15" fill="#64748b" text-anchor="middle">seas, not neighbours</text>
+
+  <!-- Schengen band -->
+  <rect x="28" y="504" width="544" height="90" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="300" y="538" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Schengen-Raum</text>
+  <text x="300" y="562" font-size="18" fill="#16a34a" text-anchor="middle">Reisen ohne Passkontrolle</text>
+  <text x="300" y="582" font-size="15" fill="#64748b" text-anchor="middle">Schengen area: travel without passport checks</text>
+
+  <!-- Notes -->
+  <rect x="28" y="610" width="544" height="108" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="46" y="642" font-size="18" fill="#0f172a">Alle 9 Nachbarn sind EU-Staaten – außer der Schweiz.</text>
+  <text x="46" y="662" font-size="15" fill="#64748b">All nine neighbours are EU states — except Switzerland.</text>
+  <text x="46" y="690" font-size="18" fill="#0f172a">Deutschsprachige Nachbarn: Österreich und Schweiz.</text>
+  <text x="46" y="710" font-size="15" fill="#64748b">German-speaking neighbours: Austria and Switzerland.</text>
+</svg>

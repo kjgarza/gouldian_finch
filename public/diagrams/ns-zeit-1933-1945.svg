@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1067" width="600" height="1067"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Zeitleiste der NS-Diktatur von 1933 bis 1945 mit fünf Stationen: Hitler wird Reichskanzler, Novemberpogrome, Beginn des Zweiten Weltkriegs, Attentat vom 20. Juli 1944 und Kapitulation am 8. Mai 1945.</title>
+  <rect width="600" height="1067" fill="#ffffff"/>
+
+  <text x="28" y="46" font-size="26" font-weight="700" fill="#0f172a">Nationalsozialismus 1933–1945</text>
+  <text x="28" y="70" font-size="15" fill="#64748b">National Socialism in Germany, 1933 to 1945</text>
+
+  <!-- the dictatorship bar spans the whole period -->
+  <rect x="44" y="150" width="16" height="780" rx="8" fill="#dc2626"/>
+  <g fill="#ffffff" stroke="#dc2626" stroke-width="4">
+    <circle cx="52" cy="212" r="9"/>
+    <circle cx="52" cy="372" r="9"/>
+    <circle cx="52" cy="532" r="9"/>
+    <circle cx="52" cy="692" r="9"/>
+    <circle cx="52" cy="852" r="9"/>
+  </g>
+
+  <!-- 1933 -->
+  <rect x="96" y="150" width="480" height="140" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="116" y="184" font-size="20" font-weight="700" fill="#dc2626">30. Januar 1933</text>
+  <text x="116" y="212" font-size="22" font-weight="600" fill="#0f172a">Hitler wird Reichskanzler</text>
+  <text x="116" y="232" font-size="15" fill="#64748b">Hitler is made Chancellor of the Reich</text>
+  <text x="116" y="260" font-size="18" fill="#0f172a">Die NSDAP errichtet eine Diktatur.</text>
+  <text x="116" y="280" font-size="15" fill="#64748b">The NSDAP establishes a dictatorship.</text>
+
+  <!-- 1938 -->
+  <rect x="96" y="310" width="480" height="140" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="344" font-size="20" font-weight="700" fill="#dc2626">9. November 1938</text>
+  <text x="116" y="372" font-size="22" font-weight="600" fill="#0f172a">Novemberpogrome</text>
+  <text x="116" y="392" font-size="15" fill="#64748b">the November pogroms against Jews</text>
+  <text x="116" y="420" font-size="18" fill="#0f172a">Synagogen und jüdische Geschäfte zerstört</text>
+  <text x="116" y="440" font-size="15" fill="#64748b">synagogues and Jewish shops were destroyed</text>
+
+  <!-- 1939 -->
+  <rect x="96" y="470" width="480" height="140" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="504" font-size="20" font-weight="700" fill="#dc2626">1. September 1939</text>
+  <text x="116" y="532" font-size="22" font-weight="600" fill="#0f172a">Zweiter Weltkrieg beginnt</text>
+  <text x="116" y="552" font-size="15" fill="#64748b">the Second World War begins</text>
+  <text x="116" y="580" font-size="18" fill="#0f172a">Deutscher Überfall auf Polen</text>
+  <text x="116" y="600" font-size="15" fill="#64748b">German invasion of Poland</text>
+
+  <!-- 1944 -->
+  <rect x="96" y="630" width="480" height="140" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="664" font-size="20" font-weight="700" fill="#dc2626">20. Juli 1944</text>
+  <text x="116" y="692" font-size="22" font-weight="600" fill="#0f172a">Attentat auf Hitler scheitert</text>
+  <text x="116" y="712" font-size="15" fill="#64748b">the attempt to assassinate Hitler fails</text>
+  <text x="116" y="740" font-size="18" fill="#0f172a">Claus Schenk Graf von Stauffenberg</text>
+  <text x="116" y="760" font-size="15" fill="#64748b">led by Stauffenberg — military resistance</text>
+
+  <!-- 1945 -->
+  <rect x="96" y="790" width="480" height="140" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="116" y="824" font-size="20" font-weight="700" fill="#dc2626">8. Mai 1945</text>
+  <text x="116" y="852" font-size="22" font-weight="600" fill="#0f172a">Bedingungslose Kapitulation</text>
+  <text x="116" y="872" font-size="15" fill="#64748b">unconditional surrender of Germany</text>
+  <text x="116" y="900" font-size="18" fill="#0f172a">Ende des Krieges in Europa</text>
+  <text x="116" y="920" font-size="15" fill="#64748b">end of the war in Europe</text>
+
+  <!-- legend -->
+  <rect x="28" y="956" width="544" height="76" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <rect x="48" y="978" width="20" height="20" rx="4" fill="#dc2626"/>
+  <text x="82" y="995" font-size="18" fill="#0f172a">NS-Diktatur: 1933 bis 1945, zwölf Jahre</text>
+  <text x="82" y="1016" font-size="15" fill="#64748b">the Nazi dictatorship lasted the whole period, twelve years</text>
+</svg>

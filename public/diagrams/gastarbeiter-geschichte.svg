@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Die Bundesrepublik warb ab 1955 Gastarbeiter an, zuerst aus Italien, bis zum Anwerbestopp 1973; die DDR holte Vertragsarbeiter aus Vietnam, Polen und Mosambik.</title>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="46" font-size="26" font-weight="700" fill="#0f172a">Arbeitsmigration nach Deutschland</text>
+  <text x="28" y="70" font-size="15" fill="#64748b">Labour migration to Germany, 1950s–1970s</text>
+
+  <!-- column headers -->
+  <rect x="28" y="90" width="266" height="86" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="161" y="118" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Bundesrepublik</text>
+  <text x="161" y="146" font-size="20" font-weight="600" fill="#2563eb" text-anchor="middle">Gastarbeiter</text>
+  <text x="161" y="166" font-size="15" fill="#64748b" text-anchor="middle">West: „guest workers“</text>
+
+  <rect x="306" y="90" width="266" height="86" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="439" y="118" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">DDR</text>
+  <text x="439" y="146" font-size="20" font-weight="600" fill="#0f172a" text-anchor="middle">Vertragsarbeiter</text>
+  <text x="439" y="166" font-size="15" fill="#64748b" text-anchor="middle">East: contract workers</text>
+
+  <line x1="300" y1="188" x2="300" y2="512" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- left list -->
+  <g>
+    <text x="40" y="216" font-size="18" font-weight="700" fill="#2563eb">1955</text>
+    <text x="104" y="216" font-size="20" font-weight="600" fill="#0f172a">Italien</text>
+    <text x="104" y="236" font-size="15" fill="#64748b">Italy – first agreement</text>
+
+    <text x="40" y="272" font-size="18" font-weight="700" fill="#2563eb">1960</text>
+    <text x="104" y="272" font-size="20" font-weight="600" fill="#0f172a">Spanien,</text>
+    <text x="104" y="294" font-size="20" font-weight="600" fill="#0f172a">Griechenland</text>
+    <text x="104" y="314" font-size="15" fill="#64748b">Spain, Greece</text>
+
+    <text x="40" y="350" font-size="18" font-weight="700" fill="#2563eb">1961</text>
+    <text x="104" y="350" font-size="20" font-weight="600" fill="#0f172a">Türkei</text>
+    <text x="104" y="370" font-size="15" fill="#64748b">Turkey</text>
+
+    <text x="40" y="406" font-size="18" font-weight="700" fill="#2563eb">1963</text>
+    <text x="40" y="426" font-size="18" font-weight="700" fill="#2563eb">1968</text>
+    <text x="104" y="406" font-size="20" font-weight="600" fill="#0f172a">Marokko, Portugal,</text>
+    <text x="104" y="428" font-size="20" font-weight="600" fill="#0f172a">Jugoslawien</text>
+    <text x="104" y="448" font-size="15" fill="#64748b">Morocco, Portugal,</text>
+    <text x="104" y="464" font-size="15" fill="#64748b">Yugoslavia</text>
+
+    <rect x="40" y="476" width="240" height="56" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="54" y="502" font-size="20" font-weight="600" fill="#0f172a">1973 Anwerbestopp</text>
+    <text x="54" y="522" font-size="15" fill="#64748b">recruitment halted</text>
+  </g>
+
+  <!-- right list -->
+  <g>
+    <text x="320" y="216" font-size="20" font-weight="600" fill="#0f172a">Vietnam</text>
+    <text x="320" y="236" font-size="15" fill="#64748b">Vietnam</text>
+
+    <text x="320" y="272" font-size="20" font-weight="600" fill="#0f172a">Polen</text>
+    <text x="320" y="292" font-size="15" fill="#64748b">Poland</text>
+
+    <text x="320" y="328" font-size="20" font-weight="600" fill="#0f172a">Mosambik</text>
+    <text x="320" y="348" font-size="15" fill="#64748b">Mozambique</text>
+
+    <rect x="318" y="372" width="240" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="332" y="398" font-size="18" fill="#0f172a">aus sozialistischen</text>
+    <text x="332" y="420" font-size="18" fill="#0f172a">Partnerstaaten</text>
+    <text x="332" y="440" font-size="15" fill="#64748b">from socialist partner states</text>
+  </g>
+
+  <!-- today -->
+  <rect x="28" y="542" width="544" height="88" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="46" y="570" font-size="22" font-weight="600" fill="#0f172a">Heute häufigstes Herkunftsland:</text>
+  <text x="46" y="596" font-size="22" font-weight="700" fill="#16a34a">Türkei</text>
+  <text x="46" y="618" font-size="15" fill="#64748b">Today the largest single country of origin of migrants in Germany</text>
+
+  <rect x="28" y="644" width="544" height="88" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="672" font-size="18" fill="#0f172a">Nach 1973 wurde niemand mehr angeworben.</text>
+  <text x="46" y="694" font-size="18" fill="#0f172a">Viele blieben und holten ihre Familien nach.</text>
+  <text x="46" y="716" font-size="15" fill="#64748b">After 1973 no new recruitment; many stayed and brought their families.</text>
+</svg>

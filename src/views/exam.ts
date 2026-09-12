@@ -4,6 +4,7 @@ import type { Question, ExamAttempt } from '../types'
 import { navigate } from '../router'
 import { BERLIN_TOPIC, studyIdForQuestion } from '../lib/study-ids'
 import { recordExamCompletion } from '../lib/study-stats'
+import { bindDiagramToggles, diagramHintHtml } from '../diagrams'
 
 function sampleExam(): Question[] {
   const berlin = ALL_BERLIN_DE
@@ -187,9 +188,11 @@ export function ExamView(): HTMLElement {
             <div class="text-xs text-success mt-1">
               Correct: ${q.choices[q.correctIndex]}
             </div>
+            ${diagramHintHtml(q.id, false)}
           </div>
         `
       }).join('')
+      bindDiagramToggles(wrongList)
 
       const addWrong = area.querySelector('#addWrong') as HTMLButtonElement
       addWrong.addEventListener('click', () => {

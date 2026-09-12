@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1067" width="600" height="1067"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Zeitleiste von den Montagsdemonstrationen 1989 &#252;ber den Mauerfall bis zum Beitritt der DDR am 3. Oktober 1990 und zum Tag der Deutschen Einheit.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="1067" fill="#ffffff"/>
+
+  <text x="28" y="44" font-size="26" font-weight="700" fill="#0f172a">Wende und Wiedervereinigung</text>
+  <text x="28" y="68" font-size="15" fill="#64748b">1989&#8211;1990, from the Monday demonstrations to German unity</text>
+
+  <!-- spine -->
+  <line x1="60" y1="100" x2="60" y2="873" stroke="#cbd5e1" stroke-width="4"/>
+
+  <!-- 1 -->
+  <circle cx="60" cy="130" r="9" fill="#64748b"/>
+  <rect x="92" y="100" width="480" height="126" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="112" y="126" font-size="18" font-weight="700" fill="#64748b">1989</text>
+  <text x="112" y="154" font-size="22" font-weight="600" fill="#0f172a">Montagsdemonstrationen</text>
+  <text x="112" y="172" font-size="15" fill="#64748b">Monday demonstrations in the DDR</text>
+  <text x="112" y="198" font-size="18" fill="#0f172a">&#8222;Wir sind das Volk!&#8220;</text>
+  <text x="112" y="216" font-size="15" fill="#64748b">&#8216;We are the people&#8217; &#8211; demanding democracy</text>
+
+  <!-- 2 -->
+  <circle cx="60" cy="272" r="9" fill="#64748b"/>
+  <rect x="92" y="242" width="480" height="126" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="112" y="268" font-size="18" font-weight="700" fill="#64748b">Herbst 1989</text>
+  <text x="112" y="296" font-size="22" font-weight="600" fill="#0f172a">Die Wende</text>
+  <text x="112" y="314" font-size="15" fill="#64748b">the turning point</text>
+  <text x="112" y="340" font-size="18" fill="#0f172a">Diktatur &#8594; Demokratie in der DDR</text>
+  <text x="112" y="358" font-size="15" fill="#64748b">the GDR changes politically to a democracy</text>
+
+  <!-- 3 -->
+  <circle cx="60" cy="414" r="9" fill="#64748b"/>
+  <rect x="92" y="384" width="480" height="126" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="112" y="410" font-size="18" font-weight="700" fill="#64748b">9. November 1989</text>
+  <text x="112" y="438" font-size="22" font-weight="600" fill="#0f172a">Mauerfall</text>
+  <text x="112" y="456" font-size="15" fill="#64748b">fall of the Berlin Wall</text>
+  <text x="112" y="482" font-size="18" fill="#0f172a">Die Grenze wird ge&#246;ffnet.</text>
+  <text x="112" y="500" font-size="15" fill="#64748b">the border between East and West opens</text>
+
+  <!-- 4 -->
+  <circle cx="60" cy="556" r="9" fill="#64748b"/>
+  <rect x="92" y="526" width="480" height="126" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="112" y="552" font-size="18" font-weight="700" fill="#64748b">3. Oktober 1990</text>
+  <text x="112" y="580" font-size="22" font-weight="600" fill="#0f172a">Beitritt der DDR zur BRD</text>
+  <text x="112" y="598" font-size="15" fill="#64748b">the DDR joins the Federal Republic</text>
+  <text x="112" y="624" font-size="18" fill="#0f172a">nach Artikel 23 Grundgesetz</text>
+  <text x="112" y="642" font-size="15" fill="#64748b">under Article 23 of the Basic Law</text>
+
+  <!-- 5 -->
+  <circle cx="60" cy="698" r="9" fill="#64748b"/>
+  <rect x="92" y="668" width="480" height="126" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="112" y="694" font-size="18" font-weight="700" fill="#64748b">1990</text>
+  <text x="112" y="722" font-size="22" font-weight="600" fill="#0f172a">5 neue Bundesl&#228;nder</text>
+  <text x="112" y="740" font-size="15" fill="#64748b">five new federal states join the Bund</text>
+  <text x="112" y="766" font-size="18" fill="#0f172a">Brandenburg &#183; Sachsen &#183; Th&#252;ringen</text>
+  <text x="112" y="784" font-size="15" fill="#64748b">plus Sachsen-Anhalt and Mecklenburg-Vorpommern</text>
+
+  <!-- 6 -->
+  <circle cx="60" cy="840" r="11" fill="#2563eb"/>
+  <rect x="92" y="810" width="480" height="126" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="112" y="836" font-size="18" font-weight="700" fill="#2563eb">seit 1990, jedes Jahr</text>
+  <text x="112" y="864" font-size="22" font-weight="700" fill="#0f172a">Tag der Deutschen Einheit</text>
+  <text x="112" y="882" font-size="15" fill="#64748b">Day of German Unity</text>
+  <text x="112" y="908" font-size="18" fill="#2563eb">Nationalfeiertag am 3. Oktober</text>
+  <text x="112" y="926" font-size="15" fill="#64748b">the national holiday, every 3 October</text>
+
+  <!-- side note -->
+  <rect x="28" y="956" width="544" height="90" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="46" y="982" font-size="18" fill="#0f172a">Helmut Kohl: &#8222;Kanzler der Einheit&#8220;</text>
+  <text x="46" y="999" font-size="15" fill="#64748b">the chancellor of German unity</text>
+  <text x="46" y="1022" font-size="18" fill="#0f172a">Die neuen L&#228;nder kommen in die EU.</text>
+  <text x="46" y="1039" font-size="15" fill="#64748b">they join the European Union together with the BRD</text>
+</svg>

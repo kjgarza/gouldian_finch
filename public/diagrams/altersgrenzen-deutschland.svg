@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Altersskala in Deutschland: ab 14 Jahren ist man strafmündig, ab 18 Jahren volljährig, und sexuelle Kontakte mit Kindern unter 14 Jahren sind verboten.</title>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="46" font-size="26" font-weight="700" fill="#0f172a">Wichtige Altersgrenzen</text>
+  <text x="28" y="70" font-size="15" fill="#64748b">Key legal age thresholds in Germany</text>
+
+  <!-- age bar -->
+  <rect x="28" y="96" width="252" height="54" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="280" y="96" width="120" height="54" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <rect x="400" y="96" width="172" height="54" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="154" y="130" font-size="18" fill="#0f172a" text-anchor="middle">unter 14</text>
+  <text x="340" y="130" font-size="18" fill="#0f172a" text-anchor="middle">14–17</text>
+  <text x="486" y="130" font-size="18" font-weight="700" fill="#2563eb" text-anchor="middle">ab 18</text>
+
+  <line x1="280" y1="150" x2="280" y2="166" stroke="#0f172a" stroke-width="2.5"/>
+  <line x1="400" y1="150" x2="400" y2="166" stroke="#0f172a" stroke-width="2.5"/>
+  <text x="280" y="190" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">14</text>
+  <text x="400" y="190" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">18</text>
+  <text x="34" y="190" font-size="15" fill="#64748b">Alter · age</text>
+
+  <!-- under 14 -->
+  <rect x="28" y="206" width="544" height="106" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="240" font-size="22" font-weight="600" fill="#0f172a">Unter 14: strafunmündig</text>
+  <text x="46" y="266" font-size="18" fill="#0f172a">Kinder können nicht bestraft werden.</text>
+  <text x="46" y="288" font-size="15" fill="#64748b">Under 14 years old: a child cannot be punished</text>
+  <text x="46" y="304" font-size="15" fill="#64748b">for a crime.</text>
+
+  <!-- from 14 -->
+  <rect x="28" y="324" width="544" height="106" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="46" y="358" font-size="22" font-weight="600" fill="#0f172a">Ab 14: strafmündig</text>
+  <text x="46" y="384" font-size="18" fill="#0f172a">Jugendliche können für Straftaten</text>
+  <text x="46" y="404" font-size="18" fill="#0f172a">bestraft werden (Jugendstrafrecht).</text>
+  <text x="46" y="422" font-size="15" fill="#64748b">From 14: criminally responsible, under juvenile criminal law.</text>
+
+  <!-- from 18 -->
+  <rect x="28" y="442" width="544" height="128" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="46" y="476" font-size="22" font-weight="600" fill="#2563eb">Ab 18: volljährig</text>
+  <text x="46" y="502" font-size="18" fill="#0f172a">Wählen, Verträge unterschreiben,</text>
+  <text x="46" y="522" font-size="18" fill="#0f172a">heiraten – ohne Eltern entscheiden</text>
+  <text x="46" y="544" font-size="15" fill="#64748b">From 18: legal adult – may vote, sign contracts and marry.</text>
+  <text x="46" y="560" font-size="15" fill="#64748b">In Germany marriage is only possible from 18.</text>
+
+  <!-- protection of minors -->
+  <rect x="28" y="590" width="544" height="142" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="46" y="622" font-size="22" font-weight="700" fill="#dc2626">Nicht erlaubt</text>
+  <text x="46" y="650" font-size="18" fill="#0f172a">Eine sexuelle Beziehung zwischen einem</text>
+  <text x="46" y="670" font-size="18" fill="#0f172a">13-jährigen Kind und einer 25-jährigen</text>
+  <text x="46" y="690" font-size="18" fill="#0f172a">Person ist strafbar (Jugendschutz).</text>
+  <text x="46" y="712" font-size="15" fill="#64748b">Not allowed: sexual contact with a child under 14 is a</text>
+  <text x="46" y="728" font-size="15" fill="#64748b">criminal offence – protection of minors.</text>
+</svg>

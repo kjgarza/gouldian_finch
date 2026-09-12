@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Die soziale Marktwirtschaft liegt zwischen freier Marktwirtschaft und Planwirtschaft: Angebot und Nachfrage bestimmen die Preise, aber der Staat sorgt für sozialen Ausgleich.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="42" font-size="26" font-weight="700" fill="#0f172a">Soziale Marktwirtschaft</text>
+  <text x="28" y="64" font-size="15" fill="#64748b">The economic system of the Federal Republic of Germany</text>
+
+  <!-- Extreme 1 -->
+  <rect x="28" y="84" width="264" height="204" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="44" y="118" font-size="22" font-weight="600" fill="#0f172a">Freie Markt-</text>
+  <text x="44" y="140" font-size="22" font-weight="600" fill="#0f172a">wirtschaft</text>
+  <text x="44" y="158" font-size="15" fill="#64748b">free market economy</text>
+  <text x="44" y="194" font-size="18" fill="#0f172a">Preise nur durch</text>
+  <text x="44" y="214" font-size="18" fill="#0f172a">Angebot und Nachfrage</text>
+  <text x="44" y="234" font-size="18" fill="#0f172a">kein Sozialausgleich</text>
+  <text x="44" y="256" font-size="15" fill="#64748b">prices set only by supply and</text>
+  <text x="44" y="274" font-size="15" fill="#64748b">demand; no social balance</text>
+
+  <!-- Extreme 2 -->
+  <rect x="308" y="84" width="264" height="204" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="324" y="118" font-size="22" font-weight="600" fill="#0f172a">Planwirtschaft</text>
+  <text x="324" y="140" font-size="18" fill="#dc2626">z. B. in der DDR</text>
+  <text x="324" y="158" font-size="15" fill="#64748b">planned economy (GDR)</text>
+  <text x="324" y="194" font-size="18" fill="#0f172a">Der Staat legt Preise</text>
+  <text x="324" y="214" font-size="18" fill="#0f172a">und Produktion fest</text>
+  <text x="324" y="234" font-size="18" fill="#0f172a">kein freier Markt</text>
+  <text x="324" y="256" font-size="15" fill="#64748b">the state fixes prices and</text>
+  <text x="324" y="274" font-size="15" fill="#64748b">production; no free market</text>
+
+  <line x1="160" y1="290" x2="232" y2="340" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="440" y1="290" x2="368" y2="340" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- The German model, between the two -->
+  <rect x="28" y="344" width="544" height="226" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="384" font-size="26" font-weight="700" fill="#2563eb" text-anchor="middle">Soziale Marktwirtschaft</text>
+  <text x="300" y="406" font-size="15" fill="#64748b" text-anchor="middle">the social market economy &#8211; Germany today, between the two</text>
+
+  <text x="300" y="440" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Angebot und Nachfrage</text>
+  <text x="300" y="462" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">bestimmen die Preise</text>
+  <text x="300" y="480" font-size="15" fill="#64748b" text-anchor="middle">supply and demand set the prices</text>
+
+  <text x="300" y="514" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">aber: der Staat sorgt f&#252;r</text>
+  <text x="300" y="536" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">sozialen Ausgleich</text>
+  <text x="300" y="554" font-size="15" fill="#64748b" text-anchor="middle">but the state provides social balance</text>
+
+  <!-- Examples -->
+  <rect x="28" y="594" width="544" height="128" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="44" y="626" font-size="18" font-weight="700" fill="#16a34a">Sozialer Ausgleich, zum Beispiel:</text>
+  <text x="44" y="652" font-size="18" fill="#0f172a">Sozialversicherung &#183; Mindestlohn</text>
+  <text x="44" y="674" font-size="18" fill="#0f172a">Arbeitslosengeld &#183; K&#252;ndigungsschutz</text>
+  <text x="44" y="696" font-size="15" fill="#64748b">social insurance, the minimum wage, unemployment benefit</text>
+  <text x="44" y="714" font-size="15" fill="#64748b">and protection against dismissal</text>
+</svg>

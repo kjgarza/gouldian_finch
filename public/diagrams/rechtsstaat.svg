@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Im Rechtsstaat sind Staat und B&#252;rger gleicherma&#223;en an die Gesetze gebunden; unabh&#228;ngige Gerichte entscheiden Streitf&#228;lle.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="44" font-size="26" font-weight="700" fill="#0f172a">Der Rechtsstaat</text>
+  <text x="28" y="68" font-size="15" fill="#64748b">The rule-of-law state &#8211; nobody stands above the law</text>
+
+  <!-- two sides -->
+  <rect x="28" y="88" width="264" height="76" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="160" y="122" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Der Staat</text>
+  <text x="160" y="144" font-size="15" fill="#64748b" text-anchor="middle">state, authorities, police</text>
+
+  <rect x="308" y="88" width="264" height="76" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="440" y="122" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Die B&#252;rger/innen</text>
+  <text x="440" y="144" font-size="15" fill="#64748b" text-anchor="middle">citizens and companies</text>
+
+  <line x1="160" y1="164" x2="160" y2="212" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="440" y1="164" x2="440" y2="212" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- centre -->
+  <rect x="28" y="216" width="544" height="112" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="250" font-size="26" font-weight="700" fill="#2563eb" text-anchor="middle">RECHTSSTAAT</text>
+  <text x="300" y="276" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Gesetze gelten f&#252;r alle</text>
+  <text x="300" y="298" font-size="18" fill="#0f172a" text-anchor="middle">Staat und B&#252;rger m&#252;ssen sich daran halten</text>
+  <text x="300" y="318" font-size="15" fill="#64748b" text-anchor="middle">the law binds the state exactly as it binds citizens</text>
+
+  <!-- three pillars -->
+  <rect x="28" y="346" width="176" height="96" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="378" font-size="18" font-weight="600" fill="#0f172a" text-anchor="middle">Unabh&#228;ngige</text>
+  <text x="116" y="398" font-size="18" font-weight="600" fill="#0f172a" text-anchor="middle">Gerichte</text>
+  <text x="116" y="420" font-size="15" fill="#64748b" text-anchor="middle">independent</text>
+  <text x="116" y="436" font-size="15" fill="#64748b" text-anchor="middle">courts</text>
+
+  <rect x="212" y="346" width="176" height="96" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="378" font-size="18" font-weight="600" fill="#0f172a" text-anchor="middle">Gewalten-</text>
+  <text x="300" y="398" font-size="18" font-weight="600" fill="#0f172a" text-anchor="middle">teilung</text>
+  <text x="300" y="420" font-size="15" fill="#64748b" text-anchor="middle">separation</text>
+  <text x="300" y="436" font-size="15" fill="#64748b" text-anchor="middle">of powers</text>
+
+  <rect x="396" y="346" width="176" height="96" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="484" y="378" font-size="18" font-weight="600" fill="#0f172a" text-anchor="middle">Grund-</text>
+  <text x="484" y="398" font-size="18" font-weight="600" fill="#0f172a" text-anchor="middle">rechte</text>
+  <text x="484" y="420" font-size="15" fill="#64748b" text-anchor="middle">basic rights</text>
+  <text x="484" y="436" font-size="15" fill="#64748b" text-anchor="middle">protected</text>
+
+  <!-- which court -->
+  <rect x="28" y="462" width="544" height="178" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="490" font-size="18" font-weight="700" fill="#0f172a">Welches Gericht entscheidet?</text>
+  <text x="46" y="507" font-size="15" fill="#64748b">which court decides the case</text>
+  <text x="46" y="534" font-size="18" fill="#0f172a">Arbeitsgericht &#8211; z.&#8201;B. K&#252;ndigung</text>
+  <text x="46" y="550" font-size="15" fill="#64748b">labour court: dismissal and other work disputes</text>
+  <text x="46" y="574" font-size="18" fill="#0f172a">Zivil- und Strafgericht &#8211; Streit, Straftat</text>
+  <text x="46" y="590" font-size="15" fill="#64748b">civil and criminal court</text>
+  <text x="46" y="614" font-size="18" fill="#0f172a">Verwaltungsgericht &#8211; Streit mit dem Amt</text>
+  <text x="46" y="630" font-size="15" fill="#64748b">administrative court: disputes with the authorities</text>
+
+  <!-- roles -->
+  <rect x="28" y="656" width="544" height="88" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="46" y="682" font-size="18" fill="#0f172a">Richter/in spricht Recht &#183; Sch&#246;ffe/Sch&#246;ffin urteilt mit</text>
+  <text x="46" y="699" font-size="15" fill="#64748b">judges deliver judgment, lay judges decide alongside them</text>
+  <text x="46" y="722" font-size="18" fill="#0f172a">Rechtsanwalt/-anw&#228;ltin ber&#228;t &#183; Polizei ermittelt</text>
+  <text x="46" y="739" font-size="15" fill="#64748b">lawyers advise and represent, the police investigates</text>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Aus den drei westlichen Besatzungszonen entstand 1949 die Bundesrepublik Deutschland, aus der sowjetischen Zone die DDR; Berlin war in vier Sektoren geteilt.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="800" fill="#ffffff"/>
+
+  <text x="28" y="44" font-size="26" font-weight="700" fill="#0f172a">Besatzungszonen 1945</text>
+  <text x="28" y="68" font-size="15" fill="#64748b">Occupation zones &#8594; two German states (schematic, not a real map)</text>
+
+  <!-- Westzonen -->
+  <rect x="28" y="86" width="296" height="212" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="44" y="112" font-size="18" font-weight="700" fill="#2563eb">3 Westzonen</text>
+  <text x="44" y="130" font-size="15" fill="#64748b">three western zones</text>
+
+  <rect x="44" y="140" width="264" height="48" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="164" font-size="22" font-weight="600" fill="#0f172a">Gro&#223;britannien</text>
+  <text x="58" y="182" font-size="15" fill="#64748b">Great Britain &#183; Nordwesten</text>
+
+  <rect x="44" y="194" width="264" height="48" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="218" font-size="22" font-weight="600" fill="#0f172a">USA</text>
+  <text x="58" y="236" font-size="15" fill="#64748b">United States &#183; S&#252;den</text>
+
+  <rect x="44" y="248" width="264" height="48" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="272" font-size="22" font-weight="600" fill="#0f172a">Frankreich</text>
+  <text x="58" y="290" font-size="15" fill="#64748b">France &#183; S&#252;dwesten</text>
+
+  <!-- Sowjetische Zone -->
+  <rect x="340" y="86" width="232" height="212" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="356" y="112" font-size="18" font-weight="700" fill="#dc2626">Ostzone</text>
+  <text x="356" y="130" font-size="15" fill="#64748b">eastern zone</text>
+  <text x="356" y="168" font-size="22" font-weight="600" fill="#0f172a">Sowjetunion</text>
+  <text x="356" y="188" font-size="15" fill="#64748b">Soviet Union &#183; Osten</text>
+  <rect x="356" y="202" width="200" height="80" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="370" y="226" font-size="18" font-weight="600" fill="#0f172a">Berlin: 4 Sektoren</text>
+  <text x="370" y="244" font-size="15" fill="#64748b">Berlin split into four</text>
+  <text x="370" y="260" font-size="15" fill="#64748b">sectors &#8211; inside the</text>
+  <text x="370" y="276" font-size="15" fill="#64748b">Soviet zone</text>
+
+  <!-- Blockade -->
+  <rect x="28" y="312" width="544" height="72" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="44" y="338" font-size="22" font-weight="600" fill="#0f172a">1948/49 Berlin-Blockade</text>
+  <text x="44" y="358" font-size="18" fill="#d97706">Antwort der Westm&#228;chte: die Luftbr&#252;cke</text>
+  <text x="44" y="376" font-size="15" fill="#64748b">land routes to West Berlin cut off &#8211; answered by the airlift</text>
+
+  <line x1="176" y1="390" x2="176" y2="424" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="424" y1="390" x2="424" y2="424" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- Two states 1949 -->
+  <rect x="28" y="432" width="264" height="196" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="44" y="462" font-size="22" font-weight="700" fill="#2563eb">1949: BRD</text>
+  <text x="44" y="486" font-size="18" font-weight="600" fill="#0f172a">Bundesrepublik</text>
+  <text x="44" y="506" font-size="18" font-weight="600" fill="#0f172a">Deutschland</text>
+  <text x="44" y="524" font-size="15" fill="#64748b">West Germany</text>
+  <text x="44" y="552" font-size="18" fill="#0f172a">Marktwirtschaft</text>
+  <text x="44" y="570" font-size="15" fill="#64748b">market economy</text>
+  <text x="44" y="596" font-size="18" fill="#0f172a">NATO ab 1955</text>
+  <text x="44" y="614" font-size="15" fill="#64748b">NATO member from 1955</text>
+
+  <rect x="308" y="432" width="264" height="196" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="3"/>
+  <text x="324" y="462" font-size="22" font-weight="700" fill="#dc2626">1949: DDR</text>
+  <text x="324" y="486" font-size="18" font-weight="600" fill="#0f172a">Deutsche Demo-</text>
+  <text x="324" y="506" font-size="18" font-weight="600" fill="#0f172a">kratische Republik</text>
+  <text x="324" y="524" font-size="15" fill="#64748b">East Germany, SED state</text>
+  <text x="324" y="552" font-size="18" fill="#0f172a">Planwirtschaft</text>
+  <text x="324" y="570" font-size="15" fill="#64748b">planned economy &#183; Stasi</text>
+  <text x="324" y="596" font-size="18" fill="#0f172a">Warschauer Pakt 1955</text>
+  <text x="324" y="614" font-size="15" fill="#64748b">Warsaw Pact from 1955</text>
+
+  <!-- Iron curtain -->
+  <line x1="300" y1="424" x2="300" y2="660" stroke="#64748b" stroke-width="3" stroke-dasharray="10 8"/>
+  <rect x="28" y="644" width="544" height="58" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="44" y="670" font-size="22" font-weight="600" fill="#0f172a">Eiserner Vorhang (gestrichelt)</text>
+  <text x="44" y="690" font-size="15" fill="#64748b">the Iron Curtain divided West from East until 1989</text>
+
+  <rect x="28" y="706" width="544" height="78" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+  <text x="44" y="732" font-size="18" fill="#0f172a">17. Juni 1953: Volksaufstand in der DDR</text>
+  <text x="44" y="751" font-size="15" fill="#64748b">uprising crushed by Soviet tanks</text>
+  <text x="44" y="773" font-size="15" fill="#64748b">1970s: Ostpolitik &#8211; Ostvertr&#228;ge under Willy Brandt</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Weg eines Gesetzes: Gesetzentwurf, Beschluss im Bundestag, Mitwirkung des Bundesrats, Unterschrift des Bundespräsidenten und Verkündung im Bundesgesetzblatt.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="800" fill="#ffffff"/>
+
+  <text x="28" y="46" font-size="26" font-weight="700" fill="#0f172a">Wie entsteht ein Gesetz?</text>
+  <text x="28" y="70" font-size="15" fill="#64748b">How a federal law is made</text>
+
+  <!-- 1 -->
+  <rect x="28" y="96" width="544" height="110" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="130" font-size="22" font-weight="600" fill="#0f172a">1 · Gesetzentwurf</text>
+  <text x="46" y="156" font-size="18" fill="#0f172a">aus dem Bundestag, der Bundesregierung</text>
+  <text x="46" y="176" font-size="18" fill="#0f172a">oder dem Bundesrat</text>
+  <text x="46" y="196" font-size="15" fill="#64748b">A bill is introduced by parliament, government or the states.</text>
+  <line x1="300" y1="206" x2="300" y2="236" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- 2 -->
+  <rect x="28" y="240" width="544" height="110" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="46" y="274" font-size="22" font-weight="600" fill="#2563eb">2 · Bundestag</text>
+  <text x="46" y="300" font-size="18" fill="#0f172a">Beratung und Abstimmung:</text>
+  <text x="46" y="320" font-size="18" fill="#0f172a">das Parlament beschließt das Gesetz</text>
+  <text x="46" y="340" font-size="15" fill="#64748b">The parliament debates and votes – it passes the law.</text>
+  <line x1="300" y1="350" x2="300" y2="380" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- 3 -->
+  <rect x="28" y="384" width="544" height="110" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="418" font-size="22" font-weight="600" fill="#0f172a">3 · Bundesrat</text>
+  <text x="46" y="444" font-size="18" fill="#0f172a">Die 16 Bundesländer stimmen zu oder</text>
+  <text x="46" y="464" font-size="18" fill="#0f172a">rufen den Vermittlungsausschuss an.</text>
+  <text x="46" y="484" font-size="15" fill="#64748b">The 16 states consent or call the mediation committee.</text>
+  <line x1="300" y1="494" x2="300" y2="524" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- 4 -->
+  <rect x="28" y="528" width="544" height="110" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="562" font-size="22" font-weight="600" fill="#0f172a">4 · Bundespräsident/in</text>
+  <text x="46" y="588" font-size="18" fill="#0f172a">unterschreibt das Gesetz</text>
+  <text x="46" y="608" font-size="18" fill="#0f172a">(Ausfertigung)</text>
+  <text x="46" y="628" font-size="15" fill="#64748b">The Federal President signs the law.</text>
+  <line x1="300" y1="638" x2="300" y2="668" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- 5 -->
+  <rect x="28" y="672" width="544" height="110" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="46" y="706" font-size="22" font-weight="600" fill="#0f172a">5 · Bundesgesetzblatt</text>
+  <text x="46" y="732" font-size="18" fill="#16a34a">Verkündung – das Gesetz tritt in Kraft.</text>
+  <text x="46" y="754" font-size="15" fill="#64748b">Published in the Federal Law Gazette; the law</text>
+  <text x="46" y="770" font-size="15" fill="#64748b">then enters into force.</text>
+</svg>

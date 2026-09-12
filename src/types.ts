@@ -24,6 +24,43 @@ export type Topic =
   | "Mensch und Gesellschaft"
   | "Bundesland Berlin"
 
+/**
+ * The app is phone-only, so diagrams use portrait/square "Instagram" ratios.
+ * Nothing landscape: a wide image shrinks to an unreadable strip in a card.
+ */
+export type DiagramAspect = '1:1' | '4:5' | '3:4' | '9:16'
+
+export type DiagramType =
+  | 'organigram'
+  | 'flowchart'
+  | 'timeline'
+  | 'venn'
+  | 'network'
+  | 'comparison'
+  | 'pyramid'
+  | 'cycle'
+  | 'map'
+  | 'bar'
+
+/**
+ * A visual hint shared by every question that turns on the same concept, so one
+ * picture serves many cards. `file` is a path relative to the Vite base, empty
+ * while the image is still being generated.
+ */
+export interface Diagram {
+  key: string
+  type: DiagramType
+  titleDe: string
+  titleEn: string
+  altDe: string
+  altEn: string
+  aspect: DiagramAspect
+  file: string
+  questionIds: number[]
+  /** Generation prompt, kept so a diagram can be regenerated reproducibly. */
+  prompt?: string
+}
+
 export type StudyId = string
 
 export interface CardProgress {

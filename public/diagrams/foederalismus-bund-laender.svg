@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Deutschland ist ein Bundesstaat aus 16 Bundesl&#228;ndern; f&#252;nf davon sind die neuen Bundesl&#228;nder auf dem Gebiet der fr&#252;heren DDR.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="44" font-size="26" font-weight="700" fill="#0f172a">Die 16 Bundesl&#228;nder</text>
+  <text x="28" y="68" font-size="15" fill="#64748b">Schematic grouping, not a real map</text>
+
+  <!-- West -->
+  <rect x="28" y="84" width="264" height="340" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="110" font-size="18" font-weight="700" fill="#0f172a">10 alte Bundesl&#228;nder</text>
+  <text x="46" y="128" font-size="15" fill="#64748b">the west: former BRD</text>
+  <g font-size="18" fill="#0f172a">
+    <text x="46" y="158">Baden-W&#252;rttemberg</text>
+    <text x="46" y="185">Bayern</text>
+    <text x="46" y="212">Bremen</text>
+    <text x="46" y="239">Hamburg</text>
+    <text x="46" y="266">Hessen</text>
+    <text x="46" y="293">Niedersachsen</text>
+    <text x="46" y="320">Nordrhein-Westfalen</text>
+    <text x="46" y="347">Rheinland-Pfalz</text>
+    <text x="46" y="374">Saarland</text>
+    <text x="46" y="401">Schleswig-Holstein</text>
+  </g>
+
+  <!-- East -->
+  <rect x="308" y="84" width="264" height="340" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="326" y="110" font-size="18" font-weight="700" fill="#2563eb">5 neue Bundesl&#228;nder</text>
+  <text x="326" y="128" font-size="15" fill="#64748b">on the territory of the DDR</text>
+  <g font-size="18" fill="#0f172a">
+    <text x="326" y="158">Brandenburg</text>
+    <text x="326" y="185">Mecklenburg-</text>
+    <text x="326" y="206">Vorpommern</text>
+    <text x="326" y="233">Sachsen</text>
+    <text x="326" y="260">Sachsen-Anhalt</text>
+    <text x="326" y="287">Th&#252;ringen</text>
+  </g>
+  <rect x="326" y="306" width="228" height="98" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="342" y="332" font-size="18" font-weight="700" fill="#0f172a">Berlin</text>
+  <text x="342" y="354" font-size="15" fill="#64748b">Sonderfall: bis 1990 in</text>
+  <text x="342" y="370" font-size="15" fill="#64748b">Ost und West geteilt</text>
+  <text x="342" y="392" font-size="15" fill="#64748b">divided city until 1990</text>
+
+  <!-- Hierarchy -->
+  <rect x="28" y="440" width="168" height="72" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="112" y="472" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Bund</text>
+  <text x="112" y="492" font-size="15" fill="#64748b" text-anchor="middle">federation</text>
+  <line x1="198" y1="476" x2="214" y2="476" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="216" y="440" width="168" height="72" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="472" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">L&#228;nder</text>
+  <text x="300" y="492" font-size="15" fill="#64748b" text-anchor="middle">16 states</text>
+  <line x1="386" y1="476" x2="402" y2="476" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="404" y="440" width="168" height="72" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="488" y="472" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Kommunen</text>
+  <text x="488" y="492" font-size="15" fill="#64748b" text-anchor="middle">towns &#183; Gemeinden</text>
+
+  <!-- Notes -->
+  <rect x="28" y="528" width="544" height="92" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="46" y="554" font-size="18" fill="#0f172a">Jedes Land hat eine eigene Regierung &#8211; Landtagswahl</text>
+  <text x="46" y="571" font-size="15" fill="#64748b">every state has its own government, elected in a state election</text>
+  <text x="46" y="596" font-size="18" fill="#0f172a">Schulpolitik ist L&#228;ndersache</text>
+  <text x="46" y="613" font-size="15" fill="#64748b">school policy is decided by the states, not by the Bund</text>
+
+  <rect x="28" y="634" width="544" height="72" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="46" y="662" font-size="18" font-weight="700" fill="#dc2626">Kein Bundesland: Elsass-Lothringen</text>
+  <text x="46" y="682" font-size="15" fill="#64748b">Alsace-Lorraine lies in France &#8211; it is not a German state</text>
+  <text x="46" y="698" font-size="15" fill="#64748b">Germany is a federal state made up of exactly 16 L&#228;nder.</text>
+</svg>

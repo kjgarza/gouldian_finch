@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Berlin ist ein Stadtstaat: die Wahlberechtigten wählen das Abgeordnetenhaus, dieses wählt die Regierende Bürgermeisterin oder den Regierenden Bürgermeister, die oder der mit den Senatorinnen und Senatoren den Senat bildet; daneben stehen die 12 Bezirke.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="44" font-size="26" font-weight="700" fill="#0f172a">Wie Berlin regiert wird</text>
+  <text x="28" y="66" font-size="15" fill="#64748b">How Berlin is governed</text>
+
+  <!-- Stadtstaat framing -->
+  <rect x="28" y="82" width="544" height="68" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="108" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Stadtstaat Berlin = Stadt + Bundesland</text>
+  <text x="300" y="127" font-size="15" fill="#64748b" text-anchor="middle">a city-state: one city that is also a federal state</text>
+  <text x="300" y="141" font-size="15" fill="#64748b" text-anchor="middle">vollständig von Brandenburg umgeben · entirely surrounded by Brandenburg</text>
+
+  <!-- Voters -->
+  <rect x="28" y="160" width="544" height="70" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="186" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Wahlberechtigte in Berlin</text>
+  <text x="300" y="204" font-size="15" fill="#64748b" text-anchor="middle">the voters</text>
+  <text x="300" y="222" font-size="18" fill="#0f172a" text-anchor="middle">ab 18 Jahren: Abgeordnetenhaus · ab 16 Jahren: BVV</text>
+
+  <line x1="300" y1="230" x2="300" y2="262" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="312" y="252" font-size="18" fill="#0f172a">wählen · elect</text>
+
+  <!-- Abgeordnetenhaus -->
+  <rect x="28" y="278" width="544" height="76" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="306" font-size="22" font-weight="700" fill="#2563eb" text-anchor="middle">Abgeordnetenhaus von Berlin</text>
+  <text x="300" y="325" font-size="15" fill="#64748b" text-anchor="middle">the state parliament</text>
+  <text x="300" y="345" font-size="18" fill="#0f172a" text-anchor="middle">Landesparlament · gewählt für 5 Jahre</text>
+
+  <line x1="300" y1="354" x2="300" y2="386" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="312" y="376" font-size="18" fill="#0f172a">wählt · elects</text>
+
+  <!-- Regierender Bürgermeister -->
+  <rect x="28" y="402" width="544" height="66" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="428" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Regierende Bürgermeisterin /</text>
+  <text x="300" y="450" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Regierender Bürgermeister</text>
+  <text x="300" y="464" font-size="15" fill="#64748b" text-anchor="middle">head of government of the city-state</text>
+
+  <line x1="300" y1="468" x2="300" y2="498" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- Senat -->
+  <rect x="28" y="514" width="544" height="88" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="300" y="540" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Senat von Berlin</text>
+  <text x="300" y="558" font-size="15" fill="#64748b" text-anchor="middle">the state government</text>
+  <text x="300" y="578" font-size="18" fill="#0f172a" text-anchor="middle">Regierende(r) Bürgermeister(in)</text>
+  <text x="300" y="592" font-size="15" fill="#64748b" text-anchor="middle">+ Senatorinnen und Senatoren: Inneres, Finanzen, Bildung, Verkehr …</text>
+
+  <!-- Bezirke -->
+  <rect x="28" y="612" width="544" height="72" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="638" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">12 Bezirke — z. B. Pankow, Mitte, Neukölln</text>
+  <text x="300" y="656" font-size="15" fill="#64748b" text-anchor="middle">12 city districts</text>
+  <text x="300" y="676" font-size="18" fill="#0f172a" text-anchor="middle">je eine BVV und ein(e) Bezirksbürgermeister(in)</text>
+
+  <!-- Contrast note -->
+  <rect x="28" y="696" width="544" height="42" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="46" y="717" font-size="18" fill="#0f172a">Keine Senatorin für <tspan font-weight="700" fill="#dc2626">Außenbeziehungen</tspan> — das macht der Bund.</text>
+  <text x="46" y="732" font-size="15" fill="#64748b">No senator for foreign relations: foreign policy is federal.</text>
+</svg>
