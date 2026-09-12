@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Die Grundrechte stehen in den Artikeln 1 bis 19 des Grundgesetzes: Menschenw&#252;rde, Gleichheit, Freiheitsrechte, Briefgeheimnis und Asylrecht.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="800" fill="#ffffff"/>
+
+  <text x="28" y="44" font-size="26" font-weight="700" fill="#0f172a">Die Grundrechte</text>
+  <text x="28" y="68" font-size="15" fill="#64748b">Basic rights &#8211; where they stand in the Grundgesetz</text>
+
+  <!-- Central node -->
+  <rect x="28" y="84" width="544" height="86" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="116" font-size="22" font-weight="700" fill="#2563eb" text-anchor="middle">Grundgesetz: Art. 1&#8211;19</text>
+  <text x="300" y="140" font-size="18" fill="#0f172a" text-anchor="middle">gelten f&#252;r alle Menschen in Deutschland</text>
+  <text x="300" y="160" font-size="15" fill="#64748b" text-anchor="middle">Basic Law, Articles 1&#8211;19 &#8211; they apply to everyone here</text>
+
+  <!-- Spine -->
+  <line x1="40" y1="170" x2="40" y2="651" stroke="#cbd5e1" stroke-width="3"/>
+  <line x1="40" y1="243" x2="54" y2="243" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="40" y1="345" x2="54" y2="345" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="40" y1="447" x2="54" y2="447" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="40" y1="549" x2="54" y2="549" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="40" y1="651" x2="54" y2="651" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- Art. 1 -->
+  <rect x="56" y="196" width="516" height="94" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="74" y="224" font-size="22" font-weight="600" fill="#0f172a">Art. 1 &#183; Menschenw&#252;rde</text>
+  <text x="74" y="244" font-size="15" fill="#64748b">Article 1: human dignity</text>
+  <text x="74" y="268" font-size="18" fill="#2563eb">&#8222;Die W&#252;rde des Menschen ist unantastbar.&#8220;</text>
+  <text x="74" y="284" font-size="15" fill="#64748b">human dignity is inviolable &#8211; the first basic right</text>
+
+  <!-- Art. 3 -->
+  <rect x="56" y="298" width="516" height="94" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="74" y="326" font-size="22" font-weight="600" fill="#0f172a">Art. 3 &#183; Gleichheit</text>
+  <text x="74" y="346" font-size="15" fill="#64748b">Article 3: nobody may be discriminated against</text>
+  <text x="74" y="370" font-size="18" fill="#0f172a">Beispiel: Absage wegen Hautfarbe</text>
+  <text x="74" y="386" font-size="15" fill="#64748b">refusing a job because of skin colour breaks Art. 3</text>
+
+  <!-- Art. 4, 5, 8 -->
+  <rect x="56" y="400" width="516" height="94" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="74" y="428" font-size="22" font-weight="600" fill="#0f172a">Art. 4, 5, 8 &#183; Freiheitsrechte</text>
+  <text x="74" y="448" font-size="15" fill="#64748b">Articles 4, 5, 8: freedom rights</text>
+  <text x="74" y="472" font-size="18" fill="#0f172a">Glaube &#183; Meinung &#183; Versammlung</text>
+  <text x="74" y="488" font-size="15" fill="#64748b">faith &#183; opinion &#183; assembly (a demo must be registered)</text>
+
+  <!-- Art. 10 -->
+  <rect x="56" y="502" width="516" height="94" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="74" y="530" font-size="22" font-weight="600" fill="#0f172a">Art. 10 &#183; Briefgeheimnis</text>
+  <text x="74" y="550" font-size="15" fill="#64748b">Article 10: secrecy of correspondence</text>
+  <text x="74" y="574" font-size="18" fill="#0f172a">Fremde Briefe darf man nicht &#246;ffnen.</text>
+  <text x="74" y="590" font-size="15" fill="#64748b">opening someone else&#8217;s letter violates this right</text>
+
+  <!-- Art. 16a -->
+  <rect x="56" y="604" width="516" height="94" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="74" y="632" font-size="22" font-weight="600" fill="#0f172a">Art. 16a &#183; Asylrecht</text>
+  <text x="74" y="652" font-size="15" fill="#64748b">Article 16a: right to asylum</text>
+  <text x="74" y="676" font-size="18" fill="#0f172a">F&#252;r politisch Verfolgte.</text>
+  <text x="74" y="692" font-size="15" fill="#64748b">for people persecuted for political reasons</text>
+
+  <!-- Not a basic right -->
+  <rect x="28" y="706" width="544" height="76" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="46" y="732" font-size="18" font-weight="700" fill="#dc2626">Kein Grundrecht:</text>
+  <text x="46" y="754" font-size="18" fill="#0f172a">&#8222;Alle sollen gleich viel Geld haben.&#8220;</text>
+  <text x="46" y="772" font-size="15" fill="#64748b">not in the Basic Law: everyone having the same money</text>
+</svg>

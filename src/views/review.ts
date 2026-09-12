@@ -6,6 +6,7 @@ import { Locales } from '../i18n'
 import { questionStudyId } from '../lib/study-ids'
 import { pickStudyBatch } from '../lib/study-session'
 import { recordReviewAnswer } from '../lib/study-stats'
+import { bindDiagramToggles, diagramHintHtml } from '../diagrams'
 
 const BATCH_SIZE = 20
 
@@ -124,9 +125,10 @@ export function ReviewView(): HTMLElement {
       const deHint = q.hint
       const enHint = byId(q.id).en.hint
       hintBox.classList.remove('hidden')
-      hintBox.innerHTML = showEnglish 
-        ? `<div>💡 ${deHint}</div><div class="text-muted-foreground mt-1">${enHint}</div>` 
-        : `💡 ${deHint}`
+      hintBox.innerHTML = (showEnglish
+        ? `<div>💡 ${deHint}</div><div class="text-muted-foreground mt-1">${enHint}</div>`
+        : `💡 ${deHint}`) + diagramHintHtml(q.id, showEnglish)
+      bindDiagramToggles(hintBox)
     })
 
     // The English toggle re-renders mid-card, so an answer already given has

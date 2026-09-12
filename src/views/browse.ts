@@ -1,6 +1,7 @@
 import { ALL_QUESTIONS_DE, byId, State } from '../state'
 import type { Topic } from '../types'
 import { Locales } from '../i18n'
+import { bindDiagramToggles, diagramHintHtml } from '../diagrams'
 
 const TOPICS: Array<{ label: string; value: Topic | 'ALL' }> = [
   { label: 'All Topics', value: 'ALL' },
@@ -148,6 +149,7 @@ export function BrowseView(): HTMLElement {
                 💡 <strong>Hint:</strong> ${q.hint}
               </div>
               ${showEnglish ? `<div class="text-info/80 text-xs mt-1">${en.hint}</div>` : ''}
+              ${diagramHintHtml(q.id, showEnglish)}
             </div>
           </div>
         </td>
@@ -156,6 +158,7 @@ export function BrowseView(): HTMLElement {
       const reveal = tr.querySelector('[data-reveal]') as HTMLButtonElement
       const ans = tr.querySelector('[data-ans]') as HTMLDivElement
       const choices = tr.querySelectorAll('.choice-item') as NodeListOf<HTMLDivElement>
+      bindDiagramToggles(ans)
       
       reveal.addEventListener('click', () => {
         ans.classList.toggle('hidden')

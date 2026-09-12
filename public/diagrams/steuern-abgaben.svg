@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Vom Bruttogehalt werden Lohnsteuer, Sozialversicherungsbeiträge und bei Kirchenmitgliedern die Kirchensteuer abgezogen; übrig bleibt das Nettogehalt. Die Umsatzsteuer wird dagegen nicht vom Lohn abgezogen, sondern beim Einkaufen bezahlt.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="42" font-size="26" font-weight="700" fill="#0f172a">Vom Brutto zum Netto</text>
+  <text x="28" y="64" font-size="15" fill="#64748b">From gross to net salary</text>
+
+  <!-- Gross -->
+  <rect x="28" y="80" width="544" height="66" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="112" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Bruttogehalt</text>
+  <text x="300" y="134" font-size="15" fill="#64748b" text-anchor="middle">gross salary &#8211; the full wage agreed in the contract</text>
+
+  <line x1="300" y1="146" x2="300" y2="172" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- Deductions -->
+  <rect x="28" y="176" width="544" height="276" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="44" y="204" font-size="18" font-weight="700" fill="#d97706">Abz&#252;ge vom Lohn</text>
+  <text x="44" y="222" font-size="15" fill="#64748b">deducted by the employer before payday</text>
+
+  <rect x="44" y="234" width="512" height="52" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="258" font-size="18" font-weight="600" fill="#0f172a">Lohnsteuer (Einkommensteuer)</text>
+  <text x="58" y="277" font-size="15" fill="#64748b">income tax on wages</text>
+
+  <rect x="44" y="292" width="512" height="72" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="316" font-size="18" font-weight="600" fill="#0f172a">Sozialversicherung: Kranken,</text>
+  <text x="58" y="336" font-size="18" font-weight="600" fill="#0f172a">Pflege, Rente, Arbeitslosigkeit</text>
+  <text x="58" y="355" font-size="15" fill="#64748b">social insurance: health, long-term care, pension, unemployment</text>
+
+  <rect x="44" y="370" width="512" height="72" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="394" font-size="18" font-weight="600" fill="#0f172a">Kirchensteuer &#8211; nur f&#252;r</text>
+  <text x="58" y="414" font-size="18" font-weight="600" fill="#0f172a">Mitglieder einer Kirche</text>
+  <text x="58" y="433" font-size="15" fill="#64748b">church tax: 8&#8211;9 % of the income tax, church members only</text>
+
+  <line x1="300" y1="452" x2="300" y2="480" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- Net -->
+  <rect x="28" y="484" width="544" height="82" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="300" y="516" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Nettogehalt</text>
+  <text x="300" y="538" font-size="18" fill="#16a34a" text-anchor="middle">kommt auf das Konto</text>
+  <text x="300" y="556" font-size="15" fill="#64748b" text-anchor="middle">net pay &#8211; what actually arrives in your bank account</text>
+
+  <!-- VAT: not a wage deduction -->
+  <rect x="28" y="586" width="544" height="140" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="44" y="618" font-size="22" font-weight="600" fill="#0f172a">Umsatzsteuer (Mehrwertsteuer)</text>
+  <text x="44" y="642" font-size="18" fill="#dc2626">Nicht vom Lohn! Zahlen alle beim Einkaufen.</text>
+  <text x="44" y="664" font-size="18" fill="#0f172a">19 % &#183; erm&#228;&#223;igt 7 % &#8594; ans Finanzamt</text>
+  <text x="44" y="686" font-size="15" fill="#64748b">VAT is not deducted from wages: consumers pay it when buying,</text>
+  <text x="44" y="704" font-size="15" fill="#64748b">and businesses forward it to the tax office (Finanzamt)</text>
+</svg>

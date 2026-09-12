@@ -1,0 +1,515 @@
+[
+  {
+    "key": "altersgrenzen-deutschland",
+    "type": "bar",
+    "titleDe": "Wichtige Altersgrenzen in Deutschland",
+    "titleEn": "Key legal age thresholds in Germany",
+    "altDe": "Eine Altersskala markiert die Grenzen bei 14 Jahren (strafmündig) und 18 Jahren (volljährig) und erklärt, dass eine sexuelle Beziehung zwischen einem 13-jährigen Kind und einer 25-jährigen Person strafbar ist.",
+    "altEn": "An age scale marks the thresholds at 14 (criminal responsibility) and 18 (legal adulthood) and explains that a sexual relationship between a 13-year-old child and a 25-year-old is a criminal offence.",
+    "aspect": "4:5",
+    "file": "diagrams/altersgrenzen-deutschland.svg",
+    "questionIds": [
+      245,
+      246,
+      263
+    ]
+  },
+  {
+    "key": "arbeitsrecht-betriebsrat",
+    "type": "flowchart",
+    "titleDe": "Arbeitsverhaeltnis: Probleme und Beendigung",
+    "titleEn": "Employment relationship: problems and ending it",
+    "altDe": "Im Arbeitsverhältnis zwischen Arbeitgeber und Arbeitnehmer hilft bei Problemen der von den Beschäftigten gewählte Betriebsrat; bei der Beendigung muss die Kündigungsfrist eingehalten werden.",
+    "altEn": "Employment relationship: problems and ending it",
+    "aspect": "4:5",
+    "file": "diagrams/arbeitsrecht-betriebsrat.svg",
+    "questionIds": [
+      286,
+      287
+    ]
+  },
+  {
+    "key": "berlin-verwaltung",
+    "type": "organigram",
+    "titleDe": "Wie Berlin regiert wird",
+    "titleEn": "How Berlin is governed",
+    "altDe": "Berlin ist ein Stadtstaat: die Wahlberechtigten wählen das Abgeordnetenhaus, dieses wählt die Regierende Bürgermeisterin oder den Regierenden Bürgermeister, die oder der mit den Senatorinnen und Senatoren den Senat bildet.",
+    "altEn": "Berlin is a city-state: voters elect the Abgeordnetenhaus, which elects the Governing Mayor, who forms the Senat together with the senators.",
+    "aspect": "4:5",
+    "file": "diagrams/berlin-verwaltung.svg",
+    "questionIds": [
+      302,
+      303,
+      304,
+      307,
+      308,
+      309,
+      310
+    ]
+  },
+  {
+    "key": "bundespraesident-wahl",
+    "type": "organigram",
+    "titleDe": "Wahl und Aufgabe des Bundespräsidenten",
+    "titleEn": "Election and role of the Federal President",
+    "altDe": "Bundestag und Landesparlamente bilden zusammen die Bundesversammlung, die den Bundespräsidenten wählt; die Bürgerinnen und Bürger wählen ihn nicht direkt, seine Hauptaufgabe ist es, das Land zu repräsentieren.",
+    "altEn": "The Bundestag and the state parliaments together form the Federal Convention, which elects the Federal President; citizens do not elect him directly, and his main task is to represent the country.",
+    "aspect": "4:5",
+    "file": "diagrams/bundespraesident-wahl.svg",
+    "questionIds": [
+      44,
+      84,
+      86
+    ]
+  },
+  {
+    "key": "bundesrat-zusammensetzung",
+    "type": "organigram",
+    "titleDe": "Wer bildet den Bundesrat?",
+    "titleEn": "Who forms the Bundesrat?",
+    "altDe": "Die 16 Landesregierungen entsenden Mitglieder in den Bundesrat mit 69 Stimmen, der an der Gesetzgebung des Bundes mitwirkt.",
+    "altEn": "The 16 state governments send members to the Bundesrat, which holds 69 votes and takes part in federal legislation.",
+    "aspect": "4:5",
+    "file": "diagrams/bundesrat-zusammensetzung.svg",
+    "questionIds": [
+      85,
+      91
+    ]
+  },
+  {
+    "key": "bundesregierung-kanzler",
+    "type": "organigram",
+    "titleDe": "Bundesregierung und Bundeskanzler/in",
+    "titleEn": "Federal government and the Chancellor",
+    "altDe": "Der Bundestag wählt den Bundeskanzler oder die Bundeskanzlerin, der oder die Bundespräsident/in ernennt ihn oder sie und auf Vorschlag die Bundesminister/innen.",
+    "altEn": "Federal government and the Chancellor",
+    "aspect": "4:5",
+    "file": "diagrams/bundesregierung-kanzler.svg",
+    "questionIds": [
+      58,
+      70,
+      81,
+      82
+    ]
+  },
+  {
+    "key": "bundestag-wahl",
+    "type": "flowchart",
+    "titleDe": "Erststimme und Zweitstimme",
+    "titleEn": "First and second vote",
+    "altDe": "Auf dem Stimmzettel w&#228;hlt die Erststimme eine Person im Wahlkreis, die Zweitstimme eine Partei; die Zweitstimme entscheidet &#252;ber die Sitze und die 5-Prozent-H&#252;rde.",
+    "altEn": "First and second vote",
+    "aspect": "3:4",
+    "file": "diagrams/bundestag-wahl.svg",
+    "questionIds": [
+      93,
+      117,
+      120,
+      121,
+      123,
+      127,
+      130
+    ]
+  },
+  {
+    "key": "ddr-brd-teilung",
+    "type": "map",
+    "titleDe": "Besatzungszonen und deutsche Teilung",
+    "titleEn": "Occupation zones and German division",
+    "altDe": "Aus den drei westlichen Besatzungszonen entstand 1949 die Bundesrepublik Deutschland, aus der sowjetischen Zone die DDR; Berlin war in vier Sektoren geteilt.",
+    "altEn": "Occupation zones and German division",
+    "aspect": "3:4",
+    "file": "diagrams/ddr-brd-teilung.svg",
+    "questionIds": [
+      167,
+      169,
+      174,
+      176,
+      177,
+      178,
+      185,
+      187,
+      201,
+      202,
+      203,
+      207,
+      210,
+      211,
+      217
+    ]
+  },
+  {
+    "key": "deutschland-international",
+    "type": "map",
+    "titleDe": "Deutschlands Nachbarlaender",
+    "titleEn": "Germany's neighboring countries",
+    "altDe": "Schematische Übersicht: Deutschland hat neun Nachbarländer, alle sind EU-Staaten außer der Schweiz, und fast alle gehören zum Schengen-Raum.",
+    "altEn": "Germany's neighboring countries",
+    "aspect": "4:5",
+    "file": "diagrams/deutschland-international.svg",
+    "questionIds": [
+      221,
+      222,
+      223,
+      225,
+      227,
+      229,
+      233
+    ]
+  },
+  {
+    "key": "eu-institutionen",
+    "type": "organigram",
+    "titleDe": "Institutionen der Europaeischen Union",
+    "titleEn": "Institutions of the European Union",
+    "altDe": "Von den Römischen Verträgen 1957 über die heutige EU mit 27 Mitgliedstaaten zum Europäischen Parlament, das alle fünf Jahre gewählt wird und an drei Orten arbeitet.",
+    "altEn": "Institutions of the European Union",
+    "aspect": "4:5",
+    "file": "diagrams/eu-institutionen.svg",
+    "questionIds": [
+      230,
+      232,
+      234,
+      236,
+      237,
+      238,
+      239
+    ]
+  },
+  {
+    "key": "foederalismus-bund-laender",
+    "type": "map",
+    "titleDe": "Foederaler Aufbau Deutschlands",
+    "titleEn": "Germany's federal structure",
+    "altDe": "Deutschland ist ein Bundesstaat aus 16 Bundesl&#228;ndern; f&#252;nf davon sind die neuen Bundesl&#228;nder auf dem Gebiet der fr&#252;heren DDR.",
+    "altEn": "Germany's federal structure",
+    "aspect": "4:5",
+    "file": "diagrams/foederalismus-bund-laender.svg",
+    "questionIds": [
+      24,
+      25,
+      39,
+      49,
+      62,
+      64,
+      192,
+      195,
+      197,
+      198,
+      200
+    ]
+  },
+  {
+    "key": "gastarbeiter-geschichte",
+    "type": "comparison",
+    "titleDe": "Arbeitsmigration nach Deutschland",
+    "titleEn": "Labour migration to Germany",
+    "altDe": "Zwei Spalten vergleichen die Anwerbung von Gastarbeitern in der Bundesrepublik ab 1955 (Italien zuerst, Anwerbestopp 1973) mit den Vertragsarbeitern der DDR aus Vietnam, Polen und Mosambik; heute ist die Türkei das häufigste Herkunftsland.",
+    "altEn": "Two columns compare West Germany's recruitment of guest workers from 1955 (Italy first, recruitment halted in 1973) with the GDR's contract workers from Vietnam, Poland and Mozambique; today Turkey is the largest single country of origin.",
+    "aspect": "4:5",
+    "file": "diagrams/gastarbeiter-geschichte.svg",
+    "questionIds": [
+      297,
+      298,
+      299,
+      300
+    ]
+  },
+  {
+    "key": "gesetzgebungsverfahren",
+    "type": "flowchart",
+    "titleDe": "Gesetzgebungsverfahren",
+    "titleEn": "Legislative process",
+    "altDe": "Ein Ablauf von oben nach unten zeigt den Weg eines Gesetzes: Gesetzentwurf, Beschluss im Bundestag, Mitwirkung des Bundesrats, Unterschrift der Bundespräsidentin oder des Bundespräsidenten und Verkündung im Bundesgesetzblatt.",
+    "altEn": "A top-to-bottom flow shows the path of a law: the bill, the vote in the Bundestag, the participation of the Bundesrat, the signature of the Federal President and publication in the Federal Law Gazette.",
+    "aspect": "3:4",
+    "file": "diagrams/gesetzgebungsverfahren.svg",
+    "questionIds": [
+      42,
+      90
+    ]
+  },
+  {
+    "key": "gewaltenteilung",
+    "type": "organigram",
+    "titleDe": "Gewaltenteilung und Verfassungsorgane",
+    "titleEn": "Separation of powers and constitutional organs",
+    "altDe": "Die Staatsgewalt ist geteilt in Legislative, Exekutive und Judikative, die sich gegenseitig kontrollieren; das Volk w&#228;hlt den Bundestag.",
+    "altEn": "Separation of powers and constitutional organs",
+    "aspect": "4:5",
+    "file": "diagrams/gewaltenteilung.svg",
+    "questionIds": [
+      32,
+      48,
+      60,
+      63,
+      80,
+      129,
+      143,
+      144,
+      145
+    ]
+  },
+  {
+    "key": "gleichberechtigung",
+    "type": "comparison",
+    "titleDe": "Gleichbehandlung vor dem Gesetz",
+    "titleEn": "Equal treatment under the law",
+    "altDe": "Artikel 3 Grundgesetz: Der Staat muss alle Bürgerinnen und Bürger gleich behandeln; eine Ungleichbehandlung, also Diskriminierung wegen Geschlecht, Herkunft, Glauben oder Behinderung, ist verboten.",
+    "altEn": "Equal treatment under the law",
+    "aspect": "4:5",
+    "file": "diagrams/gleichberechtigung.svg",
+    "questionIds": [
+      17
+    ]
+  },
+  {
+    "key": "grundrechte-grundgesetz",
+    "type": "network",
+    "titleDe": "Die Grundrechte im Grundgesetz",
+    "titleEn": "Basic rights in the Basic Law",
+    "altDe": "Die Grundrechte stehen in den Artikeln 1 bis 19 des Grundgesetzes: Menschenw&#252;rde, Gleichheit, Freiheitsrechte, Briefgeheimnis und Asylrecht.",
+    "altEn": "Basic rights in the Basic Law",
+    "aspect": "3:4",
+    "file": "diagrams/grundrechte-grundgesetz.svg",
+    "questionIds": [
+      4,
+      7,
+      8,
+      9,
+      18,
+      243,
+      262,
+      274,
+      277,
+      278,
+      281,
+      289
+    ]
+  },
+  {
+    "key": "holocaust",
+    "type": "timeline",
+    "titleDe": "Holocaust und Erinnerung",
+    "titleEn": "The Holocaust and remembrance",
+    "altDe": "Eine Zeitleiste von der Machtübernahme der Nationalsozialisten 1933 über die Ermordung von etwa sechs Millionen europäischen Jüdinnen und Juden 1941 bis 1945, die Befreiung von Auschwitz am 27. Januar 1945 und den Gedenktag seit 1996 bis zu den Stolpersteinen und Deutschlands besonderer Verantwortung für Israel.",
+    "altEn": "A timeline from the Nazi seizure of power in 1933 through the murder of about six million European Jews from 1941 to 1945, the liberation of Auschwitz on 27 January 1945 and the day of remembrance since 1996, to the Stolpersteine and Germany's special responsibility towards Israel.",
+    "aspect": "9:16",
+    "file": "diagrams/holocaust.svg",
+    "questionIds": [
+      206,
+      220,
+      288
+    ]
+  },
+  {
+    "key": "juedisches-leben-geschichte",
+    "type": "timeline",
+    "titleDe": "Juedisches Leben in Deutschland",
+    "titleEn": "Jewish life in Germany",
+    "altDe": "Zeitleiste des jüdischen Lebens in Deutschland: erste dokumentierte Gemeinde um 321 in Köln, wachsendes Gemeindeleben, Schoa 1933 bis 1945, Wiederaufbau nach 1945, heute die größten Gemeinden in Berlin und München.",
+    "altEn": "Jewish life in Germany",
+    "aspect": "9:16",
+    "file": "diagrams/juedisches-leben-geschichte.svg",
+    "questionIds": [
+      59,
+      66
+    ]
+  },
+  {
+    "key": "mauer-berlin",
+    "type": "timeline",
+    "titleDe": "Die Berliner Mauer",
+    "titleEn": "The Berlin Wall",
+    "altDe": "Eine Zeitleiste zeigt, wie die DDR 1961 die Berliner Mauer baute, Berlin bis 1989 in Ost und West geteilt war, die Mauer am 9. November 1989 geöffnet wurde und 1990 die Wiedervereinigung folgte.",
+    "altEn": "A timeline shows how the GDR built the Berlin Wall in 1961, how Berlin stayed divided into East and West until 1989, how the wall was opened on 9 November 1989 and how reunification followed in 1990.",
+    "aspect": "9:16",
+    "file": "diagrams/mauer-berlin.svg",
+    "questionIds": [
+      188,
+      191,
+      193
+    ]
+  },
+  {
+    "key": "meinungs-pressefreiheit",
+    "type": "comparison",
+    "titleDe": "Grenzen der Meinungs- und Pressefreiheit",
+    "titleEn": "Limits of freedom of expression and the press",
+    "altDe": "Meinungs- und Pressefreiheit sind nach Artikel 5 Grundgesetz ein Merkmal der Demokratie; Pressezensur ist kein Merkmal unserer Demokratie, und die Meinungsfreiheit endet bei falschen Tatsachenbehauptungen über andere Personen.",
+    "altEn": "Limits of freedom of expression and the press",
+    "aspect": "1:1",
+    "file": "diagrams/meinungs-pressefreiheit.svg",
+    "questionIds": [
+      16,
+      30
+    ]
+  },
+  {
+    "key": "ns-zeit-1933-1945",
+    "type": "timeline",
+    "titleDe": "Der Nationalsozialismus 1933-1945",
+    "titleEn": "National Socialism 1933-1945",
+    "altDe": "Zeitleiste der NS-Diktatur von 1933 bis 1945 mit fünf Stationen: Hitler wird Reichskanzler, Novemberpogrome, Beginn des Zweiten Weltkriegs, Attentat vom 20. Juli 1944 und Kapitulation am 8. Mai 1945.",
+    "altEn": "National Socialism 1933-1945",
+    "aspect": "9:16",
+    "file": "diagrams/ns-zeit-1933-1945.svg",
+    "questionIds": [
+      152,
+      156,
+      160,
+      162,
+      163,
+      179
+    ]
+  },
+  {
+    "key": "parteien-system",
+    "type": "comparison",
+    "titleDe": "Parteien und Fraktionen im Bundestag",
+    "titleEn": "Parties and parliamentary groups",
+    "altDe": "Parteien ziehen mit mindestens fünf Prozent der Stimmen in den Bundestag ein; dort bilden die Koalitionsparteien die Regierung und alle übrigen Abgeordneten die Opposition.",
+    "altEn": "Parties and parliamentary groups",
+    "aspect": "4:5",
+    "file": "diagrams/parteien-system.svg",
+    "questionIds": [
+      13,
+      20,
+      31,
+      41,
+      89,
+      98,
+      103
+    ]
+  },
+  {
+    "key": "rechtsstaat",
+    "type": "comparison",
+    "titleDe": "Der Rechtsstaat",
+    "titleEn": "The rule-of-law state",
+    "altDe": "Im Rechtsstaat sind Staat und B&#252;rger gleicherma&#223;en an die Gesetze gebunden; unabh&#228;ngige Gerichte entscheiden Streitf&#228;lle.",
+    "altEn": "The rule-of-law state",
+    "aspect": "4:5",
+    "file": "diagrams/rechtsstaat.svg",
+    "questionIds": [
+      3,
+      53,
+      136,
+      141,
+      142,
+      148,
+      150
+    ]
+  },
+  {
+    "key": "schulsystem",
+    "type": "pyramid",
+    "titleDe": "Das deutsche Schulsystem",
+    "titleEn": "The German school system",
+    "altDe": "Das deutsche Schulsystem im Überblick: Kindergarten, Grundschule, dann Hauptschule, Realschule oder Gymnasium mit Abitur, danach Berufsausbildung im dualen System oder Studium; Bildung ist Ländersache.",
+    "altEn": "The German school system",
+    "aspect": "3:4",
+    "file": "diagrams/schulsystem.svg",
+    "questionIds": [
+      244,
+      269
+    ]
+  },
+  {
+    "key": "soziale-marktwirtschaft",
+    "type": "comparison",
+    "titleDe": "Soziale Marktwirtschaft",
+    "titleEn": "Social market economy",
+    "altDe": "Die soziale Marktwirtschaft liegt zwischen freier Marktwirtschaft und Planwirtschaft: Angebot und Nachfrage bestimmen die Preise, aber der Staat sorgt für sozialen Ausgleich.",
+    "altEn": "Social market economy",
+    "aspect": "4:5",
+    "file": "diagrams/soziale-marktwirtschaft.svg",
+    "questionIds": [
+      171
+    ]
+  },
+  {
+    "key": "sozialversicherung-saeulen",
+    "type": "pyramid",
+    "titleDe": "Die fuenf Saeulen der Sozialversicherung",
+    "titleEn": "The five pillars of social insurance",
+    "altDe": "Die gesetzliche Sozialversicherung in Deutschland steht auf fünf Säulen: Kranken-, Pflege-, Renten-, Arbeitslosen- und Unfallversicherung; die Lebensversicherung gehört nicht dazu.",
+    "altEn": "The five pillars of social insurance",
+    "aspect": "4:5",
+    "file": "diagrams/sozialversicherung-saeulen.svg",
+    "questionIds": [
+      35,
+      45,
+      97,
+      99,
+      100
+    ]
+  },
+  {
+    "key": "staatsprinzipien-art20",
+    "type": "organigram",
+    "titleDe": "Staatsprinzipien nach Art. 20 GG",
+    "titleEn": "Constitutional principles (Art. 20 Basic Law)",
+    "altDe": "Unter der Überschrift Artikel 20 Grundgesetz stehen die fünf Staatsprinzipien Demokratie, Bundesstaat, Rechtsstaat, Sozialstaat und Republik, jeweils mit einer kurzen Erklärung.",
+    "altEn": "Under the heading Article 20 Basic Law, the five constitutional principles democracy, federal state, rule of law, welfare state and republic are listed, each with a short explanation.",
+    "aspect": "3:4",
+    "file": "diagrams/staatsprinzipien-art20.svg",
+    "questionIds": [
+      22,
+      26,
+      52
+    ]
+  },
+  {
+    "key": "steuern-abgaben",
+    "type": "comparison",
+    "titleDe": "Vom Brutto- zum Nettogehalt",
+    "titleEn": "From gross to net salary",
+    "altDe": "Vom Bruttogehalt werden Lohnsteuer, Sozialversicherungsbeiträge und bei Kirchenmitgliedern die Kirchensteuer abgezogen; übrig bleibt das Nettogehalt. Die Umsatzsteuer wird dagegen nicht vom Lohn abgezogen, sondern beim Einkaufen bezahlt.",
+    "altEn": "From gross to net salary",
+    "aspect": "4:5",
+    "file": "diagrams/steuern-abgaben.svg",
+    "questionIds": [
+      285,
+      291
+    ]
+  },
+  {
+    "key": "wahlgrundsaetze",
+    "type": "network",
+    "titleDe": "Wahlgrundsaetze",
+    "titleEn": "Electoral principles",
+    "altDe": "Die fünf Wahlgrundsätze des Grundgesetzes: allgemein, unmittelbar, frei, gleich und geheim, dazu aktives und passives Wahlrecht.",
+    "altEn": "Electoral principles",
+    "aspect": "4:5",
+    "file": "diagrams/wahlgrundsaetze.svg",
+    "questionIds": [
+      5,
+      108,
+      115,
+      116,
+      119,
+      122
+    ]
+  },
+  {
+    "key": "wiedervereinigung",
+    "type": "timeline",
+    "titleDe": "Die Wende und die Wiedervereinigung",
+    "titleEn": "The turning point and reunification",
+    "altDe": "Zeitleiste von den Montagsdemonstrationen 1989 &#252;ber den Mauerfall bis zum Beitritt der DDR am 3. Oktober 1990 und zum Tag der Deutschen Einheit.",
+    "altEn": "The turning point and reunification",
+    "aspect": "9:16",
+    "file": "diagrams/wiedervereinigung.svg",
+    "questionIds": [
+      166,
+      194,
+      196,
+      204,
+      205,
+      215,
+      218,
+      228
+    ]
+  }
+]

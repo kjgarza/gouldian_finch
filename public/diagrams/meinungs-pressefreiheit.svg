@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Meinungs- und Pressefreiheit sind nach Artikel 5 Grundgesetz ein Merkmal der Demokratie; Pressezensur ist kein Merkmal unserer Demokratie, und die Meinungsfreiheit endet bei falschen Tatsachenbehauptungen über andere Personen.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="600" fill="#ffffff"/>
+
+  <text x="28" y="44" font-size="26" font-weight="700" fill="#0f172a">Meinungs- und Pressefreiheit</text>
+  <text x="28" y="68" font-size="15" fill="#64748b">Freedom of expression and of the press</text>
+
+  <!-- The guaranteed basic right -->
+  <rect x="28" y="86" width="544" height="88" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="120" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Garantiertes Grundrecht</text>
+  <text x="300" y="144" font-size="18" fill="#2563eb" text-anchor="middle">Artikel 5 Grundgesetz</text>
+  <text x="300" y="163" font-size="15" fill="#64748b" text-anchor="middle">guaranteed basic right &#183; Article 5 of the Basic Law</text>
+
+  <line x1="160" y1="176" x2="160" y2="204" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="440" y1="176" x2="440" y2="204" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- Allowed: feature of democracy -->
+  <rect x="28" y="208" width="264" height="206" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="44" y="236" font-size="18" font-weight="700" fill="#16a34a">Merkmal der Demokratie</text>
+  <text x="44" y="254" font-size="15" fill="#64748b">a feature of our democracy</text>
+
+  <text x="44" y="292" font-size="22" font-weight="600" fill="#0f172a">freie Meinungs-</text>
+  <text x="44" y="314" font-size="22" font-weight="600" fill="#0f172a">&#228;u&#223;erung</text>
+  <text x="44" y="332" font-size="15" fill="#64748b">saying your opinion freely</text>
+
+  <text x="44" y="366" font-size="22" font-weight="600" fill="#0f172a">Presse ohne</text>
+  <text x="44" y="388" font-size="22" font-weight="600" fill="#0f172a">Zensur</text>
+  <text x="44" y="406" font-size="15" fill="#64748b">press without censorship</text>
+
+  <!-- Not a feature of democracy -->
+  <rect x="308" y="208" width="264" height="206" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="324" y="236" font-size="18" font-weight="700" fill="#dc2626">KEIN Merkmal davon</text>
+  <text x="324" y="254" font-size="15" fill="#64748b">NOT a feature of democracy</text>
+
+  <text x="324" y="314" font-size="22" font-weight="600" fill="#0f172a">Pressezensur</text>
+  <line x1="321" y1="307" x2="468" y2="307" stroke="#dc2626" stroke-width="3"/>
+  <text x="324" y="332" font-size="15" fill="#64748b">press censorship</text>
+  <text x="324" y="368" font-size="18" fill="#dc2626">Der Staat darf der</text>
+  <text x="324" y="388" font-size="18" fill="#dc2626">Presse nichts verbieten.</text>
+  <text x="324" y="404" font-size="15" fill="#64748b">the state may not silence the press</text>
+
+  <!-- The limit -->
+  <rect x="28" y="440" width="544" height="140" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="44" y="472" font-size="22" font-weight="600" fill="#0f172a">Grenze der Meinungsfreiheit</text>
+  <text x="44" y="500" font-size="18" fill="#0f172a">Nicht erlaubt: &#246;ffentlich falsche</text>
+  <text x="44" y="522" font-size="18" fill="#0f172a">Tatsachenbehauptungen &#252;ber andere</text>
+  <text x="44" y="544" font-size="18" fill="#0f172a">Personen verbreiten</text>
+  <text x="44" y="566" font-size="15" fill="#64748b">the limit: publicly spreading false factual claims about other people</text>
+</svg>

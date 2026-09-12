@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Die gesetzliche Sozialversicherung in Deutschland steht auf fünf Säulen: Kranken-, Pflege-, Renten-, Arbeitslosen- und Unfallversicherung; die Lebensversicherung gehört nicht dazu.</title>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="46" font-size="26" font-weight="700" fill="#0f172a">Fünf Säulen der Sozialversicherung</text>
+  <text x="28" y="70" font-size="15" fill="#64748b">The five pillars of statutory social insurance</text>
+
+  <!-- Roof -->
+  <rect x="28" y="92" width="544" height="74" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="126" font-size="22" font-weight="600" fill="#2563eb" text-anchor="middle">Gesetzliche Sozialversicherung</text>
+  <text x="300" y="148" font-size="15" fill="#64748b" text-anchor="middle">statutory social insurance · compulsory for employees</text>
+
+  <!-- Five pillars -->
+  <rect x="28" y="186" width="544" height="60" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="216" font-size="22" font-weight="700" fill="#2563eb">1</text>
+  <text x="88" y="216" font-size="22" font-weight="600" fill="#0f172a">Krankenversicherung</text>
+  <text x="88" y="236" font-size="15" fill="#64748b">health insurance</text>
+
+  <rect x="28" y="252" width="544" height="60" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="282" font-size="22" font-weight="700" fill="#2563eb">2</text>
+  <text x="88" y="282" font-size="22" font-weight="600" fill="#0f172a">Pflegeversicherung</text>
+  <text x="88" y="302" font-size="15" fill="#64748b">long-term care insurance</text>
+
+  <rect x="28" y="318" width="544" height="60" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="348" font-size="22" font-weight="700" fill="#2563eb">3</text>
+  <text x="88" y="348" font-size="22" font-weight="600" fill="#0f172a">Rentenversicherung</text>
+  <text x="88" y="368" font-size="15" fill="#64748b">pension insurance</text>
+
+  <rect x="28" y="384" width="544" height="60" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="414" font-size="22" font-weight="700" fill="#2563eb">4</text>
+  <text x="88" y="414" font-size="22" font-weight="600" fill="#0f172a">Arbeitslosenversicherung</text>
+  <text x="88" y="434" font-size="15" fill="#64748b">unemployment insurance</text>
+
+  <rect x="28" y="450" width="544" height="60" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="58" y="480" font-size="22" font-weight="700" fill="#2563eb">5</text>
+  <text x="88" y="480" font-size="22" font-weight="600" fill="#0f172a">Unfallversicherung</text>
+  <text x="88" y="500" font-size="15" fill="#64748b">accident insurance — paid by the employer alone</text>
+
+  <!-- Base -->
+  <rect x="28" y="522" width="544" height="106" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="300" y="556" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Sozialabgaben</text>
+  <text x="300" y="580" font-size="18" fill="#0f172a" text-anchor="middle">von Arbeitgeber/innen und Arbeitnehmer/innen</text>
+  <text x="300" y="602" font-size="18" fill="#0f172a" text-anchor="middle">automatisch vom Lohn abgezogen</text>
+  <text x="300" y="620" font-size="15" fill="#64748b" text-anchor="middle">contributions from employer and employee, deducted from wages</text>
+
+  <!-- Not part of it -->
+  <rect x="28" y="644" width="544" height="90" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="300" y="676" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Lebensversicherung</text>
+  <text x="300" y="700" font-size="18" fill="#dc2626" text-anchor="middle">privat – NICHT Teil der Sozialversicherung</text>
+  <text x="300" y="720" font-size="15" fill="#64748b" text-anchor="middle">life insurance: private, not one of the five pillars</text>
+</svg>

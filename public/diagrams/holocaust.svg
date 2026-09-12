@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1067" width="600" height="1067"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Zeitleiste des Holocaust: 1933 kommen die Nationalsozialisten an die Macht, 1941 bis 1945 werden etwa sechs Millionen europäische Jüdinnen und Juden ermordet, am 27. Januar 1945 wird Auschwitz befreit, seit 1996 ist dieser Tag Gedenktag, und aus den Verbrechen folgt Deutschlands besondere Verantwortung für Israel.</title>
+  <rect width="600" height="1067" fill="#ffffff"/>
+
+  <text x="28" y="46" font-size="26" font-weight="700" fill="#0f172a">Holocaust und Erinnerung</text>
+  <text x="28" y="70" font-size="15" fill="#64748b">The Holocaust and how Germany remembers it</text>
+
+  <line x1="60" y1="110" x2="60" y2="1040" stroke="#cbd5e1" stroke-width="4"/>
+
+  <!-- 1933 -->
+  <circle cx="60" cy="146" r="11" fill="#0f172a"/>
+  <rect x="98" y="110" width="474" height="130" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="142" font-size="18" font-weight="700" fill="#0f172a">1933</text>
+  <text x="116" y="172" font-size="22" font-weight="600" fill="#0f172a">Nationalsozialisten an der Macht</text>
+  <text x="116" y="198" font-size="18" fill="#0f172a">Verfolgung und Entrechtung der Juden</text>
+  <text x="116" y="220" font-size="15" fill="#64748b">The Nazis take power. Jews are persecuted and</text>
+  <text x="116" y="236" font-size="15" fill="#64748b">stripped of their rights.</text>
+
+  <!-- 1941-1945 -->
+  <circle cx="60" cy="300" r="11" fill="#0f172a"/>
+  <rect x="98" y="264" width="474" height="200" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="296" font-size="18" font-weight="700" fill="#0f172a">1941–1945</text>
+  <text x="116" y="326" font-size="22" font-weight="600" fill="#0f172a">Holocaust · Schoa</text>
+  <text x="116" y="352" font-size="18" fill="#0f172a">Systematische Ermordung von etwa</text>
+  <text x="116" y="372" font-size="18" fill="#0f172a">sechs Millionen europäischen Juden</text>
+  <text x="116" y="396" font-size="18" fill="#0f172a">Ermordet wurden auch Sinti und Roma,</text>
+  <text x="116" y="416" font-size="18" fill="#0f172a">Kranke, Behinderte, Gegner des Regimes</text>
+  <text x="116" y="438" font-size="15" fill="#64748b">Systematic murder of about six million European Jews;</text>
+  <text x="116" y="454" font-size="15" fill="#64748b">also Sinti and Roma, disabled people, political opponents.</text>
+
+  <!-- 27 January -->
+  <circle cx="60" cy="524" r="13" fill="#2563eb"/>
+  <rect x="98" y="488" width="474" height="204" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="116" y="520" font-size="18" font-weight="700" fill="#2563eb">27. Januar 1945</text>
+  <text x="116" y="550" font-size="22" font-weight="600" fill="#0f172a">Befreiung von Auschwitz</text>
+  <text x="116" y="576" font-size="18" fill="#0f172a">Sowjetische Soldaten befreien das</text>
+  <text x="116" y="596" font-size="18" fill="#0f172a">Vernichtungslager Auschwitz.</text>
+  <text x="116" y="622" font-size="18" font-weight="600" fill="#2563eb">Seit 1996: Gedenktag für die Opfer</text>
+  <text x="116" y="642" font-size="18" font-weight="600" fill="#2563eb">des Nationalsozialismus</text>
+  <text x="116" y="664" font-size="15" fill="#64748b">Since 1996, 27 January is the official day of remembrance</text>
+  <text x="116" y="680" font-size="15" fill="#64748b">for the victims of National Socialism.</text>
+
+  <!-- Stolpersteine -->
+  <circle cx="60" cy="752" r="11" fill="#0f172a"/>
+  <rect x="98" y="716" width="474" height="140" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="748" font-size="18" font-weight="700" fill="#0f172a">seit 1992</text>
+  <text x="116" y="778" font-size="22" font-weight="600" fill="#0f172a">Stolpersteine</text>
+  <text x="116" y="804" font-size="18" fill="#0f172a">Messingplatten im Gehweg vor den</text>
+  <text x="116" y="824" font-size="18" fill="#0f172a">früheren Wohnhäusern der Opfer</text>
+  <text x="116" y="846" font-size="15" fill="#64748b">Brass plaques in the pavement naming individual victims.</text>
+
+  <!-- responsibility -->
+  <circle cx="60" cy="916" r="11" fill="#16a34a"/>
+  <rect x="98" y="880" width="474" height="160" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="116" y="912" font-size="18" font-weight="700" fill="#16a34a">Verantwortung heute</text>
+  <text x="116" y="942" font-size="22" font-weight="600" fill="#0f172a">Besondere Verantwortung</text>
+  <text x="116" y="966" font-size="22" font-weight="600" fill="#0f172a">für Israel</text>
+  <text x="116" y="992" font-size="18" fill="#0f172a">Diplomatische Beziehungen seit 1965</text>
+  <text x="116" y="1014" font-size="15" fill="#64748b">Germany's special responsibility towards Israel follows</text>
+  <text x="116" y="1030" font-size="15" fill="#64748b">from the crimes of National Socialism.</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1067" width="600" height="1067"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Die DDR baute 1961 die Berliner Mauer, Berlin blieb bis 1989 geteilt, am 9. November 1989 wurde die Mauer geöffnet und 1990 folgte die Wiedervereinigung.</title>
+  <rect width="600" height="1067" fill="#ffffff"/>
+
+  <text x="28" y="46" font-size="26" font-weight="700" fill="#0f172a">Die Berliner Mauer</text>
+  <text x="28" y="70" font-size="15" fill="#64748b">The Berlin Wall, 1961–1989</text>
+
+  <line x1="60" y1="110" x2="60" y2="884" stroke="#cbd5e1" stroke-width="4"/>
+
+  <!-- 1961 -->
+  <circle cx="60" cy="146" r="11" fill="#0f172a"/>
+  <rect x="98" y="110" width="474" height="130" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="142" font-size="18" font-weight="700" fill="#0f172a">13. August 1961</text>
+  <text x="116" y="172" font-size="22" font-weight="600" fill="#0f172a">Die DDR baut die Mauer</text>
+  <text x="116" y="198" font-size="18" fill="#0f172a">Die Grenze nach West-Berlin</text>
+  <text x="116" y="218" font-size="18" fill="#0f172a">wird geschlossen.</text>
+  <text x="116" y="234" font-size="15" fill="#64748b">The GDR builds the Berlin Wall and seals the border.</text>
+
+  <!-- 1961-1989 divided city -->
+  <circle cx="60" cy="304" r="11" fill="#0f172a"/>
+  <rect x="98" y="268" width="474" height="270" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="116" y="300" font-size="18" font-weight="700" fill="#0f172a">1961–1989</text>
+  <text x="116" y="330" font-size="22" font-weight="600" fill="#0f172a">Berlin ist geteilt</text>
+  <text x="116" y="352" font-size="15" fill="#64748b">Berlin is divided by the wall for 28 years.</text>
+
+  <rect x="116" y="368" width="196" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="214" y="400" font-size="20" font-weight="600" fill="#0f172a" text-anchor="middle">Ost-Berlin</text>
+  <text x="214" y="424" font-size="18" fill="#0f172a" text-anchor="middle">Hauptstadt</text>
+  <text x="214" y="446" font-size="18" fill="#0f172a" text-anchor="middle">der DDR</text>
+  <text x="214" y="466" font-size="15" fill="#64748b" text-anchor="middle">East Berlin,</text>
+  <text x="214" y="482" font-size="15" fill="#64748b" text-anchor="middle">capital of the GDR</text>
+
+  <rect x="322" y="368" width="22" height="120" fill="#0f172a"/>
+  <text x="333" y="506" font-size="15" fill="#64748b" text-anchor="middle">Mauer</text>
+  <text x="333" y="522" font-size="15" fill="#64748b" text-anchor="middle">wall</text>
+
+  <rect x="354" y="368" width="200" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="454" y="400" font-size="20" font-weight="600" fill="#0f172a" text-anchor="middle">West-Berlin</text>
+  <text x="454" y="424" font-size="18" fill="#0f172a" text-anchor="middle">gehörte zur</text>
+  <text x="454" y="446" font-size="18" fill="#0f172a" text-anchor="middle">Bundesrepublik</text>
+  <text x="454" y="466" font-size="15" fill="#64748b" text-anchor="middle">West Berlin, tied to</text>
+  <text x="454" y="482" font-size="15" fill="#64748b" text-anchor="middle">West Germany</text>
+
+  <!-- 1989 -->
+  <circle cx="60" cy="602" r="13" fill="#2563eb"/>
+  <rect x="98" y="566" width="474" height="140" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="116" y="598" font-size="18" font-weight="700" fill="#2563eb">9. November 1989</text>
+  <text x="116" y="630" font-size="22" font-weight="600" fill="#0f172a">Die Mauer wird geöffnet</text>
+  <text x="116" y="658" font-size="18" fill="#0f172a">Nach friedlichen Demonstrationen</text>
+  <text x="116" y="678" font-size="18" fill="#0f172a">dürfen alle nach West-Berlin.</text>
+  <text x="116" y="696" font-size="15" fill="#64748b">The wall is opened for everyone after peaceful protests.</text>
+
+  <!-- 1990 -->
+  <circle cx="60" cy="770" r="11" fill="#16a34a"/>
+  <rect x="98" y="734" width="474" height="130" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="116" y="766" font-size="18" font-weight="700" fill="#16a34a">3. Oktober 1990</text>
+  <text x="116" y="798" font-size="22" font-weight="600" fill="#0f172a">Wiedervereinigung</text>
+  <text x="116" y="826" font-size="18" fill="#0f172a">DDR und Bundesrepublik werden ein Staat.</text>
+  <text x="116" y="848" font-size="15" fill="#64748b">Reunification – today a public holiday, the Day of German Unity.</text>
+
+  <!-- note -->
+  <rect x="28" y="904" width="544" height="120" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="48" y="938" font-size="20" font-weight="600" fill="#0f172a">Merke: Die Mauer baute die DDR –</text>
+  <text x="48" y="964" font-size="20" font-weight="600" fill="#0f172a">nicht die Bundesrepublik.</text>
+  <text x="48" y="990" font-size="18" fill="#0f172a">Sie stand 28 Jahre.</text>
+  <text x="48" y="1010" font-size="15" fill="#64748b">Remember: the GDR built the wall, and it stood for 28 years.</text>
+</svg>

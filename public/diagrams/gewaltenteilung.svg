@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Die Staatsgewalt ist geteilt in Legislative, Exekutive und Judikative, die sich gegenseitig kontrollieren; das Volk w&#228;hlt den Bundestag.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="44" font-size="26" font-weight="700" fill="#0f172a">Gewaltenteilung</text>
+  <text x="28" y="68" font-size="15" fill="#64748b">Separation of powers &#8211; the Staatsgewalt is split in three</text>
+
+  <!-- Volk -->
+  <rect x="28" y="84" width="544" height="60" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="114" font-size="22" font-weight="600" fill="#0f172a">Das Volk</text>
+  <text x="46" y="134" font-size="15" fill="#64748b">the people &#8211; all state power comes from them</text>
+
+  <line x1="150" y1="144" x2="150" y2="166" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="172" y="162" font-size="18" fill="#0f172a">w&#228;hlt den Bundestag <tspan font-size="15" fill="#64748b">(elects)</tspan></text>
+
+  <!-- Legislative -->
+  <rect x="28" y="168" width="544" height="104" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="46" y="198" font-size="22" font-weight="700" fill="#2563eb">Legislative &#8211; Gesetzgebung</text>
+  <text x="46" y="218" font-size="15" fill="#64748b">legislature: makes the laws</text>
+  <text x="46" y="244" font-size="18" fill="#0f172a">Bundestag (vom Volk gew&#228;hlt) + Bundesrat</text>
+  <text x="46" y="262" font-size="15" fill="#64748b">Bundestag elected by the people, Bundesrat = the states</text>
+
+  <line x1="150" y1="274" x2="150" y2="306" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)" marker-start="url(#a)"/>
+  <text x="172" y="290" font-size="18" fill="#0f172a">gegenseitige Kontrolle</text>
+  <text x="172" y="305" font-size="15" fill="#64748b">mutual checks and balances</text>
+
+  <!-- Exekutive -->
+  <rect x="28" y="308" width="544" height="104" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="338" font-size="22" font-weight="600" fill="#0f172a">Exekutive &#8211; ausf&#252;hrende Gewalt</text>
+  <text x="46" y="358" font-size="15" fill="#64748b">executive: carries out the laws</text>
+  <text x="46" y="384" font-size="18" fill="#0f172a">Bundesregierung: Bundeskanzler/in + Minister</text>
+  <text x="46" y="402" font-size="15" fill="#64748b">federal government, formed by the parliamentary majority</text>
+
+  <line x1="150" y1="414" x2="150" y2="446" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)" marker-start="url(#a)"/>
+  <text x="172" y="430" font-size="18" fill="#0f172a">gegenseitige Kontrolle</text>
+  <text x="172" y="445" font-size="15" fill="#64748b">mutual checks and balances</text>
+
+  <!-- Judikative -->
+  <rect x="28" y="448" width="544" height="104" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="46" y="478" font-size="22" font-weight="600" fill="#0f172a">Judikative &#8211; Rechtsprechung</text>
+  <text x="46" y="498" font-size="15" fill="#64748b">judiciary: independent courts and judges</text>
+  <text x="46" y="524" font-size="18" fill="#0f172a">Gerichte, z.&#8201;B. das Bundesverfassungsgericht</text>
+  <text x="46" y="542" font-size="15" fill="#64748b">judges are independent &#8211; the people do not elect them</text>
+
+  <!-- Verfassungsorgane -->
+  <rect x="28" y="568" width="544" height="108" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="46" y="596" font-size="18" font-weight="700" fill="#16a34a">Die 5 Verfassungsorgane</text>
+  <text x="46" y="613" font-size="15" fill="#64748b">the five constitutional organs</text>
+  <text x="46" y="638" font-size="18" fill="#0f172a">Bundestag &#183; Bundesrat &#183; Bundesregierung</text>
+  <text x="46" y="662" font-size="18" fill="#0f172a">Bundespr&#228;sident/in &#183; Bundesverfassungsgericht</text>
+
+  <rect x="28" y="684" width="544" height="60" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="46" y="710" font-size="18" font-weight="700" fill="#dc2626">Keine Staatsgewalt: Presse, B&#252;rgerversammlung</text>
+  <text x="46" y="730" font-size="15" fill="#64748b">the press and citizens&#8217; meetings are not constitutional organs</text>
+</svg>

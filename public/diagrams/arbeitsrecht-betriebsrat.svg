@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>Im Arbeitsverhältnis zwischen Arbeitgeber und Arbeitnehmer hilft bei Problemen der von den Beschäftigten gewählte Betriebsrat; bei der Beendigung muss die Kündigungsfrist eingehalten werden.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="600" height="750" fill="#ffffff"/>
+
+  <text x="28" y="42" font-size="26" font-weight="700" fill="#0f172a">Arbeitsverh&#228;ltnis</text>
+  <text x="28" y="64" font-size="15" fill="#64748b">The employment relationship: problems and ending it</text>
+
+  <!-- The two parties -->
+  <rect x="28" y="80" width="250" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="153" y="118" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Arbeitgeber/in</text>
+  <text x="153" y="140" font-size="15" fill="#64748b" text-anchor="middle">employer</text>
+
+  <rect x="322" y="80" width="250" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="447" y="118" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Arbeitnehmer/in</text>
+  <text x="447" y="140" font-size="15" fill="#64748b" text-anchor="middle">employee</text>
+
+  <line x1="286" y1="120" x2="314" y2="120" stroke="#0f172a" stroke-width="2.5" marker-start="url(#a)" marker-end="url(#a)"/>
+
+  <line x1="153" y1="160" x2="200" y2="186" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="447" y1="160" x2="400" y2="186" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- The relationship -->
+  <rect x="28" y="190" width="544" height="86" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="224" font-size="22" font-weight="600" fill="#0f172a" text-anchor="middle">Arbeitsverh&#228;ltnis</text>
+  <text x="300" y="246" font-size="18" fill="#2563eb" text-anchor="middle">geregelt im Arbeitsvertrag</text>
+  <text x="300" y="265" font-size="15" fill="#64748b" text-anchor="middle">the employment relationship, set out in the contract of employment</text>
+
+  <line x1="200" y1="276" x2="160" y2="330" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="400" y1="276" x2="440" y2="330" stroke="#0f172a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- Branch 1: problems -->
+  <rect x="28" y="334" width="264" height="230" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="44" y="364" font-size="18" font-weight="700" fill="#16a34a">Bei Problemen</text>
+  <text x="44" y="382" font-size="15" fill="#64748b">if there are problems</text>
+  <text x="44" y="418" font-size="22" font-weight="600" fill="#0f172a">Betriebsrat</text>
+  <text x="44" y="438" font-size="15" fill="#64748b">works council</text>
+  <text x="44" y="470" font-size="18" fill="#0f172a">von den Besch&#228;ftigten</text>
+  <text x="44" y="490" font-size="18" fill="#0f172a">gew&#228;hlt, hilft bei</text>
+  <text x="44" y="510" font-size="18" fill="#0f172a">Problemen</text>
+  <text x="44" y="530" font-size="15" fill="#64748b">elected by the employees;</text>
+  <text x="44" y="548" font-size="15" fill="#64748b">helps with problems at work</text>
+
+  <!-- Branch 2: ending it -->
+  <rect x="308" y="334" width="264" height="230" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="324" y="364" font-size="18" font-weight="700" fill="#d97706">Bei Beendigung</text>
+  <text x="324" y="382" font-size="15" fill="#64748b">when the job ends</text>
+  <text x="324" y="418" font-size="22" font-weight="600" fill="#0f172a">K&#252;ndigungsfrist</text>
+  <text x="324" y="438" font-size="15" fill="#64748b">notice period</text>
+  <text x="324" y="470" font-size="18" fill="#0f172a">gesetzlich mindestens</text>
+  <text x="324" y="490" font-size="18" fill="#0f172a">4 Wochen zum 15. oder</text>
+  <text x="324" y="510" font-size="18" fill="#0f172a">zum Monatsende</text>
+  <text x="324" y="530" font-size="15" fill="#64748b">by law at least four weeks,</text>
+  <text x="324" y="548" font-size="15" fill="#64748b">to the 15th or month&#8217;s end</text>
+
+  <!-- Notes -->
+  <rect x="28" y="584" width="544" height="122" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="44" y="616" font-size="18" font-weight="600" fill="#0f172a">Betriebsrat: w&#228;hlbar ab 5 Besch&#228;ftigten.</text>
+  <text x="44" y="636" font-size="15" fill="#64748b">possible in firms with five or more employees</text>
+  <text x="44" y="668" font-size="18" font-weight="600" fill="#0f172a">K&#252;ndigung nur schriftlich (&#167; 623 BGB).</text>
+  <text x="44" y="688" font-size="15" fill="#64748b">a termination is only valid in writing</text>
+</svg>
