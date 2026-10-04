@@ -16,7 +16,7 @@ export interface SessionItem<T extends StudyListItem> {
  * material out completely and the same questions come back session after
  * session.
  */
-export const NEW_CARD_FLOOR = 5
+export const NEW_CARD_FLOOR = 10
 
 /**
  * Interval a card has to reach before it counts as learned rather than merely
