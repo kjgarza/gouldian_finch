@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Shared instructions for coding agents. `AGENTS.md` is a symlink to this file, so Codex, Cursor and others read the same content.
 
 ## Project Overview
 
@@ -118,27 +118,6 @@ const SELECTED_FONT_PAIRING: FontPairingKey = "bitter-raleway"
 
 `FontPairingManager` (in `src/lib/font-pairings.ts`) loads Google Fonts and injects CSS custom properties. No runtime selector UI - developer must choose pairing before build.
 
-## Data Pipeline Architecture
-
-### Onion Architecture Layers
-
-1. **Domain** (`src/pipeline/domain/types.ts`): Core question types
-2. **Interfaces** (`src/pipeline/interfaces/contracts.ts`): Abstractions (IAIService, IDataService)
-3. **Services** (`src/pipeline/services/`): Business logic (pipeline.ts, schema-mapper.ts)
-4. **Infrastructure** (`src/pipeline/infrastructure/`): OpenAI client, file I/O
-
-### Pipeline Flow
-
-1. Load raw questions from `data/raw/questions.json`
-2. For each question:
-   - AI finds correct answer index
-   - AI generates hint + explanation
-3. Map to target schema with topic assignment
-4. Translate to English via AI
-5. Output to `data/postprocess/questions_{de,en}.json`
-
-**Rate limiting**: 500ms delay between OpenAI calls to avoid quota limits.
-
 ## Data Structures
 
 ### Question Schema
@@ -160,6 +139,10 @@ const SELECTED_FONT_PAIRING: FontPairingKey = "bitter-raleway"
 - `citizenTest_stats`: Learning statistics and study streaks
 - `citizenTest_exam`: Exam attempt history
 - `citizenTest_langHelper`: Language preference (German/English toggle)
+
+## Where detail lives
+
+- `src/pipeline/CLAUDE.md` - data pipeline onion architecture layers and pipeline flow
 
 ## Common Modification Patterns
 
@@ -202,3 +185,9 @@ The German naturalization test requires:
 - 33 questions total (30 federal + 3 state-specific)
 - 17+ correct answers to pass (51.5%)
 - Topics must match: Politik in der Demokratie, Geschichte und Verantwortung, Mensch und Gesellschaft, Bundesland Berlin
+
+<!--
+Canonical instruction file. Edit this one; AGENTS.md is a symlink to it.
+Machine-local or personal notes go in CLAUDE.local.md (gitignored).
+Convention: notes/scratchpad/10-Projects/specs/agent-instructions-convention.md
+-->

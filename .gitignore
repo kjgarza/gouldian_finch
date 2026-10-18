@@ -139,3 +139,9 @@ workbox-*.js
 # pnpm-lock.yaml
 docs/
 .claude/
+CLAUDE.local.md
+
+# local
+.claude/worktrees/
+.claude/settings.local.json
+.DS_Store
