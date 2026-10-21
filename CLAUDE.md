@@ -27,6 +27,15 @@ npm run pipeline:test       # Process test subset only
 npm run deploy       # Build and deploy to GitHub Pages (gh-pages -d dist)
 ```
 
+### Tests and direct commands
+
+`npm test` runs `node --import ./tests/register.mjs --test tests/*.test.ts`. The `npm run …` scripts call npm internally; where npm is broken (mise shim), run the underlying commands directly:
+
+```bash
+node scripts/ensure-rollup-native.mjs && ./node_modules/.bin/tsc && ./node_modules/.bin/vite build   # build
+node --import ./tests/register.mjs --test tests/*.test.ts                                           # test
+```
+
 Auto-deployment to GitHub Pages happens via `.github/workflows/deploy.yml` on push to `main`.
 
 ## Architecture
@@ -50,11 +59,11 @@ Auto-deployment to GitHub Pages happens via `.github/workflows/deploy.yml` on pu
 ```
 src/main.ts
   ↓
-FontPairingManager (hardcoded at build time: "bitter-raleway")
+FontPairingManager (hardcoded at build time: "newsreader-instrument")
   ↓
 startRouter() → hash-based routing (#/, #/review, #/berlin, #/memory, #/exam, #/browse, #/stats)
   ↓
-shell() → renders nav + view container
+shell() → renders view container + bottom tab bar (only routes with showNav)
   ↓
 Views (home.ts, review.ts, berlin.ts, memory.ts, exam.ts, browse.ts, stats.ts)
   ↓
@@ -67,8 +76,14 @@ localStorage (citizenTest_progress, citizenTest_stats, citizenTest_exam, citizen
 
 - Hash-based routing defined in `src/router.ts`
 - Routes: `#/` (home), `#/review`, `#/berlin`, `#/memory`, `#/exam`, `#/browse`, `#/stats`
-- Navigation uses `navigate(to: Route)` helper
+- `ROUTE_CONFIG` holds per-route `label`, `title`, `showNav` and `mainClassName`
+- Navigation uses `navigate(to: Route, query?)` helper; `navigate('#/review', { topic: 'politik' })` goes to `#/review?topic=politik`
+- Query rides in the hash: only the path picks the view, `routeQuery()` returns the `URLSearchParams`. Review reads `topic` via `topicFromSlug(routeQuery().get('topic'))` to run one topic's deck
 - Route changes trigger listeners in `src/main.ts` to re-render views
+
+### Shell: Bottom Tab Bar
+
+`shell()` in `src/main.ts` renders a `.tab-bar` fixed to the bottom for routes with `showNav` and a `label` (Home, Terms, Catalogue, Stats). Icons are stroke paths in `TAB_ICONS`, keyed by route; a tab-bar route without an entry renders an empty icon. Review, Berlin and exam have `showNav: false` and use `main-immersive` plus the fixed `.cta-bar` answer bar instead.
 
 ### View Pattern (No Framework)
 
@@ -113,10 +128,24 @@ saveProgress(updated)
 Font selection is **hardcoded at build time** in `src/main.ts`:
 
 ```typescript
-const SELECTED_FONT_PAIRING: FontPairingKey = "bitter-raleway"
+const SELECTED_FONT_PAIRING: FontPairingKey = "newsreader-instrument"
 ```
 
 `FontPairingManager` (in `src/lib/font-pairings.ts`) loads Google Fonts and injects CSS custom properties. No runtime selector UI - developer must choose pairing before build.
+
+### Topic System
+
+`src/lib/topics.ts` is the single source for the four topics: `topicMeta(topic)` returns `{ short, slug, className }`, `topicFromSlug()` maps a URL slug back to a `Topic`. An unknown topic label falls back to Politik.
+
+Each `className` (`.topic-politik`, `.topic-geschichte`, `.topic-gesellschaft`, `.topic-berlin`) sets `--topic`, `--topic-ink`, `--topic-sub` and `--topic-mark` in `src/styles.css`. Components (`.topic-band`, `.question-head`, `.topic-mark`) read those variables, so add the class to a wrapper and never hardcode a topic colour. `--topic-mark` is the small-square colour and can differ from the fill (Gesellschaft, Berlin) so it stays visible on the page.
+
+### Shared Question Card
+
+`src/lib/question-card.ts` renders the question screen used by `review.ts` and `berlin.ts`: `questionCardHtml()` (topic-coloured header band, German question, English helper line, empty `#choices`), `renderChoices()` (callers bind `onChoose`), `paintAnswer()` (locks choices, marks correct and wrong, records nothing) and `hintHtml()`. Change card layout here, not in the views.
+
+### Theme Tokens ("fink")
+
+`src/styles.css` registers one DaisyUI theme, `fink` (`themes: false` drops the built-ins; light only). Beyond DaisyUI's `--color-*` roles it defines `--color-surface`, `hairline`, `ink`, `muted`, `faded`, `correct`, `wrong`, `hint`, `hint-ink`, `live`, plus `--font-serif`, `--font-sans` and `--font-mono`; use them as Tailwind utilities (`text-muted`, `bg-hint`). Token contrast was measured in `docs/contrast-audit.md` (force-added; `docs/` is gitignored); re-measure after changing a token.
 
 ## Data Structures
 
@@ -150,11 +179,8 @@ const SELECTED_FONT_PAIRING: FontPairingKey = "bitter-raleway"
 
 1. Create `src/views/my-view.ts` exporting `function MyView(): HTMLElement`
 2. Add route to `src/router.ts`: `type Route = '#/' | '#/my-view' | ...`
-3. Wire up in `src/main.ts`:
-   ```typescript
-   if (route === '#/my-view') shell(MyView())
-   ```
-4. Add nav button in shell template with `data-nav="#/my-view"`
+3. Add `'#/my-view': { title, showNav }` to `ROUTE_CONFIG` (give it a `label` and a `TAB_ICONS` entry in `src/main.ts` to get a tab)
+4. Add `case '#/my-view': view = MyView()` to the switch in `render()` in `src/main.ts`
 
 ### Modifying Question Schema
 
