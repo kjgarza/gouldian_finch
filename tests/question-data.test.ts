@@ -13,20 +13,12 @@ interface Question {
 const load = (file: string): Question[] =>
   JSON.parse(readFileSync(new URL(`../src/data/${file}`, import.meta.url), 'utf8'))
 
-/** The three official federal areas, and the English topic each translates to. */
-const FEDERAL_TOPICS: Record<string, string> = {
-  'Politik in der Demokratie': 'Politics in Democracy',
-  'Geschichte und Verantwortung': 'History and Responsibility',
-  'Mensch und Gesellschaft': 'Human and Society',
-}
+/** The three official federal areas. English questions carry the same (German) label. */
+const FEDERAL_TOPICS = ['Politik in der Demokratie', 'Geschichte und Verantwortung', 'Mensch und Gesellschaft']
 
 const BERLIN_TOPIC = 'Bundesland Berlin'
 
-/** English topic each German topic must translate to (the four `Topic` values). */
-const TOPICS: Record<string, string> = {
-  ...FEDERAL_TOPICS,
-  [BERLIN_TOPIC]: BERLIN_TOPIC,
-}
+const TOPICS = [...FEDERAL_TOPICS, BERLIN_TOPIC]
 
 const DECKS = [
   ['federal', 'questions_de.json', 'questions_en.json'],
@@ -45,6 +37,15 @@ for (const [name, deFile, enFile] of DECKS) {
     assert.equal(en.size, de.length)
   })
 
+  test(`${name} deck: every question has an integer correctIndex within its choices`, () => {
+    for (const [file, qs] of [[deFile, de], [enFile, [...en.values()]]] as const) {
+      for (const q of qs) {
+        assert.ok(Number.isInteger(q.correctIndex), `${file} question ${q.id} correctIndex is ${q.correctIndex}`)
+        assert.ok(q.correctIndex >= 0 && q.correctIndex < q.choices.length, `${file} question ${q.id} correctIndex out of range`)
+      }
+    }
+  })
+
   test(`${name} deck: English answers line up with German`, () => {
     for (const q of de) {
       const e = en.get(q.id)
@@ -59,15 +60,15 @@ for (const [name, deFile, enFile] of DECKS) {
     for (const q of de) {
       const e = en.get(q.id)
       if (!e) continue
-      assert.ok(q.topic in TOPICS, `question ${q.id} has unmapped topic "${q.topic}"`)
-      assert.equal(e.topic, TOPICS[q.topic], `question ${q.id} topic`)
+      assert.ok(TOPICS.includes(q.topic), `question ${q.id} has unmapped topic "${q.topic}"`)
+      assert.equal(e.topic, q.topic, `question ${q.id} English topic must equal the German topic`)
     }
   })
 }
 
 test('federal deck: every question uses one of the three federal areas', () => {
   for (const file of ['questions_de.json', 'questions_en.json']) {
-    const allowed = new Set(file.endsWith('_de.json') ? Object.keys(FEDERAL_TOPICS) : Object.values(FEDERAL_TOPICS))
+    const allowed = new Set(FEDERAL_TOPICS)
     const bad = load(file).filter(q => !allowed.has(q.topic)).map(q => `${q.id}:${q.topic}`)
     assert.deepEqual(bad, [], `${file} has off-list topics`)
   }
@@ -76,7 +77,7 @@ test('federal deck: every question uses one of the three federal areas', () => {
 test('federal deck: each of the three areas is populated', () => {
   const counts = new Map<string, number>()
   for (const q of load('questions_de.json')) counts.set(q.topic, (counts.get(q.topic) ?? 0) + 1)
-  for (const topic of Object.keys(FEDERAL_TOPICS)) {
+  for (const topic of FEDERAL_TOPICS) {
     assert.ok((counts.get(topic) ?? 0) >= 30, `${topic} has only ${counts.get(topic) ?? 0} questions`)
   }
 })

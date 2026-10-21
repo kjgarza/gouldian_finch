@@ -2913,17 +2913,18 @@
   },
   {
     "id": 209,
-    "question": "Welches war das Wappen der Deutschen Demokratischen Republik? ",
+    "question": "Welches war das Wappen der Deutschen Demokratischen Republik?",
     "choices": [
-      "Bild 1",
-      "Bild 2",
-      "Bild 3",
-      "Bild 4"
+      "Hammer und Zirkel im Ährenkranz",
+      "Ein schwarzer Adler auf goldenem Grund",
+      "Drei Eichenblätter in einem Kreis",
+      "Ein roter Stern über einem Lorbeerkranz"
     ],
-    "correctIndex": null,
+    "correctIndex": 0,
     "hint": "Denke an ein Symbol, das oft mit sozialistischen Idealen und der Arbeiterklasse in Verbindung gebracht wird. Es enthält auch Elemente, die für die deutsche Geschichte wichtig sind.",
-    "explanation": "Die Frage nach dem Wappen der Deutschen Demokratischen Republik (DDR) bezieht sich auf das offizielle Symbol, das während der Existenz der DDR von 1949 bis 1990 verwendet wurde. Das Wappen der DDR zeigt einen Zirkel und einen Hammer, die von einem Ährenkranz umgeben sind. Der Hammer steht für die Arbeiterklasse, der Zirkel für die Intellektuellen und der Ährenkranz symbolisiert die Landwirtschaft. Diese Symbole repräsentieren die Ideologie der DDR, die sich auf den Sozialismus und die Einheit von Arbeitern und Bauern stützte. \n\nDie Antwort \"undefined\" ist jedoch nicht korrekt, da es ein spezifisches Wappen gab, das die Identität und die Werte der DDR verkörperte. Daher ist es wichtig, das tatsächliche Wappen und seine Bedeutung zu kennen, um die Frage richtig zu beantworten.",
-    "topic": "Geschichte und Verantwortung"
+    "explanation": "Das Wappen der DDR zeigt Hammer und Zirkel, umgeben von einem Ährenkranz. Der Hammer steht für die Arbeiter, der Zirkel für die Intelligenz, der Ährenkranz für die Bauern. Hinweis: Die amtliche Frage zeigt vier Wappenbilder zur Auswahl; diese Textfassung prüft dieselbe Tatsache.",
+    "topic": "Geschichte und Verantwortung",
+    "substituted": true
   },
   {
     "id": 210,
@@ -3151,17 +3152,18 @@
   },
   {
     "id": 226,
-    "question": "Welche ist die Flagge der Europäischen Union? ",
+    "question": "Welche ist die Flagge der Europäischen Union?",
     "choices": [
-      "Bild 1",
-      "Bild 2",
-      "Bild 3",
-      "Bild 4"
+      "Ein gelber Stern auf rotem Grund",
+      "Schwarz, Rot und Gold in drei waagerechten Streifen",
+      "Zwölf goldene Sterne im Kreis auf blauem Grund",
+      "Ein weißes Kreuz auf blauem Grund"
     ],
-    "correctIndex": null,
+    "correctIndex": 2,
     "hint": "Denke an eine Flagge mit einem blauen Hintergrund und einem Kranz aus goldenen Sternen.",
-    "explanation": "Die Frage nach der Flagge der Europäischen Union bezieht sich auf das Symbol, das die EU repräsentiert. Die richtige Antwort auf die Frage ist nicht \"undefined\", sondern die Flagge der Europäischen Union ist ein blaues Feld mit einem Kranz aus zwölf goldenen Sternen, die in einem Kreis angeordnet sind. Diese Flagge steht für Einheit, Solidarität und Harmonie zwischen den europäischen Völkern. Es ist wichtig, die korrekte Flagge zu erkennen, da sie ein zentrales Symbol der EU und ihrer Werte ist.",
-    "topic": "Politik in der Demokratie"
+    "explanation": "Die Flagge der Europäischen Union zeigt zwölf goldene Sterne, die auf blauem Grund einen Kreis bilden. Hinweis: Die amtliche Frage zeigt vier Flaggenbilder zur Auswahl; diese Textfassung prüft dieselbe Tatsache.",
+    "topic": "Politik in der Demokratie",
+    "substituted": true
   },
   {
     "id": 227,
@@ -4146,7 +4148,12 @@
   {
     "id": 297,
     "question": "Aus welchem Land sind die meisten Migranten / Migrantinnen nach Deutschland gekommen?",
-    "choices": ["Italien", "Polen", "Marokko", "Türkei"],
+    "choices": [
+      "Italien",
+      "Polen",
+      "Marokko",
+      "Türkei"
+    ],
     "correctIndex": 3,
     "hint": "Denke an die 'Gastarbeiter'-Bewegung in der Nachkriegszeit, insbesondere an das Anwerbeabkommen von 1961.",
     "explanation": "Historisch gesehen und über lange Zeiträume betrachtet, bildeten Menschen aus der Türkei die größte Gruppe von Migranten in Deutschland, insbesondere durch das Anwerbeabkommen für 'Gastarbeiter' in den 1960er Jahren.",
@@ -4183,7 +4190,12 @@
   {
     "id": 300,
     "question": "Aus welchem Land kamen die ersten Gastarbeiter / Gastarbeiterinnen nach Deutschland?",
-    "choices": ["Italien", "Spanien", "Portugal", "Türkei"],
+    "choices": [
+      "Italien",
+      "Spanien",
+      "Portugal",
+      "Türkei"
+    ],
     "correctIndex": 0,
     "hint": "Das erste Anwerbeabkommen schloss die Bundesrepublik 1955 mit einem südeuropäischen Land.",
     "explanation": "Die ersten 'Gastarbeiter' kamen nach dem Anwerbeabkommen zwischen der Bundesrepublik Deutschland und Italien im Jahr 1955 aus Italien.",
