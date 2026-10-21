@@ -352,17 +352,16 @@
   {
     "id": 26,
     "question": "Germany is ...",
-    "choices": [
-      "a communist republic.",
-      "a democratic and social federal state.",
-      "a capitalist and social monarchy.",
-      "a social and socialist federal state."
-    ],
-    "correctIndex": 1,
-    "hint": "Think about the basic principles of the German constitution and how they structure society and the state.",
-    "explanation": "The correct answer “a democratic and social federal state” describes the fundamental characteristics of the Federal Republic of Germany.\n\n1. **Democratic**: Germany is a democracy, which means that citizens have the right to participate in elections and vote for their representatives. Political decisions are made by majority decisions in parliament, and fundamental rights are enshrined in the constitution, the Basic Law.\n\n2. **Social**: The social aspect refers to the state’s goal of promoting social justice and equal opportunities. Germany has a social system aimed at improving citizens’ living conditions and ensuring social security, for example through health insurance, pensions, and support for those in need.\n\n3. **Federal state**: Germany is a federal state, which means that it consists of several federal states that...",
-    "topic": "Politics in Democracy"
-  },
+      "choices": [
+        "a communist republic.",
+        "a democratic and social federal state.",
+        "a capitalist and social monarchy.",
+        "a social and socialist federal state."
+      ],
+      "hint": "Think about the basic principles of the German constitution and how they structure society and the state.",
+      "explanation": "The correct answer “a democratic and social federal state” describes the fundamental characteristics of the Federal Republic of Germany.\n\n1. **Democratic**: Germany is a democracy, which means that citizens have the right to participate in elections and vote for their representatives. Political decisions are made by majority decisions in parliament, and fundamental rights are enshrined in the constitution, the Basic Law.\n\n2. **Social**: The social aspect refers to the state’s goal of promoting social justice and equal opportunities. Germany has a social system aimed at improving citizens’ living conditions and ensuring social security, for example through health insurance, pensions, and support for those in need.\n\n3. **Federal state**: Germany is a federal state, which means that it consists of several federal states that...",
+      "topic": "Politics in Democracy"
+    },
   {
     "id": 27,
     "question": "Germany is ...",
@@ -764,9 +763,9 @@
       "the Bundesrat building in Berlin",
       "the Federal Chancellery in Berlin"
     ],
-    "correctIndex": 0,
+    "correctIndex": null,
     "hint": "Pay attention to the details in the picture and consider what significance they might have for German culture or history.",
-    "explanation": "The picture shows the Reichstag building on Platz der Republik in Berlin. Since September 8, 1999, the building has been the seat of the German Bundestag.",
+    "explanation": "The answer 'undefined' means that the picture referred to in the question is not clearly defined or not visible. In such a case, one cannot derive specific information or characteristics from the picture. Therefore, 'undefined' is the correct answer, as it indicates that there is no clear identification or description of the picture's content.",
     "topic": "Politics in Democracy"
   },
   {
@@ -799,18 +798,17 @@
   },
   {
     "id": 58,
-    "question": "Who appoints the ministers of the federal government in Germany?",
-    "choices": [
-      "the President of the Federal Constitutional Court",
-      "the Federal President",
-      "the President of the Bundesrat",
-      "the President of the Bundestag"
-    ],
-    "correctIndex": 1,
-    "hint": "Think of the head of state, who plays an important role in the appointment of government members.",
-    "explanation": "The correct answer to the question of who appoints the ministers of the federal government in Germany is the Federal President. According to Article 64 of the Basic Law, the Federal President appoints the ministers of the federal government on the proposal of the Federal Chancellor. The Federal President has a representative role and generally acts on the basis of the political majorities in the Bundestag. The appointment of ministers is an important part of the political system in Germany, as it determines the composition of the executive and thus influences government leadership.",
-    "topic": "Politics in Democracy"
-  },
+  "question": "Who appoints the ministers of the federal government in Germany?",
+  "choices": [
+    "the President of the Federal Constitutional Court",
+    "the Federal President",
+    "the President of the Bundesrat",
+    "the President of the Bundestag"
+  ],
+  "hint": "Think of the head of state, who plays an important role in the appointment of government members.",
+  "explanation": "The correct answer to the question of who appoints the ministers of the federal government in Germany is the Federal President. According to Article 64 of the Basic Law, the Federal President appoints the ministers of the federal government on the proposal of the Federal Chancellor. The Federal President has a representative role and generally acts on the basis of the political majorities in the Bundestag. The appointment of ministers is an important part of the political system in Germany, as it determines the composition of the executive and thus influences government leadership.",
+  "topic": "Politics in Democracy"
+},
   {
     "id": 59,
     "question": "How many years ago was there first a Jewish community in the area of present-day Germany?",
@@ -1002,9 +1000,9 @@
       "Ursula von der Leyen",
       "Friedrich Merz"
     ],
-    "correctIndex": 3,
-    "hint": "Think of the CDU politician who was elected Federal Chancellor after the 2025 Bundestag election.",
-    "explanation": "The current Federal Chancellor of Germany is Friedrich Merz (CDU). He was elected by the Bundestag on 6 May 2025 after the early federal election in February 2025 and leads a coalition of CDU/CSU and SPD. Gerhard Schröder (1998–2005) and Angela Merkel (2005–2021) are former chancellors; Ursula von der Leyen is President of the European Commission.",
+    "correctIndex": 1,
+    "hint": "Think of the first woman who held this office in Germany and her long term in office.",
+    "explanation": "The correct answer to the question 'What is the name of the current Federal Chancellor of Germany?' is Angela Merkel, as she held the office of Federal Chancellor from 2005 to 2021. During this time, she was the first woman in this position and one of the most influential politicians in Germany and Europe. It is important to note that the question is asked about the current chancellor at the time of the exam. However, since Angela Merkel was in office until 2021, she is the correct answer for questions relating to this period. After the federal election in 2021, Olaf Scholz took office as the new chancellor, but the question refers to the time when Merkel was in office.",
     "topic": "Politics in Democracy"
   },
   {
@@ -1016,9 +1014,9 @@
       "Alliance 90/The Greens and SPD.",
       "The Left and CDU/CSU."
     ],
-    "correctIndex": 0,
-    "hint": "Think of the results of the Bundestag election in February 2025.",
-    "explanation": "Since the Bundestag election in February 2025, CDU/CSU and AfD are the two largest parliamentary groups (Fraktionen) in the Bundestag. CDU/CSU came first and governs in a coalition with the SPD; the AfD came second and is the largest opposition group.",
+    "correctIndex": 2,
+    "hint": "Think about the current political movements in Germany and the parties that traditionally stand for environmental and social issues.",
+    "explanation": "The two largest factions in the German Bundestag are currently Alliance 90/The Greens and the SPD (Social Democratic Party of Germany). This answer is correct because the 2021 Bundestag elections led to a coalition government in which the Greens and the SPD represent the strongest political groups in parliament. The Greens specialize in environmental and climate protection, while the SPD traditionally represents social democratic values. Together, they form a governing coalition that holds the majority of seats in the Bundestag.",
     "topic": "Politics in Democracy"
   },
   {
@@ -1098,13 +1096,12 @@
       "Peaceful Demonstrative Party",
       "Free Germany Party",
       "Leading Democratic Party",
-      "Free Democratic Party"
-    ],
-    "correctIndex": 3,
-    "hint": "Think of a political party in Germany that stands for freedom and democracy and is often associated with the color yellow.",
-    "explanation": "The abbreviation FDP stands for \"Free Democratic Party.\" This political party in Germany was founded in 1948 and advocates for liberal values such as individual freedom, a market economy, and civil rights. The FDP plays an important role in Germany's political system and has participated in various government coalitions. Understanding the abbreviation is important to recognize the political structures and diversity of parties in Germany.",
-    "topic": "Politics in Democracy"
-  },
+    "Free Democratic Party"
+  ],
+  "hint": "Think of a political party in Germany that stands for freedom and democracy and is often associated with the color yellow.",
+  "explanation": "The abbreviation FDP stands for \"Free Democratic Party.\" This political party in Germany was founded in 1948 and advocates for liberal values such as individual freedom, a market economy, and civil rights. The FDP plays an important role in Germany's political system and has participated in various government coalitions. Understanding the abbreviation is important to recognize the political structures and diversity of parties in Germany.",
+  "topic": "Politics in Democracy"
+},
   {
     "id": 80,
     "question": "Which court in Germany is responsible for the interpretation of the Basic Law?",
@@ -1716,7 +1713,6 @@
       "Minimum share of votes required to enter parliament",
       "Attendance check in the Bundesrat for votes"
     ],
-    "correctIndex": 2,
     "hint": "The \"5% hurdle\" refers to the minimum number of votes a party needs in order to be represented in the Bundestag. Think about the requirements for political parties in elections.",
     "explanation": "The \"5% hurdle\" in Germany refers to the minimum share of votes that a political party must receive in order to enter the Bundestag. This rule was introduced to prevent too many small parties from being represented in parliament, which could make government formation and decision-making more difficult. If a party receives less than 5% of the votes, it does not get any seats in parliament. This rule promotes stability and efficiency in Germany's political system.",
     "topic": "Politics in Democracy"
@@ -2550,13 +2546,7 @@
   {
     "id": 183,
     "question": "When did the \"economic miracle\" (Wirtschaftswunder) take place in the Federal Republic of Germany?",
-    "choices": [
-      "1940s",
-      "1950s",
-      "1970s",
-      "1980s"
-    ],
-    "correctIndex": 1,
+    "choices": ["1940s", "1950s", "1970s", "1980s"],
     "hint": "Think of the period after World War II, when Germany experienced an economic boom and many people found jobs.",
     "explanation": "The \"economic miracle\" (Wirtschaftswunder) in the Federal Republic of Germany refers to the rapid economic recovery and growth that took place after World War II. This phase began in the late 1940s and reached its peak in the 1950s. During this time, Germany experienced a drastic increase in production, prosperity, and living standards. The 1950s are therefore crucial for understanding Germany's post-war economic development, which is why the correct answer to the question \"When did the 'economic miracle' take place in the Federal Republic of Germany?\" is the 1950s.",
     "topic": "Politics in Democracy"
@@ -2836,7 +2826,6 @@
       "Supply and demand",
       "Capitalism"
     ],
-    "correctIndex": 1,
     "hint": "Think of a system in which the government centrally controls the production and distribution of goods, in contrast to a free market.",
     "explanation": "The correct answer to the question \"What was the economic system of the GDR?\" is \"planned economy,\" because the German Democratic Republic (GDR) was a socialist country that centrally planned and controlled its economy. In a planned economy, the means of production and resources are controlled by the state, and there are no free market forces regulating supply and demand. Instead, economic goals and strategies were set by the government to meet the needs of the population and guide economic development. This is fundamentally different from a market economy, in which private companies and market mechanisms dominate.",
     "topic": "Politics in Democracy"
@@ -3714,476 +3703,14 @@
     "question": "When does the legal night rest begin in Germany?",
     "choices": [
       "when the sun sets",
-      "at 10 PM",
       "when the neighbors go to bed",
-      "at 12 AM, midnight"
+      "at 12 AM, midnight",
+      "at 10 PM"
     ],
-    "correctIndex": 1,
-    "hint": "Most house rules and the noise-protection regulations of the federal states set a fixed time for the start of the night rest.",
+    "correctIndex": 3,
+    "hint": "Think about the time when many people usually go to bed and when the quiet in residential areas begins.",
     "explanation": "In Germany, the legal night rest begins at 10 PM, as this is legally established in many federal states. The night rest serves to protect neighbors from noise and disturbances during the night and to ensure a quiet living environment. From 10 PM onwards, according to most regulations, loud activities such as playing music or mowing the lawn are no longer allowed. This regulation contributes to a respectful coexistence in residential areas and ensures that people can sleep undisturbed at night.",
     "topic": "Politics in Democracy"
-  },
-  {
-    "id": 267,
-    "question": "A young woman in Germany, 22 years old, lives with her boyfriend. The woman's parents don't approve because they don't like the boyfriend. What can the parents do?",
-    "choices": [
-      "They must respect the decision of their adult daughter.",
-      "They have the right to bring the daughter back to the parental home.",
-      "They can go to the police and report the daughter.",
-      "They look for another man for the daughter."
-    ],
-    "correctIndex": 0,
-    "hint": "Pay attention to the woman's age. Is she an adult and therefore responsible for her own decisions?",
-    "explanation": "At 22 the woman is an adult, so she can make her own life decisions, including her choice of partner and where she lives. The parents no longer have any legal right to direct or intervene and must accept the independent decisions of their adult daughter.",
-    "topic": "Family and Social Affairs"
-  },
-  {
-    "id": 268,
-    "question": "A young woman wants to get her driving licence. She is afraid of the test because her native language is not German. What is correct?",
-    "choices": [
-      "She must live in Germany for at least ten years before she can get a driving licence.",
-      "She may be able to take the theory test in her native language. There are more than ten languages to choose from.",
-      "If she cannot speak German, she is not allowed to have a driving licence.",
-      "She must get her driving licence in the country where her language is spoken."
-    ],
-    "correctIndex": 1,
-    "hint": "Germany offers the theory part of the driving test in several languages to make it fairer.",
-    "explanation": "In Germany the theory driving test can be taken not only in German but also in 12 official foreign languages (e.g. English, Turkish, Arabic, Russian). This gives people with limited German the chance to pass the test.",
-    "topic": "Everyday Life in Germany"
-  },
-  {
-    "id": 269,
-    "question": "In Germany, children from the age of three until they start school are entitled to …",
-    "choices": [
-      "monthly pocket money.",
-      "a place in a kindergarten.",
-      "a place in a sports club.",
-      "a holiday pass."
-    ],
-    "correctIndex": 1,
-    "hint": "The state has created a legal obligation to promote early childhood education and the compatibility of family and work.",
-    "explanation": "Since 2013 Germany has had a legal entitlement to a childcare place for children from their first birthday. Children from three years old until they start school are entitled to a place in a kindergarten or day-care centre.",
-    "topic": "Family and Social Affairs"
-  },
-  {
-    "id": 270,
-    "question": "The Volkshochschule (adult education centre) in Germany is an institution …",
-    "choices": [
-      "for religious education.",
-      "only for young people.",
-      "for further education.",
-      "only for pensioners."
-    ],
-    "correctIndex": 2,
-    "hint": "These municipal institutions offer a wide range of courses for all age groups in many subject areas.",
-    "explanation": "Volkshochschulen (VHS) are publicly funded institutions for adult and further education. They offer a varied, low-cost programme of courses in languages, careers, health, culture and politics for people of all ages.",
-    "topic": "Education and Work"
-  },
-  {
-    "id": 271,
-    "question": "What is a Christmas custom in Germany?",
-    "choices": [
-      "hiding coloured eggs",
-      "decorating a fir tree",
-      "dressing up in masks and costumes",
-      "putting pumpkins outside the door"
-    ],
-    "correctIndex": 1,
-    "hint": "Think of a widespread tradition in which an evergreen tree is festively decorated to celebrate the birth of Jesus.",
-    "explanation": "Decorating a fir tree is a central and widespread Christmas tradition in Germany. Hiding coloured eggs is an Easter custom, dressing up belongs to Carnival, and putting out pumpkins belongs to Halloween.",
-    "topic": "Social and Cultural Life"
-  },
-  {
-    "id": 272,
-    "question": "Which way of living together is not allowed in Germany?",
-    "choices": [
-      "A man and woman are divorced and live with new partners.",
-      "Two women live together.",
-      "A single father lives with his two children.",
-      "A man is married to two women at the same time."
-    ],
-    "correctIndex": 3,
-    "hint": "German law clearly defines marriage as between two people. Consider which option violates this principle.",
-    "explanation": "In Germany polygamy, i.e. one person being married to several partners at the same time, is prohibited by law. Marriage is defined as a partnership of two people. All the other ways of living together mentioned are legally permitted in Germany.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 273,
-    "question": "If you have problems raising your children in Germany, you go …",
-    "choices": [
-      "to the doctor.",
-      "to the public health office (Gesundheitsamt).",
-      "to the residents' registration office (Einwohnermeldeamt).",
-      "to the youth welfare office (Jugendamt)."
-    ],
-    "correctIndex": 3,
-    "hint": "Look for the authority that is specifically responsible for supporting children, young people and parents.",
-    "explanation": "The Jugendamt (youth welfare office) is the authority in Germany that advises and supports families with parenting questions, problems and crises. It offers a wide range of help, from parenting advice to support in emergencies.",
-    "topic": "State and Institutions"
-  },
-  {
-    "id": 274,
-    "question": "In Germany you deliberately opened a letter addressed to another person. What did you fail to respect?",
-    "choices": [
-      "the right to remain silent",
-      "the privacy of correspondence (Briefgeheimnis)",
-      "the duty of confidentiality",
-      "freedom of opinion"
-    ],
-    "correctIndex": 1,
-    "hint": "There is a fundamental right that protects the confidentiality of written communication.",
-    "explanation": "Opening a letter addressed to someone else without permission violates the privacy of correspondence, which is guaranteed by the Basic Law. It protects the confidentiality of written communication and is an important personal right in Germany.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 275,
-    "question": "What do you need in Germany to get a divorce?",
-    "choices": [
-      "the consent of the parents",
-      "a doctor's certificate",
-      "the consent of the children",
-      "the support of a lawyer"
-    ],
-    "correctIndex": 3,
-    "hint": "A divorce is a legal process that takes place in court. Which profession represents people in legal matters?",
-    "explanation": "In Germany legal representation is mandatory for a divorce. At least one of the spouses must be represented by a lawyer before the family court to file the divorce petition.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 276,
-    "question": "What should you do if you are treated badly by your contact person at a German public authority?",
-    "choices": [
-      "I can't do anything.",
-      "I have to put up with this treatment.",
-      "I threaten the person.",
-      "I can complain to the head of the authority."
-    ],
-    "correctIndex": 3,
-    "hint": "In a democracy there are ways to challenge inappropriate behaviour by officials. Think of the person's superior.",
-    "explanation": "If you feel you have been treated badly by an employee of a public authority, you have the right to file a formal complaint (Dienstaufsichtsbeschwerde) with the head of that authority. Threats are a criminal offence, and the other options are not correct.",
-    "topic": "State and Institutions"
-  },
-  {
-    "id": 277,
-    "question": "A woman with a two-year-old child applies for a job in Germany. What is an example of discrimination? She doesn't get the job only because she …",
-    "choices": [
-      "doesn't speak English.",
-      "has salary expectations that are too high.",
-      "has no experience in this profession.",
-      "is a mother."
-    ],
-    "correctIndex": 3,
-    "hint": "The General Equal Treatment Act (AGG) prohibits disadvantaging people because of certain characteristics. Which characteristic is relevant here?",
-    "explanation": "Rejecting an applicant only because she is a mother is discrimination on the grounds of sex and family status, which is prohibited under the General Equal Treatment Act (AGG). The other reasons are objective, performance-related criteria.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 278,
-    "question": "A man in a wheelchair has applied for a job as an accountant. What is an example of discrimination? He doesn't get the job only because he …",
-    "choices": [
-      "uses a wheelchair.",
-      "has no experience.",
-      "has salary expectations that are too high.",
-      "doesn't speak English."
-    ],
-    "correctIndex": 0,
-    "hint": "The General Equal Treatment Act (AGG) also protects against being disadvantaged because of a physical disability.",
-    "explanation": "Rejecting an applicant only because of his disability (using a wheelchair) is discrimination prohibited under the General Equal Treatment Act (AGG). Lack of experience or high salary expectations, on the other hand, are legitimate reasons for a rejection.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 279,
-    "question": "Most apartment buildings in Germany have \"house rules\" (Hausordnung). What do these \"house rules\" contain? They list …",
-    "choices": [
-      "rules for using public transport.",
-      "all the tenants in the building.",
-      "rules that all residents must follow.",
-      "the address of the nearest public order office."
-    ],
-    "correctIndex": 2,
-    "hint": "Think of rules for living together well in a community, for example quiet hours or the use of shared rooms.",
-    "explanation": "The house rules contain rules for how all residents of an apartment building live together. Typical points are quiet hours (e.g. midday and night-time rest), cleaning the stairwell, using shared rooms such as laundry rooms, and waste disposal.",
-    "topic": "Everyday Life in Germany"
-  },
-  {
-    "id": 280,
-    "question": "If you want to challenge an incorrect tax assessment in Germany, you must …",
-    "choices": [
-      "do nothing.",
-      "throw the assessment away.",
-      "file an objection.",
-      "wait until another assessment arrives."
-    ],
-    "correctIndex": 2,
-    "hint": "There is a formal legal remedy for having an official decision reviewed.",
-    "explanation": "You can file a written objection (Einspruch) against an incorrect tax assessment with the responsible tax office within one month of receiving it. This is a formal legal remedy that obliges the authority to review its decision.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 281,
-    "question": "Two friends want to go to a public swimming pool in Germany. Both have dark skin and are therefore not let in. Which right is being violated in this situation? The right to …",
-    "choices": [
-      "freedom of opinion.",
-      "equal treatment.",
-      "freedom of assembly.",
-      "freedom of movement."
-    ],
-    "correctIndex": 1,
-    "hint": "The Basic Law states that no one may be disadvantaged or favoured because of their descent, race, homeland and origin, or faith.",
-    "explanation": "In this situation the right to equal treatment is being violated. The General Equal Treatment Act (AGG) and Article 3 of the Basic Law prohibit discrimination on the grounds of ethnic origin or skin colour.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 282,
-    "question": "Which honorary office must German citizens take on if they are asked to?",
-    "choices": [
-      "club coach",
-      "library supervisor",
-      "election worker (Wahlhelfer)",
-      "teacher"
-    ],
-    "correctIndex": 2,
-    "hint": "This honorary office is essential for carrying out democratic elections.",
-    "explanation": "Serving as an election worker is a civic honorary duty. If you are appointed, you can only refuse this office for important reasons. It ensures that elections run properly.",
-    "topic": "Politics in Democracy"
-  },
-  {
-    "id": 283,
-    "question": "What do you do if you receive an incorrect bill from a German public authority?",
-    "choices": [
-      "I leave the bill lying around.",
-      "I file an objection with the authority.",
-      "I send the bill back to the authority.",
-      "I take the bill to the tax office."
-    ],
-    "correctIndex": 1,
-    "hint": "As with a tax assessment, there is a formal procedure here too for challenging the decision.",
-    "explanation": "If you think a bill or decision from a public authority is wrong, you must file a written objection (Widerspruch) with that authority. The objection usually has to be made within one month.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 284,
-    "question": "What you need to be able to do for work will change very quickly in the future. What can you do?",
-    "choices": [
-      "It doesn't matter what you learn.",
-      "Children learn everything that is important for work at school. After school you don't need to keep learning.",
-      "Adults must keep learning even after their training.",
-      "Everyone must stop working earlier because everything is changing."
-    ],
-    "correctIndex": 2,
-    "hint": "The world of work requires constant adaptation and development. What is this process called?",
-    "explanation": "In the modern working world, lifelong learning is essential to keep up with technological and social change. Adults must continually acquire new skills and knowledge through further training to stay professionally relevant.",
-    "topic": "Work and Employment"
-  },
-  {
-    "id": 285,
-    "question": "Ms Frost works as a permanent employee in an office. What does she not have to pay from her salary?",
-    "choices": [
-      "sales tax (VAT)",
-      "wage tax",
-      "unemployment insurance contributions",
-      "pension and health insurance contributions"
-    ],
-    "correctIndex": 0,
-    "hint": "One particular tax is not deducted directly from salary but is included in the prices of goods and services.",
-    "explanation": "Sales tax (also called value added tax) is paid by end consumers when they buy goods and services. It is not deducted directly from an employee's salary. Wage tax and social insurance contributions (pension, health, long-term care and unemployment insurance), on the other hand, are withheld directly from gross pay.",
-    "topic": "Economy and Social Affairs"
-  },
-  {
-    "id": 286,
-    "question": "Which body in a company helps employees with problems with their employer?",
-    "choices": [
-      "the works council (Betriebsrat)",
-      "the company auditor",
-      "the company group",
-      "the company management"
-    ],
-    "correctIndex": 0,
-    "hint": "Look for the elected representative body of the workforce in a company.",
-    "explanation": "The works council is the elected body that represents employees' interests in a company. It has co-determination rights and supports staff in conflicts with the employer.",
-    "topic": "Work and Employment"
-  },
-  {
-    "id": 287,
-    "question": "You want to end your employment with a company in Germany. What must you take into account?",
-    "choices": [
-      "the salary payments",
-      "the working hours",
-      "the notice period",
-      "the compulsory insurance"
-    ],
-    "correctIndex": 2,
-    "hint": "There is a period, set by contract or by law, between giving notice and the actual end of employment.",
-    "explanation": "When ending an employment relationship, the notice period set in the employment contract or by law must be observed. This period gives both employee and employer certainty for planning.",
-    "topic": "Work and Employment"
-  },
-  {
-    "id": 288,
-    "question": "What is the basis of Germany's special responsibility for Israel?",
-    "choices": [
-      "membership of the European Union (EU)",
-      "the National Socialist crimes against Jews",
-      "the Basic Law of the Federal Republic of Germany",
-      "the Christian tradition"
-    ],
-    "correctIndex": 1,
-    "hint": "German history of the 20th century created a lasting moral and political obligation.",
-    "explanation": "Germany's special responsibility for Israel arises from its historical responsibility for the Holocaust, the genocide of European Jews during the National Socialist era. This responsibility is a central pillar of German foreign policy.",
-    "topic": "History and Responsibility"
-  },
-  {
-    "id": 289,
-    "question": "A man with dark skin applies for a job as a waiter in a restaurant in Germany. What is an example of discrimination? He doesn't get the job only because …",
-    "choices": [
-      "his German is too limited.",
-      "he has salary expectations that are too high.",
-      "he has dark skin.",
-      "he has no experience in the job."
-    ],
-    "correctIndex": 2,
-    "hint": "The General Equal Treatment Act (AGG) prohibits disadvantaging people because of their ethnic origin.",
-    "explanation": "Rejecting an applicant only because of his skin colour is a clear case of racial discrimination and is prohibited under the General Equal Treatment Act (AGG). The other reasons (language skills, salary, experience) can be objectively justified.",
-    "topic": "Law and Justice"
-  },
-  {
-    "id": 290,
-    "question": "You bought a television in Germany. At home you unpack it, but it doesn't work. The television is broken. What can you do?",
-    "choices": [
-      "file a police report",
-      "return the television with a complaint (reklamieren)",
-      "exchange the device without asking",
-      "extend the warranty"
-    ],
-    "correctIndex": 1,
-    "hint": "What right do you have as a buyer if the goods are defective?",
-    "explanation": "If goods you bought are defective, you as the buyer have a statutory right to remedy (Gewährleistung). The first step is to make a complaint to the seller, who is then obliged to repair or replace the goods.",
-    "topic": "Everyday Life in Germany"
-  },
-  {
-    "id": 291,
-    "question": "Why do you have to state on your tax return in Germany whether or not you belong to a church? Because …",
-    "choices": [
-      "it is important for statistics in Germany.",
-      "there is a church tax that is linked to income tax and wage tax.",
-      "you have to pay more tax if you don't belong to a church.",
-      "the church is responsible for the tax return."
-    ],
-    "correctIndex": 1,
-    "hint": "In Germany certain religious communities levy a tax on their members, which is collected by the state.",
-    "explanation": "Members of recognised religious communities (e.g. the Protestant or Catholic Church) pay church tax in Germany. It is calculated as a percentage of wage or income tax and collected by the tax office. That is why your religious affiliation must be stated on your tax return.",
-    "topic": "Economy and Social Affairs"
-  },
-  {
-    "id": 292,
-    "question": "People in Germany live according to the principle of religious tolerance. What does that mean?",
-    "choices": [
-      "No mosques may be built.",
-      "Everyone believes in God.",
-      "Everyone can believe what they want.",
-      "The state decides which god people believe in."
-    ],
-    "correctIndex": 2,
-    "hint": "Freedom of religion is a right guaranteed in the Basic Law.",
-    "explanation": "Religious tolerance, rooted in the fundamental right to freedom of religion, means that everyone in Germany can freely decide what they believe in, or whether they belong to a religion at all. The state is neutral on matters of belief and may not prescribe or forbid any religion.",
-    "topic": "Politics in Democracy"
-  },
-  {
-    "id": 293,
-    "question": "What is an Easter custom in Germany?",
-    "choices": [
-      "putting pumpkins outside the door",
-      "decorating a fir tree",
-      "painting eggs",
-      "setting off fireworks"
-    ],
-    "correctIndex": 2,
-    "hint": "Think of a colourful tradition that is especially popular with children and symbolises spring.",
-    "explanation": "Painting and hiding eggs is a well-known and popular Easter custom in Germany. Pumpkins belong to Halloween, the fir tree to Christmas, and fireworks to New Year's Eve.",
-    "topic": "Social and Cultural Life"
-  },
-  {
-    "id": 294,
-    "question": "Pentecost (Pfingsten) is a …",
-    "choices": [
-      "Christian holiday.",
-      "German day of remembrance.",
-      "international day of mourning.",
-      "Bavarian custom."
-    ],
-    "correctIndex": 0,
-    "hint": "This holiday takes place 50 days after Easter and has its origin in the New Testament.",
-    "explanation": "Pentecost is a major Christian festival celebrating the sending of the Holy Spirit to the apostles. It is a public holiday throughout Germany.",
-    "topic": "Social and Cultural Life"
-  },
-  {
-    "id": 295,
-    "question": "Which religion has shaped European and German culture?",
-    "choices": [
-      "Hinduism",
-      "Christianity",
-      "Buddhism",
-      "Islam"
-    ],
-    "correctIndex": 1,
-    "hint": "Think of the dominant religion in European history, which has influenced many holidays, traditions and values.",
-    "explanation": "Christianity has decisively shaped the history, culture, values and society of Germany and Europe over centuries. This can be seen in holidays, architecture, art and ethical ideas.",
-    "topic": "History and Responsibility"
-  },
-  {
-    "id": 296,
-    "question": "In Germany, the last four weeks before Christmas are called …",
-    "choices": [
-      "the Day of Repentance and Prayer.",
-      "the harvest festival.",
-      "Advent.",
-      "All Saints' Day."
-    ],
-    "correctIndex": 2,
-    "hint": "This period is marked by Advent wreaths and Advent calendars and is a time of preparation for Christmas.",
-    "explanation": "Advent covers the four Sundays before Christmas Day and is the time of preparation for Christmas. It begins on the first Sunday of Advent.",
-    "topic": "Social and Cultural Life"
-  },
-  {
-    "id": 297,
-    "question": "From which country have most migrants come to Germany?",
-    "choices": [
-      "Italy",
-      "Poland",
-      "Morocco",
-      "Turkey"
-    ],
-    "correctIndex": 3,
-    "hint": "Think of the 'guest worker' movement in the post-war period, especially the 1961 recruitment agreement.",
-    "explanation": "Historically and over long periods, people from Turkey have formed the largest group of migrants in Germany, particularly through the 'guest worker' recruitment agreement of the 1960s.",
-    "topic": "History and Responsibility"
-  },
-  {
-    "id": 298,
-    "question": "In the GDR, migrants came mainly from …",
-    "choices": [
-      "Vietnam, Poland, Mozambique.",
-      "France, Romania, Somalia.",
-      "Chile, Hungary, Zimbabwe.",
-      "North Korea, Mexico, Egypt."
-    ],
-    "correctIndex": 0,
-    "hint": "The GDR had so-called 'contract worker' agreements with other socialist 'brother countries'.",
-    "explanation": "The German Democratic Republic (GDR) concluded agreements with socialist states to bring in so-called contract workers. The largest groups came from Vietnam, Poland and Mozambique.",
-    "topic": "History and Responsibility"
-  },
-  {
-    "id": 299,
-    "question": "Foreign workers recruited by the Federal Republic of Germany in the 1950s and 1960s were called …",
-    "choices": [
-      "undeclared workers (Schwarzarbeiter).",
-      "guest workers (Gastarbeiter).",
-      "temporary agency workers (Zeitarbeiter).",
-      "shift workers (Schichtarbeiter)."
-    ],
-    "correctIndex": 1,
-    "hint": "The term was meant to express that their stay was planned to be only temporary.",
-    "explanation": "The foreign workers recruited by the Federal Republic of Germany in the 1950s and 1960s were called 'Gastarbeiter' (guest workers). It was originally assumed that they would only be 'guests' for a limited time in order to work.",
-    "topic": "History and Responsibility"
   },
   {
     "id": 300,
@@ -4194,9 +3721,9 @@
       "Portugal",
       "Turkey"
     ],
-    "correctIndex": 0,
-    "hint": "The Federal Republic signed its first recruitment agreement in 1955 with a southern European country.",
-    "explanation": "The first 'guest workers' came from Italy, following the recruitment agreement between the Federal Republic of Germany and Italy in 1955. Agreements with Spain and Greece (1960), Turkey (1961), Morocco (1963), Portugal (1964), Tunisia (1965) and Yugoslavia (1968) followed later.",
+    "correctIndex": 3,
+    "hint": "Think of a country that is geographically close to Germany and has a strong cultural connection.",
+    "explanation": "The first guest workers who came to the Federal Republic of Germany mainly came from Turkey. This occurred as part of the recruitment agreement between Germany and Turkey, which was signed in 1961. Germany needed labor in the 1960s to support the economic recovery after World War II. Many Turks then came to Germany to work in various sectors, particularly in industry and construction. This agreement led to significant Turkish immigration, which still constitutes an important part of German society today.",
     "topic": "Politics in Democracy"
   }
 ]

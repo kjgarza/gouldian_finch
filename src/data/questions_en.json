@@ -123,7 +123,7 @@
     "correctIndex": 2,
     "hint": "Think of the right that offers people protection when they have to flee from their homeland.",
     "explanation": "The fundamental right to asylum applies in Germany only to foreigners because it specifically concerns the protection of people who must flee their home country to escape persecution, war, or other life-threatening situations. This fundamental right is enshrined in the Basic Law of the Federal Republic of Germany, particularly in Article 16a. It ensures that individuals who apply for asylum in Germany have the right to a fair examination of their application and are protected from being returned to an unsafe country of origin. In contrast to other fundamental rights that apply to all people in Germany, the right to asylum is thus specifically tailored to the needs and protection of foreigners.",
-    "topic": "Politics in democracy"
+    "topic": "Politics in Democracy"
   },
   {
     "id": 10,
@@ -473,7 +473,7 @@
     "correctIndex": 2,
     "hint": "Think about the form of government that exists in Germany. Is it one in which a king or queen rules?",
     "explanation": "Germany is not a monarchy because it is a parliamentary democracy. In a monarchy, there is a king or queen who often holds an hereditary position and exercises significant political power. In Germany, however, the head of state is determined by elections, and political power lies with the elected representatives in parliament. This structure ensures that citizens have an influence on the government and that their rights and freedoms are protected.",
-    "topic": "Politics in a democracy"
+    "topic": "Politics in Democracy"
   },
   {
     "id": 35,
@@ -543,7 +543,7 @@
     "correctIndex": 3,
     "hint": "Remember that each federal state in Germany has a special type of administration responsible for local decisions.",
     "explanation": "Each German federal state has its own government because Germany is a federal state. This means that the federal states have their own political structures and institutions to manage their affairs independently. Each state government is responsible for important areas such as education, police, and culture. This decentralization allows the federal states to better address the specific needs and interests of their citizens. Therefore, the statement that each federal state has its own government is correct.",
-    "topic": "federal state"
+    "topic": "Federal State"
   },
   {
     "id": 40,
@@ -865,7 +865,7 @@
     "correctIndex": 1,
     "hint": "Think of the election that takes place at the level of the federal states, and not at the federal level.",
     "explanation": "The correct answer to the question is 'state election' because the term 'state election' describes the election of the parliament of a German federal state. In Germany, there are 16 federal states, and each federal state has its own parliament, which is referred to as the Landtag. During the state elections, citizens elect the representatives who then sit in the Landtag and pass laws at the state level. The term 'state election' is therefore specific to elections at the level of the federal states and differs from other types of elections such as the federal election, which takes place at the national level.",
-    "topic": "federal state"
+    "topic": "Federal State"
   },
   {
     "id": 63,
@@ -1009,7 +1009,7 @@
   },
   {
     "id": 73,
-    "question": "The two largest factions in the German Bundestag are currently called ...",
+    "question": "The two largest parliamentary groups (Fraktionen) in the German Bundestag are currently called ...",
     "choices": [
       "CDU/CSU and AfD.",
       "The Left and Alliance 90/The Greens.",
@@ -1271,7 +1271,7 @@
     "correctIndex": 2,
     "hint": "Think about how the composition of the Bundesrat can influence decisions at the federal level. What happens when the majorities change?",
     "explanation": "A change of government in a federal state can influence the composition of the Bundesrat, as the members of the Bundesrat come from the state governments. If the majority in the Bundesrat changes, this can make the enforcement of laws and political decisions at the federal level more difficult. For example, a new majority could vote against the plans of the federal government, leading to blockages and difficulties in implementing political measures. Therefore, governing becomes more difficult if the majority in the Bundesrat changes.",
-    "topic": "federal state"
+    "topic": "Federal State"
   },
   {
     "id": 92,
@@ -1615,7 +1615,7 @@
     "choices": [
       "active election campaign.",
       "active voting procedure.",
-      "active election campaign.",
+      "active campaigning.",
       "active voting right."
     ],
     "correctIndex": 3,
@@ -1691,7 +1691,7 @@
     "correctIndex": 0,
     "hint": "Think of the minimum number of votes a party needs to be represented in the Bundestag. It is a percentage that is often mentioned in political discussions.",
     "explanation": "The 5%-threshold is a rule in German electoral law that states that a party must receive at least 5% of the valid votes in order to enter the German Bundestag. This rule is intended to ensure that only parties with a certain level of support among the population are represented in parliament. This prevents the fragmentation of parliament into too many small parties, which facilitates government formation and political stability. If a party receives less than 5% of the votes, it remains without seats in the Bundestag, even if it is successful in individual electoral districts.",
-    "topic": "Politics in democracy"
+    "topic": "Politics in Democracy"
   },
   {
     "id": 122,
@@ -2251,7 +2251,7 @@
     "correctIndex": 0,
     "hint": "Think of the ideology that viewed certain groups as superior or inferior and how this influenced the laws and behavior of the state.",
     "explanation": "The National Socialist State (Nazi state) was characterized by systematic and state-organized racial discrimination. This policy of state racism was based on the ideology that certain races, particularly the 'Aryan race', were superior, while others, such as Jews, Sinti and Roma, as well as people with disabilities, were considered inferior. These beliefs led to extensive discrimination, persecution, and ultimately the Holocaust. The Nazi state implemented laws and measures that promoted and legitimized these racist ideals, which clearly characterized it as a state of state racism.",
-    "topic": "Politics in democracy"
+    "topic": "Politics in Democracy"
   },
   {
     "id": 162,
@@ -3721,7 +3721,7 @@
     "correctIndex": 1,
     "hint": "Most house rules and the noise-protection regulations of the federal states set a fixed time for the start of the night rest.",
     "explanation": "In Germany, the legal night rest begins at 10 PM, as this is legally established in many federal states. The night rest serves to protect neighbors from noise and disturbances during the night and to ensure a quiet living environment. From 10 PM onwards, according to most regulations, loud activities such as playing music or mowing the lawn are no longer allowed. This regulation contributes to a respectful coexistence in residential areas and ensures that people can sleep undisturbed at night.",
-    "topic": "Politics in Democracy"
+    "topic": "Everyday Life in Germany"
   },
   {
     "id": 267,
@@ -4197,6 +4197,6 @@
     "correctIndex": 0,
     "hint": "The Federal Republic signed its first recruitment agreement in 1955 with a southern European country.",
     "explanation": "The first 'guest workers' came from Italy, following the recruitment agreement between the Federal Republic of Germany and Italy in 1955. Agreements with Spain and Greece (1960), Turkey (1961), Morocco (1963), Portugal (1964), Tunisia (1965) and Yugoslavia (1968) followed later.",
-    "topic": "Politics in Democracy"
+    "topic": "History and Responsibility"
   }
 ]
