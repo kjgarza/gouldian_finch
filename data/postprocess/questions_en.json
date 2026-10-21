@@ -3713,6 +3713,468 @@
     "topic": "Politics in Democracy"
   },
   {
+    "id": 267,
+    "question": "A young woman in Germany, 22 years old, lives with her boyfriend. The woman's parents don't approve because they don't like the boyfriend. What can the parents do?",
+    "choices": [
+      "They must respect the decision of their adult daughter.",
+      "They have the right to bring the daughter back to the parental home.",
+      "They can go to the police and report the daughter.",
+      "They look for another man for the daughter."
+    ],
+    "correctIndex": 0,
+    "hint": "Pay attention to the woman's age. Is she an adult and therefore responsible for her own decisions?",
+    "explanation": "At 22 the woman is an adult, so she can make her own life decisions, including her choice of partner and where she lives. The parents no longer have any legal right to direct or intervene and must accept the independent decisions of their adult daughter.",
+    "topic": "Family and Social Affairs"
+  },
+  {
+    "id": 268,
+    "question": "A young woman wants to get her driving licence. She is afraid of the test because her native language is not German. What is correct?",
+    "choices": [
+      "She must live in Germany for at least ten years before she can get a driving licence.",
+      "She may be able to take the theory test in her native language. There are more than ten languages to choose from.",
+      "If she cannot speak German, she is not allowed to have a driving licence.",
+      "She must get her driving licence in the country where her language is spoken."
+    ],
+    "correctIndex": 1,
+    "hint": "Germany offers the theory part of the driving test in several languages to make it fairer.",
+    "explanation": "In Germany the theory driving test can be taken not only in German but also in 12 official foreign languages (e.g. English, Turkish, Arabic, Russian). This gives people with limited German the chance to pass the test.",
+    "topic": "Everyday Life in Germany"
+  },
+  {
+    "id": 269,
+    "question": "In Germany, children from the age of three until they start school are entitled to …",
+    "choices": [
+      "monthly pocket money.",
+      "a place in a kindergarten.",
+      "a place in a sports club.",
+      "a holiday pass."
+    ],
+    "correctIndex": 1,
+    "hint": "The state has created a legal obligation to promote early childhood education and the compatibility of family and work.",
+    "explanation": "Since 2013 Germany has had a legal entitlement to a childcare place for children from their first birthday. Children from three years old until they start school are entitled to a place in a kindergarten or day-care centre.",
+    "topic": "Family and Social Affairs"
+  },
+  {
+    "id": 270,
+    "question": "The Volkshochschule (adult education centre) in Germany is an institution …",
+    "choices": [
+      "for religious education.",
+      "only for young people.",
+      "for further education.",
+      "only for pensioners."
+    ],
+    "correctIndex": 2,
+    "hint": "These municipal institutions offer a wide range of courses for all age groups in many subject areas.",
+    "explanation": "Volkshochschulen (VHS) are publicly funded institutions for adult and further education. They offer a varied, low-cost programme of courses in languages, careers, health, culture and politics for people of all ages.",
+    "topic": "Education and Work"
+  },
+  {
+    "id": 271,
+    "question": "What is a Christmas custom in Germany?",
+    "choices": [
+      "hiding coloured eggs",
+      "decorating a fir tree",
+      "dressing up in masks and costumes",
+      "putting pumpkins outside the door"
+    ],
+    "correctIndex": 1,
+    "hint": "Think of a widespread tradition in which an evergreen tree is festively decorated to celebrate the birth of Jesus.",
+    "explanation": "Decorating a fir tree is a central and widespread Christmas tradition in Germany. Hiding coloured eggs is an Easter custom, dressing up belongs to Carnival, and putting out pumpkins belongs to Halloween.",
+    "topic": "Social and Cultural Life"
+  },
+  {
+    "id": 272,
+    "question": "Which way of living together is not allowed in Germany?",
+    "choices": [
+      "A man and woman are divorced and live with new partners.",
+      "Two women live together.",
+      "A single father lives with his two children.",
+      "A man is married to two women at the same time."
+    ],
+    "correctIndex": 3,
+    "hint": "German law clearly defines marriage as between two people. Consider which option violates this principle.",
+    "explanation": "In Germany polygamy, i.e. one person being married to several partners at the same time, is prohibited by law. Marriage is defined as a partnership of two people. All the other ways of living together mentioned are legally permitted in Germany.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 273,
+    "question": "If you have problems raising your children in Germany, you go …",
+    "choices": [
+      "to the doctor.",
+      "to the public health office (Gesundheitsamt).",
+      "to the residents' registration office (Einwohnermeldeamt).",
+      "to the youth welfare office (Jugendamt)."
+    ],
+    "correctIndex": 3,
+    "hint": "Look for the authority that is specifically responsible for supporting children, young people and parents.",
+    "explanation": "The Jugendamt (youth welfare office) is the authority in Germany that advises and supports families with parenting questions, problems and crises. It offers a wide range of help, from parenting advice to support in emergencies.",
+    "topic": "State and Institutions"
+  },
+  {
+    "id": 274,
+    "question": "In Germany you deliberately opened a letter addressed to another person. What did you fail to respect?",
+    "choices": [
+      "the right to remain silent",
+      "the privacy of correspondence (Briefgeheimnis)",
+      "the duty of confidentiality",
+      "freedom of opinion"
+    ],
+    "correctIndex": 1,
+    "hint": "There is a fundamental right that protects the confidentiality of written communication.",
+    "explanation": "Opening a letter addressed to someone else without permission violates the privacy of correspondence, which is guaranteed by the Basic Law. It protects the confidentiality of written communication and is an important personal right in Germany.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 275,
+    "question": "What do you need in Germany to get a divorce?",
+    "choices": [
+      "the consent of the parents",
+      "a doctor's certificate",
+      "the consent of the children",
+      "the support of a lawyer"
+    ],
+    "correctIndex": 3,
+    "hint": "A divorce is a legal process that takes place in court. Which profession represents people in legal matters?",
+    "explanation": "In Germany legal representation is mandatory for a divorce. At least one of the spouses must be represented by a lawyer before the family court to file the divorce petition.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 276,
+    "question": "What should you do if you are treated badly by your contact person at a German public authority?",
+    "choices": [
+      "I can't do anything.",
+      "I have to put up with this treatment.",
+      "I threaten the person.",
+      "I can complain to the head of the authority."
+    ],
+    "correctIndex": 3,
+    "hint": "In a democracy there are ways to challenge inappropriate behaviour by officials. Think of the person's superior.",
+    "explanation": "If you feel you have been treated badly by an employee of a public authority, you have the right to file a formal complaint (Dienstaufsichtsbeschwerde) with the head of that authority. Threats are a criminal offence, and the other options are not correct.",
+    "topic": "State and Institutions"
+  },
+  {
+    "id": 277,
+    "question": "A woman with a two-year-old child applies for a job in Germany. What is an example of discrimination? She doesn't get the job only because she …",
+    "choices": [
+      "doesn't speak English.",
+      "has salary expectations that are too high.",
+      "has no experience in this profession.",
+      "is a mother."
+    ],
+    "correctIndex": 3,
+    "hint": "The General Equal Treatment Act (AGG) prohibits disadvantaging people because of certain characteristics. Which characteristic is relevant here?",
+    "explanation": "Rejecting an applicant only because she is a mother is discrimination on the grounds of sex and family status, which is prohibited under the General Equal Treatment Act (AGG). The other reasons are objective, performance-related criteria.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 278,
+    "question": "A man in a wheelchair has applied for a job as an accountant. What is an example of discrimination? He doesn't get the job only because he …",
+    "choices": [
+      "uses a wheelchair.",
+      "has no experience.",
+      "has salary expectations that are too high.",
+      "doesn't speak English."
+    ],
+    "correctIndex": 0,
+    "hint": "The General Equal Treatment Act (AGG) also protects against being disadvantaged because of a physical disability.",
+    "explanation": "Rejecting an applicant only because of his disability (using a wheelchair) is discrimination prohibited under the General Equal Treatment Act (AGG). Lack of experience or high salary expectations, on the other hand, are legitimate reasons for a rejection.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 279,
+    "question": "Most apartment buildings in Germany have \"house rules\" (Hausordnung). What do these \"house rules\" contain? They list …",
+    "choices": [
+      "rules for using public transport.",
+      "all the tenants in the building.",
+      "rules that all residents must follow.",
+      "the address of the nearest public order office."
+    ],
+    "correctIndex": 2,
+    "hint": "Think of rules for living together well in a community, for example quiet hours or the use of shared rooms.",
+    "explanation": "The house rules contain rules for how all residents of an apartment building live together. Typical points are quiet hours (e.g. midday and night-time rest), cleaning the stairwell, using shared rooms such as laundry rooms, and waste disposal.",
+    "topic": "Everyday Life in Germany"
+  },
+  {
+    "id": 280,
+    "question": "If you want to challenge an incorrect tax assessment in Germany, you must …",
+    "choices": [
+      "do nothing.",
+      "throw the assessment away.",
+      "file an objection.",
+      "wait until another assessment arrives."
+    ],
+    "correctIndex": 2,
+    "hint": "There is a formal legal remedy for having an official decision reviewed.",
+    "explanation": "You can file a written objection (Einspruch) against an incorrect tax assessment with the responsible tax office within one month of receiving it. This is a formal legal remedy that obliges the authority to review its decision.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 281,
+    "question": "Two friends want to go to a public swimming pool in Germany. Both have dark skin and are therefore not let in. Which right is being violated in this situation? The right to …",
+    "choices": [
+      "freedom of opinion.",
+      "equal treatment.",
+      "freedom of assembly.",
+      "freedom of movement."
+    ],
+    "correctIndex": 1,
+    "hint": "The Basic Law states that no one may be disadvantaged or favoured because of their descent, race, homeland and origin, or faith.",
+    "explanation": "In this situation the right to equal treatment is being violated. The General Equal Treatment Act (AGG) and Article 3 of the Basic Law prohibit discrimination on the grounds of ethnic origin or skin colour.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 282,
+    "question": "Which honorary office must German citizens take on if they are asked to?",
+    "choices": [
+      "club coach",
+      "library supervisor",
+      "election worker (Wahlhelfer)",
+      "teacher"
+    ],
+    "correctIndex": 2,
+    "hint": "This honorary office is essential for carrying out democratic elections.",
+    "explanation": "Serving as an election worker is a civic honorary duty. If you are appointed, you can only refuse this office for important reasons. It ensures that elections run properly.",
+    "topic": "Politics in Democracy"
+  },
+  {
+    "id": 283,
+    "question": "What do you do if you receive an incorrect bill from a German public authority?",
+    "choices": [
+      "I leave the bill lying around.",
+      "I file an objection with the authority.",
+      "I send the bill back to the authority.",
+      "I take the bill to the tax office."
+    ],
+    "correctIndex": 1,
+    "hint": "As with a tax assessment, there is a formal procedure here too for challenging the decision.",
+    "explanation": "If you think a bill or decision from a public authority is wrong, you must file a written objection (Widerspruch) with that authority. The objection usually has to be made within one month.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 284,
+    "question": "What you need to be able to do for work will change very quickly in the future. What can you do?",
+    "choices": [
+      "It doesn't matter what you learn.",
+      "Children learn everything that is important for work at school. After school you don't need to keep learning.",
+      "Adults must keep learning even after their training.",
+      "Everyone must stop working earlier because everything is changing."
+    ],
+    "correctIndex": 2,
+    "hint": "The world of work requires constant adaptation and development. What is this process called?",
+    "explanation": "In the modern working world, lifelong learning is essential to keep up with technological and social change. Adults must continually acquire new skills and knowledge through further training to stay professionally relevant.",
+    "topic": "Work and Employment"
+  },
+  {
+    "id": 285,
+    "question": "Ms Frost works as a permanent employee in an office. What does she not have to pay from her salary?",
+    "choices": [
+      "sales tax (VAT)",
+      "wage tax",
+      "unemployment insurance contributions",
+      "pension and health insurance contributions"
+    ],
+    "correctIndex": 0,
+    "hint": "One particular tax is not deducted directly from salary but is included in the prices of goods and services.",
+    "explanation": "Sales tax (also called value added tax) is paid by end consumers when they buy goods and services. It is not deducted directly from an employee's salary. Wage tax and social insurance contributions (pension, health, long-term care and unemployment insurance), on the other hand, are withheld directly from gross pay.",
+    "topic": "Economy and Social Affairs"
+  },
+  {
+    "id": 286,
+    "question": "Which body in a company helps employees with problems with their employer?",
+    "choices": [
+      "the works council (Betriebsrat)",
+      "the company auditor",
+      "the company group",
+      "the company management"
+    ],
+    "correctIndex": 0,
+    "hint": "Look for the elected representative body of the workforce in a company.",
+    "explanation": "The works council is the elected body that represents employees' interests in a company. It has co-determination rights and supports staff in conflicts with the employer.",
+    "topic": "Work and Employment"
+  },
+  {
+    "id": 287,
+    "question": "You want to end your employment with a company in Germany. What must you take into account?",
+    "choices": [
+      "the salary payments",
+      "the working hours",
+      "the notice period",
+      "the compulsory insurance"
+    ],
+    "correctIndex": 2,
+    "hint": "There is a period, set by contract or by law, between giving notice and the actual end of employment.",
+    "explanation": "When ending an employment relationship, the notice period set in the employment contract or by law must be observed. This period gives both employee and employer certainty for planning.",
+    "topic": "Work and Employment"
+  },
+  {
+    "id": 288,
+    "question": "What is the basis of Germany's special responsibility for Israel?",
+    "choices": [
+      "membership of the European Union (EU)",
+      "the National Socialist crimes against Jews",
+      "the Basic Law of the Federal Republic of Germany",
+      "the Christian tradition"
+    ],
+    "correctIndex": 1,
+    "hint": "German history of the 20th century created a lasting moral and political obligation.",
+    "explanation": "Germany's special responsibility for Israel arises from its historical responsibility for the Holocaust, the genocide of European Jews during the National Socialist era. This responsibility is a central pillar of German foreign policy.",
+    "topic": "History and Responsibility"
+  },
+  {
+    "id": 289,
+    "question": "A man with dark skin applies for a job as a waiter in a restaurant in Germany. What is an example of discrimination? He doesn't get the job only because …",
+    "choices": [
+      "his German is too limited.",
+      "he has salary expectations that are too high.",
+      "he has dark skin.",
+      "he has no experience in the job."
+    ],
+    "correctIndex": 2,
+    "hint": "The General Equal Treatment Act (AGG) prohibits disadvantaging people because of their ethnic origin.",
+    "explanation": "Rejecting an applicant only because of his skin colour is a clear case of racial discrimination and is prohibited under the General Equal Treatment Act (AGG). The other reasons (language skills, salary, experience) can be objectively justified.",
+    "topic": "Law and Justice"
+  },
+  {
+    "id": 290,
+    "question": "You bought a television in Germany. At home you unpack it, but it doesn't work. The television is broken. What can you do?",
+    "choices": [
+      "file a police report",
+      "return the television with a complaint (reklamieren)",
+      "exchange the device without asking",
+      "extend the warranty"
+    ],
+    "correctIndex": 1,
+    "hint": "What right do you have as a buyer if the goods are defective?",
+    "explanation": "If goods you bought are defective, you as the buyer have a statutory right to remedy (Gewährleistung). The first step is to make a complaint to the seller, who is then obliged to repair or replace the goods.",
+    "topic": "Everyday Life in Germany"
+  },
+  {
+    "id": 291,
+    "question": "Why do you have to state on your tax return in Germany whether or not you belong to a church? Because …",
+    "choices": [
+      "it is important for statistics in Germany.",
+      "there is a church tax that is linked to income tax and wage tax.",
+      "you have to pay more tax if you don't belong to a church.",
+      "the church is responsible for the tax return."
+    ],
+    "correctIndex": 1,
+    "hint": "In Germany certain religious communities levy a tax on their members, which is collected by the state.",
+    "explanation": "Members of recognised religious communities (e.g. the Protestant or Catholic Church) pay church tax in Germany. It is calculated as a percentage of wage or income tax and collected by the tax office. That is why your religious affiliation must be stated on your tax return.",
+    "topic": "Economy and Social Affairs"
+  },
+  {
+    "id": 292,
+    "question": "People in Germany live according to the principle of religious tolerance. What does that mean?",
+    "choices": [
+      "No mosques may be built.",
+      "Everyone believes in God.",
+      "Everyone can believe what they want.",
+      "The state decides which god people believe in."
+    ],
+    "correctIndex": 2,
+    "hint": "Freedom of religion is a right guaranteed in the Basic Law.",
+    "explanation": "Religious tolerance, rooted in the fundamental right to freedom of religion, means that everyone in Germany can freely decide what they believe in, or whether they belong to a religion at all. The state is neutral on matters of belief and may not prescribe or forbid any religion.",
+    "topic": "Politics in Democracy"
+  },
+  {
+    "id": 293,
+    "question": "What is an Easter custom in Germany?",
+    "choices": [
+      "putting pumpkins outside the door",
+      "decorating a fir tree",
+      "painting eggs",
+      "setting off fireworks"
+    ],
+    "correctIndex": 2,
+    "hint": "Think of a colourful tradition that is especially popular with children and symbolises spring.",
+    "explanation": "Painting and hiding eggs is a well-known and popular Easter custom in Germany. Pumpkins belong to Halloween, the fir tree to Christmas, and fireworks to New Year's Eve.",
+    "topic": "Social and Cultural Life"
+  },
+  {
+    "id": 294,
+    "question": "Pentecost (Pfingsten) is a …",
+    "choices": [
+      "Christian holiday.",
+      "German day of remembrance.",
+      "international day of mourning.",
+      "Bavarian custom."
+    ],
+    "correctIndex": 0,
+    "hint": "This holiday takes place 50 days after Easter and has its origin in the New Testament.",
+    "explanation": "Pentecost is a major Christian festival celebrating the sending of the Holy Spirit to the apostles. It is a public holiday throughout Germany.",
+    "topic": "Social and Cultural Life"
+  },
+  {
+    "id": 295,
+    "question": "Which religion has shaped European and German culture?",
+    "choices": [
+      "Hinduism",
+      "Christianity",
+      "Buddhism",
+      "Islam"
+    ],
+    "correctIndex": 1,
+    "hint": "Think of the dominant religion in European history, which has influenced many holidays, traditions and values.",
+    "explanation": "Christianity has decisively shaped the history, culture, values and society of Germany and Europe over centuries. This can be seen in holidays, architecture, art and ethical ideas.",
+    "topic": "History and Responsibility"
+  },
+  {
+    "id": 296,
+    "question": "In Germany, the last four weeks before Christmas are called …",
+    "choices": [
+      "the Day of Repentance and Prayer.",
+      "the harvest festival.",
+      "Advent.",
+      "All Saints' Day."
+    ],
+    "correctIndex": 2,
+    "hint": "This period is marked by Advent wreaths and Advent calendars and is a time of preparation for Christmas.",
+    "explanation": "Advent covers the four Sundays before Christmas Day and is the time of preparation for Christmas. It begins on the first Sunday of Advent.",
+    "topic": "Social and Cultural Life"
+  },
+  {
+    "id": 297,
+    "question": "From which country have most migrants come to Germany?",
+    "choices": [
+      "Italy",
+      "Poland",
+      "Morocco",
+      "Turkey"
+    ],
+    "correctIndex": 3,
+    "hint": "Think of the 'guest worker' movement in the post-war period, especially the 1961 recruitment agreement.",
+    "explanation": "Historically and over long periods, people from Turkey have formed the largest group of migrants in Germany, particularly through the 'guest worker' recruitment agreement of the 1960s.",
+    "topic": "History and Responsibility"
+  },
+  {
+    "id": 298,
+    "question": "In the GDR, migrants came mainly from …",
+    "choices": [
+      "Vietnam, Poland, Mozambique.",
+      "France, Romania, Somalia.",
+      "Chile, Hungary, Zimbabwe.",
+      "North Korea, Mexico, Egypt."
+    ],
+    "correctIndex": 0,
+    "hint": "The GDR had so-called 'contract worker' agreements with other socialist 'brother countries'.",
+    "explanation": "The German Democratic Republic (GDR) concluded agreements with socialist states to bring in so-called contract workers. The largest groups came from Vietnam, Poland and Mozambique.",
+    "topic": "History and Responsibility"
+  },
+  {
+    "id": 299,
+    "question": "Foreign workers recruited by the Federal Republic of Germany in the 1950s and 1960s were called …",
+    "choices": [
+      "undeclared workers (Schwarzarbeiter).",
+      "guest workers (Gastarbeiter).",
+      "temporary agency workers (Zeitarbeiter).",
+      "shift workers (Schichtarbeiter)."
+    ],
+    "correctIndex": 1,
+    "hint": "The term was meant to express that their stay was planned to be only temporary.",
+    "explanation": "The foreign workers recruited by the Federal Republic of Germany in the 1950s and 1960s were called 'Gastarbeiter' (guest workers). It was originally assumed that they would only be 'guests' for a limited time in order to work.",
+    "topic": "History and Responsibility"
+  },
+  {
     "id": 300,
     "question": "From which country did the first guest workers come to the Federal Republic of Germany?",
     "choices": [
