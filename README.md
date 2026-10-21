@@ -1,4 +1,4 @@
-# 🇩🇪 BürgerTest Trainer
+# Finch
 
 A modern, mobile-friendly web application to help you prepare for the German naturalization exam (Einbürgerungstest). Features spaced repetition learning, exam simulation, and bilingual support (German/English).
 

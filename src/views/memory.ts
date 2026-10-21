@@ -1,9 +1,12 @@
 import { ALL_TERMS } from '../state'
 import { loadProgress, saveProgress, upsertCard } from '../storage'
 import { updateCard } from '../sm2'
+import { navigate } from '../router'
 import { pickStudyBatch } from '../lib/study-session'
 import { termStudyId } from '../lib/study-ids'
 import { recordMemoryAnswer } from '../lib/study-stats'
+import { topicMeta } from '../lib/topics'
+import { createQueue, currentItem, gradeCurrent, isFinished, position } from '../lib/study-queue'
 
 const BATCH_SIZE = 20
 
@@ -11,121 +14,128 @@ export function MemoryView(): HTMLElement {
   const root = document.createElement('div')
   root.className = 'page'
 
-  let queue = pickStudyBatch(
-    ALL_TERMS.map((term) => ({
-      studyId: termStudyId(term.id),
-      term,
-    })),
-    loadProgress(),
-    BATCH_SIZE,
+  let queue = createQueue(
+    pickStudyBatch(
+      ALL_TERMS.map((term) => ({
+        studyId: termStudyId(term.id),
+        term,
+      })),
+      loadProgress(),
+      BATCH_SIZE,
+    ),
   )
-  let current = 0
   let revealed = false
 
   root.innerHTML = `
-    <header class="memory-session-header py-4">
-      <div class="min-w-0">
-        <h1 class="text-xl font-bold">🧠 Term Memory</h1>
-        <p class="text-sm text-base-content/70">Flip German terms, then grade yourself with the same SRS rules as review mode.</p>
-      </div>
-      <div class="memory-session-count">${queue.length} cards</div>
-    </header>
     <div id="cardArea"></div>
-    <div class="cta-bar">
-      <button class="btn btn-secondary flex-1" id="revealBtn">Reveal</button>
-      <button class="btn btn-secondary flex-1" id="againBtn" disabled>← Again</button>
-      <button class="btn btn-primary flex-1" id="goodBtn" disabled>Good →</button>
+    <div class="cta-bar cta-bar-tabbed" id="ctaBar">
+      <button type="button" class="btn btn-primary h-auto min-h-14 flex-1" id="revealBtn">
+        Reveal <span class="hidden font-mono text-xs font-normal sm:inline">space</span>
+      </button>
+      <button type="button" class="btn btn-outline hidden h-auto min-h-14 flex-1 flex-col gap-0 py-1.5" id="againBtn" disabled>
+        <span>Again <span class="hidden font-mono text-xs font-normal sm:inline">←</span></span>
+        <span class="font-mono text-[11px] font-normal opacity-70">later this session</span>
+      </button>
+      <button type="button" class="btn btn-primary hidden h-auto min-h-14 flex-1 flex-col gap-0 py-1.5" id="goodBtn" disabled>
+        <span>Good <span class="hidden font-mono text-xs font-normal sm:inline">→</span></span>
+        <span id="goodSub" class="font-mono text-[11px] font-normal opacity-70"></span>
+      </button>
     </div>
   `
 
   const cardArea = root.querySelector('#cardArea') as HTMLDivElement
+  const ctaBar = root.querySelector('#ctaBar') as HTMLDivElement
   const revealBtn = root.querySelector('#revealBtn') as HTMLButtonElement
   const againBtn = root.querySelector('#againBtn') as HTMLButtonElement
   const goodBtn = root.querySelector('#goodBtn') as HTMLButtonElement
+  const goodSub = root.querySelector('#goodSub') as HTMLSpanElement
+
+  /** Reveal alone before the flip; Again / Good once the answer is showing. */
+  function setBar(state: 'front' | 'revealed' | 'done') {
+    revealBtn.classList.toggle('hidden', state !== 'front')
+    againBtn.classList.toggle('hidden', state !== 'revealed')
+    goodBtn.classList.toggle('hidden', state !== 'revealed')
+    revealBtn.disabled = state !== 'front'
+    againBtn.disabled = state !== 'revealed'
+    goodBtn.disabled = state !== 'revealed'
+    // Nothing left to grade: leave no enabled button that could advance past the end.
+    ctaBar.classList.toggle('hidden', state === 'done')
+  }
+
+  function renderDone() {
+    const empty = queue.items.length === 0
+    revealed = false
+    setBar('done')
+    cardArea.innerHTML = `
+      <div class="pt-16">
+        <h2 class="font-serif text-4xl leading-tight">${empty ? 'Nothing due.' : 'Session complete.'}</h2>
+        <p class="mt-3 text-muted">${empty
+          ? 'Every term is scheduled ahead. Come back later for more cards.'
+          : 'You cleared the current term deck. Come back when more cards are due.'}</p>
+        <button type="button" data-close class="btn btn-primary mt-8 w-full">Back to home</button>
+      </div>
+    `
+    cardArea.querySelector('[data-close]')!.addEventListener('click', () => navigate('#/'))
+  }
 
   function renderCard() {
-    if (current >= queue.length) {
-      cardArea.innerHTML = `
-        <div class="card text-center bg-base-100 shadow">
-          <h2 class="text-lg font-semibold">Session Complete</h2>
-          <p class="mt-2 text-base-content/70">You cleared the current term deck. Come back when more cards are due.</p>
-          <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
-        </div>
-      `
-      revealBtn.disabled = true
-      againBtn.disabled = true
-      goodBtn.disabled = true
+    const entry = currentItem(queue)
+    if (!entry) {
+      renderDone()
       return
     }
 
-    const { item } = queue[current]
-    const linked = item.term.questionIds?.length || 0
+    const { item } = entry
+    const { term } = item
+    const { current, total } = position(queue)
+    const meta = term.topic ? topicMeta(term.topic) : null
     revealed = false
 
+    const days = updateCard(loadProgress()[item.studyId] ?? entry.progress, 'good').interval
+    goodSub.textContent = `in ${days} ${days === 1 ? 'day' : 'days'}`
+
     cardArea.innerHTML = `
-      <div class="memory-card card bg-base-100 shadow">
-        <div class="flex items-center justify-between mb-4 gap-3">
-          <span class="memory-progress">${current + 1}<span class="memory-progress-separator">/</span>${queue.length}</span>
-          ${item.term.topic ? `<span class="badge badge-secondary">${item.term.topic}</span>` : ''}
+      <header class="flex min-h-11 items-center gap-3">
+        <h1 class="font-serif text-[22px] font-medium">Terms</h1>
+        <span class="term-progress" aria-hidden="true"><span style="width: ${Math.min(100, (current / total) * 100)}%"></span></span>
+        <span class="font-mono text-xs">${current}/${total}</span>
+      </header>
+
+      <section class="mt-10 ${meta ? meta.className : ''}">
+        ${meta ? `
+          <p class="flex items-center gap-2 font-mono text-xs text-muted">
+            <span class="topic-mark" aria-hidden="true"></span>${meta.short}
+          </p>
+        ` : ''}
+        <h2 lang="de" class="mt-3 break-words font-serif text-[clamp(2.25rem,11vw,3rem)] leading-[1.1]">${term.de}</h2>
+        <div id="termBack" class="mt-6 hidden border-t border-base-300 pt-5">
+          <p lang="en" class="font-serif text-[28px] italic leading-tight text-correct">${term.en}</p>
+          ${term.note ? `<p class="mt-3 text-sm text-muted">${term.note}</p>` : ''}
         </div>
-        <div class="memory-face ${revealed ? 'is-revealed' : ''}" id="memoryFace">
-          <div class="memory-front" id="memoryFront">
-            <div class="text-xs uppercase tracking-[0.18em] text-base-content/60">German term</div>
-            <h2 class="mt-4 text-[clamp(2rem,9vw,2.75rem)] leading-tight font-bold break-words">${item.term.de}</h2>
-            ${item.term.note ? `<p class="mt-4 text-sm text-base-content/70">${item.term.note}</p>` : ''}
-          </div>
-          <div class="memory-back ${revealed ? '' : 'hidden'}" id="memoryBack">
-            <div class="memory-reference">
-              <div class="text-xs uppercase tracking-[0.18em] text-base-content/50">German reference</div>
-              <p class="mt-2 text-lg leading-snug font-semibold text-base-content/90">${item.term.de}</p>
-            </div>
-            <div class="memory-answer">
-              <div class="text-xs uppercase tracking-[0.18em] text-base-content/60">English translation</div>
-              <h3 class="mt-3 max-w-full break-words text-[clamp(1.75rem,8vw,2.5rem)] leading-tight font-bold text-primary">${item.term.en}</h3>
-            </div>
-            <div class="mt-5 flex max-w-full flex-wrap gap-2 text-sm text-base-content/70">
-              ${item.term.topic ? `<span class="badge badge-outline whitespace-normal py-3 text-left leading-snug">${item.term.topic}</span>` : ''}
-              ${linked > 0 ? `<span class="badge badge-outline whitespace-normal py-3 text-left leading-snug">${linked} linked question${linked === 1 ? '' : 's'}</span>` : ''}
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
     `
 
-    revealBtn.disabled = false
-    againBtn.disabled = true
-    goodBtn.disabled = true
+    setBar('front')
   }
 
   function reveal() {
-    if (revealed || current >= queue.length) {
-      return
-    }
+    if (revealed || isFinished(queue)) return
 
     revealed = true
-    const back = root.querySelector('#memoryBack') as HTMLDivElement | null
-    const face = root.querySelector('#memoryFace') as HTMLDivElement | null
-    const front = root.querySelector('#memoryFront') as HTMLDivElement | null
-    front?.classList.add('memory-front-revealed')
-    back?.classList.remove('hidden')
-    face?.classList.add('is-revealed')
-    revealBtn.disabled = true
-    againBtn.disabled = false
-    goodBtn.disabled = false
+    root.querySelector('#termBack')?.classList.remove('hidden')
+    setBar('revealed')
   }
 
   function advance(grade: 'again' | 'good') {
-    const currentItem = queue[current]
-    const map = loadProgress()
-    const nextMap = upsertCard(map, currentItem.item.studyId, (progress) => updateCard(progress, grade))
-    saveProgress(nextMap)
+    // Guard on state, not on the buttons: a stray key must not grade a card
+    // that has not been revealed, or one past the end of the queue.
+    const entry = currentItem(queue)
+    if (!entry || !revealed) return
+
+    saveProgress(upsertCard(loadProgress(), entry.item.studyId, (progress) => updateCard(progress, grade)))
     recordMemoryAnswer(grade === 'good')
 
-    if (grade === 'again') {
-      queue.push(currentItem)
-    }
-
-    current += 1
+    queue = gradeCurrent(queue, grade)
     renderCard()
   }
 
@@ -134,17 +144,19 @@ export function MemoryView(): HTMLElement {
   goodBtn.addEventListener('click', () => advance('good'))
 
   const onKey = (event: KeyboardEvent) => {
+    if (event.metaKey || event.ctrlKey || event.altKey) return
     if (event.key === ' ' || event.key === 'Enter') {
+      if (revealed || isFinished(queue)) return
       event.preventDefault()
       reveal()
       return
     }
-    if (event.key === 'ArrowLeft' && !againBtn.disabled) {
+    if (event.key === 'ArrowLeft' && revealed) {
       event.preventDefault()
       advance('again')
       return
     }
-    if (event.key === 'ArrowRight' && !goodBtn.disabled) {
+    if (event.key === 'ArrowRight' && revealed) {
       event.preventDefault()
       advance('good')
     }

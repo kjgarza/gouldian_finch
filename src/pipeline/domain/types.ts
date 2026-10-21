@@ -4,6 +4,10 @@ export interface RawQuestion {
   id: number;
   question: string;
   options: string[];
+  /** Text stand-in for an official image-choice question. */
+  substituted?: boolean;
+  /** Pinned answer; the pipeline skips the AI lookup when set. */
+  correctIndex?: number;
 }
 
 export interface ProcessedQuestion {
@@ -14,6 +18,7 @@ export interface ProcessedQuestion {
   hint: string;
   explanation: string;
   topic: string;
+  substituted?: boolean;
 }
 
 export interface TranslatedQuestion extends ProcessedQuestion {

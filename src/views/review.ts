@@ -1,11 +1,14 @@
 import { ALL_DE, byId } from '../state'
 import { loadProgress, saveProgress, upsertCard } from '../storage'
-import type { Question, CardProgress } from '../types'
+import type { Question, CardProgress, Topic } from '../types'
 import { updateCard } from '../sm2'
 import { Locales } from '../i18n'
+import { navigate, routeQuery } from '../router'
 import { questionStudyId } from '../lib/study-ids'
 import { pickStudyBatch } from '../lib/study-session'
 import { recordReviewAnswer } from '../lib/study-stats'
+import { topicFromSlug, topicMeta } from '../lib/topics'
+import { hintHtml, paintAnswer, questionCardHtml, renderChoices } from '../lib/question-card'
 import { bindDiagramToggles, diagramHintHtml } from '../diagrams'
 
 const BATCH_SIZE = 20
@@ -17,12 +20,15 @@ type ReviewStudyItem = {
 
 type SessionItem = { q: Question; progress: CardProgress; studyId: string }
 
-function pickDueBatch(): SessionItem[] {
+/** Today's batch, optionally limited to one topic (home's topic bands). */
+function pickDueBatch(topic: Topic | null): SessionItem[] {
   const prog = loadProgress()
-  const items: ReviewStudyItem[] = ALL_DE.map((q) => ({
-    q,
-    studyId: questionStudyId(q.id),
-  }))
+  const items: ReviewStudyItem[] = ALL_DE
+    .filter((q) => topic === null || q.topic === topic)
+    .map((q) => ({
+      q,
+      studyId: questionStudyId(q.id),
+    }))
 
   return pickStudyBatch(items, prog, BATCH_SIZE).map(({ item, progress }) => ({
     q: item.q,
@@ -31,135 +37,115 @@ function pickDueBatch(): SessionItem[] {
   }))
 }
 
+/** "in 6 days" — where Good would send the card, from its stored progress. */
+function goodIntervalLabel(item: SessionItem): string {
+  const progress = loadProgress()[item.studyId] ?? item.progress
+  const days = updateCard(progress, 'good').interval
+  return `in ${days} ${days === 1 ? 'day' : 'days'}`
+}
+
 export function ReviewView(): HTMLElement {
   const root = document.createElement('div')
   root.className = 'page'
 
-  let queue = pickDueBatch()
+  // Read from the URL, so a topic session survives a reload.
+  const topic = topicFromSlug(routeQuery().get('topic'))
+  let queue = pickDueBatch(topic)
   let current = 0
   /** Choice the learner picked for the current card, or null before they answer. */
   let answeredIndex: number | null = null
-  const showEN = Locales.get()
+  let showEnglish = Locales.get()
 
   root.innerHTML = `
-    <header class="py-4 flex items-center justify-between">
-      <h1 class="text-xl font-bold">📚 Review (${queue.length})</h1>
-      <label class="label cursor-pointer flex items-center gap-2">
-        <input type="checkbox" id="langToggle" class="checkbox checkbox-sm" ${showEN ? 'checked' : ''}/>
-        <span class="label-text">English helper</span>
-      </label>
-    </header>
     <div id="cardArea"></div>
     <div class="cta-bar">
-      <button class="btn btn-secondary flex-1" id="againBtn" disabled>
-        ← Again <span class="hidden sm:inline">(Left)</span>
+      <button class="btn btn-outline h-auto min-h-14 flex-1 flex-col gap-0 py-1.5" id="againBtn" disabled>
+        <span>Again <span class="hidden font-mono text-xs font-normal sm:inline">←</span></span>
+        <span class="font-mono text-[11px] font-normal opacity-70">later this session</span>
       </button>
-      <button class="btn btn-primary flex-1" id="goodBtn" disabled>
-        Good → <span class="hidden sm:inline">(Right)</span>
+      <button class="btn btn-primary h-auto min-h-14 flex-1 flex-col gap-0 py-1.5" id="goodBtn" disabled>
+        <span>Good <span class="hidden font-mono text-xs font-normal sm:inline">→</span></span>
+        <span id="goodSub" class="font-mono text-[11px] font-normal opacity-70"></span>
       </button>
     </div>
   `
 
-  const langToggle = root.querySelector('#langToggle') as HTMLInputElement
-  langToggle.addEventListener('change', () => { 
-    Locales.set(langToggle.checked)
-    renderCard() 
-  })
-
   const cardArea = root.querySelector('#cardArea') as HTMLDivElement
+  const ctaBar = root.querySelector('.cta-bar') as HTMLDivElement
   const againBtn = root.querySelector('#againBtn') as HTMLButtonElement
   const goodBtn = root.querySelector('#goodBtn') as HTMLButtonElement
+  const goodSub = root.querySelector('#goodSub') as HTMLSpanElement
+
+  function renderDone(title: string, body: string) {
+    // Nothing left to grade: the bar would otherwise keep the last card's
+    // enabled buttons and advance past the end of the queue.
+    againBtn.disabled = true
+    goodBtn.disabled = true
+    ctaBar.classList.add('hidden')
+    cardArea.innerHTML = `
+      <div class="pt-16">
+        <h2 class="font-serif text-4xl leading-tight">${title}</h2>
+        <p class="mt-3 text-muted">${body}</p>
+        <button type="button" data-close class="btn btn-primary mt-8 w-full">Back to home</button>
+      </div>
+    `
+    cardArea.querySelector('[data-close]')!.addEventListener('click', () => navigate('#/'))
+  }
 
   function renderCard() {
-    if (current >= queue.length) {
-      cardArea.innerHTML = `
-        <div class="card text-center bg-base-100 shadow">
-          <h2 class="text-lg font-semibold">🎉 Session Complete!</h2>
-          <p class="mt-2 text-base-content opacity-70">Great job! Come back later for more cards.</p>
-          <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
-        </div>
-      `
+    const scope = topic ? topicMeta(topic).short : null
+
+    if (queue.length === 0) {
+      renderDone('Nothing due.', scope
+        ? `No ${scope} questions are due right now. Come back when they come round again.`
+        : 'Every question is scheduled ahead. Come back later for more cards.')
       return
     }
 
-    const { q } = queue[current]
-    const showEnglish = (root.querySelector('#langToggle') as HTMLInputElement).checked
+    if (current >= queue.length) {
+      renderDone('Session complete.', 'Great job! Come back later for more cards.')
+      return
+    }
+
+    const item = queue[current]
+    const { q } = item
     const en = byId(q.id).en
 
-    cardArea.innerHTML = `
-      <div class="card bg-base-100 shadow">
-        <div class="flex items-center justify-between mb-4">
-          <span class="badge badge-neutral">${current + 1} / ${queue.length}</span>
-          <span class="badge badge-secondary">${q.topic}</span>
-        </div>
-        
-        <h2 class="text-xl font-semibold mb-3">${q.question}</h2>
-        ${showEnglish ? `<p class="text-base-content opacity-70 text-sm mb-4 italic">${en.question}</p>` : ''}
-        
-        <div class="grid gap-2" id="choices"></div>
-        
-        <div class="mt-4">
-          <button id="hintBtn" class="btn btn-ghost btn-sm">
-            💡 Show hint
-          </button>
-          <div id="hintBox" class="hidden mt-2 p-3 bg-muted rounded-lg text-sm"></div>
-        </div>
-      </div>
-    `
+    cardArea.innerHTML = questionCardHtml({ q, en, showEnglish, position: current + 1, total: queue.length })
+    renderChoices(cardArea.querySelector('#choices') as HTMLDivElement, { q, en, showEnglish }, onChoose)
+    goodSub.textContent = goodIntervalLabel(item)
 
-    const choicesBox = cardArea.querySelector('#choices') as HTMLDivElement
-    q.choices.forEach((c, idx) => {
-      const btn = document.createElement('button')
-      btn.className = 'w-full text-left border-2 border-border rounded-xl p-4 hover:bg-accent transition-colors'
-      btn.innerHTML = `
-        <div>${c}</div>
-        ${showEnglish ? `<div class="text-muted-foreground text-xs mt-1">${en.choices[idx]}</div>` : ''}
-      `
-      btn.addEventListener('click', () => onChoose(idx))
-      choicesBox.appendChild(btn)
+    cardArea.querySelector('[data-close]')!.addEventListener('click', () => navigate('#/'))
+    cardArea.querySelector('[data-lang-switch]')!.addEventListener('click', () => {
+      showEnglish = !showEnglish
+      Locales.set(showEnglish)
+      renderCard()
     })
 
     const hintBtn = cardArea.querySelector('#hintBtn') as HTMLButtonElement
     const hintBox = cardArea.querySelector('#hintBox') as HTMLDivElement
     hintBtn.addEventListener('click', () => {
-      const deHint = q.hint
-      const enHint = byId(q.id).en.hint
+      hintBtn.classList.add('hidden')
       hintBox.classList.remove('hidden')
-      hintBox.innerHTML = (showEnglish
-        ? `<div>💡 ${deHint}</div><div class="text-muted-foreground mt-1">${enHint}</div>`
-        : `💡 ${deHint}`) + diagramHintHtml(q.id, showEnglish)
+      hintBox.innerHTML = hintHtml(q, en, showEnglish) + diagramHintHtml(q.id, showEnglish)
       bindDiagramToggles(hintBox)
     })
 
-    // The English toggle re-renders mid-card, so an answer already given has
+    // The English helper re-renders mid-card, so an answer already given has
     // to be painted back on. Otherwise the feedback vanishes, the choices come
     // back enabled, and the same card gets answered — and counted — twice.
     if (answeredIndex === null) {
       againBtn.disabled = true
       goodBtn.disabled = true
     } else {
-      paintAnswer(answeredIndex)
+      showAnswer(answeredIndex)
     }
   }
 
-  /** Locks the choices and marks the correct one. Records nothing. */
-  function paintAnswer(idx: number) {
-    const { q } = queue[current]
-    const correct = idx === q.correctIndex
-
-    const btns = Array.from(root.querySelectorAll('#choices button')) as HTMLButtonElement[]
-    btns.forEach((b, i) => {
-      b.disabled = true
-      if (i === q.correctIndex) {
-        b.classList.add('border-success/60', 'bg-success/10')
-      }
-      if (i === idx && !correct) {
-        b.classList.add('border-destructive', 'bg-destructive/10')
-      }
-    })
-
+  function showAnswer(idx: number) {
+    paintAnswer(cardArea, queue[current].q, idx)
     againBtn.disabled = false
-    goodBtn.disabled = !correct // Good only when correct
+    goodBtn.disabled = idx !== queue[current].q.correctIndex // Good only when correct
   }
 
   function answeredCorrectly(): boolean {
@@ -170,7 +156,7 @@ export function ReviewView(): HTMLElement {
     if (answeredIndex !== null) return
 
     answeredIndex = idx
-    paintAnswer(idx)
+    showAnswer(idx)
 
     // Update accuracy stats immediately
     recordReviewAnswer(idx === queue[current].q.correctIndex)
@@ -207,9 +193,9 @@ export function ReviewView(): HTMLElement {
       advance('good')
     }
   }
-  
+
   window.addEventListener('keydown', onKey)
-  
+
   // Cleanup function
   const cleanup = () => window.removeEventListener('keydown', onKey)
   root.addEventListener('removed', cleanup)

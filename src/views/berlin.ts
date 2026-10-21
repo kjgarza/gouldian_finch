@@ -3,9 +3,11 @@ import { loadProgress, saveProgress, upsertCard } from '../storage'
 import type { Question, CardProgress } from '../types'
 import { updateCard } from '../sm2'
 import { Locales } from '../i18n'
+import { navigate } from '../router'
 import { berlinStudyId } from '../lib/study-ids'
 import { pickStudyBatch } from '../lib/study-session'
 import { recordReviewAnswer } from '../lib/study-stats'
+import { hintHtml, paintAnswer, questionCardHtml, renderChoices } from '../lib/question-card'
 
 // The Berlin state pool is small enough to serve in a single batch.
 const BATCH_SIZE = ALL_BERLIN_DE.length
@@ -26,6 +28,13 @@ function pickDueBatch(): SessionItem[] {
   }))
 }
 
+/** "in 6 days" — where Good would send the card, from its stored progress. */
+function goodIntervalLabel(item: SessionItem): string {
+  const progress = loadProgress()[item.studyId] ?? item.progress
+  const days = updateCard(progress, 'good').interval
+  return `in ${days} ${days === 1 ? 'day' : 'days'}`
+}
+
 export function BerlinView(): HTMLElement {
   const root = document.createElement('div')
   root.className = 'page'
@@ -34,158 +43,107 @@ export function BerlinView(): HTMLElement {
   let current = 0
   /** Choice the learner picked for the current card, or null before they answer. */
   let answeredIndex: number | null = null
-  const showEN = Locales.get()
+  let showEnglish = Locales.get()
   // Derived from the whole deck, not the due batch: the notice has to stand
   // whatever happens to be due today.
   const substitutedCount = ALL_BERLIN_DE.filter((q) => q.substituted).length
 
   root.innerHTML = `
-    <header class="py-4 flex items-center justify-between gap-3">
-      <div class="min-w-0">
-        <h1 class="text-xl font-bold">🐻 Berlin State (${queue.length})</h1>
-        <p class="text-sm text-base-content/70">The ${ALL_BERLIN_DE.length} state questions, on their own schedule.</p>
-      </div>
-      <label class="label cursor-pointer flex items-center gap-2">
-        <input type="checkbox" id="langToggle" class="checkbox checkbox-sm" ${showEN ? 'checked' : ''}/>
-        <span class="label-text">English helper</span>
-      </label>
-    </header>
-    ${substitutedCount > 0 ? `
-      <div class="alert alert-info mb-4 text-sm">
-        ℹ️ ${substitutedCount} of these questions show images in the official test.
-        They are replaced here with text versions that check the same facts.
-      </div>
-    ` : ''}
     <div id="cardArea"></div>
+    ${substitutedCount > 0 ? `
+      <p class="mt-6 border-t border-base-300 pt-3 text-sm text-muted">
+        ${substitutedCount} of these questions show images in the official test.
+        They are replaced here with text versions that check the same facts.
+      </p>
+    ` : ''}
     <div class="cta-bar">
-      <button class="btn btn-secondary flex-1" id="againBtn" disabled>
-        ← Again <span class="hidden sm:inline">(Left)</span>
+      <button class="btn btn-outline h-auto min-h-14 flex-1 flex-col gap-0 py-1.5" id="againBtn" disabled>
+        <span>Again <span class="hidden font-mono text-xs font-normal sm:inline">←</span></span>
+        <span class="font-mono text-[11px] font-normal opacity-70">later this session</span>
       </button>
-      <button class="btn btn-primary flex-1" id="goodBtn" disabled>
-        Good → <span class="hidden sm:inline">(Right)</span>
+      <button class="btn btn-primary h-auto min-h-14 flex-1 flex-col gap-0 py-1.5" id="goodBtn" disabled>
+        <span>Good <span class="hidden font-mono text-xs font-normal sm:inline">→</span></span>
+        <span id="goodSub" class="font-mono text-[11px] font-normal opacity-70"></span>
       </button>
     </div>
   `
 
-  const langToggle = root.querySelector('#langToggle') as HTMLInputElement
-  langToggle.addEventListener('change', () => {
-    Locales.set(langToggle.checked)
-    renderCard()
-  })
-
   const cardArea = root.querySelector('#cardArea') as HTMLDivElement
+  const ctaBar = root.querySelector('.cta-bar') as HTMLDivElement
   const againBtn = root.querySelector('#againBtn') as HTMLButtonElement
   const goodBtn = root.querySelector('#goodBtn') as HTMLButtonElement
+  const goodSub = root.querySelector('#goodSub') as HTMLSpanElement
+
+  function renderDone(title: string, body: string) {
+    // Nothing left to grade: the bar would otherwise keep the last card's
+    // enabled buttons and advance past the end of the queue.
+    againBtn.disabled = true
+    goodBtn.disabled = true
+    ctaBar.classList.add('hidden')
+    cardArea.innerHTML = `
+      <div class="pt-16">
+        <h2 class="font-serif text-4xl leading-tight">${title}</h2>
+        <p class="mt-3 text-muted">${body}</p>
+        <button type="button" data-close class="btn btn-primary mt-8 w-full">Back to home</button>
+      </div>
+    `
+    cardArea.querySelector('[data-close]')!.addEventListener('click', () => navigate('#/'))
+  }
 
   function renderCard() {
     if (ALL_BERLIN_DE.length === 0) {
-      cardArea.innerHTML = `
-        <div class="card text-center bg-base-100 shadow">
-          <h2 class="text-lg font-semibold">No Berlin cards loaded</h2>
-          <p class="mt-2 text-base-content opacity-70">Add the Berlin state questions to <code>src/data/questions_berlin_de.json</code> to start this deck.</p>
-          <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
-        </div>
-      `
+      renderDone('No Berlin cards loaded.', 'Add the Berlin state questions to <code>src/data/questions_berlin_de.json</code> to start this deck.')
       return
     }
 
     if (queue.length === 0) {
-      cardArea.innerHTML = `
-        <div class="card text-center bg-base-100 shadow">
-          <h2 class="text-lg font-semibold">✅ Nothing due today</h2>
-          <p class="mt-2 text-base-content opacity-70">The Berlin deck is scheduled ahead. Come back when these cards are due again.</p>
-          <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
-        </div>
-      `
+      renderDone('Nothing due today.', 'The Berlin deck is scheduled ahead. Come back when these cards are due again.')
       return
     }
 
     if (current >= queue.length) {
-      cardArea.innerHTML = `
-        <div class="card text-center bg-base-100 shadow">
-          <h2 class="text-lg font-semibold">🎉 Session Complete!</h2>
-          <p class="mt-2 text-base-content opacity-70">You cleared the Berlin deck. Come back when these cards are due again.</p>
-          <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
-        </div>
-      `
+      renderDone('Session complete.', 'You cleared the Berlin deck. Come back when these cards are due again.')
       return
     }
 
-    const { q } = queue[current]
-    const showEnglish = langToggle.checked
+    const item = queue[current]
+    const { q } = item
     const en = byId(q.id).en
 
-    cardArea.innerHTML = `
-      <div class="card bg-base-100 shadow">
-        <div class="flex items-center justify-between mb-4">
-          <span class="badge badge-neutral">${current + 1} / ${queue.length}</span>
-          <span class="badge badge-secondary">${q.topic}</span>
-        </div>
+    cardArea.innerHTML = questionCardHtml({ q, en, showEnglish, position: current + 1, total: queue.length })
+    renderChoices(cardArea.querySelector('#choices') as HTMLDivElement, { q, en, showEnglish }, onChoose)
+    goodSub.textContent = goodIntervalLabel(item)
 
-        <h2 class="text-xl font-semibold mb-3">${q.question}</h2>
-        ${showEnglish ? `<p class="text-base-content opacity-70 text-sm mb-4 italic">${en.question}</p>` : ''}
-
-        <div class="grid gap-2" id="choices"></div>
-
-        <div class="mt-4">
-          <button id="hintBtn" class="btn btn-ghost btn-sm">
-            💡 Show hint
-          </button>
-          <div id="hintBox" class="hidden mt-2 p-3 bg-muted rounded-lg text-sm"></div>
-        </div>
-      </div>
-    `
-
-    const choicesBox = cardArea.querySelector('#choices') as HTMLDivElement
-    q.choices.forEach((c, idx) => {
-      const btn = document.createElement('button')
-      btn.className = 'w-full text-left border-2 border-border rounded-xl p-4 hover:bg-accent transition-colors'
-      btn.innerHTML = `
-        <div>${c}</div>
-        ${showEnglish ? `<div class="text-muted-foreground text-xs mt-1">${en.choices[idx]}</div>` : ''}
-      `
-      btn.addEventListener('click', () => onChoose(idx))
-      choicesBox.appendChild(btn)
+    cardArea.querySelector('[data-close]')!.addEventListener('click', () => navigate('#/'))
+    cardArea.querySelector('[data-lang-switch]')!.addEventListener('click', () => {
+      showEnglish = !showEnglish
+      Locales.set(showEnglish)
+      renderCard()
     })
 
     const hintBtn = cardArea.querySelector('#hintBtn') as HTMLButtonElement
     const hintBox = cardArea.querySelector('#hintBox') as HTMLDivElement
     hintBtn.addEventListener('click', () => {
+      hintBtn.classList.add('hidden')
       hintBox.classList.remove('hidden')
-      hintBox.innerHTML = showEnglish
-        ? `<div>💡 ${q.hint}</div><div class="text-muted-foreground mt-1">${en.hint}</div>`
-        : `💡 ${q.hint}`
+      hintBox.innerHTML = hintHtml(q, en, showEnglish)
     })
 
-    // The English toggle re-renders mid-card, so an answer already given has
+    // The English helper re-renders mid-card, so an answer already given has
     // to be painted back on. Otherwise the feedback vanishes, the choices come
     // back enabled, and the same card gets answered — and counted — twice.
     if (answeredIndex === null) {
       againBtn.disabled = true
       goodBtn.disabled = true
     } else {
-      paintAnswer(answeredIndex)
+      showAnswer(answeredIndex)
     }
   }
 
-  /** Locks the choices and marks the correct one. Records nothing. */
-  function paintAnswer(idx: number) {
-    const { q } = queue[current]
-    const correct = idx === q.correctIndex
-
-    const btns = Array.from(root.querySelectorAll('#choices button')) as HTMLButtonElement[]
-    btns.forEach((b, i) => {
-      b.disabled = true
-      if (i === q.correctIndex) {
-        b.classList.add('border-success/60', 'bg-success/10')
-      }
-      if (i === idx && !correct) {
-        b.classList.add('border-destructive', 'bg-destructive/10')
-      }
-    })
-
+  function showAnswer(idx: number) {
+    paintAnswer(cardArea, queue[current].q, idx)
     againBtn.disabled = false
-    goodBtn.disabled = !correct // Good only when correct
+    goodBtn.disabled = idx !== queue[current].q.correctIndex // Good only when correct
   }
 
   function answeredCorrectly(): boolean {
@@ -196,7 +154,7 @@ export function BerlinView(): HTMLElement {
     if (answeredIndex !== null) return
 
     answeredIndex = idx
-    paintAnswer(idx)
+    showAnswer(idx)
 
     recordReviewAnswer(idx === queue[current].q.correctIndex)
   }

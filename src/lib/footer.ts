@@ -59,7 +59,7 @@ export function Footer(): HTMLElement {
   
   // Create copyright text
   const copyright = document.createElement('p');
-  copyright.className = 'text-base-content opacity-60 text-xs';
+  copyright.className = 'text-base-content text-xs';
   copyright.textContent = `Copyright © ${currentYear} ${author.name}`;
   footer.appendChild(copyright);
   

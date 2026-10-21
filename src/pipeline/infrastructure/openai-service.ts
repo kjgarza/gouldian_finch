@@ -1,6 +1,7 @@
 import OpenAI from 'openai';
 import { IAIService } from '../interfaces/contracts.js';
 import { ProcessedQuestion, TranslatedQuestion } from '../domain/types.js';
+import { enforceTranslationShape, TranslationShapeError } from '../services/translation-guard.js';
 
 export class OpenAIService implements IAIService {
   private client: OpenAI;
@@ -91,15 +92,13 @@ Question: ${question.question}
 Choices: ${JSON.stringify(question.choices)}
 Hint: ${question.hint}
 Explanation: ${question.explanation}
-Topic: ${question.topic}
 
 Return the translation in this JSON format:
 {
   "question": "translated question",
   "choices": ["choice1", "choice2", "choice3", "choice4"],
   "hint": "translated hint", 
-  "explanation": "translated explanation",
-  "topic": "translated topic"
+  "explanation": "translated explanation"
 }`;
 
     try {
@@ -113,16 +112,10 @@ Return the translation in this JSON format:
       const response = completion.choices[0]?.message?.content?.trim();
       const translated = JSON.parse(response || '{}');
 
-      return {
-        id: question.id,
-        question: translated.question || question.question,
-        choices: translated.choices || question.choices,
-        correctIndex: question.correctIndex,
-        hint: translated.hint || question.hint,
-        explanation: translated.explanation || question.explanation,
-        topic: translated.topic || question.topic,
-      };
+      // The topic is copied from German by enforceTranslationShape, not translated.
+      return enforceTranslationShape(question, translated);
     } catch (error) {
+      if (error instanceof TranslationShapeError) throw error;
       console.error('Error translating question:', error);
       // Return original if translation fails
       return { ...question };

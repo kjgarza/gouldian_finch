@@ -6,11 +6,21 @@ const WEEKS = 26
 const VISIBLE_WEEKDAYS = new Set([0, 2, 4]) // Mon / Wed / Fri, like a contributions graph
 const RECENT_IN_LABEL = 7 // study days named in the grid's text alternative
 
+/**
+ * Ink strength (%) behind each state: one ramp from the theme's ink, stepping
+ * in lightness rather than hue. Keep in step with `.heat-*` in styles.css.
+ */
+export const HEAT_SHADES = { studied: 100, missed: 16, future: 6 } as const
+
 const CELL_CLASSES: Record<DayState, string> = {
-  studied: 'bg-primary',
-  missed: 'bg-base-300',
-  untracked: 'border border-dashed border-base-300',
-  future: 'bg-base-200 opacity-40',
+  studied: 'heat-studied',
+  missed: 'heat-missed',
+  untracked: 'heat-untracked',
+  future: 'heat-future',
+}
+
+export function cellShade(state: DayState): string {
+  return CELL_CLASSES[state]
 }
 
 const CELL_TITLES: Record<DayState, string> = {
@@ -21,13 +31,13 @@ const CELL_TITLES: Record<DayState, string> = {
 }
 
 function cell(date: string, state: DayState, label: string, today: string): string {
-  const isToday = date === today ? ' ring-1 ring-primary ring-offset-1 ring-offset-base-100' : ''
-  return `<div class="w-3 h-3 rounded-sm ${CELL_CLASSES[state]}${isToday}" title="${label} — ${CELL_TITLES[state]}" data-date="${date}" data-state="${state}" aria-hidden="true"></div>`
+  const isToday = date === today ? ' heat-today' : ''
+  return `<div class="size-3 rounded-sm ${cellShade(state)}${isToday}" title="${label} — ${CELL_TITLES[state]}" data-date="${date}" data-state="${state}" aria-hidden="true"></div>`
 }
 
 function weekColumn(week: HeatmapWeek, today: string): string {
   const label = week.monthLabel
-    ? `<span class="absolute left-0 top-0 text-[10px] leading-4 text-base-content opacity-70 whitespace-nowrap">${week.monthLabel}</span>`
+    ? `<span class="absolute left-0 top-0 text-[10px] leading-4 text-muted whitespace-nowrap">${week.monthLabel}</span>`
     : ''
 
   return `
@@ -41,7 +51,7 @@ function weekColumn(week: HeatmapWeek, today: string): string {
 function weekdayColumn(labels: string[]): string {
   const rows = labels
     .map((label, index) => `
-      <div class="h-3 text-[10px] leading-3 text-base-content opacity-70">${VISIBLE_WEEKDAYS.has(index) ? label : ''}</div>
+      <div class="h-3 font-mono text-[10px] leading-3 text-muted">${VISIBLE_WEEKDAYS.has(index) ? label : ''}</div>
     `)
     .join('')
 
@@ -54,7 +64,7 @@ function weekdayColumn(labels: string[]): string {
 function legendItem(state: DayState, text: string): string {
   return `
     <span class="flex items-center gap-1">
-      <span class="w-3 h-3 rounded-sm ${CELL_CLASSES[state]}"></span>${text}
+      <span class="size-3 rounded-sm ${cellShade(state)}"></span>${text}
     </span>
   `
 }
@@ -87,45 +97,43 @@ export function StudyHeatmap(stats: Stats, now: Date = new Date()): HTMLElement 
   const longest = longestStreak(studiedDates)
   const gridLabel = describeGrid(heatmap, studiedDates, today, longest)
 
-  const root = document.createElement('div')
-  root.className = 'card bg-base-100 shadow p-4 mb-6'
+  const root = document.createElement('section')
+  root.className = 'mt-8'
 
   root.innerHTML = `
-    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
-      <h2 class="text-lg font-semibold">🗓️ Study Calendar</h2>
+    <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+      <h2 class="font-serif text-[22px] font-medium">Study calendar</h2>
       ${hasHistory ? `
-        <div class="text-sm text-base-content opacity-70">
-          ${heatmap.studiedCount} of the last ${WEEKS * 7} days
-          · longest streak ${longest} day${longest === 1 ? '' : 's'}
-        </div>
+        <p class="font-mono text-xs text-muted">
+          ${heatmap.studiedCount} of ${WEEKS * 7} days · longest streak ${longest}
+        </p>
       ` : ''}
     </div>
 
     ${hasHistory ? `
-      <div class="overflow-x-auto pb-1" id="heatmapScroll" role="img" tabindex="0" aria-label="${gridLabel}">
-        <div class="flex gap-1 w-max">
+      <div class="mt-3 overflow-x-auto pb-1" id="heatmapScroll" role="img" tabindex="0" aria-label="${gridLabel}">
+        <div class="flex w-max gap-1">
           ${weekdayColumn(heatmap.weekdayLabels)}
           ${heatmap.weeks.map((week) => weekColumn(week, today)).join('')}
         </div>
       </div>
 
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 text-xs text-base-content opacity-70">
+      <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-muted">
         ${legendItem('studied', 'Studied')}
         ${legendItem('missed', 'No session')}
         ${legendItem('untracked', 'Not tracked yet')}
       </div>
 
       ${heatmap.trackedFrom ? `
-        <p class="text-xs text-base-content opacity-70 mt-2">
-          Daily history starts ${formatDay(heatmap.trackedFrom)} — days before that were never recorded, so they are left blank instead of counted as missed.
+        <p class="mt-2 text-xs text-muted">
+          Daily history starts ${formatDay(heatmap.trackedFrom)}. Days before that were never recorded, so they are left blank instead of counted as missed.
         </p>
       ` : ''}
     ` : `
-      <div class="text-center text-base-content opacity-70 py-6">
-        <div class="text-2xl mb-2">📅</div>
-        <div class="text-sm">No study days recorded yet</div>
-        <div class="text-xs mt-1">Answer a card in Review or Memory and today will light up here.</div>
-        <button class="btn btn-primary btn-sm mt-3" id="heatmapReviewBtn">Start reviewing</button>
+      <div class="mt-3 border-y border-base-300 py-6">
+        <p class="text-sm">No study days recorded yet.</p>
+        <p class="mt-1 text-xs text-muted">Answer a card in Review or Terms and today will show up here.</p>
+        <button type="button" class="btn btn-outline btn-sm mt-3" id="heatmapReviewBtn">Start reviewing</button>
       </div>
     `}
   `

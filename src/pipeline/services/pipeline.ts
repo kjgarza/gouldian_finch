@@ -1,12 +1,18 @@
-import { IPipeline, IAIService, IDataService, ISchemaMapper } from '../interfaces/contracts.js';
-import { ProcessedQuestion } from '../domain/types.js';
+import type { IPipeline, IAIService, IDataService, ISchemaMapper } from '../interfaces/contracts.js';
+import type { ProcessedQuestion } from '../domain/types.js';
+import { TopicError } from './schema-mapper.js';
+import { TranslationShapeError } from './translation-guard.js';
 
 export class QuestionProcessingPipeline implements IPipeline {
-  constructor(
-    private aiService: IAIService,
-    private dataService: IDataService,
-    private schemaMapper: ISchemaMapper
-  ) {}
+  private aiService: IAIService;
+  private dataService: IDataService;
+  private schemaMapper: ISchemaMapper;
+
+  constructor(aiService: IAIService, dataService: IDataService, schemaMapper: ISchemaMapper) {
+    this.aiService = aiService;
+    this.dataService = dataService;
+    this.schemaMapper = schemaMapper;
+  }
 
   async process(inputPath: string): Promise<void> {
     console.log('🚀 Starting question processing pipeline...');
@@ -26,8 +32,8 @@ export class QuestionProcessingPipeline implements IPipeline {
         console.log(`Processing question ${i + 1}/${rawQuestions.length} (ID: ${question.id})`);
         
         try {
-          // Step 2: Find correct answer
-          const correctIndex = await this.aiService.findCorrectAnswer(question.question, question.options);
+          // Step 2: Find correct answer (a pinned answer, e.g. a substituted image question, is kept)
+          const correctIndex = question.correctIndex ?? await this.aiService.findCorrectAnswer(question.question, question.options);
           const correctAnswer = question.options[correctIndex];
           
           // Step 3: Generate hint
@@ -51,6 +57,7 @@ export class QuestionProcessingPipeline implements IPipeline {
             await this.delay(500); // 500ms delay between requests
           }
         } catch (error) {
+          if (error instanceof TopicError) throw error; // never default a topic
           console.error(`Error processing question ${question.id}:`, error);
           // Continue with next question rather than failing entire pipeline
         }
@@ -78,6 +85,7 @@ export class QuestionProcessingPipeline implements IPipeline {
             await this.delay(500);
           }
         } catch (error) {
+          if (error instanceof TranslationShapeError) throw error; // never ship misaligned choices
           console.error(`Error translating question ${question.id}:`, error);
           // Add original if translation fails
           translatedQuestions.push({ ...question });

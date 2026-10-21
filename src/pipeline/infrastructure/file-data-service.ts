@@ -1,9 +1,16 @@
-import { promises as fs } from 'fs';
+import { promises as fs, readFileSync, existsSync } from 'fs';
 import { dirname } from 'path';
 import { IDataService } from '../interfaces/contracts.js';
 import { RawQuestion, ProcessedQuestion, TranslatedQuestion } from '../domain/types.js';
 
 export class FileDataService implements IDataService {
+  /** Topic per question id from an existing questions file; empty if the file is missing. */
+  loadExistingTopics(filePath: string): Map<number, string> {
+    if (!existsSync(filePath)) return new Map();
+    const questions: Array<{ id: number; topic: string }> = JSON.parse(readFileSync(filePath, 'utf-8'));
+    return new Map(questions.map((q) => [q.id, q.topic]));
+  }
+
   async loadQuestions(filePath: string): Promise<RawQuestion[]> {
     try {
       const data = await fs.readFile(filePath, 'utf-8');

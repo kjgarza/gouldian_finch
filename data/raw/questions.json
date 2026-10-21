@@ -2081,13 +2081,15 @@
   },
   {
     "id": 209,
-    "question": "Welches war das Wappen der Deutschen Demokratischen Republik? ",
+    "question": "Welches war das Wappen der Deutschen Demokratischen Republik?",
     "options": [
-      "Bild 1",
-      "Bild 2",
-      "Bild 3",
-      "Bild 4"
-    ]
+      "Hammer und Zirkel im Ährenkranz",
+      "Ein schwarzer Adler auf goldenem Grund",
+      "Drei Eichenblätter in einem Kreis",
+      "Ein roter Stern über einem Lorbeerkranz"
+    ],
+    "substituted": true,
+    "correctIndex": 0
   },
   {
     "id": 210,
@@ -2251,13 +2253,15 @@
   },
   {
     "id": 226,
-    "question": "Welche ist die Flagge der Europäischen Union? ",
+    "question": "Welche ist die Flagge der Europäischen Union?",
     "options": [
-      "Bild 1",
-      "Bild 2",
-      "Bild 3",
-      "Bild 4"
-    ]
+      "Ein gelber Stern auf rotem Grund",
+      "Schwarz, Rot und Gold in drei waagerechten Streifen",
+      "Zwölf goldene Sterne im Kreis auf blauem Grund",
+      "Ein weißes Kreuz auf blauem Grund"
+    ],
+    "substituted": true,
+    "correctIndex": 2
   },
   {
     "id": 227,
@@ -2662,6 +2666,11 @@
   {
     "id": 300,
     "question": "Aus welchem Land kamen die ersten Gastarbeiterinnen und Gastarbeiter in die Bundesrepublik Deutschland?",
-    "options": ["Italien", "Spanien", "Portugal", "Türkei"]
+    "options": [
+      "Italien",
+      "Spanien",
+      "Portugal",
+      "Türkei"
+    ]
   }
 ]

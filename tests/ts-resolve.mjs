@@ -25,5 +25,15 @@ export async function resolve(specifier, context, next) {
     }
   }
 
+  // The pipeline (NodeNext-style) imports siblings as './x.js'; the file is x.ts.
+  if (specifier.startsWith('.') && specifier.endsWith('.js')) {
+    try {
+      return await next(specifier, context)
+    } catch (error) {
+      if (!MISSING.has(error?.code)) throw error
+      return next(specifier.slice(0, -3) + '.ts', context)
+    }
+  }
+
   return next(specifier, context)
 }
