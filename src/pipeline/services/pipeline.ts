@@ -1,5 +1,6 @@
 import { IPipeline, IAIService, IDataService, ISchemaMapper } from '../interfaces/contracts.js';
 import { ProcessedQuestion } from '../domain/types.js';
+import { TopicError } from './schema-mapper.js';
 
 export class QuestionProcessingPipeline implements IPipeline {
   constructor(
@@ -51,6 +52,7 @@ export class QuestionProcessingPipeline implements IPipeline {
             await this.delay(500); // 500ms delay between requests
           }
         } catch (error) {
+          if (error instanceof TopicError) throw error; // never default a topic
           console.error(`Error processing question ${question.id}:`, error);
           // Continue with next question rather than failing entire pipeline
         }

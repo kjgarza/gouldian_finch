@@ -4,6 +4,8 @@ export interface RawQuestion {
   id: number;
   question: string;
   options: string[];
+  /** Text stand-in for an official image-choice question. */
+  substituted?: boolean;
 }
 
 export interface ProcessedQuestion {
@@ -14,6 +16,7 @@ export interface ProcessedQuestion {
   hint: string;
   explanation: string;
   topic: string;
+  substituted?: boolean;
 }
 
 export interface TranslatedQuestion extends ProcessedQuestion {
