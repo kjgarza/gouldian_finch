@@ -13,21 +13,19 @@ interface Question {
 const load = (file: string): Question[] =>
   JSON.parse(readFileSync(new URL(`../src/data/${file}`, import.meta.url), 'utf8'))
 
-/** English topic each German topic must translate to. */
-const TOPICS: Record<string, string> = {
+/** The three official federal areas, and the English topic each translates to. */
+const FEDERAL_TOPICS: Record<string, string> = {
   'Politik in der Demokratie': 'Politics in Democracy',
   'Geschichte und Verantwortung': 'History and Responsibility',
   'Mensch und Gesellschaft': 'Human and Society',
-  'Bundesland': 'Federal State',
-  'Alltag in Deutschland': 'Everyday Life in Germany',
-  'Familie und Soziales': 'Family and Social Affairs',
-  'Bildung und Arbeit': 'Education and Work',
-  'Soziales und Kulturelles Leben': 'Social and Cultural Life',
-  'Recht und Gesetz': 'Law and Justice',
-  'Staat und Institutionen': 'State and Institutions',
-  'Arbeit und Beruf': 'Work and Employment',
-  'Wirtschaft und Soziales': 'Economy and Social Affairs',
-  'Bundesland Berlin': 'Bundesland Berlin',
+}
+
+const BERLIN_TOPIC = 'Bundesland Berlin'
+
+/** English topic each German topic must translate to (the four `Topic` values). */
+const TOPICS: Record<string, string> = {
+  ...FEDERAL_TOPICS,
+  [BERLIN_TOPIC]: BERLIN_TOPIC,
 }
 
 const DECKS = [
@@ -66,3 +64,26 @@ for (const [name, deFile, enFile] of DECKS) {
     }
   })
 }
+
+test('federal deck: every question uses one of the three federal areas', () => {
+  for (const file of ['questions_de.json', 'questions_en.json']) {
+    const allowed = new Set(file.endsWith('_de.json') ? Object.keys(FEDERAL_TOPICS) : Object.values(FEDERAL_TOPICS))
+    const bad = load(file).filter(q => !allowed.has(q.topic)).map(q => `${q.id}:${q.topic}`)
+    assert.deepEqual(bad, [], `${file} has off-list topics`)
+  }
+})
+
+test('federal deck: each of the three areas is populated', () => {
+  const counts = new Map<string, number>()
+  for (const q of load('questions_de.json')) counts.set(q.topic, (counts.get(q.topic) ?? 0) + 1)
+  for (const topic of Object.keys(FEDERAL_TOPICS)) {
+    assert.ok((counts.get(topic) ?? 0) >= 30, `${topic} has only ${counts.get(topic) ?? 0} questions`)
+  }
+})
+
+test('Berlin deck: every question is "Bundesland Berlin" in both languages', () => {
+  for (const file of ['questions_berlin_de.json', 'questions_berlin_en.json']) {
+    const bad = load(file).filter(q => q.topic !== BERLIN_TOPIC).map(q => q.id)
+    assert.deepEqual(bad, [], `${file} has non-Berlin topics`)
+  }
+})
