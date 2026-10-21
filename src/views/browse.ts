@@ -2,6 +2,7 @@ import { ALL_QUESTIONS_DE, byId, State } from '../state'
 import type { Topic } from '../types'
 import { Locales } from '../i18n'
 import { bindDiagramToggles, diagramHintHtml } from '../diagrams'
+import { topicMeta } from '../lib/topics'
 
 const TOPICS: Array<{ label: string; value: Topic | 'ALL' }> = [
   { label: 'All Topics', value: 'ALL' },
@@ -19,7 +20,7 @@ export function BrowseView(): HTMLElement {
 
   root.innerHTML = `
     <header class="py-4">
-      <h1 class="text-xl font-bold">🔍 Browse & Search</h1>
+      <h1 class="font-serif text-[28px]">Catalogue</h1>
       <div class="mt-3 flex flex-col sm:flex-row gap-3">
         <input 
           id="search" 
@@ -37,7 +38,7 @@ export function BrowseView(): HTMLElement {
       </div>
     </header>
     
-    <div class="card p-0 overflow-hidden bg-base-100 shadow">
+    <div class="card p-0 overflow-hidden bg-surface border border-base-300">
       <div class="overflow-x-auto">
         <table class="table table-sm">
           <thead class="bg-base-200">
@@ -52,8 +53,7 @@ export function BrowseView(): HTMLElement {
       </div>
       
       <div id="noResults" class="hidden p-8 text-center text-base-content opacity-60">
-        <div class="text-4xl mb-2">🔍</div>
-        <p>No questions found matching your criteria</p>
+                <p>No questions found matching your criteria</p>
         <p class="text-sm mt-1">Try adjusting your search or topic filter</p>
       </div>
     </div>
@@ -109,44 +109,44 @@ export function BrowseView(): HTMLElement {
 
     for (const q of list) {
       const tr = document.createElement('tr')
-      tr.className = 'border-b border-border hover:bg-accent/50'
+      tr.className = 'border-b border-base-300 hover:bg-base-200/60'
       
       const showEnglish = langToggle.checked
       const en = byId(q.id).en
       
       tr.innerHTML = `
-        <td class="align-top p-4 text-sm font-medium text-foreground">${q.id}</td>
+        <td class="align-top p-4 text-sm font-medium text-ink">${q.id}</td>
         <td class="align-top p-4">
-          <div class="font-medium text-foreground leading-relaxed">${q.question}</div>
-          ${showEnglish ? `<div class='text-muted-foreground text-sm mt-2 italic leading-relaxed'>${en.question}</div>` : ''}
+          <div class="font-medium text-ink leading-relaxed">${q.question}</div>
+          ${showEnglish ? `<div class='text-muted text-sm mt-2 italic leading-relaxed'>${en.question}</div>` : ''}
           <div class="mt-3">
-            <span class="inline-block px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
-              ${q.topic}
+            <span class="inline-flex items-center gap-2 font-mono text-xs text-muted ${topicMeta(q.topic).className}">
+              <span class="topic-mark" aria-hidden="true"></span>${q.topic}
             </span>
           </div>
         </td>
         <td class="align-top p-4">
           <div class="space-y-2 mb-3">${q.choices.map((c, i) => `
-            <div class="text-sm p-2 rounded border border-border choice-item" data-i="${i}" data-correct="${i === q.correctIndex}">
+            <div class="text-sm p-2 rounded border border-base-300 choice-item" data-i="${i}" data-correct="${i === q.correctIndex}">
               <div class="font-medium">${String.fromCharCode(65 + i)}. ${c}</div>
-              ${showEnglish ? `<div class='text-muted-foreground text-xs mt-1'>${en.choices[i]}</div>` : ''}
+              ${showEnglish ? `<div class='text-muted text-xs mt-1'>${en.choices[i]}</div>` : ''}
             </div>
           `).join('')}</div>
           
           <button class="text-sm text-primary hover:text-primary/80 underline mb-2" data-reveal>
-            👁️ Reveal correct answer
+            Reveal correct answer
           </button>
           
           <div class="hidden text-sm" data-ans>
             <div class="p-2 bg-success/10 border border-success/30 rounded">
               <div class="text-success font-medium">
-                ✅ Correct: ${String.fromCharCode(65 + q.correctIndex)}. ${q.choices[q.correctIndex]}
+                Correct: ${String.fromCharCode(65 + q.correctIndex)}. ${q.choices[q.correctIndex]}
               </div>
               ${showEnglish ? `<div class="text-success/80 text-xs mt-1">${en.choices[q.correctIndex]}</div>` : ''}
             </div>
             <div class="mt-2 p-2 bg-info/10 border border-info/30 rounded">
               <div class="text-info text-xs">
-                💡 <strong>Hint:</strong> ${q.hint}
+                <strong>Hint:</strong> ${q.hint}
               </div>
               ${showEnglish ? `<div class="text-info/80 text-xs mt-1">${en.hint}</div>` : ''}
               ${diagramHintHtml(q.id, showEnglish)}
@@ -163,7 +163,7 @@ export function BrowseView(): HTMLElement {
       reveal.addEventListener('click', () => {
         ans.classList.toggle('hidden')
         if (!ans.classList.contains('hidden')) {
-          reveal.textContent = '🙈 Hide answer'
+          reveal.textContent = 'Hide answer'
           choices.forEach(choice => {
             const isCorrect = choice.dataset.correct === 'true'
             if (isCorrect) {
@@ -171,7 +171,7 @@ export function BrowseView(): HTMLElement {
             }
           })
         } else {
-          reveal.textContent = '👁️ Reveal correct answer'
+          reveal.textContent = 'Reveal correct answer'
           choices.forEach(choice => {
             choice.classList.remove('bg-success/10', 'border-success/30')
           })
@@ -183,7 +183,7 @@ export function BrowseView(): HTMLElement {
     
     // Update header with count
     const header = root.querySelector('header h1')!
-    header.textContent = `🔍 Browse & Search (${list.length} question${list.length !== 1 ? 's' : ''})`
+    header.textContent = `Catalogue (${list.length} question${list.length !== 1 ? 's' : ''})`
   }
 
   search.addEventListener('input', render)

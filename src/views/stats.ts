@@ -76,19 +76,19 @@ export function StatsView(): HTMLElement {
 
   root.innerHTML = `
     <header class="py-4">
-      <h1 class="text-xl font-bold">📊 Statistics</h1>
+      <h1 class="font-serif text-[28px]">Stats</h1>
       <p class="text-base-content opacity-70 text-sm">Track your learning progress and exam performance</p>
     </header>
     
     <!-- Key Stats -->
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-6">
-      <div class="card bg-base-100 shadow p-4 text-center">
+      <div class="card bg-surface border border-base-300 p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Study Streak</div>
         <div class="text-3xl font-bold text-primary mt-1">${streak}</div>
         <div class="text-xs text-base-content opacity-70 mt-1">day${streak === 1 ? '' : 's'}</div>
       </div>
       
-      <div class="card bg-base-100 shadow p-4 text-center">
+      <div class="card bg-surface border border-base-300 p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Overall Accuracy</div>
         <div class="text-3xl font-bold text-success mt-1">${Math.round((stats.accuracy || 0) * 100)}%</div>
         <div class="text-xs text-base-content opacity-70 mt-1">
@@ -96,7 +96,7 @@ export function StatsView(): HTMLElement {
         </div>
       </div>
       
-      <div class="card bg-base-100 shadow p-4 text-center">
+      <div class="card bg-surface border border-base-300 p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Review Due</div>
         <div class="text-3xl font-bold text-warning mt-1">${review.due + berlin.due}</div>
         <div class="text-xs text-base-content opacity-70 mt-1">
@@ -104,7 +104,7 @@ export function StatsView(): HTMLElement {
         </div>
       </div>
 
-      <div class="card bg-base-100 shadow p-4 text-center">
+      <div class="card bg-surface border border-base-300 p-4 text-center">
         <div class="text-base-content opacity-70 text-sm font-medium">Memory Accuracy</div>
         <div class="text-3xl font-bold text-info mt-1">${Math.round((stats.memoryAccuracy || 0) * 100)}%</div>
         <div class="text-xs text-base-content opacity-70 mt-1">
@@ -118,8 +118,8 @@ export function StatsView(): HTMLElement {
 
     <!-- Learning Progress -->
     <div class="grid gap-4 sm:grid-cols-2 mb-6">
-      <div class="card bg-base-100 shadow p-4">
-        <h2 class="text-lg font-semibold mb-3">📚 Learning Progress</h2>
+      <div class="card bg-surface border border-base-300 p-4">
+        <h2 class="text-lg font-semibold mb-3">Learning progress</h2>
         <div class="space-y-3">
           <div class="flex justify-between items-center">
             <span class="text-base-content opacity-70">Questions learned</span>
@@ -163,8 +163,8 @@ export function StatsView(): HTMLElement {
         </div>
       </div>
       
-      <div class="card bg-base-100 shadow p-4">
-        <h2 class="text-lg font-semibold mb-3">🎯 Exam Performance</h2>
+      <div class="card bg-surface border border-base-300 p-4">
+        <h2 class="text-lg font-semibold mb-3">Exam performance</h2>
         <div class="space-y-3">
           ${attempts.length > 0 ? `
             <div class="flex justify-between items-center">
@@ -186,15 +186,14 @@ export function StatsView(): HTMLElement {
                 <div class="flex justify-between items-center mt-1">
                   <span class="text-sm">${new Date(lastAttempt.timestamp).toLocaleDateString()}</span>
                   <span class="font-semibold ${lastAttempt.score >= 17 ? 'text-success' : 'text-error'}">
-                    ${lastAttempt.score}/33 ${lastAttempt.score >= 17 ? '✅' : '❌'}
+                    ${lastAttempt.score}/33 ${lastAttempt.score >= 17 ? 'passed' : 'not passed'}
                   </span>
                 </div>
               </div>
             ` : ''}
           ` : `
             <div class="text-center text-base-content opacity-70 py-4">
-              <div class="text-2xl mb-2">📝</div>
-              <div class="text-sm">No exam attempts yet</div>
+                            <div class="text-sm">No exam attempts yet</div>
               <button onclick="location.hash='#/exam'" class="btn btn-primary text-sm mt-2">
                 Take your first exam
               </button>
@@ -206,8 +205,8 @@ export function StatsView(): HTMLElement {
     
     <!-- Recent Exam History -->
     ${attempts.length > 0 ? `
-      <div class="card bg-base-100 shadow p-4 mb-6">
-        <h2 class="text-lg font-semibold mb-3">📈 Recent Exam History</h2>
+      <div class="card bg-surface border border-base-300 p-4 mb-6">
+        <h2 class="text-lg font-semibold mb-3">Recent exam history</h2>
         <div class="overflow-x-auto">
           <table class="table table-zebra w-full">
             <thead>
@@ -238,8 +237,8 @@ export function StatsView(): HTMLElement {
     ` : ''}
     
     <!-- Reset Section -->
-    <div class="card bg-base-100 shadow p-4 border border-error">
-      <h2 class="text-lg font-semibold text-error mb-3">🗑️ Reset Progress</h2>
+    <div class="card bg-surface border border-base-300 p-4 border border-error">
+      <h2 class="text-lg font-semibold text-error mb-3">Reset progress</h2>
       <p class="text-sm text-base-content opacity-70 mb-4">
         This will permanently delete all your progress, statistics, and exam history. 
         This action cannot be undone.

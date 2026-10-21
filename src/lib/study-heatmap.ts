@@ -88,11 +88,11 @@ export function StudyHeatmap(stats: Stats, now: Date = new Date()): HTMLElement 
   const gridLabel = describeGrid(heatmap, studiedDates, today, longest)
 
   const root = document.createElement('div')
-  root.className = 'card bg-base-100 shadow p-4 mb-6'
+  root.className = 'card bg-surface border border-base-300 p-4 mb-6'
 
   root.innerHTML = `
     <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
-      <h2 class="text-lg font-semibold">🗓️ Study Calendar</h2>
+      <h2 class="text-lg font-semibold">Study calendar</h2>
       ${hasHistory ? `
         <div class="text-sm text-base-content opacity-70">
           ${heatmap.studiedCount} of the last ${WEEKS * 7} days
@@ -122,8 +122,7 @@ export function StudyHeatmap(stats: Stats, now: Date = new Date()): HTMLElement 
       ` : ''}
     ` : `
       <div class="text-center text-base-content opacity-70 py-6">
-        <div class="text-2xl mb-2">📅</div>
-        <div class="text-sm">No study days recorded yet</div>
+                <div class="text-sm">No study days recorded yet</div>
         <div class="text-xs mt-1">Answer a card in Review or Memory and today will light up here.</div>
         <button class="btn btn-primary btn-sm mt-3" id="heatmapReviewBtn">Start reviewing</button>
       </div>

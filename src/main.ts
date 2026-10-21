@@ -10,10 +10,18 @@ import { StatsView } from './views/stats'
 import { fontManager, type FontPairingKey } from './lib/font-pairings'
 
 // Configure font pairing (change this to your desired font pairing)
-const SELECTED_FONT_PAIRING: FontPairingKey = "bitter-raleway"; // Change this to any available pairing
+const SELECTED_FONT_PAIRING: FontPairingKey = "newsreader-instrument"; // Change this to any available pairing
 
 // Initialize fonts early
 fontManager.loadFontPairing(SELECTED_FONT_PAIRING)
+
+/** Stroke paths for the tab bar, drawn in a 24×24 box. */
+const TAB_ICONS: Partial<Record<Route, string>> = {
+  '#/': '<path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5h-6v5H5a1 1 0 0 1-1-1z"/>',
+  '#/memory': '<rect x="4" y="6" width="13" height="14" rx="1.5"/><path d="M8 3h11a1 1 0 0 1 1 1v13"/>',
+  '#/browse': '<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
+  '#/stats': '<path d="M5 20V11M12 20V5M19 20v-6"/>',
+}
 
 function shell(route: Route, content: HTMLElement) {
   const routeConfig = ROUTE_CONFIG[route]
@@ -23,81 +31,28 @@ function shell(route: Route, content: HTMLElement) {
 
   app.className = routeConfig.showNav ? 'app-shell' : 'app-shell app-shell-immersive'
   app.innerHTML = `
+    <main class="app-main ${routeConfig.showNav ? 'app-main-tabs' : ''} ${routeConfig.mainClassName || ''}"></main>
     ${routeConfig.showNav ? `
-      <nav class="app-nav border-b border-base-300 bg-base-100/95 backdrop-blur sticky top-0 z-50">
-        <div class="mx-auto flex w-full max-w-4xl items-center gap-3 px-4 py-3">
-          <button data-nav="#/" class="nav-brand btn btn-ghost px-0 normal-case text-left text-lg sm:text-xl text-primary font-bold">
-            Gouldian Finch
-          </button>
-          <div class="ml-auto hidden items-center gap-1 md:flex">
-            ${navRoutes.map(([path, config]) => `
-              <button data-nav="${path}" class="nav-btn">${config.label}</button>
-            `).join('')}
-          </div>
-          <button
-            id="mobileMenuBtn"
-            class="btn btn-ghost btn-sm ml-auto md:hidden"
-            type="button"
-            aria-expanded="false"
-            aria-controls="mobileNavPanel"
-            aria-label="Toggle navigation"
-          >
-            Menu
-          </button>
-        </div>
-        <div id="mobileNavPanel" class="mobile-nav-panel hidden border-t border-base-300 px-4 pb-4 md:hidden">
-          <div class="flex flex-col gap-2 pt-3">
-            ${navRoutes.map(([path, config]) => `
-              <button data-nav="${path}" class="nav-btn nav-btn-mobile justify-start">${config.label}</button>
-            `).join('')}
-          </div>
+      <nav class="tab-bar" aria-label="Main">
+        <div class="tab-bar-inner">
+          ${navRoutes.map(([path, config]) => `
+            <button type="button" data-nav="${path}" class="tab-btn" ${path === route ? 'aria-current="page"' : ''}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${TAB_ICONS[path] ?? ''}</svg>
+              <span>${config.label}</span>
+            </button>
+          `).join('')}
         </div>
       </nav>
     ` : ''}
-    <main class="flex-1 max-w-4xl mx-auto p-4 w-full min-h-screen ${routeConfig.mainClassName || ''}"></main>
   `
-  
+
   const main = app.querySelector('main')!
   main.appendChild(content)
-  
-  // Handle navigation
-  const navButtons = app.querySelectorAll('[data-nav]') as NodeListOf<HTMLButtonElement>
-  navButtons.forEach(btn => {
+
+  app.querySelectorAll<HTMLButtonElement>('[data-nav]').forEach(btn => {
     btn.addEventListener('click', () => {
       location.hash = btn.dataset.nav!
     })
-  })
-
-  const mobileMenuBtn = app.querySelector('#mobileMenuBtn') as HTMLButtonElement | null
-  const mobileNavPanel = app.querySelector('#mobileNavPanel') as HTMLDivElement | null
-
-  const closeMobileMenu = () => {
-    if (!mobileMenuBtn || !mobileNavPanel) return
-    mobileMenuBtn.setAttribute('aria-expanded', 'false')
-    mobileNavPanel.classList.add('hidden')
-  }
-
-  mobileMenuBtn?.addEventListener('click', () => {
-    if (!mobileNavPanel) return
-    const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true'
-    mobileMenuBtn.setAttribute('aria-expanded', expanded ? 'false' : 'true')
-    mobileNavPanel.classList.toggle('hidden', expanded)
-  })
-
-  navButtons.forEach(btn => {
-    if (btn.id !== 'mobileMenuBtn') {
-      btn.addEventListener('click', closeMobileMenu)
-    }
-  })
-  
-  // Highlight active nav button
-  const currentHash = location.hash || '#/'
-  navButtons.forEach(btn => {
-    if (btn.dataset.nav === currentHash) {
-      btn.classList.add('nav-btn-active')
-    } else {
-      btn.classList.remove('nav-btn-active')
-    }
   })
 }
 

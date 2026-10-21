@@ -5,6 +5,7 @@ import { navigate } from '../router'
 import { BERLIN_TOPIC, studyIdForQuestion } from '../lib/study-ids'
 import { recordExamCompletion } from '../lib/study-stats'
 import { bindDiagramToggles, diagramHintHtml } from '../diagrams'
+import { topicMeta } from '../lib/topics'
 
 function sampleExam(): Question[] {
   const berlin = ALL_BERLIN_DE
@@ -19,7 +20,7 @@ function sampleExam(): Question[] {
     }
     return out
   }
-  
+
   return [...pick(federal, 30), ...pick(berlin, 3)]
 }
 
@@ -37,9 +38,8 @@ export function ExamView(): HTMLElement {
   root.innerHTML = `
     <header class="exam-header">
       <div>
-        <p class="text-xs uppercase tracking-[0.18em] text-base-content/60">Practice mode</p>
-        <h1 class="text-xl font-bold">📝 Exam Simulation</h1>
-        <p class="text-sm text-base-content/70">33 questions · No timer · Pass with 17 correct</p>
+        <h1 class="font-serif text-[28px]">Practice exam</h1>
+        <p class="font-mono text-xs text-muted">33 questions · no timer · pass with 17</p>
       </div>
       <button id="exitBtn" class="btn btn-ghost btn-sm">Exit exam</button>
     </header>
@@ -47,8 +47,8 @@ export function ExamView(): HTMLElement {
       <div id="area"></div>
     </div>
     <div class="cta-bar" id="ctaBar">
-      <button class="btn btn-secondary flex-1" id="backBtn">← Back</button>
-      <button class="btn btn-primary flex-1" id="nextBtn">Next →</button>
+      <button class="btn btn-outline min-h-14 flex-1" id="backBtn">Back</button>
+      <button class="btn btn-primary min-h-14 flex-1" id="nextBtn">Next</button>
     </div>
   `
 
@@ -61,41 +61,37 @@ export function ExamView(): HTMLElement {
   function render() {
     const q = questions[idx]
     const chosen = answers.get(q.id)
-    
+    const meta = topicMeta(q.topic)
+
     area.innerHTML = `
-      <div class="card bg-base-100 shadow">
-        <div class="flex items-center justify-between mb-4">
-          <span class="badge badge-neutral">${idx+1} / ${questions.length}</span>
-          <span class="badge badge-secondary">${q.topic}</span>
-        </div>
-        
-        <h2 class="mt-3 text-xl font-semibold mb-4">${q.question}</h2>
-        <div class="mt-4 grid gap-2" id="choices"></div>
-        
-        <div class="mt-6 flex items-center justify-between text-sm text-muted-foreground">
-          <span>Question ${idx + 1} of ${questions.length}</span>
-          <span>${answers.size} answered</span>
-        </div>
+      <div class="flex items-center justify-between font-mono text-xs text-muted">
+        <span class="inline-flex items-center gap-2 ${meta.className}"><span class="topic-mark" aria-hidden="true"></span>${meta.short} · Nr. ${q.id}</span>
+        <span>${idx + 1}/${questions.length} · ${answers.size} answered</span>
       </div>
+      <h2 lang="de" class="mt-3 font-serif text-[28px] leading-[1.18]">${q.question}</h2>
+      <div class="mt-4 flex flex-col border-t border-base-300" id="choices"></div>
     `
 
     const choicesBox = area.querySelector('#choices') as HTMLDivElement
     q.choices.forEach((c, i) => {
       const b = document.createElement('button')
-      b.className = 'w-full text-left border-2 border-border rounded-xl p-4 hover:bg-accent transition-colors'
+      b.type = 'button'
+      b.className = 'answer px-3 text-[17px]'
+      b.lang = 'de'
+      b.setAttribute('aria-pressed', String(chosen === i))
       if (chosen === i) {
-        b.classList.add('border-primary', 'bg-primary/10')
+        b.classList.add('font-semibold', 'bg-base-200')
       }
       b.textContent = c
-      b.addEventListener('click', () => { 
+      b.addEventListener('click', () => {
         answers.set(q.id, i)
-        render() 
+        render()
       })
       choicesBox.appendChild(b)
     })
 
     backBtn.disabled = idx === 0
-    nextBtn.textContent = idx === questions.length - 1 ? 'Finish Exam' : 'Next →'
+    nextBtn.textContent = idx === questions.length - 1 ? 'Finish exam' : 'Next'
   }
 
   function finish() {
@@ -104,7 +100,7 @@ export function ExamView(): HTMLElement {
 
     const incorrect: { id: number; chosenIndex: number }[] = []
     let correct = 0
-    
+
     for (const q of questions) {
       const c = answers.get(q.id)
       if (c === q.correctIndex) {
@@ -130,63 +126,86 @@ export function ExamView(): HTMLElement {
     // The bar sits outside the results area, so it has to go explicitly.
     ctaBar.remove()
 
+    // Per-topic split, in the order topics first appear in the exam.
+    const byTopic = new Map<string, { correct: number; total: number }>()
+    for (const q of questions) {
+      const row = byTopic.get(q.topic) ?? { correct: 0, total: 0 }
+      row.total++
+      if (answers.get(q.id) === q.correctIndex) row.correct++
+      byTopic.set(q.topic, row)
+    }
+    const passMark = (17 / questions.length) * 100
+
     area.innerHTML = `
-      <div class="card">
-        <div class="text-center mb-6">
-          <div class="text-4xl mb-2">${pass ? '✅' : '❌'}</div>
-          <h2 class="text-2xl font-bold">${correct}/${questions.length}</h2>
-          <p class="text-lg ${pass ? 'text-success' : 'text-destructive'} font-semibold">
-            ${pass ? 'PASSED' : 'FAILED'}
-          </p>
-          <p class="text-sm text-muted-foreground mt-2">
-            ${pass ? 'Congratulations! You would pass the exam.' : 'You need 17 or more correct answers to pass.'}
-          </p>
+      <section class="result-head ${pass ? 'result-head-pass' : 'result-head-fail'}">
+        <p class="font-mono text-xs opacity-75">${pass ? 'Passed' : 'Not passed'} · 17 needed</p>
+        <p class="mt-1 flex items-baseline gap-2.5 font-serif">
+          <span class="text-[120px] leading-[0.9]">${correct}</span>
+          <span class="text-[34px] opacity-75">/ ${questions.length}</span>
+        </p>
+        <div class="relative mt-5 h-1.5 rounded-full bg-white/20" aria-hidden="true">
+          <div class="h-full rounded-full bg-surface" style="width: ${(correct / questions.length) * 100}%"></div>
+          <div class="absolute -top-[5px] h-4 w-0.5 bg-live" style="left: ${passMark}%"></div>
         </div>
-        
-        ${incorrect.length > 0 ? `
-          <div class="mb-6">
-            <h3 class="font-semibold mb-3">❌ Wrong Answers (${incorrect.length})</h3>
-            <div class="space-y-3 max-h-60 overflow-y-auto" id="wrongList"></div>
-            <button id="addWrong" class="btn btn-primary mt-4 w-full">
-              Add wrong answers to review deck
-            </button>
-          </div>
-        ` : '<div class="mb-6 p-4 bg-success/10 rounded-lg text-center"><p class="text-success">🎉 Perfect score! No wrong answers!</p></div>'}
-        
-        <div>
-          <h3 class="font-semibold mb-3">📊 Previous attempts (${attempts.length})</h3>
-          <div class="space-y-2 max-h-40 overflow-y-auto">
-            ${attempts.slice(0, 10).map(a => `
-              <div class="flex justify-between items-center text-sm p-2 bg-muted rounded">
-                <span>${new Date(a.timestamp).toLocaleDateString()}</span>
-                <span class="font-medium ${a.score >= 17 ? 'text-success' : 'text-destructive'}">
-                  ${a.score}/${a.total} ${a.score >= 17 ? '✅' : '❌'}
-                </span>
-              </div>
-            `).join('')}
-            ${attempts.length === 0 ? '<p class="text-sm text-muted-foreground">No previous attempts</p>' : ''}
-          </div>
+        <p class="mt-3 text-sm opacity-85">
+          ${pass ? 'You would pass the exam.' : 'You need 17 or more correct answers to pass.'}
+        </p>
+      </section>
+
+      <section class="mt-5" aria-label="By topic">
+        <h3 class="font-mono text-xs text-muted">By topic</h3>
+        <div class="mt-1 flex flex-col">
+          ${[...byTopic].map(([topic, row]) => `
+            <div class="flex min-h-12 items-center gap-3 border-b border-base-300 ${topicMeta(topic).className}">
+              <span class="topic-mark size-2.5" aria-hidden="true"></span>
+              <span class="flex-1">${topic}</span>
+              <span class="font-mono text-[13px]">${row.correct}/${row.total}</span>
+            </div>
+          `).join('')}
         </div>
-        
-        <button onclick="location.hash='#/'" class="btn btn-secondary mt-4 w-full">
-          Back to Home
-        </button>
-      </div>
+      </section>
+
+      ${incorrect.length > 0 ? `
+        <section class="mt-6">
+          <h3 class="font-mono text-xs text-muted">${incorrect.length} ${incorrect.length === 1 ? 'mistake' : 'mistakes'}</h3>
+          <div class="mt-2 space-y-3" id="wrongList"></div>
+          <button id="addWrong" class="btn btn-primary mt-4 w-full">
+            Add wrong answers to review deck
+          </button>
+        </section>
+      ` : '<p class="mt-6 font-serif text-xl">Perfect score. No wrong answers.</p>'}
+
+      <section class="mt-8">
+        <h3 class="font-mono text-xs text-muted">Previous attempts (${attempts.length})</h3>
+        <div class="mt-1 flex flex-col">
+          ${attempts.slice(0, 10).map(a => `
+            <div class="flex min-h-11 items-center justify-between border-b border-base-300 text-sm">
+              <span>${new Date(a.timestamp).toLocaleDateString()}</span>
+              <span class="font-mono ${a.score >= 17 ? 'text-correct' : 'text-wrong'}">
+                ${a.score}/${a.total} ${a.score >= 17 ? 'passed' : 'not passed'}
+              </span>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+
+      <button type="button" id="doneBtn" class="btn btn-outline mt-6 w-full">Back to home</button>
     `
+    area.querySelector('#doneBtn')!.addEventListener('click', () => navigate('#/'))
 
     if (incorrect.length > 0) {
       const wrongList = area.querySelector('#wrongList') as HTMLDivElement
       wrongList.innerHTML = incorrect.map(w => {
         const q = questions.find(qq => qq.id === w.id)!
         return `
-          <div class="border border-destructive/20 rounded-lg p-3 bg-destructive/5">
-            <div class="font-medium text-sm">Question ${q.id}</div>
-            <div class="text-sm mt-1">${q.question}</div>
-            <div class="text-xs text-destructive mt-2">
-              Your answer: ${w.chosenIndex >= 0 ? q.choices[w.chosenIndex] : '—'}
+          <div class="border-b border-base-300 pb-3 ${topicMeta(q.topic).className}">
+            <div class="flex items-center gap-2 font-mono text-xs text-muted"><span class="topic-mark" aria-hidden="true"></span>Nr. ${q.id}</div>
+            <div lang="de" class="mt-1 font-serif text-[17px] leading-snug">${q.question}</div>
+            <div class="mt-2 text-sm text-wrong">
+              Your answer: <span lang="de">${w.chosenIndex >= 0 ? q.choices[w.chosenIndex] : '—'}</span>
             </div>
-            <div class="text-xs text-success mt-1">
-              Correct: ${q.choices[q.correctIndex]}
+            <div class="mt-0.5 text-sm font-semibold text-correct">
+              Correct: <span lang="de">${q.choices[q.correctIndex]}</span>
             </div>
             ${diagramHintHtml(q.id, false)}
           </div>
@@ -201,33 +220,32 @@ export function ExamView(): HTMLElement {
         for (const w of incorrect) {
           const q = questions.find(qq => qq.id === w.id)!
           m = upsertCard(m, studyIdForQuestion(q), (p) => ({
-            ...p, 
-            interval: 0, 
-            dueDate: new Date().toISOString() 
+            ...p,
+            interval: 0,
+            dueDate: new Date().toISOString()
           }))
         }
         saveProgress(m)
         addWrong.disabled = true
-        addWrong.textContent = 'Added to review deck ✓'
-        addWrong.classList.add('bg-success')
+        addWrong.textContent = 'Added to review deck'
       })
     }
   }
 
-  backBtn.addEventListener('click', () => { 
-    if (idx > 0) { 
+  backBtn.addEventListener('click', () => {
+    if (idx > 0) {
       idx--
-      render() 
-    } 
+      render()
+    }
   })
-  
-  nextBtn.addEventListener('click', () => { 
-    if (idx < questions.length - 1) { 
+
+  nextBtn.addEventListener('click', () => {
+    if (idx < questions.length - 1) {
       idx++
-      render() 
-    } else { 
-      finish() 
-    } 
+      render()
+    } else {
+      finish()
+    }
   })
 
   exitBtn.addEventListener('click', () => navigate('#/'))

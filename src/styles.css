@@ -1,6 +1,75 @@
 @import "tailwindcss";
 @plugin "../node_modules/daisyui/index.js" {
-  themes: dracula;
+  themes: false;
+}
+
+/*
+ * "Fink" — warm printed-matter palette. Flat: depth comes from surface tone
+ * and hairlines, never shadows. Spec: docs/design/restyle-3c-handover.md.
+ */
+@plugin "../node_modules/daisyui/theme/index.js" {
+  name: "fink";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #F6F3EA;
+  --color-base-200: #E8DFCF;
+  --color-base-300: #D6D1C4;
+  --color-base-content: #161614;
+  --color-primary: #161614;
+  --color-primary-content: #F6F3EA;
+  --color-secondary: #E8DFCF;
+  --color-secondary-content: #161614;
+  --color-accent: #B5532F;
+  --color-accent-content: #FFFDF7;
+  --color-neutral: #161614;
+  --color-neutral-content: #F6F3EA;
+  --color-info: #EBDCF7;
+  --color-info-content: #4A3666;
+  --color-success: #0B4A42;
+  --color-success-content: #FFFDF7;
+  --color-warning: #F5A04A;
+  --color-warning-content: #161614;
+  --color-error: #A8442A;
+  --color-error-content: #FFFDF7;
+  --radius-selector: 0.375rem;
+  --radius-field: 0.375rem;
+  --radius-box: 0.375rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme {
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-surface: #FFFDF7;
+  --color-hairline: #D6D1C4;
+  --color-ink: #161614;
+  --color-muted: #66645C;
+  --color-faded: #807D74;
+  --color-correct: #0B4A42;
+  --color-wrong: #A8442A;
+  --color-hint: #EBDCF7;
+  --color-hint-ink: #4A3666;
+  --color-live: #F5A04A;
+}
+
+/*
+ * One class per topic sets the four values a topic needs; components read
+ * them through var(--topic*) so every view colours a topic the same way.
+ * `mark` is the small-square colour: pale lavender vanishes on cream, so
+ * Gesellschaft gets a deeper shade for markers only.
+ */
+@layer base {
+  .topic-politik { --topic: #B5532F; --topic-ink: #FFFDF7; --topic-sub: #F7DCCF; --topic-mark: #B5532F; }
+  .topic-geschichte { --topic: #0B4A42; --topic-ink: #FFFDF7; --topic-sub: #BFD8D1; --topic-mark: #0B4A42; }
+  .topic-gesellschaft { --topic: #E3D0F5; --topic-ink: #161614; --topic-sub: #4A3666; --topic-mark: #B898DB; }
+  .topic-berlin { --topic: #F5A04A; --topic-ink: #161614; --topic-sub: #4D2F0C; --topic-mark: #F5A04A; }
 }
 
 @layer components {
@@ -12,24 +81,122 @@
     @apply w-full;
   }
 
-  .app-nav {
-    @apply sticky top-0 z-50;
+  .app-main {
+    @apply flex-1 max-w-2xl mx-auto w-full min-h-screen px-4 pt-6 pb-8;
   }
 
-  .nav-brand {
-    @apply min-h-[44px];
+  .app-main-tabs {
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
   }
 
-  .nav-btn {
-    @apply inline-flex items-center justify-center px-3 py-2 rounded-md hover:bg-base-200 text-base-content opacity-70 font-medium transition-colors duration-200 text-sm whitespace-nowrap;
+  .tab-bar {
+    @apply fixed inset-x-0 bottom-0 z-50 border-t border-base-300 bg-base-100;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  .nav-btn-active {
-    @apply bg-base-200 text-base-content;
+  .tab-bar-inner {
+    @apply mx-auto grid max-w-2xl grid-cols-4 px-2 py-1;
   }
 
-  .nav-btn-mobile {
-    @apply w-full rounded-xl border border-base-300 bg-base-100 px-4 py-3 text-left text-base opacity-100;
+  .tab-btn {
+    @apply flex min-h-[52px] flex-col items-center justify-center gap-0.5 text-xs text-muted transition-colors;
+  }
+
+  .tab-btn[aria-current="page"] {
+    @apply font-semibold text-ink;
+  }
+
+  /* Home: one full-width band per topic, coloured by its .topic-* class. */
+  .topic-band {
+    @apply flex min-h-[72px] w-full items-center justify-between gap-3 rounded-box px-5 transition-[filter];
+    background: var(--topic);
+    color: var(--topic-ink);
+  }
+
+  .topic-band:hover {
+    filter: brightness(0.96);
+  }
+
+  .topic-band-sub {
+    color: var(--topic-sub);
+  }
+
+  .topic-mark {
+    @apply inline-block size-2 shrink-0;
+    background: var(--topic-mark);
+  }
+
+  /* Question screens: the header band takes the question's topic colour. */
+  .question-head {
+    @apply -mx-4 px-5 pb-6 pt-3;
+    background: var(--topic);
+    color: var(--topic-ink);
+  }
+
+  .question-head-sub {
+    color: var(--topic-sub);
+  }
+
+  .question-progress {
+    @apply h-[3px] flex-1 overflow-hidden rounded-sm;
+    background: color-mix(in srgb, var(--topic-ink) 30%, transparent);
+  }
+
+  .question-progress > span {
+    @apply block h-full rounded-sm;
+    background: var(--topic-ink);
+  }
+
+  .lang-switch {
+    @apply inline-flex min-h-9 items-center gap-2 text-[13px] font-semibold;
+  }
+
+  .lang-switch-track {
+    @apply relative inline-block h-5 w-[34px] rounded-full border;
+    border-color: var(--topic-ink);
+  }
+
+  .lang-switch-track::after {
+    content: "";
+    @apply absolute left-[3px] top-[2px] size-3.5 rounded-full transition-transform;
+    background: var(--topic-ink);
+  }
+
+  .lang-switch[aria-checked="true"] .lang-switch-track {
+    background: var(--topic-ink);
+  }
+
+  .lang-switch[aria-checked="true"] .lang-switch-track::after {
+    background: var(--topic);
+    transform: translateX(14px);
+  }
+
+  .answer {
+    @apply flex min-h-[56px] w-full items-center gap-3 border-b border-base-300 py-2 text-left transition-colors;
+  }
+
+  .answer:not(:disabled):hover {
+    @apply bg-base-200/60;
+  }
+
+  .answer.is-correct {
+    @apply font-semibold text-correct;
+  }
+
+  .answer.is-wrong {
+    @apply text-wrong;
+  }
+
+  .answer.is-wrong .answer-de {
+    @apply line-through decoration-[1.5px];
+  }
+
+  .answer.is-faded {
+    @apply text-faded;
+  }
+
+  .hint-box {
+    @apply rounded-box bg-hint px-4 py-3.5 font-serif text-base leading-snug;
   }
 
   .toggle {
@@ -41,17 +208,32 @@
   }
 
   .cta-bar {
-    @apply fixed left-3 right-3 bottom-3 bg-base-100/95 border border-base-300 rounded-2xl p-3 flex gap-3 shadow-xl backdrop-blur;
+    @apply fixed inset-x-0 bottom-0 z-40 flex gap-2.5 border-t border-base-300 bg-base-100 px-4 pt-3;
     padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
-    @apply sm:relative sm:bottom-auto sm:left-auto sm:right-auto sm:border-0 sm:rounded-none sm:bg-transparent sm:p-0 sm:mt-6 sm:shadow-none sm:backdrop-blur-none;
+    /* Same column as .app-main (max-w-2xl) while the bar spans the viewport. */
+    padding-inline: max(1rem, calc((100% - 42rem) / 2 + 1rem));
   }
 
+  /* Review, Berlin, exam: no tab bar; room for the fixed answer bar instead. */
   .main-immersive {
-    @apply max-w-none px-4 pt-4 pb-32;
+    @apply pt-0 pb-36;
   }
 
   .exam-header {
-    @apply flex items-start justify-between gap-3 rounded-2xl border border-base-300 bg-base-100/60 px-4 py-4 mb-4;
+    @apply mb-4 flex items-start justify-between gap-3 border-b border-base-300 pb-4 pt-6;
+  }
+
+  /* Exam result: the one full dark section — forest when passed, ink when not. */
+  .result-head {
+    @apply -mx-4 px-5 pb-8 pt-8 text-surface;
+  }
+
+  .result-head-pass {
+    @apply bg-correct;
+  }
+
+  .result-head-fail {
+    @apply bg-ink;
   }
 
   .exam-body {
@@ -154,16 +336,8 @@
 
   /* Ensure minimum touch targets on mobile */
   @media (max-width: 640px) {
-    .main-immersive {
-      @apply px-3 pt-3 pb-32;
-    }
-
     .page {
       @apply pb-28;
-    }
-
-    .exam-header {
-      @apply px-3 py-3;
     }
 
     .memory-card {
@@ -190,14 +364,6 @@
     .btn-secondary,
     button {
       @apply min-h-[44px] text-base;
-    }
-
-    .nav-btn {
-      @apply min-h-[44px] px-3;
-    }
-
-    .app-nav {
-      @apply px-0;
     }
 
     .toggle {

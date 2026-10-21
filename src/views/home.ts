@@ -1,22 +1,37 @@
 import { navigate } from '../router'
-import { ALL_BERLIN_DE, ALL_DE, ALL_QUESTIONS_DE, ALL_TERMS } from '../state'
-import { loadProgress } from '../storage'
-import type { ProgressMap } from '../types'
+import { ALL_BERLIN_DE, ALL_DE } from '../state'
+import { loadExamAttempts, loadProgress, loadStats } from '../storage'
+import type { ProgressMap, Question, StudyId, Topic } from '../types'
 import { Footer } from '../lib/footer'
-import { studyCounts } from '../lib/study-session'
-import { berlinStudyId, questionStudyId, termStudyId } from '../lib/study-ids'
+import { isMature, studyCounts, type StudyCounts } from '../lib/study-session'
+import { currentStreak } from '../lib/study-stats'
+import { berlinStudyId, questionStudyId } from '../lib/study-ids'
+import { FEDERAL_TOPICS, topicMeta } from '../lib/topics'
+
+interface TopicDeck {
+  topic: Topic
+  counts: StudyCounts
+  learned: number
+  size: number
+  /** Where tapping the band goes. */
+  open: () => void
+}
 
 /**
- * Reads how much of each deck is waiting. Due cards and never-started ones are
- * kept apart: a review that has come round again is work the learner already
- * owes, while an untouched question is simply new material.
+ * Reads one topic's slice of a deck. Due cards and never-started ones are kept
+ * apart: a review that has come round again is work the learner already owes,
+ * while an untouched question is simply new material.
  */
-function deckCounts(prog: ProgressMap) {
-  return {
-    review: studyCounts(ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })), prog),
-    berlin: studyCounts(ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })), prog),
-    memory: studyCounts(ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })), prog),
-  }
+function topicDeck(
+  topic: Topic,
+  questions: Question[],
+  studyId: (id: number) => StudyId,
+  prog: ProgressMap,
+  open: () => void,
+): TopicDeck {
+  const items = questions.map((q) => ({ studyId: studyId(q.id) }))
+  const learned = items.filter(({ studyId: id }) => prog[id] && isMature(prog[id])).length
+  return { topic, counts: studyCounts(items, prog), learned, size: items.length, open }
 }
 
 /** "12 due · 88 not started", trimmed to whichever halves are non-zero. */
@@ -27,66 +42,88 @@ function waitingLabel(counts: { due: number; unseen: number }): string {
   return parts.length > 0 ? parts.join(' · ') : 'all caught up'
 }
 
+/** Right-hand side of a band: what is due, else what is new, else done. */
+function bandStatus({ counts }: TopicDeck): string {
+  if (counts.due > 0) {
+    return `<span class="font-serif text-[34px] leading-none">${counts.due}<span class="sr-only"> due</span></span>`
+  }
+  if (counts.unseen > 0) {
+    return `<span class="font-mono text-xs">${counts.unseen} new</span>`
+  }
+  return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="nothing due"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`
+}
+
 export function HomeView(): HTMLElement {
   const root = document.createElement('div')
   root.className = 'page'
   // Read once: every call re-parses localStorage and re-runs the id migration.
-  const { review, berlin, memory } = deckCounts(loadProgress())
-  
+  const prog = loadProgress()
+
+  const decks: TopicDeck[] = [
+    ...FEDERAL_TOPICS.map((topic) => topicDeck(
+      topic,
+      ALL_DE.filter((q) => q.topic === topic),
+      questionStudyId,
+      prog,
+      () => navigate('#/review', { topic: topicMeta(topic).slug }),
+    )),
+    topicDeck('Bundesland Berlin', ALL_BERLIN_DE, berlinStudyId, prog, () => navigate('#/berlin')),
+  ].filter((deck) => deck.size > 0)
+
+  const totalDue = decks.reduce((sum, deck) => sum + deck.counts.due, 0)
+  const federal = studyCounts(ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })), prog)
+  const streak = currentStreak(loadStats())
+  const lastExam = loadExamAttempts()[0]
+
   root.innerHTML = `
-    <header class="py-6">
-      <h1 class="text-3xl font-bold text-center">🇩🇪 BürgerTest Trainer</h1>
-      <p class="text-center text-base-content opacity-70 mt-2">Prepare for your German naturalization exam</p>
+    <header class="flex min-h-11 items-center justify-between">
+      <span class="font-serif text-[22px] font-medium">Gouldian Finch</span>
+      ${streak > 0 ? `
+        <span class="flex items-center gap-1.5 font-mono text-xs text-muted">
+          <span aria-hidden="true" class="size-[7px] rounded-full bg-live"></span>${streak}-day streak
+        </span>
+      ` : ''}
     </header>
-    
-    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-      <div class="card bg-base-100 shadow">
-        <h2 class="text-xl font-semibold mb-3">📚 Study Mode</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Spaced repetition learning — ${waitingLabel(review)}</p>
-        <button id="reviewBtn" class="btn btn-primary w-full">Start Review Session</button>
-      </div>
 
-      <div class="card bg-base-100 shadow">
-        <h2 class="text-xl font-semibold mb-3">🐻 Berlin State Questions</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Drill the ${ALL_BERLIN_DE.length} Berlin questions on their own deck — ${waitingLabel(berlin)}</p>
-        <button id="berlinBtn" class="btn btn-primary w-full">Start Berlin Session</button>
-      </div>
+    <h1 class="mt-4 font-serif text-4xl leading-[1.05]">
+      ${totalDue > 0
+        ? `<span class="text-[64px]">${totalDue}</span> ${totalDue === 1 ? 'question' : 'questions'}<br>due today.`
+        : 'Nothing due today.'}
+    </h1>
 
-      <div class="card bg-base-100 shadow">
-        <h2 class="text-xl font-semibold mb-3">🧠 Memory Terms</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Flip through ${ALL_TERMS.length} German terms — ${waitingLabel(memory)}</p>
-        <button id="memoryBtn" class="btn btn-primary w-full">Start Memory Session</button>
-      </div>
-      
-      <div class="card bg-base-100 shadow">
-        <h2 class="text-xl font-semibold mb-3">📝 Exam Simulation</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Practice with 33 questions (30 federal + 3 Berlin)</p>
-        <button id="examBtn" class="btn btn-primary w-full">Take Practice Exam</button>
-      </div>
-      
-      <div class="card bg-base-100 shadow">
-        <h2 class="text-xl font-semibold mb-3">🔍 Browse Questions</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">Search and filter all ${ALL_QUESTIONS_DE.length} questions by topic</p>
-        <button id="browseBtn" class="btn btn-secondary w-full">Browse & Search</button>
-      </div>
-      
-      <div class="card bg-base-100 shadow">
-        <h2 class="text-xl font-semibold mb-3">📊 Statistics</h2>
-        <p class="text-sm text-base-content opacity-70 mb-4">View your progress, streak, and accuracy</p>
-        <button id="statsBtn" class="btn btn-secondary w-full">View Stats</button>
-      </div>
+    <div class="mt-5 flex flex-col gap-1.5">
+      ${decks.map((deck, i) => `
+        <button type="button" data-deck="${i}" class="topic-band ${topicMeta(deck.topic).className}">
+          <span class="flex min-w-0 flex-col gap-0.5 text-left">
+            <span class="text-[17px] font-semibold">${deck.topic}</span>
+            <span class="topic-band-sub font-mono text-xs">${deck.learned} of ${deck.size} learned</span>
+          </span>
+          ${bandStatus(deck)}
+        </button>
+      `).join('')}
     </div>
+
+    <button type="button" id="reviewBtn" class="btn btn-primary mt-3 h-auto min-h-[60px] w-full flex-col gap-0 py-2">
+      <span class="text-[17px] font-semibold">Study all</span>
+      <span class="font-mono text-[11px] font-normal opacity-80">${waitingLabel(federal)}</span>
+    </button>
+
+    <button type="button" id="examBtn" class="mt-3 flex min-h-[52px] w-full items-center justify-between border-y border-base-300 text-left">
+      <span class="text-base font-semibold">Practice exam <span class="font-normal text-muted">· 33 questions</span></span>
+      <span class="flex items-center gap-1.5 font-mono text-xs text-muted">
+        ${lastExam ? `last ${lastExam.score}/${lastExam.total}` : ''}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </span>
+    </button>
   `
-  
+
+  root.querySelectorAll<HTMLButtonElement>('[data-deck]').forEach((btn) => {
+    btn.addEventListener('click', () => decks[Number(btn.dataset.deck)].open())
+  })
   root.querySelector('#reviewBtn')!.addEventListener('click', () => navigate('#/review'))
-  root.querySelector('#berlinBtn')!.addEventListener('click', () => navigate('#/berlin'))
-  root.querySelector('#memoryBtn')!.addEventListener('click', () => navigate('#/memory'))
   root.querySelector('#examBtn')!.addEventListener('click', () => navigate('#/exam'))
-  root.querySelector('#browseBtn')!.addEventListener('click', () => navigate('#/browse'))
-  root.querySelector('#statsBtn')!.addEventListener('click', () => navigate('#/stats'))
-  
-  // Add footer to home page
+
   root.appendChild(Footer())
-  
+
   return root
 }

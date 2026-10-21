@@ -25,7 +25,7 @@ export function MemoryView(): HTMLElement {
   root.innerHTML = `
     <header class="memory-session-header py-4">
       <div class="min-w-0">
-        <h1 class="text-xl font-bold">🧠 Term Memory</h1>
+        <h1 class="font-serif text-[28px]">Terms</h1>
         <p class="text-sm text-base-content/70">Flip German terms, then grade yourself with the same SRS rules as review mode.</p>
       </div>
       <div class="memory-session-count">${queue.length} cards</div>
@@ -46,7 +46,7 @@ export function MemoryView(): HTMLElement {
   function renderCard() {
     if (current >= queue.length) {
       cardArea.innerHTML = `
-        <div class="card text-center bg-base-100 shadow">
+        <div class="card text-center bg-surface border border-base-300">
           <h2 class="text-lg font-semibold">Session Complete</h2>
           <p class="mt-2 text-base-content/70">You cleared the current term deck. Come back when more cards are due.</p>
           <button onclick="location.hash='#/'" class="btn btn-primary mt-4">Back to Home</button>
@@ -63,7 +63,7 @@ export function MemoryView(): HTMLElement {
     revealed = false
 
     cardArea.innerHTML = `
-      <div class="memory-card card bg-base-100 shadow">
+      <div class="memory-card card bg-surface border border-base-300">
         <div class="flex items-center justify-between mb-4 gap-3">
           <span class="memory-progress">${current + 1}<span class="memory-progress-separator">/</span>${queue.length}</span>
           ${item.term.topic ? `<span class="badge badge-secondary">${item.term.topic}</span>` : ''}

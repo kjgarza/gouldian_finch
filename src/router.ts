@@ -26,7 +26,7 @@ export const ROUTE_CONFIG: Record<Route, RouteConfig> = {
     mainClassName: 'main-immersive',
   },
   '#/memory': {
-    label: 'Memory',
+    label: 'Terms',
     title: 'Term Memory - BürgerTest Trainer',
     showNav: true,
   },
@@ -37,7 +37,7 @@ export const ROUTE_CONFIG: Record<Route, RouteConfig> = {
     mainClassName: 'main-immersive',
   },
   '#/browse': {
-    label: 'Browse',
+    label: 'Catalogue',
     title: 'Browse Questions - BürgerTest Trainer',
     showNav: true,
   },
@@ -48,8 +48,16 @@ export const ROUTE_CONFIG: Record<Route, RouteConfig> = {
   },
 }
 
-export function navigate(to: Route) {
-  if (location.hash !== to) location.hash = to
+export function navigate(to: Route, query?: Record<string, string>) {
+  const target = query ? `${to}?${new URLSearchParams(query)}` : to
+  if (location.hash !== target) location.hash = target
+}
+
+/** Query part of the current hash: `#/review?topic=politik` → topic=politik. */
+export function routeQuery(): URLSearchParams {
+  const hash = location.hash
+  const at = hash.indexOf('?')
+  return new URLSearchParams(at >= 0 ? hash.slice(at + 1) : '')
 }
 
 const listeners: Array<(route: Route) => void> = []
@@ -60,8 +68,9 @@ export function onRouteChange(fn: (route: Route) => void) {
 
 export function startRouter() {
   const handler = () => {
-    const hash = location.hash || '#/'
-    const h = (hash in ROUTE_CONFIG ? hash : '#/') as Route
+    // The query rides along (routeQuery reads it); only the path picks a view.
+    const path = (location.hash || '#/').split('?')[0]
+    const h = (path in ROUTE_CONFIG ? path : '#/') as Route
     listeners.forEach(l => l(h))
   }
   addEventListener('hashchange', handler)
