@@ -2088,7 +2088,8 @@
       "Drei Eichenblätter in einem Kreis",
       "Ein roter Stern über einem Lorbeerkranz"
     ],
-    "substituted": true
+    "substituted": true,
+    "correctIndex": 0
   },
   {
     "id": 210,
@@ -2259,7 +2260,8 @@
       "Zwölf goldene Sterne im Kreis auf blauem Grund",
       "Ein weißes Kreuz auf blauem Grund"
     ],
-    "substituted": true
+    "substituted": true,
+    "correctIndex": 2
   },
   {
     "id": 227,

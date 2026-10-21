@@ -49,7 +49,7 @@ export class SchemaMapperService implements ISchemaMapper {
 
   private resolveTopic(raw: RawQuestion, explicit?: string): AllowedTopic {
     const allowed = topicsForDeck(this.deck);
-    const candidate = explicit ?? this.existingTopics.get(raw.id);
+    const candidate = this.existingTopics.get(raw.id) ?? explicit; // committed labels are never overwritten
     if (candidate !== undefined) {
       if (!isAllowedTopic(candidate) || !allowed.includes(candidate)) {
         throw new TopicError(

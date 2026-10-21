@@ -1,5 +1,10 @@
 import type { ProcessedQuestion, TranslatedQuestion } from '../domain/types.js';
 
+/** The model's translation changed the choice count, so answers would no longer line up. */
+export class TranslationShapeError extends Error {
+  name = 'TranslationShapeError';
+}
+
 export interface RawTranslation {
   question?: string;
   choices?: string[];
@@ -14,7 +19,7 @@ export interface RawTranslation {
  */
 export function enforceTranslationShape(source: ProcessedQuestion, t: RawTranslation): TranslatedQuestion {
   if (t.choices !== undefined && (!Array.isArray(t.choices) || t.choices.length !== source.choices.length)) {
-    throw new Error(
+    throw new TranslationShapeError(
       `Translation of question ${source.id} has wrong choice count: expected ${source.choices.length}, got ${Array.isArray(t.choices) ? t.choices.length : 'non-array'}`
     );
   }

@@ -1,7 +1,7 @@
 import OpenAI from 'openai';
 import { IAIService } from '../interfaces/contracts.js';
 import { ProcessedQuestion, TranslatedQuestion } from '../domain/types.js';
-import { enforceTranslationShape } from '../services/translation-guard.js';
+import { enforceTranslationShape, TranslationShapeError } from '../services/translation-guard.js';
 
 export class OpenAIService implements IAIService {
   private client: OpenAI;
@@ -100,7 +100,6 @@ Return the translation in this JSON format:
   "hint": "translated hint", 
   "explanation": "translated explanation"
 }`;
-// The topic is copied from German by enforceTranslationShape, not translated.
 
     try {
       const completion = await this.client.chat.completions.create({
@@ -113,8 +112,10 @@ Return the translation in this JSON format:
       const response = completion.choices[0]?.message?.content?.trim();
       const translated = JSON.parse(response || '{}');
 
+      // The topic is copied from German by enforceTranslationShape, not translated.
       return enforceTranslationShape(question, translated);
     } catch (error) {
+      if (error instanceof TranslationShapeError) throw error;
       console.error('Error translating question:', error);
       // Return original if translation fails
       return { ...question };

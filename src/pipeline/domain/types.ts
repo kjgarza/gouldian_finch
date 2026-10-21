@@ -6,6 +6,8 @@ export interface RawQuestion {
   options: string[];
   /** Text stand-in for an official image-choice question. */
   substituted?: boolean;
+  /** Pinned answer; the pipeline skips the AI lookup when set. */
+  correctIndex?: number;
 }
 
 export interface ProcessedQuestion {
