@@ -95,7 +95,7 @@ export function paintAnswer(container: ParentNode, q: Question, chosen: number) 
 /** Hint stays behind a button, as before; the English line joins it when the helper is on. */
 export function hintHtml(q: Question, en: Question, showEnglish: boolean): string {
   return `
-    <p lang="de">${q.hint}</p>
-    ${showEnglish ? `<p lang="en" class="mt-1.5 text-sm italic text-hint-ink">${en.hint}</p>` : ''}
+    <p lang="de" class="font-serif">${q.hint}</p>
+    ${showEnglish ? `<p lang="en" class="mt-1.5 font-serif text-sm italic text-hint-ink">${en.hint}</p>` : ''}
   `
 }

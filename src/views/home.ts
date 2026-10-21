@@ -42,6 +42,17 @@ function waitingLabel(counts: { due: number; unseen: number }): string {
   return parts.length > 0 ? parts.join(' · ') : 'all caught up'
 }
 
+/**
+ * Leads with owed reviews; with none owed, with what is left to start, so a
+ * new learner isn't greeted with "nothing due" in front of 310 questions.
+ */
+function headline(due: number, unseen: number): string {
+  const big = (n: number) => `<span class="text-[64px]">${n}</span>`
+  if (due > 0) return `${big(due)} ${due === 1 ? 'question' : 'questions'}<br>due today.`
+  if (unseen > 0) return `${big(unseen)} new ${unseen === 1 ? 'question' : 'questions'}<br>to start.`
+  return 'Nothing due today.'
+}
+
 /** Right-hand side of a band: what is due, else what is new, else done. */
 function bandStatus({ counts }: TopicDeck): string {
   if (counts.due > 0) {
@@ -71,6 +82,7 @@ export function HomeView(): HTMLElement {
   ].filter((deck) => deck.size > 0)
 
   const totalDue = decks.reduce((sum, deck) => sum + deck.counts.due, 0)
+  const totalNew = decks.reduce((sum, deck) => sum + deck.counts.unseen, 0)
   const federal = studyCounts(ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })), prog)
   const streak = currentStreak(loadStats())
   const lastExam = loadExamAttempts()[0]
@@ -86,9 +98,7 @@ export function HomeView(): HTMLElement {
     </header>
 
     <h1 class="mt-4 font-serif text-4xl leading-[1.05]">
-      ${totalDue > 0
-        ? `<span class="text-[64px]">${totalDue}</span> ${totalDue === 1 ? 'question' : 'questions'}<br>due today.`
-        : 'Nothing due today.'}
+      ${headline(totalDue, totalNew)}
     </h1>
 
     <div class="mt-5 flex flex-col gap-1.5">

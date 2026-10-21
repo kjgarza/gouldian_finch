@@ -7,6 +7,9 @@ import { recordExamCompletion } from '../lib/study-stats'
 import { bindDiagramToggles, diagramHintHtml } from '../diagrams'
 import { topicMeta } from '../lib/topics'
 
+/** Mistakes listed before "Show all" on the result screen. */
+const MISTAKES_SHOWN = 3
+
 function sampleExam(): Question[] {
   const berlin = ALL_BERLIN_DE
   const federal = ALL_DE.filter(q => q.topic !== BERLIN_TOPIC)
@@ -39,7 +42,7 @@ export function ExamView(): HTMLElement {
     <header class="exam-header">
       <div>
         <h1 class="font-serif text-[28px]">Practice exam</h1>
-        <p class="font-mono text-xs text-muted">33 questions · no timer · pass with 17</p>
+        <p class="font-mono text-xs text-muted">33 questions · pass with 17</p>
       </div>
       <button id="exitBtn" class="btn btn-ghost btn-sm">Exit exam</button>
     </header>
@@ -195,10 +198,12 @@ export function ExamView(): HTMLElement {
 
     if (incorrect.length > 0) {
       const wrongList = area.querySelector('#wrongList') as HTMLDivElement
-      wrongList.innerHTML = incorrect.map(w => {
+      // First few only: each mistake can carry a full-size diagram, so a bad
+      // attempt would otherwise bury the rest of the results.
+      wrongList.innerHTML = incorrect.map((w, i) => {
         const q = questions.find(qq => qq.id === w.id)!
         return `
-          <div class="border-b border-base-300 pb-3 ${topicMeta(q.topic).className}">
+          <div class="border-b border-base-300 pb-3 ${topicMeta(q.topic).className} ${i >= MISTAKES_SHOWN ? 'hidden' : ''}">
             <div class="flex items-center gap-2 font-mono text-xs text-muted"><span class="topic-mark" aria-hidden="true"></span>Nr. ${q.id}</div>
             <div lang="de" class="mt-1 font-serif text-[17px] leading-snug">${q.question}</div>
             <div class="mt-2 text-sm text-wrong">
@@ -210,8 +215,16 @@ export function ExamView(): HTMLElement {
             ${diagramHintHtml(q.id, false)}
           </div>
         `
-      }).join('')
+      }).join('') + (incorrect.length > MISTAKES_SHOWN ? `
+        <button type="button" id="showAllWrong" class="flex min-h-11 items-center font-mono text-xs underline underline-offset-4">
+          Show all ${incorrect.length}
+        </button>
+      ` : '')
       bindDiagramToggles(wrongList)
+      wrongList.querySelector('#showAllWrong')?.addEventListener('click', (e) => {
+        wrongList.querySelectorAll(':scope > div.hidden').forEach((el) => el.classList.remove('hidden'))
+        ;(e.currentTarget as HTMLElement).remove()
+      })
 
       const addWrong = area.querySelector('#addWrong') as HTMLButtonElement
       addWrong.addEventListener('click', () => {

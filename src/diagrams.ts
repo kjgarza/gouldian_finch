@@ -60,13 +60,13 @@ export function diagramHintHtml(questionId: number, showEnglish: boolean): strin
     <div class="diagram-hint mt-3 w-full" data-diagram="${esc(d.key)}" data-expanded="false">
       <button type="button" class="block w-full text-left" data-diagram-toggle
               aria-label="Enlarge diagram: ${esc(title)}">
-        <div class="diagram-frame w-full overflow-hidden rounded-lg border border-border bg-white"
+        <div class="diagram-frame w-full overflow-hidden rounded-box border border-base-300 bg-white"
              style="aspect-ratio: ${ASPECT_CSS[d.aspect] ?? DEFAULT_ASPECT}">
           <img src="${assetUrl(d.file)}" alt="${esc(alt)}" loading="lazy" decoding="async"
                class="w-full h-full object-contain" />
         </div>
       </button>
-      <div class="mt-1 text-xs text-muted-foreground">
+      <div class="mt-1 text-xs text-muted">
         <span class="font-medium">${esc(title)}</span>
         <span class="opacity-70"> · ${esc(sub)}</span>
         <span class="opacity-70"> · tap to enlarge</span>
