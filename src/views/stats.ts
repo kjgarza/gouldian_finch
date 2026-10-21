@@ -1,266 +1,138 @@
 import { loadProgress, resetAll, loadStats, loadExamAttempts } from '../storage'
-import type { ProgressMap } from '../types'
 import { ALL_BERLIN_DE, ALL_DE, ALL_TERMS } from '../state'
-import {
-  berlinStudyId,
-  isBerlinStudyId,
-  isQuestionStudyId,
-  isTermStudyId,
-  questionStudyId,
-  termStudyId,
-} from '../lib/study-ids'
-import { isMature, studyCounts } from '../lib/study-session'
+import { navigate } from '../router'
+import { isTermStudyId } from '../lib/study-ids'
+import { isMature } from '../lib/study-session'
 import { StudyHeatmap } from '../lib/study-heatmap'
 import { formatDay, isISODate } from '../lib/study-calendar'
 import { currentStreak } from '../lib/study-stats'
+import { buildTopicDecks } from '../lib/topic-decks'
+import { topicMeta } from '../lib/topics'
 
-function reviewCounts(prog: ProgressMap) {
-  return studyCounts(ALL_DE.map((q) => ({ studyId: questionStudyId(q.id) })), prog)
-}
-
-function berlinCounts(prog: ProgressMap) {
-  return studyCounts(ALL_BERLIN_DE.map((q) => ({ studyId: berlinStudyId(q.id) })), prog)
-}
-
-function memoryCounts(prog: ProgressMap) {
-  return studyCounts(ALL_TERMS.map((term) => ({ studyId: termStudyId(term.id) })), prog)
-}
-
-/**
- * Cards the learner has actually retained, not merely met. Counting every
- * progress entry credited a question the moment it was first shown — including
- * one only ever answered wrong, and one the exam filed into the review deck for
- * being missed — so the bar read as knowledge the learner did not have.
- */
-function countLearned(prog: ProgressMap, belongsToDeck: (id: string) => boolean): number {
-  return Object.values(prog).filter((card) => belongsToDeck(card.id) && isMature(card)).length
-}
-
-/** "12 due · 88 not started", trimmed to whichever halves are non-zero. */
-function waitingLabel(counts: { due: number; unseen: number }): string {
-  const parts: string[] = []
-  if (counts.due > 0) parts.push(`${counts.due} due`)
-  if (counts.unseen > 0) parts.push(`${counts.unseen} not started`)
-  return parts.length > 0 ? parts.join(' · ') : 'all caught up'
-}
+const PASS_MARK = 17
 
 /**
  * Share of a deck completed, as a CSS-safe percentage. A deck can legitimately
- * be empty — the Berlin view has its own branch for that — and `0 / 0` would
- * put `NaN%` into the bar's width.
+ * be empty and `0 / 0` would put `NaN%` into the bar's width.
  */
 function percent(part: number, total: number): number {
   return total > 0 ? (part / total) * 100 : 0
 }
 
+function sectionTitle(text: string): string {
+  return `<h2 class="font-mono text-xs text-muted">${text}</h2>`
+}
+
+/** One hairline row: mark, label, "learned / total" in mono, thin bar beneath. */
+function progressRow(label: string, learned: number, size: number, className: string): string {
+  return `
+    <div class="border-b border-base-300 py-3 ${className}">
+      <div class="flex min-h-7 items-center gap-3">
+        <span class="topic-mark size-2.5" aria-hidden="true"></span>
+        <span class="flex-1">${label}</span>
+        <span class="font-mono text-[13px]">${learned} / ${size}</span>
+      </div>
+      <div class="stat-bar mt-2" role="img" aria-label="${learned} of ${size} learned"><span style="width: ${percent(learned, size)}%"></span></div>
+    </div>
+  `
+}
+
+function attemptRow(attempt: { timestamp: string; score: number; total: number }): string {
+  const pass = attempt.score >= PASS_MARK
+  return `
+    <div class="flex min-h-12 items-center gap-3 border-b border-base-300">
+      <span class="flex-1 font-mono text-[13px] text-muted">${new Date(attempt.timestamp).toLocaleDateString()}</span>
+      <span class="font-mono text-[13px]">${attempt.score}/${attempt.total}</span>
+      <span class="w-20 text-right text-sm font-semibold ${pass ? 'text-correct' : 'text-wrong'}">${pass ? 'Passed' : 'Not passed'}</span>
+    </div>
+  `
+}
+
 export function StatsView(): HTMLElement {
   const root = document.createElement('div')
   root.className = 'page'
-  
+
   const stats = loadStats()
   const streak = currentStreak(stats)
   // Read once: every call re-parses localStorage and re-runs the id migration.
   const prog = loadProgress()
-  const review = reviewCounts(prog)
-  const berlin = berlinCounts(prog)
-  const memory = memoryCounts(prog)
-  const learnedQuestions = countLearned(prog, isQuestionStudyId)
-  const learnedBerlin = countLearned(prog, isBerlinStudyId)
-  const learnedTerms = countLearned(prog, isTermStudyId)
+  // Same function Home's bands use, so the counts agree by construction.
+  const decks = buildTopicDecks(prog, ALL_DE, ALL_BERLIN_DE)
+  const learnedTotal = decks.reduce((sum, deck) => sum + deck.learned, 0)
+  const questionTotal = decks.reduce((sum, deck) => sum + deck.size, 0)
+  const learnedTerms = Object.values(prog).filter((card) => isTermStudyId(card.id) && isMature(card)).length
   const attempts = loadExamAttempts()
   const lastAttempt = attempts[0]
-  const passedAttempts = attempts.filter(a => a.score >= 17).length
-  const averageScore = attempts.length > 0 
-    ? Math.round(attempts.reduce((sum, a) => sum + a.score, 0) / attempts.length)
-    : 0
+  const accuracy = Math.round((stats.accuracy || 0) * 100)
 
   root.innerHTML = `
-    <header class="py-4">
-      <h1 class="font-serif text-[28px]">Stats</h1>
-      <p class="text-base-content opacity-70 text-sm">Track your learning progress and exam performance</p>
+    <header class="flex min-h-11 items-center">
+      <h1 class="font-serif text-[22px] font-medium">Stats</h1>
     </header>
-    
-    <!-- Key Stats -->
-    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-6">
-      <div class="card bg-surface border border-base-300 p-4 text-center">
-        <div class="text-base-content opacity-70 text-sm font-medium">Study Streak</div>
-        <div class="text-3xl font-bold text-primary mt-1">${streak}</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">day${streak === 1 ? '' : 's'}</div>
-      </div>
-      
-      <div class="card bg-surface border border-base-300 p-4 text-center">
-        <div class="text-base-content opacity-70 text-sm font-medium">Overall Accuracy</div>
-        <div class="text-3xl font-bold text-success mt-1">${Math.round((stats.accuracy || 0) * 100)}%</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">
-          ${stats.totalAnswered || 0} question${stats.totalAnswered === 1 ? '' : 's'} answered${stats.examAnswered ? `, ${stats.examAnswered} in exams` : ''}
-        </div>
-      </div>
-      
-      <div class="card bg-surface border border-base-300 p-4 text-center">
-        <div class="text-base-content opacity-70 text-sm font-medium">Review Due</div>
-        <div class="text-3xl font-bold text-warning mt-1">${review.due + berlin.due}</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">
-          ${review.due} federal · ${berlin.due} Berlin${review.unseen + berlin.unseen > 0 ? ` · ${review.unseen + berlin.unseen} not started` : ''}
-        </div>
-      </div>
 
-      <div class="card bg-surface border border-base-300 p-4 text-center">
-        <div class="text-base-content opacity-70 text-sm font-medium">Memory Accuracy</div>
-        <div class="text-3xl font-bold text-info mt-1">${Math.round((stats.memoryAccuracy || 0) * 100)}%</div>
-        <div class="text-xs text-base-content opacity-70 mt-1">
-          ${stats.memoryAnswered || 0} term card${stats.memoryAnswered === 1 ? '' : 's'} answered
-        </div>
-      </div>
+    <p class="mt-4 font-serif text-4xl leading-[1.05]">
+      <span class="text-[64px]">${learnedTotal}</span> of ${questionTotal}<br>questions learned.
+    </p>
+
+    <div class="mt-5 flex min-h-14 items-center justify-between gap-3 border-y border-base-300 font-mono text-xs">
+      <span class="flex items-center gap-1.5">
+        ${streak > 0 ? '<span aria-hidden="true" class="size-[7px] rounded-full bg-live"></span>' : ''}${streak}-day streak
+      </span>
+      <span>${accuracy}% accuracy <span class="text-muted">· ${stats.totalAnswered || 0} answered</span></span>
     </div>
 
-    <!-- Study Calendar -->
+    <section class="mt-8" aria-label="Learning progress">
+      ${sectionTitle('Learned by topic')}
+      <div class="mt-1 flex flex-col">
+        ${decks.map((deck) => progressRow(deck.topic, deck.learned, deck.size, topicMeta(deck.topic).className)).join('')}
+        ${progressRow('Terms', learnedTerms, ALL_TERMS.length, 'term-all')}
+      </div>
+      ${isISODate(stats.lastStudyDate) ? `
+        <p class="mt-3 font-mono text-xs text-muted">Last studied ${formatDay(stats.lastStudyDate)}</p>
+      ` : ''}
+    </section>
+
+    <section class="mt-8" aria-label="Exam performance">
+      ${sectionTitle('Exam performance')}
+      ${lastAttempt ? `
+        <p class="mt-3 flex items-baseline gap-2.5 font-serif">
+          <span class="text-[64px] leading-none">${lastAttempt.score}</span>
+          <span class="text-[22px] text-muted">/ ${lastAttempt.total}</span>
+          <span class="font-sans text-base font-semibold ${lastAttempt.score >= PASS_MARK ? 'text-correct' : 'text-wrong'}">${lastAttempt.score >= PASS_MARK ? 'Passed' : 'Not passed'}</span>
+        </p>
+        <p class="mt-1 font-mono text-xs text-muted">Last exam · ${PASS_MARK} needed to pass</p>
+        <div class="mt-3 flex flex-col border-t border-base-300">
+          ${attempts.slice(0, 5).map(attemptRow).join('')}
+        </div>
+      ` : `
+        <div class="mt-3 border-y border-base-300 py-6">
+          <p class="text-sm">No exam attempts yet.</p>
+          <button type="button" id="examBtn" class="btn btn-outline btn-sm mt-3">Take your first exam</button>
+        </div>
+      `}
+    </section>
+
     <div id="studyHeatmap"></div>
 
-    <!-- Learning Progress -->
-    <div class="grid gap-4 sm:grid-cols-2 mb-6">
-      <div class="card bg-surface border border-base-300 p-4">
-        <h2 class="text-lg font-semibold mb-3">Learning progress</h2>
-        <div class="space-y-3">
-          <div class="flex justify-between items-center">
-            <span class="text-base-content opacity-70">Questions learned</span>
-            <span class="font-semibold">${learnedQuestions} / ${ALL_DE.length}</span>
-          </div>
-          <div class="w-full bg-base-200 rounded-full h-2">
-            <div class="bg-primary h-2 rounded-full transition-all duration-300" 
-                 style="width: ${percent(learnedQuestions, ALL_DE.length)}%"></div>
-          </div>
-          <div class="text-xs text-base-content opacity-70">
-            ${Math.round(percent(learnedQuestions, ALL_DE.length))}% complete · ${waitingLabel(review)}
-          </div>
-          <div class="flex justify-between items-center pt-2 border-t border-base-300">
-            <span class="text-base-content opacity-70">Berlin questions learned</span>
-            <span class="font-semibold">${learnedBerlin} / ${ALL_BERLIN_DE.length}</span>
-          </div>
-          <div class="w-full bg-base-200 rounded-full h-2">
-            <div class="bg-secondary h-2 rounded-full transition-all duration-300"
-                 style="width: ${percent(learnedBerlin, ALL_BERLIN_DE.length)}%"></div>
-          </div>
-          <div class="text-xs text-base-content opacity-70">
-            ${waitingLabel(berlin)}
-          </div>
-          <div class="flex justify-between items-center pt-2 border-t border-base-300">
-            <span class="text-base-content opacity-70">Term cards learned</span>
-            <span class="font-semibold">${learnedTerms} / ${ALL_TERMS.length}</span>
-          </div>
-          <div class="w-full bg-base-200 rounded-full h-2">
-            <div class="bg-info h-2 rounded-full transition-all duration-300"
-                 style="width: ${percent(learnedTerms, ALL_TERMS.length)}%"></div>
-          </div>
-          <div class="text-xs text-base-content opacity-70">
-            ${waitingLabel(memory)}
-          </div>
-          
-          ${isISODate(stats.lastStudyDate) ? `
-            <div class="pt-2 border-t border-base-300 text-sm text-base-content opacity-70">
-              Last study session: ${formatDay(stats.lastStudyDate)}
-            </div>
-          ` : ''}
-        </div>
-      </div>
-      
-      <div class="card bg-surface border border-base-300 p-4">
-        <h2 class="text-lg font-semibold mb-3">Exam performance</h2>
-        <div class="space-y-3">
-          ${attempts.length > 0 ? `
-            <div class="flex justify-between items-center">
-              <span class="text-base-content opacity-70">Exams taken</span>
-              <span class="font-semibold">${attempts.length}</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-base-content opacity-70">Exams passed</span>
-              <span class="font-semibold text-success">${passedAttempts}</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-base-content opacity-70">Average score</span>
-              <span class="font-semibold">${averageScore}/33</span>
-            </div>
-            
-            ${lastAttempt ? `
-              <div class="pt-2 border-t border-base-300">
-                <div class="text-sm text-base-content opacity-70">Last exam:</div>
-                <div class="flex justify-between items-center mt-1">
-                  <span class="text-sm">${new Date(lastAttempt.timestamp).toLocaleDateString()}</span>
-                  <span class="font-semibold ${lastAttempt.score >= 17 ? 'text-success' : 'text-error'}">
-                    ${lastAttempt.score}/33 ${lastAttempt.score >= 17 ? 'passed' : 'not passed'}
-                  </span>
-                </div>
-              </div>
-            ` : ''}
-          ` : `
-            <div class="text-center text-base-content opacity-70 py-4">
-                            <div class="text-sm">No exam attempts yet</div>
-              <button onclick="location.hash='#/exam'" class="btn btn-primary text-sm mt-2">
-                Take your first exam
-              </button>
-            </div>
-          `}
-        </div>
-      </div>
-    </div>
-    
-    <!-- Recent Exam History -->
-    ${attempts.length > 0 ? `
-      <div class="card bg-surface border border-base-300 p-4 mb-6">
-        <h2 class="text-lg font-semibold mb-3">Recent exam history</h2>
-        <div class="overflow-x-auto">
-          <table class="table table-zebra w-full">
-            <thead>
-              <tr>
-                <th class="text-base-content opacity-70">Date</th>
-                <th class="text-base-content opacity-70">Score</th>
-                <th class="text-base-content opacity-70">Result</th>
-                <th class="text-base-content opacity-70">Wrong Answers</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${attempts.slice(0, 5).map(attempt => `
-                <tr>
-                  <td>${new Date(attempt.timestamp).toLocaleDateString()}</td>
-                  <td class="font-medium">${attempt.score}/${attempt.total}</td>
-                  <td>
-                    <div class="badge ${attempt.score >= 17 ? 'badge-success' : 'badge-error'}">
-                      ${attempt.score >= 17 ? 'PASSED' : 'FAILED'}
-                    </div>
-                  </td>
-                  <td class="text-base-content opacity-70">${attempt.incorrect.length}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    ` : ''}
-    
-    <!-- Reset Section -->
-    <div class="card bg-surface border border-base-300 p-4 border border-error">
-      <h2 class="text-lg font-semibold text-error mb-3">Reset progress</h2>
-      <p class="text-sm text-base-content opacity-70 mb-4">
-        This will permanently delete all your progress, statistics, and exam history. 
-        This action cannot be undone.
-      </p>
-      <button class="btn btn-outline btn-error" id="resetBtn">
-        Reset All Data
-      </button>
-    </div>
+    <section class="mt-10" aria-label="Reset progress">
+      <p class="text-sm text-muted">Resetting deletes all progress, statistics and exam history. It cannot be undone.</p>
+      <button type="button" id="resetBtn" class="btn btn-outline mt-3 w-full text-wrong">Reset all data</button>
+    </section>
   `
 
   root.querySelector('#studyHeatmap')!.replaceWith(StudyHeatmap(stats))
+  root.querySelector('#examBtn')?.addEventListener('click', () => navigate('#/exam'))
 
   root.querySelector('#resetBtn')!.addEventListener('click', () => {
     const confirmed = confirm(
-      'Are you sure you want to reset all your data?\\n\\n' +
-      'This will delete:\\n' +
-      '• All learning progress\\n' +
-      '• Statistics and streak\\n' +
-      '• Exam history\\n\\n' +
+      'Are you sure you want to reset all your data?\n\n' +
+      'This will delete:\n' +
+      '• All learning progress\n' +
+      '• Statistics and streak\n' +
+      '• Exam history\n\n' +
       'This action cannot be undone!'
     )
-    
+
     if (confirmed) {
       const doubleConfirm = confirm('Last chance! Are you absolutely sure?')
       if (doubleConfirm) {

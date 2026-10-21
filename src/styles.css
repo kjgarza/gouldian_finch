@@ -406,3 +406,39 @@
     }
   }
 }
+
+/* --- Terms & Stats (#16) --- */
+@layer components {
+  /* Terms sits under the tab bar: lift its action bar above it. */
+  .cta-bar-tabbed {
+    bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: 0.75rem;
+  }
+
+  .term-all { --topic-mark: var(--color-ink); }
+
+  .term-progress,
+  .stat-bar {
+    @apply block h-[3px] overflow-hidden rounded-sm bg-base-300;
+  }
+
+  .term-progress {
+    @apply flex-1;
+  }
+
+  .term-progress > span,
+  .stat-bar > span {
+    @apply block h-full rounded-sm bg-ink;
+  }
+
+  .stat-bar > span {
+    background: var(--topic-mark, var(--color-ink));
+  }
+
+  /* Study calendar: one ink ramp, lightness only. Keep in step with HEAT_SHADES. */
+  .heat-studied { background: var(--color-ink); }
+  .heat-missed { background: color-mix(in srgb, var(--color-ink) 16%, transparent); }
+  .heat-future { background: color-mix(in srgb, var(--color-ink) 6%, transparent); }
+  .heat-untracked { border: 1px dashed var(--color-hairline); }
+  .heat-today { outline: 1.5px solid var(--color-ink); outline-offset: 1px; }
+}
