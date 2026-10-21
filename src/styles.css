@@ -50,8 +50,8 @@
   --color-surface: #FFFDF7;
   --color-hairline: #D6D1C4;
   --color-ink: #161614;
-  --color-muted: #66645C;
-  --color-faded: #807D74;
+  --color-muted: #5E5C54;
+  --color-faded: #6E6B62;
   --color-correct: #0B4A42;
   --color-wrong: #A8442A;
   --color-hint: #EBDCF7;
@@ -66,10 +66,10 @@
  * Gesellschaft gets a deeper shade for markers only.
  */
 @layer base {
-  .topic-politik { --topic: #B5532F; --topic-ink: #FFFDF7; --topic-sub: #F7DCCF; --topic-mark: #B5532F; }
+  .topic-politik { --topic: #A24028; --topic-ink: #FFFDF7; --topic-sub: #F7DCCF; --topic-mark: #A24028; }
   .topic-geschichte { --topic: #0B4A42; --topic-ink: #FFFDF7; --topic-sub: #BFD8D1; --topic-mark: #0B4A42; }
-  .topic-gesellschaft { --topic: #E3D0F5; --topic-ink: #161614; --topic-sub: #4A3666; --topic-mark: #B898DB; }
-  .topic-berlin { --topic: #F5A04A; --topic-ink: #161614; --topic-sub: #4D2F0C; --topic-mark: #F5A04A; }
+  .topic-gesellschaft { --topic: #E3D0F5; --topic-ink: #161614; --topic-sub: #4A3666; --topic-mark: #9068C0; }
+  .topic-berlin { --topic: #F5A04A; --topic-ink: #161614; --topic-sub: #4D2F0C; --topic-mark: #C2670F; }
 }
 
 @layer components {
