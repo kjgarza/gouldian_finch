@@ -352,16 +352,17 @@
   {
     "id": 26,
     "question": "Germany is ...",
-      "choices": [
-        "a communist republic.",
-        "a democratic and social federal state.",
-        "a capitalist and social monarchy.",
-        "a social and socialist federal state."
-      ],
-      "hint": "Think about the basic principles of the German constitution and how they structure society and the state.",
-      "explanation": "The correct answer “a democratic and social federal state” describes the fundamental characteristics of the Federal Republic of Germany.\n\n1. **Democratic**: Germany is a democracy, which means that citizens have the right to participate in elections and vote for their representatives. Political decisions are made by majority decisions in parliament, and fundamental rights are enshrined in the constitution, the Basic Law.\n\n2. **Social**: The social aspect refers to the state’s goal of promoting social justice and equal opportunities. Germany has a social system aimed at improving citizens’ living conditions and ensuring social security, for example through health insurance, pensions, and support for those in need.\n\n3. **Federal state**: Germany is a federal state, which means that it consists of several federal states that...",
-      "topic": "Politics in Democracy"
-    },
+    "choices": [
+      "a communist republic.",
+      "a democratic and social federal state.",
+      "a capitalist and social monarchy.",
+      "a social and socialist federal state."
+    ],
+    "correctIndex": 1,
+    "hint": "Think about the basic principles of the German constitution and how they structure society and the state.",
+    "explanation": "The correct answer “a democratic and social federal state” describes the fundamental characteristics of the Federal Republic of Germany.\n\n1. **Democratic**: Germany is a democracy, which means that citizens have the right to participate in elections and vote for their representatives. Political decisions are made by majority decisions in parliament, and fundamental rights are enshrined in the constitution, the Basic Law.\n\n2. **Social**: The social aspect refers to the state’s goal of promoting social justice and equal opportunities. Germany has a social system aimed at improving citizens’ living conditions and ensuring social security, for example through health insurance, pensions, and support for those in need.\n\n3. **Federal state**: Germany is a federal state, which means that it consists of several federal states that...",
+    "topic": "Politics in Democracy"
+  },
   {
     "id": 27,
     "question": "Germany is ...",
@@ -798,17 +799,18 @@
   },
   {
     "id": 58,
-  "question": "Who appoints the ministers of the federal government in Germany?",
-  "choices": [
-    "the President of the Federal Constitutional Court",
-    "the Federal President",
-    "the President of the Bundesrat",
-    "the President of the Bundestag"
-  ],
-  "hint": "Think of the head of state, who plays an important role in the appointment of government members.",
-  "explanation": "The correct answer to the question of who appoints the ministers of the federal government in Germany is the Federal President. According to Article 64 of the Basic Law, the Federal President appoints the ministers of the federal government on the proposal of the Federal Chancellor. The Federal President has a representative role and generally acts on the basis of the political majorities in the Bundestag. The appointment of ministers is an important part of the political system in Germany, as it determines the composition of the executive and thus influences government leadership.",
-  "topic": "Politics in Democracy"
-},
+    "question": "Who appoints the ministers of the federal government in Germany?",
+    "choices": [
+      "the President of the Federal Constitutional Court",
+      "the Federal President",
+      "the President of the Bundesrat",
+      "the President of the Bundestag"
+    ],
+    "correctIndex": 1,
+    "hint": "Think of the head of state, who plays an important role in the appointment of government members.",
+    "explanation": "The correct answer to the question of who appoints the ministers of the federal government in Germany is the Federal President. According to Article 64 of the Basic Law, the Federal President appoints the ministers of the federal government on the proposal of the Federal Chancellor. The Federal President has a representative role and generally acts on the basis of the political majorities in the Bundestag. The appointment of ministers is an important part of the political system in Germany, as it determines the composition of the executive and thus influences government leadership.",
+    "topic": "Politics in Democracy"
+  },
   {
     "id": 59,
     "question": "How many years ago was there first a Jewish community in the area of present-day Germany?",
@@ -1000,9 +1002,9 @@
       "Ursula von der Leyen",
       "Friedrich Merz"
     ],
-    "correctIndex": 1,
-    "hint": "Think of the first woman who held this office in Germany and her long term in office.",
-    "explanation": "The correct answer to the question 'What is the name of the current Federal Chancellor of Germany?' is Angela Merkel, as she held the office of Federal Chancellor from 2005 to 2021. During this time, she was the first woman in this position and one of the most influential politicians in Germany and Europe. It is important to note that the question is asked about the current chancellor at the time of the exam. However, since Angela Merkel was in office until 2021, she is the correct answer for questions relating to this period. After the federal election in 2021, Olaf Scholz took office as the new chancellor, but the question refers to the time when Merkel was in office.",
+    "correctIndex": 3,
+    "hint": "Think of the CDU politician who was elected Federal Chancellor after the 2025 Bundestag election.",
+    "explanation": "The current Federal Chancellor of Germany is Friedrich Merz (CDU). He was elected by the Bundestag on 6 May 2025 after the early federal election in February 2025 and leads a coalition of CDU/CSU and SPD. Gerhard Schröder (1998–2005) and Angela Merkel (2005–2021) are former chancellors; Ursula von der Leyen is President of the European Commission.",
     "topic": "Politics in Democracy"
   },
   {
@@ -1014,9 +1016,9 @@
       "Alliance 90/The Greens and SPD.",
       "The Left and CDU/CSU."
     ],
-    "correctIndex": 2,
-    "hint": "Think about the current political movements in Germany and the parties that traditionally stand for environmental and social issues.",
-    "explanation": "The two largest factions in the German Bundestag are currently Alliance 90/The Greens and the SPD (Social Democratic Party of Germany). This answer is correct because the 2021 Bundestag elections led to a coalition government in which the Greens and the SPD represent the strongest political groups in parliament. The Greens specialize in environmental and climate protection, while the SPD traditionally represents social democratic values. Together, they form a governing coalition that holds the majority of seats in the Bundestag.",
+    "correctIndex": 0,
+    "hint": "Think of the results of the Bundestag election in February 2025.",
+    "explanation": "Since the Bundestag election in February 2025, CDU/CSU and AfD are the two largest parliamentary groups (Fraktionen) in the Bundestag. CDU/CSU came first and governs in a coalition with the SPD; the AfD came second and is the largest opposition group.",
     "topic": "Politics in Democracy"
   },
   {
@@ -1096,12 +1098,13 @@
       "Peaceful Demonstrative Party",
       "Free Germany Party",
       "Leading Democratic Party",
-    "Free Democratic Party"
-  ],
-  "hint": "Think of a political party in Germany that stands for freedom and democracy and is often associated with the color yellow.",
-  "explanation": "The abbreviation FDP stands for \"Free Democratic Party.\" This political party in Germany was founded in 1948 and advocates for liberal values such as individual freedom, a market economy, and civil rights. The FDP plays an important role in Germany's political system and has participated in various government coalitions. Understanding the abbreviation is important to recognize the political structures and diversity of parties in Germany.",
-  "topic": "Politics in Democracy"
-},
+      "Free Democratic Party"
+    ],
+    "correctIndex": 3,
+    "hint": "Think of a political party in Germany that stands for freedom and democracy and is often associated with the color yellow.",
+    "explanation": "The abbreviation FDP stands for \"Free Democratic Party.\" This political party in Germany was founded in 1948 and advocates for liberal values such as individual freedom, a market economy, and civil rights. The FDP plays an important role in Germany's political system and has participated in various government coalitions. Understanding the abbreviation is important to recognize the political structures and diversity of parties in Germany.",
+    "topic": "Politics in Democracy"
+  },
   {
     "id": 80,
     "question": "Which court in Germany is responsible for the interpretation of the Basic Law?",
@@ -1713,6 +1716,7 @@
       "Minimum share of votes required to enter parliament",
       "Attendance check in the Bundesrat for votes"
     ],
+    "correctIndex": 2,
     "hint": "The \"5% hurdle\" refers to the minimum number of votes a party needs in order to be represented in the Bundestag. Think about the requirements for political parties in elections.",
     "explanation": "The \"5% hurdle\" in Germany refers to the minimum share of votes that a political party must receive in order to enter the Bundestag. This rule was introduced to prevent too many small parties from being represented in parliament, which could make government formation and decision-making more difficult. If a party receives less than 5% of the votes, it does not get any seats in parliament. This rule promotes stability and efficiency in Germany's political system.",
     "topic": "Politics in Democracy"
@@ -2546,7 +2550,13 @@
   {
     "id": 183,
     "question": "When did the \"economic miracle\" (Wirtschaftswunder) take place in the Federal Republic of Germany?",
-    "choices": ["1940s", "1950s", "1970s", "1980s"],
+    "choices": [
+      "1940s",
+      "1950s",
+      "1970s",
+      "1980s"
+    ],
+    "correctIndex": 1,
     "hint": "Think of the period after World War II, when Germany experienced an economic boom and many people found jobs.",
     "explanation": "The \"economic miracle\" (Wirtschaftswunder) in the Federal Republic of Germany refers to the rapid economic recovery and growth that took place after World War II. This phase began in the late 1940s and reached its peak in the 1950s. During this time, Germany experienced a drastic increase in production, prosperity, and living standards. The 1950s are therefore crucial for understanding Germany's post-war economic development, which is why the correct answer to the question \"When did the 'economic miracle' take place in the Federal Republic of Germany?\" is the 1950s.",
     "topic": "Politics in Democracy"
@@ -2826,6 +2836,7 @@
       "Supply and demand",
       "Capitalism"
     ],
+    "correctIndex": 1,
     "hint": "Think of a system in which the government centrally controls the production and distribution of goods, in contrast to a free market.",
     "explanation": "The correct answer to the question \"What was the economic system of the GDR?\" is \"planned economy,\" because the German Democratic Republic (GDR) was a socialist country that centrally planned and controlled its economy. In a planned economy, the means of production and resources are controlled by the state, and there are no free market forces regulating supply and demand. Instead, economic goals and strategies were set by the government to meet the needs of the population and guide economic development. This is fundamentally different from a market economy, in which private companies and market mechanisms dominate.",
     "topic": "Politics in Democracy"
@@ -3703,12 +3714,12 @@
     "question": "When does the legal night rest begin in Germany?",
     "choices": [
       "when the sun sets",
+      "at 10 PM",
       "when the neighbors go to bed",
-      "at 12 AM, midnight",
-      "at 10 PM"
+      "at 12 AM, midnight"
     ],
-    "correctIndex": 3,
-    "hint": "Think about the time when many people usually go to bed and when the quiet in residential areas begins.",
+    "correctIndex": 1,
+    "hint": "Most house rules and the noise-protection regulations of the federal states set a fixed time for the start of the night rest.",
     "explanation": "In Germany, the legal night rest begins at 10 PM, as this is legally established in many federal states. The night rest serves to protect neighbors from noise and disturbances during the night and to ensure a quiet living environment. From 10 PM onwards, according to most regulations, loud activities such as playing music or mowing the lawn are no longer allowed. This regulation contributes to a respectful coexistence in residential areas and ensures that people can sleep undisturbed at night.",
     "topic": "Politics in Democracy"
   },
@@ -4183,9 +4194,9 @@
       "Portugal",
       "Turkey"
     ],
-    "correctIndex": 3,
-    "hint": "Think of a country that is geographically close to Germany and has a strong cultural connection.",
-    "explanation": "The first guest workers who came to the Federal Republic of Germany mainly came from Turkey. This occurred as part of the recruitment agreement between Germany and Turkey, which was signed in 1961. Germany needed labor in the 1960s to support the economic recovery after World War II. Many Turks then came to Germany to work in various sectors, particularly in industry and construction. This agreement led to significant Turkish immigration, which still constitutes an important part of German society today.",
+    "correctIndex": 0,
+    "hint": "The Federal Republic signed its first recruitment agreement in 1955 with a southern European country.",
+    "explanation": "The first 'guest workers' came from Italy, following the recruitment agreement between the Federal Republic of Germany and Italy in 1955. Agreements with Spain and Greece (1960), Turkey (1961), Morocco (1963), Portugal (1964), Tunisia (1965) and Yugoslavia (1968) followed later.",
     "topic": "Politics in Democracy"
   }
 ]
