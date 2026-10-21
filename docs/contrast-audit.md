@@ -64,10 +64,12 @@ All rows measured with calc; axe confirms the topic, muted and faded rows (axe r
 | `#/browse` | 3 | 3 |
 | review per topic with helper on (politik, geschichte, gesellschaft, berlin) | politik failed | 0 each |
 
+After the footer and table-head fixes below, a re-run of axe-core 4.10.2 at 390x844 reports **0** color-contrast violations on `#/`, `#/review`, `#/berlin`, `#/exam`, `#/browse`, `#/memory` and `#/stats`.
+
 ## Fixed outside the tokens
 
 - Footer copyright (`src/lib/footer.ts`): dropped `opacity-60` on the `<p>`, which sat inside an `opacity-70` footer. 2.67 → 6.39 (calc).
-- Browse table head: `.table thead { color: var(--color-muted) }` in `src/styles.css`. 4.32 → 5.07 (calc).
+- Browse table head: `text-muted` on the `<thead>` in `src/views/browse.ts` (a plain CSS rule loses to DaisyUI's layer). 4.32 → 5.07 (calc); axe now 0 on every route.
 
 ## Notes
 

@@ -41,7 +41,7 @@ export function BrowseView(): HTMLElement {
     <div class="card p-0 overflow-hidden bg-surface border border-base-300">
       <div class="overflow-x-auto">
         <table class="table table-sm">
-          <thead class="bg-base-200">
+          <thead class="bg-base-200 text-muted">
             <tr>
               <th class="w-20">ID</th>
               <th>Question</th>
