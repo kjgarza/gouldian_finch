@@ -7,6 +7,7 @@ import { buildTopicDecks, type TopicDeck } from '../lib/topic-decks'
 import { currentStreak } from '../lib/study-stats'
 import { questionStudyId } from '../lib/study-ids'
 import { topicMeta } from '../lib/topics'
+import { icon } from '../lib/icons'
 
 /** "12 due · 88 not started", trimmed to whichever halves are non-zero. */
 function waitingLabel(counts: { due: number; unseen: number }): string {
@@ -35,7 +36,7 @@ function bandStatus({ counts }: TopicDeck): string {
   if (counts.unseen > 0) {
     return `<span class="font-mono text-xs">${counts.unseen} new</span>`
   }
-  return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="nothing due"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`
+  return icon('check', { size: 24, label: 'nothing due' })
 }
 
 export function HomeView(): HTMLElement {
@@ -91,7 +92,7 @@ export function HomeView(): HTMLElement {
       <span class="text-base font-semibold">Practice exam <span class="font-normal text-muted">· 33 questions</span></span>
       <span class="flex items-center gap-1.5 font-mono text-xs text-muted">
         ${lastExam ? `last ${lastExam.score}/${lastExam.total}` : ''}
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        ${icon('caret-right', { size: 16 })}
       </span>
     </button>
   `
