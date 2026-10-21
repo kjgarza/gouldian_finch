@@ -58,7 +58,7 @@ export function HomeView(): HTMLElement {
 
   root.innerHTML = `
     <header class="flex min-h-11 items-center justify-between">
-      <span class="font-serif text-[22px] font-medium">Gouldian Finch</span>
+      <span class="font-serif text-[22px] font-medium">Finch</span>
       ${streak > 0 ? `
         <span class="flex items-center gap-1.5 font-mono text-xs text-muted">
           <span aria-hidden="true" class="size-[7px] rounded-full bg-live"></span>${streak}-day streak

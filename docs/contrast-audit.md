@@ -37,8 +37,8 @@ Real foregrounds differ from the issue text: the English helper line is `.questi
 | Disabled Good label (ink 20% on ink 10% over page = #b8b5ae on #e0ddd5) | 16px, disabled control (WCAG-exempt) | 4.5 | 1.51 | 1.51 | exempt |
 | Disabled Good sub-label (opacity .7 more: #c4c1ba) | 11px, disabled | 4.5 | 1.32 | 1.32 | exempt |
 | Issue's literal pair: ink #161614 on #D6D1C4 | n/a (not the real bg) | 4.5 | 11.89 | - | n/a |
-| Footer copyright (ink @ .6 x .7 = .42 on page) | 12px | 4.5 | 2.67 | 2.67 | FAIL (not a token) |
-| Browse table head (daisy 60% ink mix on base-200) | 14px bold | 4.5 | 4.32 | 4.32 | FAIL (not a token) |
+| Footer copyright (ink @ .6 x .7 = .42 on page; after: .7) | 12px | 4.5 | 2.67 | 6.39 | pass |
+| Browse table head (daisy 60% ink mix on base-200; after: muted) | 14px bold | 4.5 | 4.32 | 5.07 | pass |
 
 All rows measured with calc; axe confirms the topic, muted and faded rows (axe results below).
 
@@ -64,12 +64,12 @@ All rows measured with calc; axe confirms the topic, muted and faded rows (axe r
 | `#/browse` | 3 | 3 |
 | review per topic with helper on (politik, geschichte, gesellschaft, berlin) | politik failed | 0 each |
 
-## Still failing (not fixable by token values)
+## Fixed outside the tokens
 
-- Footer copyright (`src/lib/footer.ts`): `opacity-60` inside an `opacity-70` footer, 2.67:1. Fix: drop the `opacity-60` on the `<p>`.
-- Browse table head: DaisyUI colours `thead` at 60% `base-content` on `base-200`, 4.32:1 (3 nodes). Fix: `.table thead { color: var(--color-muted) }` (5.07:1).
+- Footer copyright (`src/lib/footer.ts`): dropped `opacity-60` on the `<p>`, which sat inside an `opacity-70` footer. 2.67 → 6.39 (calc).
+- Browse table head: `.table thead { color: var(--color-muted) }` in `src/styles.css`. 4.32 → 5.07 (calc).
 
 ## Notes
 
 - Disabled Good (1.51:1) is exempt under WCAG 1.4.3 (inactive components) and is not a pass/fail pair.
-- Dark mode is not covered; there is no dark theme.
+- Dark mode is not covered: the owner decided against a dark theme (issue #18).

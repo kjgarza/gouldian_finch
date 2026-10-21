@@ -442,3 +442,8 @@
   .heat-untracked { border: 1px dashed var(--color-hairline); }
   .heat-today { outline: 1.5px solid var(--color-ink); outline-offset: 1px; }
 }
+
+/* DaisyUI tints thead at 60% ink on base-200 (4.32:1); muted clears 4.5:1. */
+@layer components {
+  .table thead { color: var(--color-muted); }
+}

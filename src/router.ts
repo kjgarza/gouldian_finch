@@ -10,40 +10,40 @@ export interface RouteConfig {
 export const ROUTE_CONFIG: Record<Route, RouteConfig> = {
   '#/': {
     label: 'Home',
-    title: 'BürgerTest Trainer - German Naturalization Exam',
+    title: 'Finch - German Naturalization Exam',
     showNav: true,
   },
   '#/review': {
     label: 'Review',
-    title: 'Review Session - BürgerTest Trainer',
+    title: 'Review Session - Finch',
     showNav: false,
     mainClassName: 'main-immersive',
   },
   '#/berlin': {
     label: 'Berlin',
-    title: 'Berlin State Questions - BürgerTest Trainer',
+    title: 'Berlin State Questions - Finch',
     showNav: false,
     mainClassName: 'main-immersive',
   },
   '#/memory': {
     label: 'Terms',
-    title: 'Term Memory - BürgerTest Trainer',
+    title: 'Term Memory - Finch',
     showNav: true,
   },
   '#/exam': {
     label: 'Exam',
-    title: 'Practice Exam - BürgerTest Trainer',
+    title: 'Practice Exam - Finch',
     showNav: false,
     mainClassName: 'main-immersive',
   },
   '#/browse': {
     label: 'Catalogue',
-    title: 'Browse Questions - BürgerTest Trainer',
+    title: 'Browse Questions - Finch',
     showNav: true,
   },
   '#/stats': {
     label: 'Stats',
-    title: 'Statistics - BürgerTest Trainer',
+    title: 'Statistics - Finch',
     showNav: true,
   },
 }

@@ -4,7 +4,7 @@ Shared instructions for coding agents. `AGENTS.md` is a symlink to this file, so
 
 ## Project Overview
 
-Gouldian Finch is a mobile-first spaced repetition learning app for the German citizenship exam (Einbürgerungstest). Built with vanilla TypeScript + Vite, using localStorage for persistence and the SM-2 algorithm for spaced repetition.
+Gouldian Finch (shown in the UI as **Finch**: home header, `<title>`/OG tags, `ROUTE_CONFIG` titles) is a mobile-first spaced repetition learning app for the German citizenship exam (Einbürgerungstest). Built with vanilla TypeScript + Vite, using localStorage for persistence and the SM-2 algorithm for spaced repetition.
 
 ## Commands
 
@@ -145,7 +145,7 @@ Each `className` (`.topic-politik`, `.topic-geschichte`, `.topic-gesellschaft`, 
 
 ### Theme Tokens ("fink")
 
-`src/styles.css` registers one DaisyUI theme, `fink` (`themes: false` drops the built-ins; light only). Beyond DaisyUI's `--color-*` roles it defines `--color-surface`, `hairline`, `ink`, `muted`, `faded`, `correct`, `wrong`, `hint`, `hint-ink`, `live`, plus `--font-serif`, `--font-sans` and `--font-mono`; use them as Tailwind utilities (`text-muted`, `bg-hint`). Token contrast was measured in `docs/contrast-audit.md` (force-added; `docs/` is gitignored); re-measure after changing a token.
+`src/styles.css` registers one DaisyUI theme, `fink` (`themes: false` drops the built-ins). Light only by decision: no dark mode, keep `color-scheme: light`. Beyond DaisyUI's `--color-*` roles it defines `--color-surface`, `hairline`, `ink`, `muted`, `faded`, `correct`, `wrong`, `hint`, `hint-ink`, `live`, plus `--font-serif`, `--font-sans` and `--font-mono`; use them as Tailwind utilities (`text-muted`, `bg-hint`). Token contrast was measured in `docs/contrast-audit.md` (force-added; `docs/` is gitignored); re-measure after changing a token.
 
 ## Data Structures
 
