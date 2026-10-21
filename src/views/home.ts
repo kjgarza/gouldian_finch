@@ -1,38 +1,12 @@
 import { navigate } from '../router'
 import { ALL_BERLIN_DE, ALL_DE } from '../state'
 import { loadExamAttempts, loadProgress, loadStats } from '../storage'
-import type { ProgressMap, Question, StudyId, Topic } from '../types'
 import { Footer } from '../lib/footer'
-import { isMature, studyCounts, type StudyCounts } from '../lib/study-session'
+import { studyCounts } from '../lib/study-session'
+import { buildTopicDecks, type TopicDeck } from '../lib/topic-decks'
 import { currentStreak } from '../lib/study-stats'
-import { berlinStudyId, questionStudyId } from '../lib/study-ids'
-import { FEDERAL_TOPICS, topicMeta } from '../lib/topics'
-
-interface TopicDeck {
-  topic: Topic
-  counts: StudyCounts
-  learned: number
-  size: number
-  /** Where tapping the band goes. */
-  open: () => void
-}
-
-/**
- * Reads one topic's slice of a deck. Due cards and never-started ones are kept
- * apart: a review that has come round again is work the learner already owes,
- * while an untouched question is simply new material.
- */
-function topicDeck(
-  topic: Topic,
-  questions: Question[],
-  studyId: (id: number) => StudyId,
-  prog: ProgressMap,
-  open: () => void,
-): TopicDeck {
-  const items = questions.map((q) => ({ studyId: studyId(q.id) }))
-  const learned = items.filter(({ studyId: id }) => prog[id] && isMature(prog[id])).length
-  return { topic, counts: studyCounts(items, prog), learned, size: items.length, open }
-}
+import { questionStudyId } from '../lib/study-ids'
+import { topicMeta } from '../lib/topics'
 
 /** "12 due · 88 not started", trimmed to whichever halves are non-zero. */
 function waitingLabel(counts: { due: number; unseen: number }): string {
@@ -70,16 +44,11 @@ export function HomeView(): HTMLElement {
   // Read once: every call re-parses localStorage and re-runs the id migration.
   const prog = loadProgress()
 
-  const decks: TopicDeck[] = [
-    ...FEDERAL_TOPICS.map((topic) => topicDeck(
-      topic,
-      ALL_DE.filter((q) => q.topic === topic),
-      questionStudyId,
-      prog,
-      () => navigate('#/review', { topic: topicMeta(topic).slug }),
-    )),
-    topicDeck('Bundesland Berlin', ALL_BERLIN_DE, berlinStudyId, prog, () => navigate('#/berlin')),
-  ].filter((deck) => deck.size > 0)
+  const decks = buildTopicDecks(prog, ALL_DE, ALL_BERLIN_DE)
+  /** Where tapping a band goes. */
+  const openDeck = (deck: TopicDeck) => deck.topic === 'Bundesland Berlin'
+    ? navigate('#/berlin')
+    : navigate('#/review', { topic: topicMeta(deck.topic).slug })
 
   const totalDue = decks.reduce((sum, deck) => sum + deck.counts.due, 0)
   const totalNew = decks.reduce((sum, deck) => sum + deck.counts.unseen, 0)
@@ -128,7 +97,7 @@ export function HomeView(): HTMLElement {
   `
 
   root.querySelectorAll<HTMLButtonElement>('[data-deck]').forEach((btn) => {
-    btn.addEventListener('click', () => decks[Number(btn.dataset.deck)].open())
+    btn.addEventListener('click', () => openDeck(decks[Number(btn.dataset.deck)]))
   })
   root.querySelector('#reviewBtn')!.addEventListener('click', () => navigate('#/review'))
   root.querySelector('#examBtn')!.addEventListener('click', () => navigate('#/exam'))
