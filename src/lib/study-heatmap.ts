@@ -1,8 +1,7 @@
 import type { Stats } from '../types'
-import { buildHeatmap, formatDay, longestStreak, normalizeStudiedDates, todayISO } from './study-calendar'
+import { buildHeatmap, daysBetween, formatDay, longestStreak, normalizeStudiedDates, todayISO } from './study-calendar'
 import type { DayState, Heatmap, HeatmapWeek } from './study-calendar'
 
-const WEEKS = 26
 const VISIBLE_WEEKDAYS = new Set([0, 2, 4]) // Mon / Wed / Fri, like a contributions graph
 const RECENT_IN_LABEL = 7 // study days named in the grid's text alternative
 
@@ -71,13 +70,13 @@ function legendItem(state: DayState, text: string): string {
 
 /**
  * Text alternative for the grid: the cells themselves are `aria-hidden`, since
- * 182 `title` tooltips are neither reachable by touch nor useful to read out.
+ * `title` tooltips are neither reachable by touch nor useful to read out.
  */
-function describeGrid(heatmap: Heatmap, studiedDates: string[], today: string, longest: number): string {
+function describeGrid(heatmap: Heatmap, studiedDates: string[], longest: number): string {
   const recent = normalizeStudiedDates(studiedDates).slice(-RECENT_IN_LABEL).reverse().map(formatDay)
 
   return [
-    `Study calendar for the ${WEEKS * 7} days ending ${formatDay(today)}.`,
+    `Study calendar from ${formatDay(heatmap.rangeStart)} to ${formatDay(heatmap.rangeEnd)}: the last three months and the next 30 days.`,
     `${heatmap.studiedCount} day${heatmap.studiedCount === 1 ? '' : 's'} studied,`,
     `longest streak ${longest} day${longest === 1 ? '' : 's'}.`,
     recent.length > 0 ? `Most recent sessions: ${recent.join('; ')}.` : '',
@@ -92,10 +91,10 @@ function describeGrid(heatmap: Heatmap, studiedDates: string[], today: string, l
 export function StudyHeatmap(stats: Stats, now: Date = new Date()): HTMLElement {
   const today = todayISO(now)
   const studiedDates = stats.studiedDates || []
-  const heatmap = buildHeatmap(studiedDates, today, WEEKS)
+  const heatmap = buildHeatmap(studiedDates, today)
   const hasHistory = studiedDates.length > 0
   const longest = longestStreak(studiedDates)
-  const gridLabel = describeGrid(heatmap, studiedDates, today, longest)
+  const gridLabel = describeGrid(heatmap, studiedDates, longest)
 
   const root = document.createElement('section')
   root.className = 'mt-8'
@@ -105,7 +104,7 @@ export function StudyHeatmap(stats: Stats, now: Date = new Date()): HTMLElement 
       <h2 class="font-serif text-[22px] font-medium">Study calendar</h2>
       ${hasHistory ? `
         <p class="font-mono text-xs text-muted">
-          ${heatmap.studiedCount} of ${WEEKS * 7} days · longest streak ${longest}
+          ${heatmap.studiedCount} of ${daysBetween(heatmap.rangeStart, today) + 1} days · longest streak ${longest}
         </p>
       ` : ''}
     </div>

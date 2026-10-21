@@ -29,6 +29,8 @@ export interface Heatmap {
   weekdayLabels: string[]
   studiedCount: number
   trackedFrom?: string // ISO date of the first recorded study day, if any
+  rangeStart: string // first (Monday) and last (Sunday) day of the grid
+  rangeEnd: string
 }
 
 /**
@@ -112,18 +114,54 @@ export function longestStreak(dates: string[]): number {
   return longest
 }
 
+export interface HeatmapOptions {
+  /** Calendar months shown before today. */
+  pastMonths?: number
+  /** Days shown after today. */
+  futureDays?: number
+}
+
+const DEFAULT_PAST_MONTHS = 3
+const DEFAULT_FUTURE_DAYS = 30
+
+/** `date` shifted by whole calendar months, clamped to the target month's last day. */
+function addMonths(date: string, months: number): string {
+  const [year, month, day] = date.split('-').map(Number)
+  const target = new Date(Date.UTC(year, month - 1 + months, 1))
+  const lastDay = new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth() + 1, 0)).getUTCDate()
+  target.setUTCDate(Math.min(day, lastDay))
+  return target.toISOString().slice(0, 10)
+}
+
 /**
- * Builds a GitHub-contributions-style grid ending with the week that contains
- * `today`. Days before the first recorded session are `untracked` rather than
- * `missed` — the app only started logging individual days recently, so claiming
- * those days were missed would be a lie.
+ * First and last day of the grid: today minus `pastMonths` calendar months and
+ * today plus `futureDays`, each snapped outwards to a full Mon-Sun week.
  */
-export function buildHeatmap(studiedDates: string[], today: string, weeks = 26): Heatmap {
+export function heatmapRange(
+  today: string,
+  { pastMonths = DEFAULT_PAST_MONTHS, futureDays = DEFAULT_FUTURE_DAYS }: HeatmapOptions = {},
+): { start: string; end: string } {
+  const from = addMonths(today, -pastMonths)
+  const to = addDays(today, futureDays)
+  return {
+    start: addDays(from, -weekdayIndex(from)), // Monday of that week
+    end: addDays(to, 6 - weekdayIndex(to)), // Sunday of that week
+  }
+}
+
+/**
+ * Builds a GitHub-contributions-style grid of whole Mon-Sun weeks around
+ * `today` (see `heatmapRange`). Days before the first recorded session are
+ * `untracked` rather than `missed` — the app only started logging individual
+ * days recently, so claiming those days were missed would be a lie. Days after
+ * today are `future`.
+ */
+export function buildHeatmap(studiedDates: string[], today: string, options: HeatmapOptions = {}): Heatmap {
   const studied = new Set(normalizeStudiedDates(studiedDates))
   const trackedFrom = [...studied].sort()[0]
 
-  const gridEnd = addDays(today, 6 - weekdayIndex(today)) // Sunday of the current week
-  const gridStart = addDays(gridEnd, -(weeks * 7 - 1))
+  const { start: gridStart, end: gridEnd } = heatmapRange(today, options)
+  const weeks = (daysBetween(gridStart, gridEnd) + 1) / 7
 
   const grid: HeatmapWeek[] = []
   let previousMonth = ''
@@ -148,7 +186,7 @@ export function buildHeatmap(studiedDates: string[], today: string, weeks = 26):
   const windowStart = grid[0].days[0].date
   const studiedCount = [...studied].filter((date) => date >= windowStart && date <= today).length
 
-  return { weeks: grid, weekdayLabels: WEEKDAY_LABELS, studiedCount, trackedFrom }
+  return { weeks: grid, weekdayLabels: WEEKDAY_LABELS, studiedCount, trackedFrom, rangeStart: gridStart, rangeEnd: gridEnd }
 }
 
 function dayState(date: string, today: string, studied: Set<string>, trackedFrom?: string): DayState {

@@ -1,5 +1,6 @@
 import type { Question } from '../types'
 import { topicMeta } from './topics'
+import { icon } from './icons'
 
 export interface QuestionCardOptions {
   q: Question
@@ -12,7 +13,7 @@ export interface QuestionCardOptions {
   total: number
 }
 
-const CHECK_ICON = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="correct"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`
+const CHECK_ICON = icon('check', { size: 20, label: 'correct' })
 
 /**
  * Header band in the question's topic colour, the German question (English
@@ -27,7 +28,7 @@ export function questionCardHtml({ q, en, showEnglish, position, total }: Questi
     <section class="question-head ${meta.className}">
       <div class="flex min-h-11 items-center gap-3">
         <button type="button" data-close class="-ml-2.5 flex size-11 items-center justify-center" aria-label="End session">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          ${icon('x', { size: 20 })}
         </button>
         <span class="question-progress" aria-hidden="true"><span style="width: ${progress}%"></span></span>
         <span class="font-mono text-xs">${position}/${total}</span>
