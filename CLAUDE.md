@@ -61,11 +61,11 @@ src/main.ts
   ↓
 FontPairingManager (hardcoded at build time: "newsreader-instrument")
   ↓
-startRouter() → hash-based routing (#/, #/review, #/berlin, #/memory, #/exam, #/browse, #/stats)
+startRouter() → hash-based routing (#/, #/review, #/berlin, #/memory, #/exam, #/browse, #/stats, #/about)
   ↓
 shell() → renders view container + bottom tab bar (only routes with showNav)
   ↓
-Views (home.ts, review.ts, berlin.ts, memory.ts, exam.ts, browse.ts, stats.ts)
+Views (home.ts, review.ts, berlin.ts, memory.ts, exam.ts, browse.ts, stats.ts, about.ts)
   ↓
 State singleton (src/state.ts) → loads questions_de.json + questions_en.json
   ↓
@@ -75,7 +75,7 @@ localStorage (citizenTest_progress, citizenTest_stats, citizenTest_exam, citizen
 ### Router Pattern
 
 - Hash-based routing defined in `src/router.ts`
-- Routes: `#/` (home), `#/review`, `#/berlin`, `#/memory`, `#/exam`, `#/browse`, `#/stats`
+- Routes: `#/` (home), `#/review`, `#/berlin`, `#/memory`, `#/exam`, `#/browse`, `#/stats`, `#/about`
 - `ROUTE_CONFIG` holds per-route `label`, `title`, `showNav` and `mainClassName`
 - Navigation uses `navigate(to: Route, query?)` helper; `navigate('#/review', { topic: 'politik' })` goes to `#/review?topic=politik`
 - Query rides in the hash: only the path picks the view, `routeQuery()` returns the `URLSearchParams`. Review reads `topic` via `topicFromSlug(routeQuery().get('topic'))` to run one topic's deck
@@ -83,7 +83,7 @@ localStorage (citizenTest_progress, citizenTest_stats, citizenTest_exam, citizen
 
 ### Shell: Bottom Tab Bar
 
-`shell()` in `src/main.ts` renders a `.tab-bar` fixed to the bottom for routes with `showNav` and a `label` (Home, Terms, Catalogue, Stats). Icons are stroke paths in `TAB_ICONS`, keyed by route; a tab-bar route without an entry renders an empty icon. Review, Berlin and exam have `showNav: false` and use `main-immersive` plus the fixed `.cta-bar` answer bar instead.
+`shell()` in `src/main.ts` renders a `.tab-bar` fixed to the bottom for routes with `showNav` and a `label` (Home, Terms, Catalogue, Stats). Icons are stroke paths in `TAB_ICONS`, keyed by route; a tab-bar route without an entry renders an empty icon. About has `showNav` but no `label`, so it keeps the tab bar without a tab of its own; it is linked from the home header. Review, Berlin and exam have `showNav: false` and use `main-immersive` plus the fixed `.cta-bar` answer bar instead.
 
 ### View Pattern (No Framework)
 

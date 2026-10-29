@@ -60,11 +60,14 @@ export function HomeView(): HTMLElement {
   root.innerHTML = `
     <header class="flex min-h-11 items-center justify-between">
       <span class="font-serif text-[22px] font-medium">Finch</span>
-      ${streak > 0 ? `
-        <span class="flex items-center gap-1.5 font-mono text-xs text-muted">
-          <span aria-hidden="true" class="size-[7px] rounded-full bg-live"></span>${streak}-day streak
-        </span>
-      ` : ''}
+      <span class="flex items-center gap-4">
+        ${streak > 0 ? `
+          <span class="flex items-center gap-1.5 font-mono text-xs text-muted">
+            <span aria-hidden="true" class="size-[7px] rounded-full bg-live"></span>${streak}-day streak
+          </span>
+        ` : ''}
+        <a href="#/about" class="flex min-h-11 items-center text-sm hover:underline">About</a>
+      </span>
     </header>
 
     <h1 class="mt-4 font-serif text-4xl leading-[1.05]">
