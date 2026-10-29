@@ -7,6 +7,7 @@ import { MemoryView } from './views/memory'
 import { ExamView } from './views/exam'
 import { BrowseView } from './views/browse'
 import { StatsView } from './views/stats'
+import { AboutView } from './views/about'
 import { fontManager, type FontPairingKey } from './lib/font-pairings'
 import { icon, type IconName } from './lib/icons'
 
@@ -78,6 +79,9 @@ function render(route: Route) {
       break
     case '#/stats': 
       view = StatsView() 
+      break
+    case '#/about':
+      view = AboutView()
       break
     default: 
       view = HomeView()

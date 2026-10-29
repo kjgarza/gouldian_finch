@@ -1,4 +1,4 @@
-export type Route = '#/' | '#/review' | '#/berlin' | '#/memory' | '#/exam' | '#/browse' | '#/stats'
+export type Route = '#/' | '#/review' | '#/berlin' | '#/memory' | '#/exam' | '#/browse' | '#/stats' | '#/about'
 
 export interface RouteConfig {
   label?: string
@@ -44,6 +44,11 @@ export const ROUTE_CONFIG: Record<Route, RouteConfig> = {
   '#/stats': {
     label: 'Stats',
     title: 'Statistics - Finch',
+    showNav: true,
+  },
+  // No label: reached from the home header, not the tab bar.
+  '#/about': {
+    title: 'About - Finch',
     showNav: true,
   },
 }
