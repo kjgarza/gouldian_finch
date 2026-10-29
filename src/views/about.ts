@@ -1,4 +1,3 @@
-import { navigate } from '../router'
 import { ALL_BERLIN_DE, ALL_DE } from '../state'
 import { Footer } from '../lib/footer'
 import { author } from '../lib/author'
@@ -12,9 +11,9 @@ export function AboutView(): HTMLElement {
 
   root.innerHTML = `
     <header class="flex min-h-11 items-center">
-      <button type="button" id="homeBtn" class="flex items-center gap-1 font-serif text-[22px] font-medium">
+      <a href="#/" aria-label="Back to home" class="flex min-h-11 items-center gap-1 font-serif text-[22px] font-medium">
         <span class="inline-flex rotate-180">${icon('caret-right', { size: 18 })}</span>Finch
-      </button>
+      </a>
     </header>
 
     <article class="mt-4 flex max-w-prose flex-col gap-4 text-[17px] leading-relaxed">
@@ -30,20 +29,21 @@ export function AboutView(): HTMLElement {
       <p>
         Finch does that part for you. Each question is a card scheduled with SM-2 (the spaced repetition
         algorithm behind most flashcard apps): get it right and it comes back later, get it wrong and it
-        comes back soon. The four topic decks, the ${ALL_BERLIN_DE.length} Berlin questions and a term list
-        run on that schedule, and a practice exam in the real 30 + 3 format shows where you stand.
+        comes back soon. The three federal topic decks, the ${ALL_BERLIN_DE.length} Berlin questions and a
+        term list run on that schedule, and a practice exam in the real 30 + 3 format shows where you stand.
       </p>
 
       <p>
         The questions stay in German, as they are in the test, with an English line underneath for
-        when the vocabulary gets in the way. The answers, hints and translations were prepared with
-        the help of a language model, so if one disagrees with the official catalogue, trust the
-        catalogue and let me know.
+        when the vocabulary gets in the way. For the federal questions, the answers, hints and
+        translations were prepared with the help of a language model, so if one disagrees with the
+        official catalogue, trust the catalogue and let me know. The Berlin questions follow the
+        official state catalogue, with hints written by hand.
       </p>
 
       <p>
-        There are no accounts and nothing is sent anywhere. Your progress lives in this browser's local
-        storage, which also means clearing site data or switching devices starts you from zero.
+        There are no accounts and no tracking, and your progress never leaves this browser. It lives in
+        local storage, which also means clearing site data or switching devices starts you from zero.
       </p>
 
       <p>
@@ -60,8 +60,6 @@ export function AboutView(): HTMLElement {
       </footer>
     </article>
   `
-
-  root.querySelector('#homeBtn')!.addEventListener('click', () => navigate('#/'))
 
   root.appendChild(Footer())
 
